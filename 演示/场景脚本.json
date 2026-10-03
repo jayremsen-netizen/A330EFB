@@ -1,0 +1,968 @@
+[
+  {
+    "id": "preflight",
+    "name": "典型航班准备",
+    "summary": "建档 → 重量 → 页面协同 → 核算报告 → 变更复核 → 检查单",
+    "steps": [
+      {
+        "id": "overview",
+        "chapter": "01 / 航班准备",
+        "title": "从统一工作台开始",
+        "description": "围绕一份航班计划完成签派资料、载荷燃油和参考计算。左侧为正在运行的 Headwind EFB，演示脚本会实际操作这些页面。",
+        "watch": "本地场景资料 · 全程可暂停并接管操作",
+        "manual": "第 18 章，231–240 页",
+        "seconds": 10,
+        "actions": [
+          {
+            "type": "nav",
+            "route": "/dashboard",
+            "ready": "a[href=\"/dispatch\"]"
+          }
+        ]
+      },
+      {
+        "id": "flight-import",
+        "chapter": "01 / 航班准备",
+        "title": "导入航班，建立统一输入",
+        "description": "载入 DEMO330 本地航班文件。起飞 ZUTF、目的 ZSPD，250 名旅客，停机坪燃油 30,000 kg。文件经过程序原有的 JSON 解析和字段校验。",
+        "watch": "航班号、机场、质量数据同时进入工作台",
+        "manual": "19.1–19.4，243–250 页",
+        "seconds": 18,
+        "actions": [
+          {
+            "type": "nav",
+            "route": "/dispatch/local-flight",
+            "ready": ".lf-root [data-field=\"number\"]"
+          },
+          {
+            "type": "button",
+            "name": "新建航班"
+          },
+          {
+            "type": "import"
+          },
+          {
+            "type": "expect",
+            "values": {
+              "flightNumber": "DEMO330",
+              "tow": 184500,
+              "confirmed": false
+            }
+          },
+          {
+            "type": "focus",
+            "selector": ".lf-cols"
+          }
+        ]
+      },
+      {
+        "id": "load-edit",
+        "chapter": "01 / 航班准备",
+        "title": "人数改变，重量同步变化",
+        "description": "将旅客人数从 250 改为 260。每人及行李合计 104 kg，因此载荷和起飞重量同步增加 1,040 kg。重量卡片由实际输入实时计算。",
+        "watch": "TOW：184,500 → 185,540 kg",
+        "manual": "20.1，255–256 页",
+        "seconds": 16,
+        "actions": [
+          {
+            "type": "field",
+            "name": "pax",
+            "value": "260"
+          },
+          {
+            "type": "expect",
+            "values": {
+              "tow": 185540,
+              "zfw": 156040
+            }
+          },
+          {
+            "type": "focus",
+            "selector": ".lf-metrics"
+          }
+        ]
+      },
+      {
+        "id": "load-restore",
+        "chapter": "01 / 航班准备",
+        "title": "恢复本次演示计划",
+        "description": "将旅客人数恢复为 250，检查空重、载荷、零燃油重量和起飞重量之间的关系。本次后续演示采用这份基础计划。",
+        "watch": "ZFW 155,000 kg · TOW 184,500 kg",
+        "manual": "20.1–20.2，255–258 页",
+        "seconds": 12,
+        "actions": [
+          {
+            "type": "field",
+            "name": "pax",
+            "value": "250"
+          },
+          {
+            "type": "expect",
+            "values": {
+              "zfw": 155000,
+              "tow": 184500
+            }
+          },
+          {
+            "type": "focus",
+            "selector": ".lf-metrics"
+          }
+        ]
+      },
+      {
+        "id": "confirm",
+        "chapter": "01 / 航班准备",
+        "title": "确认重量并同步专业页面",
+        "description": "保存并确认重量后，当前计划同步到仪表盘、签派资料以及载荷和燃油目标。确认动作建立本次计算采用的输入版本。",
+        "watch": "观察蓝色状态提示：本地航班与重量已确认",
+        "manual": "19.5，251–252 页",
+        "seconds": 14,
+        "actions": [
+          {
+            "type": "button",
+            "name": "保存并确认重量"
+          },
+          {
+            "type": "expect",
+            "values": {
+              "confirmed": true
+            }
+          },
+          {
+            "type": "focus",
+            "selector": ".lf-message"
+          }
+        ]
+      },
+      {
+        "id": "dashboard",
+        "chapter": "02 / 页面协同",
+        "title": "仪表盘读取同一航班",
+        "description": "返回仪表盘，航班号、出发与目的机场、人数和重量摘要均来自刚才确认的计划。演示中的时刻和航路为本地样例。",
+        "watch": "DEMO330 · ZUTF → ZSPD · 250 名旅客",
+        "manual": "18.2、19.5，233–234、252 页",
+        "seconds": 14,
+        "actions": [
+          {
+            "type": "nav",
+            "route": "/dashboard",
+            "ready": "a[href=\"/dispatch\"]"
+          },
+          {
+            "type": "expect",
+            "values": {
+              "flightNumber": "DEMO330",
+              "confirmed": true
+            }
+          }
+        ]
+      },
+      {
+        "id": "ofp",
+        "chapter": "02 / 页面协同",
+        "title": "查看本地签派资料",
+        "description": "打开 OFP 阅读页。程序根据已确认输入生成航班、载荷、燃油与重量摘要，供现场评审核对跨页面的一致性。",
+        "watch": "同一计划形成可阅读的签派摘要",
+        "manual": "19.6，253–254 页",
+        "seconds": 15,
+        "actions": [
+          {
+            "type": "nav",
+            "route": "/dispatch/ofp",
+            "ready": "a[href=\"/dispatch\"]"
+          }
+        ]
+      },
+      {
+        "id": "payload",
+        "chapter": "02 / 页面协同",
+        "title": "载重页面与客舱分布",
+        "description": "原生载重页面呈现座位和货舱布局，并显示计划人数、货物与重量数据。这里展示原生 EFB 与本地航班的联动。",
+        "watch": "计划人数 250 · ZFW 155,000 kg",
+        "manual": "20.4，261–262 页",
+        "seconds": 15,
+        "actions": [
+          {
+            "type": "nav",
+            "route": "/ground/payload",
+            "ready": ".lf-groundbar"
+          },
+          {
+            "type": "expect",
+            "values": {
+              "zfw": 155000
+            }
+          }
+        ]
+      },
+      {
+        "id": "fuel",
+        "chapter": "02 / 页面协同",
+        "title": "燃油目标与油箱页面",
+        "description": "原生燃油页面按油箱展示本地演示状态。当前计划停机坪燃油为 30,000 kg，后续将用它演示目标变化与重新确认。",
+        "watch": "核对页面上方的本地计划与目标油量",
+        "manual": "20.3，259–260 页",
+        "seconds": 15,
+        "actions": [
+          {
+            "type": "nav",
+            "route": "/ground/fuel",
+            "ready": ".lf-groundbar"
+          },
+          {
+            "type": "expect",
+            "values": {
+              "fuelTarget": 30000
+            }
+          }
+        ]
+      },
+      {
+        "id": "performance-input",
+        "chapter": "03 / 参考核算",
+        "title": "核对跑道、天气与构型",
+        "description": "进入离线参考核算。场景使用 3,500 m 声明距离、标准气压和 CONF 1+F。输入界面与航班工作台共用同一份 Flight 数据。",
+        "watch": "本演示展示重量和源码表 V2 参考核算",
+        "manual": "21.1–21.2，267–270 页",
+        "seconds": 18,
+        "actions": [
+          {
+            "type": "nav",
+            "route": "/performance/local-takeoff",
+            "ready": "[data-testid=\"takeoff-result\"]"
+          },
+          {
+            "type": "focus",
+            "selector": ".lf-cols"
+          }
+        ]
+      },
+      {
+        "id": "calculate",
+        "chapter": "03 / 参考核算",
+        "title": "运行实际计算并解释结果",
+        "description": "执行本地计算，184.5 t、CONF 1+F 对应 V2 参考 150.8 kt。界面同时显示风分量、压力高度和距离扣减；参考值不等同于完整起飞性能判定。",
+        "watch": "实际函数结果：V2 150.8 kt",
+        "manual": "10.3、21.2，147–150、269–270 页",
+        "seconds": 20,
+        "actions": [
+          {
+            "type": "button",
+            "name": "本地计算"
+          },
+          {
+            "type": "expect",
+            "values": {
+              "v2": 150.8,
+              "valid": true
+            }
+          },
+          {
+            "type": "focus",
+            "selector": "[data-testid=\"takeoff-result\"]"
+          }
+        ]
+      },
+      {
+        "id": "history",
+        "chapter": "03 / 参考核算",
+        "title": "保存带输入快照的历史",
+        "description": "保存当前核算记录。记录保留航班输入、资料与内核版本，便于复核这一次结果的来历；恢复历史后仍需重新确认。",
+        "watch": "历史记录新增 1 条",
+        "manual": "21.4，273–274 页",
+        "seconds": 15,
+        "actions": [
+          {
+            "type": "button",
+            "name": "保存记录"
+          },
+          {
+            "type": "expect",
+            "values": {
+              "history": 1
+            }
+          },
+          {
+            "type": "focus",
+            "selector": ".lf-history"
+          }
+        ]
+      },
+      {
+        "id": "report",
+        "chapter": "03 / 参考核算",
+        "title": "生成可交付的核算报告",
+        "description": "预览由程序实际生成的 HTML 报告。报告包含输入快照、参考结果和版本信息，可在暂停演示后保存 JSON 或 HTML。",
+        "watch": "报告数据直接读取当前有效结果",
+        "manual": "21.5，275–276 页",
+        "seconds": 20,
+        "actions": [
+          {
+            "type": "report"
+          }
+        ]
+      },
+      {
+        "id": "ground-change",
+        "chapter": "04 / 变更复核",
+        "title": "地面燃油目标发生变化",
+        "description": "把原生燃油页面的目标从 30,000 kg 改为 31,000 kg。程序保留已确认的航班输入，同时标记地面目标发生变化。",
+        "watch": "运行目标改变；原计划等待用户核对",
+        "manual": "20.3、20.5，259–260、263–264 页",
+        "seconds": 16,
+        "actions": [
+          {
+            "type": "closeReport"
+          },
+          {
+            "type": "nav",
+            "route": "/ground/fuel",
+            "ready": ".lf-groundbar"
+          },
+          {
+            "type": "fuel",
+            "value": 31000
+          },
+          {
+            "type": "expect",
+            "values": {
+              "fuelTarget": 31000,
+              "groundChanged": true
+            }
+          },
+          {
+            "type": "focus",
+            "selector": ".lf-groundbar"
+          }
+        ]
+      },
+      {
+        "id": "stale",
+        "chapter": "04 / 变更复核",
+        "title": "旧结果失效，出口受到控制",
+        "description": "返回参考核算页，旧数值仍可回看，但程序显示结果已过期并禁用当前报告出口。这一状态来自真实业务规则。",
+        "watch": "“结果已过期”与灰色导出按钮",
+        "manual": "20.5、21.3，263–264、271 页",
+        "seconds": 18,
+        "actions": [
+          {
+            "type": "nav",
+            "route": "/performance/local-takeoff",
+            "ready": "[data-testid=\"takeoff-result\"]"
+          },
+          {
+            "type": "expect",
+            "values": {
+              "valid": false,
+              "groundChanged": true
+            }
+          },
+          {
+            "type": "focus",
+            "selector": "[data-testid=\"takeoff-result\"]"
+          }
+        ]
+      },
+      {
+        "id": "reconcile",
+        "chapter": "04 / 变更复核",
+        "title": "读取新目标，重新确认计划",
+        "description": "回到航班工作台，读取地面燃油目标，再保存确认。新的起飞重量为 185,500 kg，用户明确采用了这份更新后的计划。",
+        "watch": "停机坪燃油 31,000 kg · TOW 185,500 kg",
+        "manual": "20.5，263–264 页",
+        "seconds": 20,
+        "actions": [
+          {
+            "type": "nav",
+            "route": "/dispatch/local-flight",
+            "ready": ".lf-root [data-field=\"number\"]"
+          },
+          {
+            "type": "button",
+            "name": "读取地面燃油目标"
+          },
+          {
+            "type": "expect",
+            "values": {
+              "fuel": 31000,
+              "tow": 185500,
+              "confirmed": false
+            }
+          },
+          {
+            "type": "button",
+            "name": "保存并确认重量"
+          },
+          {
+            "type": "expect",
+            "values": {
+              "confirmed": true,
+              "groundChanged": false
+            }
+          },
+          {
+            "type": "focus",
+            "selector": ".lf-metrics"
+          }
+        ]
+      },
+      {
+        "id": "recalculate",
+        "chapter": "04 / 变更复核",
+        "title": "重算形成新的有效结果",
+        "description": "按新重量重新计算并保存记录，V2 参考变为 151.2 kt。两次历史记录分别对应各自的输入快照，完成变更复核过程。",
+        "watch": "V2：150.8 → 151.2 kt · 历史 2 条",
+        "manual": "21.3–21.4，271–274 页",
+        "seconds": 18,
+        "actions": [
+          {
+            "type": "nav",
+            "route": "/performance/local-takeoff",
+            "ready": "[data-testid=\"takeoff-result\"]"
+          },
+          {
+            "type": "button",
+            "name": "本地计算"
+          },
+          {
+            "type": "button",
+            "name": "保存记录"
+          },
+          {
+            "type": "expect",
+            "values": {
+              "v2": 151.2,
+              "valid": true,
+              "history": 2
+            }
+          },
+          {
+            "type": "focus",
+            "selector": "[data-testid=\"takeoff-result\"]"
+          }
+        ]
+      },
+      {
+        "id": "checklist",
+        "chapter": "05 / 专业工具",
+        "title": "在原生检查单中逐项确认",
+        "description": "切换到驾驶舱准备检查单，勾选 GEAR PINS & COVERS。检查单由原生页面管理，勾选后条目颜色和完成状态同步改变。",
+        "watch": "一个实际检查项完成，页面保留勾选状态",
+        "manual": "22.1，279–280 页",
+        "seconds": 20,
+        "actions": [
+          {
+            "type": "nav",
+            "route": "/checklists",
+            "ready": "a[href=\"/checklists\"]"
+          },
+          {
+            "type": "checklist",
+            "item": "GEAR PINS & COVERS"
+          },
+          {
+            "type": "expect",
+            "values": {
+              "checkedItems": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "tod",
+        "chapter": "05 / 专业工具",
+        "title": "下降顶点工具",
+        "description": "输入当前高度 35,000 ft、目标高度 3,000 ft 和 3° 下降角。原生工具按几何关系给出约 100 NM 的下降距离。",
+        "watch": "35,000 → 3,000 ft · 3° · 约 100 NM",
+        "manual": "21.6，277 页",
+        "seconds": 20,
+        "actions": [
+          {
+            "type": "nav",
+            "route": "/performance/top-of-descent",
+            "ready": "input"
+          },
+          {
+            "type": "nativeInputs",
+            "values": [
+              "35000",
+              "3000",
+              "3"
+            ]
+          },
+          {
+            "type": "expect",
+            "values": {
+              "todAltitude": 35000,
+              "todTarget": 3000
+            }
+          }
+        ]
+      },
+      {
+        "id": "finish",
+        "chapter": "06 / 场景回顾",
+        "title": "完成典型航班准备演示",
+        "description": "已展示文件建档、重量核对、跨页面同步、参考计算、历史与报告，以及地面变更后的失效和重算。可重播场景，或暂停后在真实页面自由操作。",
+        "watch": "演示记录和业务文件可从右上角“演示资料”保存",
+        "manual": "第 18–22 章，231–290 页",
+        "seconds": 12,
+        "actions": [
+          {
+            "type": "nav",
+            "route": "/performance/local-takeoff",
+            "ready": "[data-testid=\"takeoff-result\"]"
+          },
+          {
+            "type": "expect",
+            "values": {
+              "valid": true,
+              "v2": 151.2,
+              "history": 2
+            }
+          },
+          {
+            "type": "focus",
+            "selector": "[data-testid=\"takeoff-result\"]"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "change",
+    "name": "地面变更与重算",
+    "summary": "基础结果 → 燃油变更 → 结果失效 → 重新确认 → 新报告",
+    "steps": [
+      {
+        "id": "base",
+        "chapter": "01 / 基础计划",
+        "title": "建立本次场景的基础计划",
+        "description": "导入与项目手册一致的 DEMO330 样例，确认 184,500 kg 起飞重量，计算并保存 150.8 kt 的 V2 参考记录。",
+        "watch": "本场景使用独立的演示会话",
+        "manual": "第 19–21 章",
+        "seconds": 14,
+        "actions": [
+          {
+            "type": "nav",
+            "route": "/dispatch/local-flight",
+            "ready": ".lf-root [data-field=\"number\"]"
+          },
+          {
+            "type": "import"
+          },
+          {
+            "type": "button",
+            "name": "保存并确认重量"
+          },
+          {
+            "type": "nav",
+            "route": "/performance/local-takeoff",
+            "ready": "[data-testid=\"takeoff-result\"]"
+          },
+          {
+            "type": "button",
+            "name": "本地计算"
+          },
+          {
+            "type": "button",
+            "name": "保存记录"
+          },
+          {
+            "type": "expect",
+            "values": {
+              "valid": true,
+              "v2": 150.8,
+              "history": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "ground-change",
+        "chapter": "04 / 变更复核",
+        "title": "地面燃油目标发生变化",
+        "description": "把原生燃油页面的目标从 30,000 kg 改为 31,000 kg。程序保留已确认的航班输入，同时标记地面目标发生变化。",
+        "watch": "运行目标改变；原计划等待用户核对",
+        "manual": "20.3、20.5，259–260、263–264 页",
+        "seconds": 16,
+        "actions": [
+          {
+            "type": "closeReport"
+          },
+          {
+            "type": "nav",
+            "route": "/ground/fuel",
+            "ready": ".lf-groundbar"
+          },
+          {
+            "type": "fuel",
+            "value": 31000
+          },
+          {
+            "type": "expect",
+            "values": {
+              "fuelTarget": 31000,
+              "groundChanged": true
+            }
+          },
+          {
+            "type": "focus",
+            "selector": ".lf-groundbar"
+          }
+        ]
+      },
+      {
+        "id": "stale",
+        "chapter": "04 / 变更复核",
+        "title": "旧结果失效，出口受到控制",
+        "description": "返回参考核算页，旧数值仍可回看，但程序显示结果已过期并禁用当前报告出口。这一状态来自真实业务规则。",
+        "watch": "“结果已过期”与灰色导出按钮",
+        "manual": "20.5、21.3，263–264、271 页",
+        "seconds": 18,
+        "actions": [
+          {
+            "type": "nav",
+            "route": "/performance/local-takeoff",
+            "ready": "[data-testid=\"takeoff-result\"]"
+          },
+          {
+            "type": "expect",
+            "values": {
+              "valid": false,
+              "groundChanged": true
+            }
+          },
+          {
+            "type": "focus",
+            "selector": "[data-testid=\"takeoff-result\"]"
+          }
+        ]
+      },
+      {
+        "id": "reconcile",
+        "chapter": "04 / 变更复核",
+        "title": "读取新目标，重新确认计划",
+        "description": "回到航班工作台，读取地面燃油目标，再保存确认。新的起飞重量为 185,500 kg，用户明确采用了这份更新后的计划。",
+        "watch": "停机坪燃油 31,000 kg · TOW 185,500 kg",
+        "manual": "20.5，263–264 页",
+        "seconds": 20,
+        "actions": [
+          {
+            "type": "nav",
+            "route": "/dispatch/local-flight",
+            "ready": ".lf-root [data-field=\"number\"]"
+          },
+          {
+            "type": "button",
+            "name": "读取地面燃油目标"
+          },
+          {
+            "type": "expect",
+            "values": {
+              "fuel": 31000,
+              "tow": 185500,
+              "confirmed": false
+            }
+          },
+          {
+            "type": "button",
+            "name": "保存并确认重量"
+          },
+          {
+            "type": "expect",
+            "values": {
+              "confirmed": true,
+              "groundChanged": false
+            }
+          },
+          {
+            "type": "focus",
+            "selector": ".lf-metrics"
+          }
+        ]
+      },
+      {
+        "id": "recalculate",
+        "chapter": "04 / 变更复核",
+        "title": "重算形成新的有效结果",
+        "description": "按新重量重新计算并保存记录，V2 参考变为 151.2 kt。两次历史记录分别对应各自的输入快照，完成变更复核过程。",
+        "watch": "V2：150.8 → 151.2 kt · 历史 2 条",
+        "manual": "21.3–21.4，271–274 页",
+        "seconds": 18,
+        "actions": [
+          {
+            "type": "nav",
+            "route": "/performance/local-takeoff",
+            "ready": "[data-testid=\"takeoff-result\"]"
+          },
+          {
+            "type": "button",
+            "name": "本地计算"
+          },
+          {
+            "type": "button",
+            "name": "保存记录"
+          },
+          {
+            "type": "expect",
+            "values": {
+              "v2": 151.2,
+              "valid": true,
+              "history": 2
+            }
+          },
+          {
+            "type": "focus",
+            "selector": "[data-testid=\"takeoff-result\"]"
+          }
+        ]
+      },
+      {
+        "id": "report",
+        "chapter": "03 / 参考核算",
+        "title": "生成可交付的核算报告",
+        "description": "预览由程序实际生成的 HTML 报告。报告包含输入快照、参考结果和版本信息，可在暂停演示后保存 JSON 或 HTML。",
+        "watch": "报告数据直接读取当前有效结果",
+        "manual": "21.5，275–276 页",
+        "seconds": 20,
+        "actions": [
+          {
+            "type": "report"
+          }
+        ]
+      },
+      {
+        "id": "finish",
+        "chapter": "06 / 场景回顾",
+        "title": "完成典型航班准备演示",
+        "description": "已展示文件建档、重量核对、跨页面同步、参考计算、历史与报告，以及地面变更后的失效和重算。可重播场景，或暂停后在真实页面自由操作。",
+        "watch": "演示记录和业务文件可从右上角“演示资料”保存",
+        "manual": "第 18–22 章，231–290 页",
+        "seconds": 12,
+        "actions": [
+          {
+            "type": "nav",
+            "route": "/performance/local-takeoff",
+            "ready": "[data-testid=\"takeoff-result\"]"
+          },
+          {
+            "type": "expect",
+            "values": {
+              "valid": true,
+              "v2": 151.2,
+              "history": 2
+            }
+          },
+          {
+            "type": "focus",
+            "selector": "[data-testid=\"takeoff-result\"]"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "tools",
+    "name": "专业工具巡览",
+    "summary": "载荷与燃油 → 检查单 → 下降顶点 → 着陆计算",
+    "steps": [
+      {
+        "id": "base",
+        "chapter": "01 / 基础计划",
+        "title": "建立本次场景的基础计划",
+        "description": "导入与项目手册一致的 DEMO330 样例，确认 184,500 kg 起飞重量，计算并保存 150.8 kt 的 V2 参考记录。",
+        "watch": "本场景使用独立的演示会话",
+        "manual": "第 19–21 章",
+        "seconds": 14,
+        "actions": [
+          {
+            "type": "nav",
+            "route": "/dispatch/local-flight",
+            "ready": ".lf-root [data-field=\"number\"]"
+          },
+          {
+            "type": "import"
+          },
+          {
+            "type": "button",
+            "name": "保存并确认重量"
+          },
+          {
+            "type": "nav",
+            "route": "/performance/local-takeoff",
+            "ready": "[data-testid=\"takeoff-result\"]"
+          },
+          {
+            "type": "button",
+            "name": "本地计算"
+          },
+          {
+            "type": "button",
+            "name": "保存记录"
+          },
+          {
+            "type": "expect",
+            "values": {
+              "valid": true,
+              "v2": 150.8,
+              "history": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "payload",
+        "chapter": "02 / 页面协同",
+        "title": "载重页面与客舱分布",
+        "description": "原生载重页面呈现座位和货舱布局，并显示计划人数、货物与重量数据。这里展示原生 EFB 与本地航班的联动。",
+        "watch": "计划人数 250 · ZFW 155,000 kg",
+        "manual": "20.4，261–262 页",
+        "seconds": 15,
+        "actions": [
+          {
+            "type": "nav",
+            "route": "/ground/payload",
+            "ready": ".lf-groundbar"
+          },
+          {
+            "type": "expect",
+            "values": {
+              "zfw": 155000
+            }
+          }
+        ]
+      },
+      {
+        "id": "fuel",
+        "chapter": "02 / 页面协同",
+        "title": "燃油目标与油箱页面",
+        "description": "原生燃油页面按油箱展示本地演示状态。当前计划停机坪燃油为 30,000 kg，后续将用它演示目标变化与重新确认。",
+        "watch": "核对页面上方的本地计划与目标油量",
+        "manual": "20.3，259–260 页",
+        "seconds": 15,
+        "actions": [
+          {
+            "type": "nav",
+            "route": "/ground/fuel",
+            "ready": ".lf-groundbar"
+          },
+          {
+            "type": "expect",
+            "values": {
+              "fuelTarget": 30000
+            }
+          }
+        ]
+      },
+      {
+        "id": "checklist",
+        "chapter": "05 / 专业工具",
+        "title": "在原生检查单中逐项确认",
+        "description": "切换到驾驶舱准备检查单，勾选 GEAR PINS & COVERS。检查单由原生页面管理，勾选后条目颜色和完成状态同步改变。",
+        "watch": "一个实际检查项完成，页面保留勾选状态",
+        "manual": "22.1，279–280 页",
+        "seconds": 20,
+        "actions": [
+          {
+            "type": "nav",
+            "route": "/checklists",
+            "ready": "a[href=\"/checklists\"]"
+          },
+          {
+            "type": "checklist",
+            "item": "GEAR PINS & COVERS"
+          },
+          {
+            "type": "expect",
+            "values": {
+              "checkedItems": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "tod",
+        "chapter": "05 / 专业工具",
+        "title": "下降顶点工具",
+        "description": "输入当前高度 35,000 ft、目标高度 3,000 ft 和 3° 下降角。原生工具按几何关系给出约 100 NM 的下降距离。",
+        "watch": "35,000 → 3,000 ft · 3° · 约 100 NM",
+        "manual": "21.6，277 页",
+        "seconds": 20,
+        "actions": [
+          {
+            "type": "nav",
+            "route": "/performance/top-of-descent",
+            "ready": "input"
+          },
+          {
+            "type": "nativeInputs",
+            "values": [
+              "35000",
+              "3000",
+              "3"
+            ]
+          },
+          {
+            "type": "expect",
+            "values": {
+              "todAltitude": 35000,
+              "todTarget": 3000
+            }
+          }
+        ]
+      },
+      {
+        "id": "landing",
+        "chapter": "02 / 专业工具",
+        "title": "着陆工具录入与计算",
+        "description": "使用手册中的 190 t、FULL 构型样例，展示原生着陆页的录入、计算和三档制动结果。此处用于说明软件流程，算法资料的校准边界见手册第 11 章。",
+        "watch": "参数录入后执行原生页面“计算”",
+        "manual": "11.3–11.4、21.6，163–170、278 页",
+        "seconds": 20,
+        "actions": [
+          {
+            "type": "nav",
+            "route": "/performance/landing",
+            "ready": "input"
+          },
+          {
+            "type": "nativeInputs",
+            "values": [
+              null,
+              "170",
+              "3500",
+              "20",
+              "0",
+              "0",
+              "15",
+              "1013",
+              "190000",
+              "145"
+            ]
+          },
+          {
+            "type": "button",
+            "name": "计算"
+          }
+        ]
+      },
+      {
+        "id": "tools-finish",
+        "chapter": "03 / 场景回顾",
+        "title": "专业工具巡览完成",
+        "description": "已展示载荷、燃油、检查单、下降顶点和着陆工具。可通过底部步骤条定位任一功能，或接管真实 EFB 继续操作。",
+        "watch": "“重播”会重新建立该场景的演示数据",
+        "manual": "第 20–22 章",
+        "seconds": 10,
+        "actions": [
+          {
+            "type": "nav",
+            "route": "/dashboard",
+            "ready": "a[href=\"/dispatch\"]"
+          }
+        ]
+      }
+    ]
+  }
+]

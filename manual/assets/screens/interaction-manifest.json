@@ -1,0 +1,447 @@
+{
+  "capturedAt": "2026-10-03T16:44:24.882Z",
+  "results": [
+    {
+      "id": "tod-result",
+      "text": "周六 十月 3\n\n0800Z\n\nZUTF\n\n0800Z\n\nZSPD\n\n1100Z\n\n点击打开快速控制\n已与SimBridge断开连接\n\n100%\n\n主页面\n签派\n地面\n性能\n导航和航图\n空中交通管制\n失效\n检查单\n预设\n设置\n性能\n离线起飞核算\n下降顶点\n着陆\n地速\n\n从模拟器获取速度\n\n0 节 (kts)\n\n手动输入\n\n数据\n\n当前高度\n\nSYNC\n\n同步输入飞机当前高度\n\n目标高度\n\n角度\n\nX\n结果\n在目标前大约\n100\nNM\n开始你的下降\nHEADWIND A339X · 浏览器开发模式 · 本地模拟数据 · 非 MSFS 飞行会话\n载入演示航班",
+      "state": {
+        "tod": {
+          "groundSpeed": [
+            {
+              "from": 0,
+              "groundSpeed": ""
+            }
+          ],
+          "groundSpeedMode": 1,
+          "currentAltitudeMode": 0,
+          "calculationInputMode": 0,
+          "currentAltitude": 35000,
+          "targetAltitude": 3000,
+          "calculation": {
+            "input": 3,
+            "type": 2
+          }
+        },
+        "performance": {
+          "landing": {
+            "icao": "",
+            "availableRunways": [],
+            "selectedRunwayIndex": -1,
+            "flaps": 1,
+            "runwayCondition": 0,
+            "reverseThrust": false,
+            "overweightProcedure": false,
+            "autoland": false,
+            "runwayNumber": 0,
+            "displayedRunwayLength": 0,
+            "maxAutobrakeLandingDist": 0,
+            "mediumAutobrakeLandingDist": 0,
+            "lowAutobrakeLandingDist": 0,
+            "runwayVisualizationLabels": []
+          },
+          "takeoff": {
+            "availableRunways": [],
+            "selectedRunwayIndex": -1,
+            "antiIce": 0,
+            "packs": true,
+            "takeoffCg": 0,
+            "forceToga": false,
+            "config": 1,
+            "lineupAngle": 90,
+            "runwayCondition": "Dry"
+          }
+        }
+      }
+    },
+    {
+      "id": "landing-input",
+      "text": "周六 十月 3\n\n0800Z\n\nZUTF\n\n0800Z\n\nZSPD\n\n1100Z\n\n点击打开快速控制\n已与SimBridge断开连接\n\n100%\n\n主页面\n签派\n地面\n性能\n导航和航图\n空中交通管制\n失效\n检查单\n预设\n设置\n性能\n离线起飞核算\n下降顶点\n着陆\n\n机场\n\n填充数据来源于\n\nOFP\n\n跑道\n\n手动输入\n\n跑道航向\n\n跑道可用着陆长度\n\n米 (m)\n\n跑道海拔\n\n跑道坡度\n\n跑道状况\n\n干燥（6）\n\n风\n\n气温\n\nC\n\n海平面气压\n\nhPa\n\n着陆重量\n\nkg\n\n超重程序\n\n否\n\n襟翼配置\n\nFULL\n\n进近速度\n\n反推\n\n否\n\n自动着陆\n\n否\n\n计算\n\n清空\n\n最高性能手动降落\n\n0米 (m)\n\n中刹力\n\n0米 (m)\n\n低刹力\n\n0米 (m)\n\n35\n17\nHEADWIND A339X · 浏览器开发模式 · 本地模拟数据 · 非 MSFS 飞行会话\n载入演示航班",
+      "state": {
+        "tod": {
+          "groundSpeed": [
+            {
+              "from": 0,
+              "groundSpeed": ""
+            }
+          ],
+          "groundSpeedMode": 1,
+          "currentAltitudeMode": 0,
+          "calculationInputMode": 0,
+          "currentAltitude": 35000,
+          "targetAltitude": 3000,
+          "calculation": {
+            "input": 3,
+            "type": 2
+          }
+        },
+        "performance": {
+          "landing": {
+            "icao": "",
+            "availableRunways": [],
+            "selectedRunwayIndex": -1,
+            "windDirection": 170,
+            "windMagnitude": 0,
+            "windEntry": "0",
+            "weight": 190000,
+            "runwayHeading": 170,
+            "approachSpeed": 145,
+            "flaps": 1,
+            "runwayCondition": 0,
+            "reverseThrust": false,
+            "elevation": 20,
+            "slope": 0,
+            "temperature": 15,
+            "pressure": 1013,
+            "overweightProcedure": false,
+            "runwayLength": 3500,
+            "autoland": false,
+            "runwayNumber": 0,
+            "displayedRunwayLength": 0,
+            "maxAutobrakeLandingDist": 0,
+            "mediumAutobrakeLandingDist": 0,
+            "lowAutobrakeLandingDist": 0,
+            "runwayVisualizationLabels": []
+          },
+          "takeoff": {
+            "availableRunways": [],
+            "selectedRunwayIndex": -1,
+            "antiIce": 0,
+            "packs": true,
+            "takeoffCg": 0,
+            "forceToga": false,
+            "config": 1,
+            "lineupAngle": 90,
+            "runwayCondition": "Dry"
+          }
+        }
+      }
+    },
+    {
+      "id": "landing-result",
+      "text": "周六 十月 3\n\n0800Z\n\nZUTF\n\n0800Z\n\nZSPD\n\n1100Z\n\n点击打开快速控制\n已与SimBridge断开连接\n\n100%\n\n主页面\n签派\n地面\n性能\n导航和航图\n空中交通管制\n失效\n检查单\n预设\n设置\n性能\n离线起飞核算\n下降顶点\n着陆\n\n机场\n\n填充数据来源于\n\nOFP\n\n跑道\n\n手动输入\n\n跑道航向\n\n跑道可用着陆长度\n\n米 (m)\n\n跑道海拔\n\n跑道坡度\n\n跑道状况\n\n干燥（6）\n\n风\n\n气温\n\nC\n\n海平面气压\n\nhPa\n\n着陆重量\n\nkg\n\n超重程序\n\n否\n\n襟翼配置\n\nFULL\n\n进近速度\n\n反推\n\n否\n\n自动着陆\n\n否\n\n计算\n\n清空\n\n最高性能手动降落\n\n1573米 (m)\n\n中刹力\n\n2003米 (m)\n\n低刹力\n\n2661米 (m)\n\n35\n17\n\nLOW 2661m\n\nMED 2003m\n\nMAX 1573m\n\nHEADWIND A339X · 浏览器开发模式 · 本地模拟数据 · 非 MSFS 飞行会话\n载入演示航班",
+      "state": {
+        "tod": {
+          "groundSpeed": [
+            {
+              "from": 0,
+              "groundSpeed": ""
+            }
+          ],
+          "groundSpeedMode": 1,
+          "currentAltitudeMode": 0,
+          "calculationInputMode": 0,
+          "currentAltitude": 35000,
+          "targetAltitude": 3000,
+          "calculation": {
+            "input": 3,
+            "type": 2
+          }
+        },
+        "performance": {
+          "landing": {
+            "icao": "",
+            "availableRunways": [],
+            "selectedRunwayIndex": -1,
+            "windDirection": 170,
+            "windMagnitude": 0,
+            "windEntry": "0",
+            "weight": 190000,
+            "runwayHeading": 170,
+            "approachSpeed": 145,
+            "flaps": 1,
+            "runwayCondition": 0,
+            "reverseThrust": false,
+            "elevation": 20,
+            "slope": 0,
+            "temperature": 15,
+            "pressure": 1013,
+            "overweightProcedure": false,
+            "runwayLength": 3500,
+            "autoland": false,
+            "runwayNumber": 0,
+            "displayedRunwayLength": 3500,
+            "maxAutobrakeLandingDist": 1573,
+            "mediumAutobrakeLandingDist": 2003,
+            "lowAutobrakeLandingDist": 2661,
+            "runwayVisualizationLabels": [
+              {
+                "label": "LOW",
+                "distance": 2661.1,
+                "type": 0
+              },
+              {
+                "label": "MED",
+                "distance": 2003.3,
+                "type": 0
+              },
+              {
+                "label": "MAX",
+                "distance": 1573.1999999999998,
+                "type": 0
+              }
+            ]
+          },
+          "takeoff": {
+            "availableRunways": [],
+            "selectedRunwayIndex": -1,
+            "antiIce": 0,
+            "packs": true,
+            "takeoffCg": 0,
+            "forceToga": false,
+            "config": 1,
+            "lineupAngle": 90,
+            "runwayCondition": "Dry"
+          }
+        }
+      }
+    },
+    {
+      "id": "checklist-checked",
+      "text": "周六 十月 3\n\n0800Z\n\nZUTF\n\n0800Z\n\nZSPD\n\n1100Z\n\n点击打开快速控制\n已与SimBridge断开连接\n\n100%\n\n主页面\n签派\n地面\n性能\n导航和航图\n空中交通管制\n失效\n检查单\n预设\n设置\n检查单\nCOCKPIT PREPARATION\nBEFORE START\nAFTER START\nTAXI\nLINE-UP\n<< DEPARTURE CHANGE >>\nAPPROACH\nLANDING\nAFTER LANDING\nPARKING\nSECURING AIRCRAFT\n全部重置\n重置检查单\nGEAR PINS & COVERS :\nREMOVED\nFUEL QUANTITY\n_____ KG/LB, BALANCED\nSEAT BELTS\nON\nADIRS\nNAV\nBARO REF\n_____ (BOTH)\n标记项目为完成\nHEADWIND A339X · 浏览器开发模式 · 本地模拟数据 · 非 MSFS 飞行会话\n载入演示航班",
+      "state": {
+        "tod": {
+          "groundSpeed": [
+            {
+              "from": 0,
+              "groundSpeed": ""
+            }
+          ],
+          "groundSpeedMode": 1,
+          "currentAltitudeMode": 0,
+          "calculationInputMode": 0,
+          "currentAltitude": 35000,
+          "targetAltitude": 3000,
+          "calculation": {
+            "input": 3,
+            "type": 2
+          }
+        },
+        "performance": {
+          "landing": {
+            "icao": "",
+            "availableRunways": [],
+            "selectedRunwayIndex": -1,
+            "windDirection": 170,
+            "windMagnitude": 0,
+            "windEntry": "0",
+            "weight": 190000,
+            "runwayHeading": 170,
+            "approachSpeed": 145,
+            "flaps": 1,
+            "runwayCondition": 0,
+            "reverseThrust": false,
+            "elevation": 20,
+            "slope": 0,
+            "temperature": 15,
+            "pressure": 1013,
+            "overweightProcedure": false,
+            "runwayLength": 3500,
+            "autoland": false,
+            "runwayNumber": 0,
+            "displayedRunwayLength": 3500,
+            "maxAutobrakeLandingDist": 1573,
+            "mediumAutobrakeLandingDist": 2003,
+            "lowAutobrakeLandingDist": 2661,
+            "runwayVisualizationLabels": [
+              {
+                "label": "LOW",
+                "distance": 2661.1,
+                "type": 0
+              },
+              {
+                "label": "MED",
+                "distance": 2003.3,
+                "type": 0
+              },
+              {
+                "label": "MAX",
+                "distance": 1573.1999999999998,
+                "type": 0
+              }
+            ]
+          },
+          "takeoff": {
+            "availableRunways": [],
+            "selectedRunwayIndex": -1,
+            "antiIce": 0,
+            "packs": true,
+            "takeoffCg": 0,
+            "forceToga": false,
+            "config": 1,
+            "lineupAngle": 90,
+            "runwayCondition": "Dry"
+          }
+        }
+      }
+    },
+    {
+      "id": "quick-controls",
+      "text": "周六 十月 3\n\n0800Z\n\nZUTF\n\n0800Z\n\nZSPD\n\n1100Z\n\n点击打开快速控制\n前往 flyPad 设置页面\n待命\n关闭电源\n80%\n设置 flyPad 亮度\n打开/关闭自动亮度\n校准 ADIRS\n立即校准 ADIRS\n完成登机\n立即完成登机\nSimBridge\n连接中...\n控制 SimBridge 连接\n屏幕键盘\n打开/关闭屏幕键盘\n在下降顶点暂停\n未激活\n启用或禁用在下降顶点处暂停功能\n模拟速率\n1x\n增加或减少模拟速率\n已与SimBridge断开连接\n\n100%\n\n主页面\n签派\n地面\n性能\n导航和航图\n空中交通管制\n失效\n检查单\n预设\n设置\n您的航班任务\nDEMO330 | A330-941\nZUTF\n\n本地航班 / 手工资料\n\nZSPD\n\n本地航班 / 手工资料\n\n0800Z\n\n1100Z\n\n备降机场\nZSSS\n公司航路\nZUTFZSPD\n零油重量\n155\n成本指数\n30\n平均风速\n10/0\n巡航高度\nFL350\n航路\n\nZUTF/01 ZUTF DCT ZSPD - LOCAL SAMPLE ZSPD/\n\n编辑本地航班\n\n重要信息\n重新排列模块\n天气\n\n原始数据\n\n切换到原始 METAR 报文视图\n\n气压\n\n不适用\n\n风速\n\n不适用\n\n气温\n\n不适用\n\n露点\n\n不适用\n\n原始数据\n\n切换到原始 METAR 报文视图\n\n气压\n\n不适用\n\n风速\n\n不适用\n\n气温\n\n不适用\n\n露点\n\n不适用\n固定的航图\n跳转至此页面\n没有固定的航图\n维护\n跳转至此页面\n无故障\n检查单\n跳转至此页面\nCOCKPIT PREPARATION\nBEFORE START\n天气\n固定的航图\n维护\n检查单\nHEADWIND A339X · 浏览器开发模式 · 本地模拟数据 · 非 MSFS 飞行会话\n载入演示航班",
+      "state": {
+        "tod": {
+          "groundSpeed": [
+            {
+              "from": 0,
+              "groundSpeed": ""
+            }
+          ],
+          "groundSpeedMode": 1,
+          "currentAltitudeMode": 0,
+          "calculationInputMode": 0,
+          "currentAltitude": 35000,
+          "targetAltitude": 3000,
+          "calculation": {
+            "input": 3,
+            "type": 2
+          }
+        },
+        "performance": {
+          "landing": {
+            "icao": "",
+            "availableRunways": [],
+            "selectedRunwayIndex": -1,
+            "windDirection": 170,
+            "windMagnitude": 0,
+            "windEntry": "0",
+            "weight": 190000,
+            "runwayHeading": 170,
+            "approachSpeed": 145,
+            "flaps": 1,
+            "runwayCondition": 0,
+            "reverseThrust": false,
+            "elevation": 20,
+            "slope": 0,
+            "temperature": 15,
+            "pressure": 1013,
+            "overweightProcedure": false,
+            "runwayLength": 3500,
+            "autoland": false,
+            "runwayNumber": 0,
+            "displayedRunwayLength": 3500,
+            "maxAutobrakeLandingDist": 1573,
+            "mediumAutobrakeLandingDist": 2003,
+            "lowAutobrakeLandingDist": 2661,
+            "runwayVisualizationLabels": [
+              {
+                "label": "LOW",
+                "distance": 2661.1,
+                "type": 0
+              },
+              {
+                "label": "MED",
+                "distance": 2003.3,
+                "type": 0
+              },
+              {
+                "label": "MAX",
+                "distance": 1573.1999999999998,
+                "type": 0
+              }
+            ]
+          },
+          "takeoff": {
+            "availableRunways": [],
+            "selectedRunwayIndex": -1,
+            "antiIce": 0,
+            "packs": true,
+            "takeoffCg": 0,
+            "forceToga": false,
+            "config": 1,
+            "lineupAngle": 90,
+            "runwayCondition": "Dry"
+          }
+        }
+      }
+    },
+    {
+      "id": "ofp-readable",
+      "text": "点击打开快速控制\n\n周六 十月 3\n\n0800Z\n\nZUTF\n\n0800Z\n\nZSPD\n\n1100Z\n\n点击打开快速控制\n已与SimBridge断开连接\n\n100%\n\n主页面\n签派\n地面\n性能\n导航和航图\n空中交通管制\n失效\n检查单\n预设\n设置\n签派\n本地航班\n运行飞行计划 (OFP)\n概览\n减小字号\n增大字号\nLOCAL FLIGHT / 本地航班 DEMO330\n\n2026-10-03 · ZUTF → ZSPD · A330-941\n\nSOURCE: local-example / 本地手工计划，非实际签派文件\n\nZUTF DCT ZSPD - LOCAL SAMPLE\n\nOEW 127000 kg + PAYLOAD 28000 kg = ZFW 155000 kg\n\nRAMP FUEL 30000 kg - TAXI 500 kg\n\nTOW 184500 kg · PAX 250\n\n本地计划为重量核算来源；实际模拟器状态未连接。\n\nHEADWIND A339X · 浏览器开发模式 · 本地模拟数据 · 非 MSFS 飞行会话\n载入演示航班",
+      "state": {
+        "tod": {
+          "groundSpeed": [
+            {
+              "from": 0,
+              "groundSpeed": ""
+            }
+          ],
+          "groundSpeedMode": 1,
+          "currentAltitudeMode": 0,
+          "calculationInputMode": 0,
+          "currentAltitude": 35000,
+          "targetAltitude": 3000,
+          "calculation": {
+            "input": 3,
+            "type": 2
+          }
+        },
+        "performance": {
+          "landing": {
+            "icao": "",
+            "availableRunways": [],
+            "selectedRunwayIndex": -1,
+            "windDirection": 170,
+            "windMagnitude": 0,
+            "windEntry": "0",
+            "weight": 190000,
+            "runwayHeading": 170,
+            "approachSpeed": 145,
+            "flaps": 1,
+            "runwayCondition": 0,
+            "reverseThrust": false,
+            "elevation": 20,
+            "slope": 0,
+            "temperature": 15,
+            "pressure": 1013,
+            "overweightProcedure": false,
+            "runwayLength": 3500,
+            "autoland": false,
+            "runwayNumber": 0,
+            "displayedRunwayLength": 3500,
+            "maxAutobrakeLandingDist": 1573,
+            "mediumAutobrakeLandingDist": 2003,
+            "lowAutobrakeLandingDist": 2661,
+            "runwayVisualizationLabels": [
+              {
+                "label": "LOW",
+                "distance": 2661.1,
+                "type": 0
+              },
+              {
+                "label": "MED",
+                "distance": 2003.3,
+                "type": 0
+              },
+              {
+                "label": "MAX",
+                "distance": 1573.1999999999998,
+                "type": 0
+              }
+            ]
+          },
+          "takeoff": {
+            "availableRunways": [],
+            "selectedRunwayIndex": -1,
+            "antiIce": 0,
+            "packs": true,
+            "takeoffCg": 0,
+            "forceToga": false,
+            "config": 1,
+            "lineupAngle": 90,
+            "runwayCondition": "Dry"
+          }
+        }
+      }
+    },
+    {
+      "id": "settings-control-inventory",
+      "select": 0,
+      "inputs": [
+        {
+          "type": "text",
+          "value": "80"
+        }
+      ]
+    }
+  ],
+  "errors": []
+}

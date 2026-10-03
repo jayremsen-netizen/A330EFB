@@ -1,0 +1,59 @@
+{
+  "status": "PASS",
+  "reviewedAt": "2026-10-03T19:25:25.132640+00:00",
+  "pdf_sha256": "4916d3a4df8667fe00fe4e0a60c7ca0d83470abc1379f104a04458e630787fee",
+  "pages": 300,
+  "chapters": 22,
+  "sections": 93,
+  "illustratedSections": 93,
+  "operationSections": 30,
+  "operationPages": 60,
+  "operationPagesWithRealScreenshots": 60,
+  "figures": 295,
+  "originalScreenshotFiles": 47,
+  "sources": 25,
+  "textBounds": "PASS",
+  "outsidePageGlyphs": 0,
+  "undersizedGlyphs": 0,
+  "duplicateLongParagraphs": 0,
+  "visualReview": {
+    "allPagesRendered": 300,
+    "contactSheetsReviewed": 19,
+    "detailPagesReviewed": [
+      7,
+      17,
+      34,
+      43,
+      55,
+      80,
+      128,
+      148,
+      151,
+      169,
+      221,
+      239,
+      247,
+      256,
+      270,
+      276,
+      296,
+      297
+    ],
+    "method": "Full-book contact-sheet inspection and selected larger raster page inspection; affected pages reviewed again after layout corrections",
+    "observations": [
+      "Source overlay figure labels are readable",
+      "Four-entity legends no longer collide with cards",
+      "Chapter headers remain with entries in the table of contents",
+      "Formula, table and screenshot layouts checked",
+      "No blank pages, clipped body text or missing figure assets observed"
+    ]
+  },
+  "editableFiles": {
+    "fullMarkdown": true,
+    "fullOfflineHtml": true,
+    "htmlInternalLinks": "PASS",
+    "htmlImageAssets": "PASS",
+    "tables": 291
+  },
+  "scope": "Document layout and coverage verification. Software behaviour evidence is retained separately; this is not aircraft performance certification."
+}

@@ -1,0 +1,1950 @@
+{
+  "mode": "Headwind original EFB with local host adapter and fictional flight fixture",
+  "capturedAt": "2026-10-03T16:42:48.202Z",
+  "routes": [
+    {
+      "id": "dashboard-empty",
+      "route": "/dashboard",
+      "fatal": false,
+      "text": "周六 十月 3\n\n0800Z\n\n点击打开快速控制\n已与SimBridge断开连接\n\n100%\n\n主页面\n签派\n地面\n性能\n导航和航图\n空中交通管制\n失效\n检查单\n预设\n设置\n您的航班任务\nA330-941\n尚未确认本地航班\n\n编辑本地航班\n\n重要信息\n重新排列模块\n天气\n\n原始数据\n\n切换到原始 METAR 报文视图\n\n气压\n\n不适用\n\n风速\n\n不适用\n\n气温\n\n不适用\n\n露点\n\n不适用\n\n原始数据\n\n切换到原始 METAR 报文视图\n\n气压\n\n不适用\n\n风速\n\n不适用\n\n气温\n\n不适用\n\n露点\n\n不适用\n固定的航图\n跳转至此页面\n没有固定的航图\n维护\n跳转至此页面\n无故障\n检查单\n跳转至此页面\nCOCKPIT PREPARATION\nBEFORE START\n天气\n固定的航图\n维护\n检查单\nHEADWIND A339X · 浏览器开发模式 · 本地模拟数据 · 非 MSFS 飞行会话\n载入演示航班",
+      "links": [
+        {
+          "text": "",
+          "href": "/dashboard"
+        },
+        {
+          "text": "",
+          "href": "/dispatch"
+        },
+        {
+          "text": "",
+          "href": "/ground"
+        },
+        {
+          "text": "",
+          "href": "/performance"
+        },
+        {
+          "text": "",
+          "href": "/navigation"
+        },
+        {
+          "text": "",
+          "href": "/atc"
+        },
+        {
+          "text": "",
+          "href": "/failures"
+        },
+        {
+          "text": "",
+          "href": "/checklists"
+        },
+        {
+          "text": "",
+          "href": "/presets"
+        },
+        {
+          "text": "",
+          "href": "/settings"
+        },
+        {
+          "text": "跳转至此页面",
+          "href": "/navigation"
+        },
+        {
+          "text": "跳转至此页面",
+          "href": "/failures"
+        },
+        {
+          "text": "跳转至此页面",
+          "href": "/checklists"
+        },
+        {
+          "text": "COCKPIT PREPARATION",
+          "href": "/checklists"
+        },
+        {
+          "text": "BEFORE START",
+          "href": "/checklists"
+        }
+      ],
+      "inputs": [
+        {
+          "type": "text",
+          "placeholder": "ICAO",
+          "value": ""
+        },
+        {
+          "type": "text",
+          "placeholder": "ICAO",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "id": "dashboard",
+      "route": "/dashboard",
+      "fatal": false,
+      "text": "周六 十月 3\n\n0800Z\n\nZUTF\n\n0800Z\n\nZSPD\n\n1100Z\n\n点击打开快速控制\n已与SimBridge断开连接\n\n100%\n\n主页面\n签派\n地面\n性能\n导航和航图\n空中交通管制\n失效\n检查单\n预设\n设置\n您的航班任务\nDEMO330 | A330-941\nZUTF\n\n本地航班 / 手工资料\n\nZSPD\n\n本地航班 / 手工资料\n\n0800Z\n\n1100Z\n\n备降机场\nZSSS\n公司航路\nZUTFZSPD\n零油重量\n155\n成本指数\n30\n平均风速\n10/0\n巡航高度\nFL350\n航路\n\nZUTF/01 ZUTF DCT ZSPD - LOCAL SAMPLE ZSPD/\n\n编辑本地航班\n\n重要信息\n重新排列模块\n天气\n\n原始数据\n\n切换到原始 METAR 报文视图\n\n气压\n\n不适用\n\n风速\n\n不适用\n\n气温\n\n不适用\n\n露点\n\n不适用\n\n原始数据\n\n切换到原始 METAR 报文视图\n\n气压\n\n不适用\n\n风速\n\n不适用\n\n气温\n\n不适用\n\n露点\n\n不适用\n固定的航图\n跳转至此页面\n没有固定的航图\n维护\n跳转至此页面\n无故障\n检查单\n跳转至此页面\nCOCKPIT PREPARATION\nBEFORE START\n天气\n固定的航图\n维护\n检查单\nHEADWIND A339X · 浏览器开发模式 · 本地模拟数据 · 非 MSFS 飞行会话\n载入演示航班",
+      "links": [
+        {
+          "text": "",
+          "href": "/dashboard"
+        },
+        {
+          "text": "",
+          "href": "/dispatch"
+        },
+        {
+          "text": "",
+          "href": "/ground"
+        },
+        {
+          "text": "",
+          "href": "/performance"
+        },
+        {
+          "text": "",
+          "href": "/navigation"
+        },
+        {
+          "text": "",
+          "href": "/atc"
+        },
+        {
+          "text": "",
+          "href": "/failures"
+        },
+        {
+          "text": "",
+          "href": "/checklists"
+        },
+        {
+          "text": "",
+          "href": "/presets"
+        },
+        {
+          "text": "",
+          "href": "/settings"
+        },
+        {
+          "text": "跳转至此页面",
+          "href": "/navigation"
+        },
+        {
+          "text": "跳转至此页面",
+          "href": "/failures"
+        },
+        {
+          "text": "跳转至此页面",
+          "href": "/checklists"
+        },
+        {
+          "text": "COCKPIT PREPARATION",
+          "href": "/checklists"
+        },
+        {
+          "text": "BEFORE START",
+          "href": "/checklists"
+        }
+      ],
+      "inputs": [
+        {
+          "type": "text",
+          "placeholder": "ZUTF",
+          "value": ""
+        },
+        {
+          "type": "text",
+          "placeholder": "ZSPD",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "id": "dispatch-overview",
+      "route": "/dispatch/overview",
+      "fatal": false,
+      "text": "周六 十月 3\n\n0800Z\n\nZUTF\n\n0800Z\n\nZSPD\n\n1100Z\n\n点击打开快速控制\n已与SimBridge断开连接\n\n100%\n\n主页面\n签派\n地面\n性能\n导航和航图\n空中交通管制\n失效\n检查单\n预设\n设置\n签派\n本地航班\n运行飞行计划 (OFP)\n概览\nAirbus A330-900neo\n\nHeadwind Simulations\n\nText here\nEXIT\nDANGER\nDo not even think about reading thsi text because it makes no sense\nTO OPEN\nDo not even think about reading thsi text because it makes no sense\nText here\nEXIT\nDANGER\nDo not even think about reading thsi text because it makes no sense\nTO OPEN\nDo not even think about reading thsi text because it makes no sense\nText here\nEXIT\nDANGER\nDo not even think about reading thsi text because it makes no sense\nTO OPEN\nDo not even think about reading thsi text because it makes no sense\nEXIT\n\n机型\n\nA330-941 [A339]\n\n最大零油重量\n\n181,000 [kg]\n\n最大载客人数\n\n436 passengers\n\n引擎\n\nRR TRENT 7000\n\n最大起飞重量\n\n251,000 [kg]\n\n航距\n\n7,200 [nm]\n\n最大载货量\n\n44,836 [kg]\n\n最大使用马赫数\n\n0.86\n\n最大燃油量\n\n111,665 [l]\n\n实际总重\n\n185,000 [kg]\n\nHEADWIND A339X · 浏览器开发模式 · 本地模拟数据 · 非 MSFS 飞行会话\n载入演示航班",
+      "links": [
+        {
+          "text": "",
+          "href": "/dashboard"
+        },
+        {
+          "text": "",
+          "href": "/dispatch"
+        },
+        {
+          "text": "",
+          "href": "/ground"
+        },
+        {
+          "text": "",
+          "href": "/performance"
+        },
+        {
+          "text": "",
+          "href": "/navigation"
+        },
+        {
+          "text": "",
+          "href": "/atc"
+        },
+        {
+          "text": "",
+          "href": "/failures"
+        },
+        {
+          "text": "",
+          "href": "/checklists"
+        },
+        {
+          "text": "",
+          "href": "/presets"
+        },
+        {
+          "text": "",
+          "href": "/settings"
+        },
+        {
+          "text": "本地航班",
+          "href": "/dispatch/local-flight"
+        },
+        {
+          "text": "运行飞行计划 (OFP)",
+          "href": "/dispatch/ofp"
+        },
+        {
+          "text": "概览",
+          "href": "/dispatch/overview"
+        }
+      ],
+      "inputs": []
+    },
+    {
+      "id": "dispatch-ofp",
+      "route": "/dispatch/ofp",
+      "fatal": false,
+      "text": "周六 十月 3\n\n0800Z\n\nZUTF\n\n0800Z\n\nZSPD\n\n1100Z\n\n点击打开快速控制\n已与SimBridge断开连接\n\n100%\n\n主页面\n签派\n地面\n性能\n导航和航图\n空中交通管制\n失效\n检查单\n预设\n设置\n签派\n本地航班\n运行飞行计划 (OFP)\n概览\n减小字号\n增大字号\nLOCAL FLIGHT / 本地航班 DEMO330\n\n2026-10-03 · ZUTF → ZSPD · A330-941\n\nSOURCE: local-example / 本地手工计划，非实际签派文件\n\nZUTF DCT ZSPD - LOCAL SAMPLE\n\nOEW 127000 kg + PAYLOAD 28000 kg = ZFW 155000 kg\n\nRAMP FUEL 30000 kg - TAXI 500 kg\n\nTOW 184500 kg · PAX 250\n\n本地计划为重量核算来源；实际模拟器状态未连接。\n\nHEADWIND A339X · 浏览器开发模式 · 本地模拟数据 · 非 MSFS 飞行会话\n载入演示航班",
+      "links": [
+        {
+          "text": "",
+          "href": "/dashboard"
+        },
+        {
+          "text": "",
+          "href": "/dispatch"
+        },
+        {
+          "text": "",
+          "href": "/ground"
+        },
+        {
+          "text": "",
+          "href": "/performance"
+        },
+        {
+          "text": "",
+          "href": "/navigation"
+        },
+        {
+          "text": "",
+          "href": "/atc"
+        },
+        {
+          "text": "",
+          "href": "/failures"
+        },
+        {
+          "text": "",
+          "href": "/checklists"
+        },
+        {
+          "text": "",
+          "href": "/presets"
+        },
+        {
+          "text": "",
+          "href": "/settings"
+        },
+        {
+          "text": "本地航班",
+          "href": "/dispatch/local-flight"
+        },
+        {
+          "text": "运行飞行计划 (OFP)",
+          "href": "/dispatch/ofp"
+        },
+        {
+          "text": "概览",
+          "href": "/dispatch/overview"
+        }
+      ],
+      "inputs": []
+    },
+    {
+      "id": "ground-services",
+      "route": "/ground/services",
+      "fatal": false,
+      "text": "周六 十月 3\n\n0800Z\n\nZUTF\n\n0800Z\n\nZSPD\n\n1100Z\n\n点击打开快速控制\n已与SimBridge断开连接\n\n100%\n\n主页面\n签派\n地面\n性能\n导航和航图\n空中交通管制\n失效\n检查单\n预设\n设置\n地面\n地面服务\n燃油\nPayload\n后推\n本地计划　DEMO330　ZFW 155,000 kg　停机坪燃油 30,000 kg　编辑 / 确认本地载荷燃油 原生控件改变目标后须重新确认核算。\n前门\n廊桥\n加油车\n空气启动单元\n后门\n轮档\n安全锥\n外部电源\n前门\n餐车\n前门\n货舱门\n行李车\nHEADWIND A339X · 浏览器开发模式 · 本地模拟数据 · 非 MSFS 飞行会话\n载入演示航班",
+      "links": [
+        {
+          "text": "",
+          "href": "/dashboard"
+        },
+        {
+          "text": "",
+          "href": "/dispatch"
+        },
+        {
+          "text": "",
+          "href": "/ground"
+        },
+        {
+          "text": "",
+          "href": "/performance"
+        },
+        {
+          "text": "",
+          "href": "/navigation"
+        },
+        {
+          "text": "",
+          "href": "/atc"
+        },
+        {
+          "text": "",
+          "href": "/failures"
+        },
+        {
+          "text": "",
+          "href": "/checklists"
+        },
+        {
+          "text": "",
+          "href": "/presets"
+        },
+        {
+          "text": "",
+          "href": "/settings"
+        },
+        {
+          "text": "地面服务",
+          "href": "/ground/services"
+        },
+        {
+          "text": "燃油",
+          "href": "/ground/fuel"
+        },
+        {
+          "text": "Payload",
+          "href": "/ground/payload"
+        },
+        {
+          "text": "后推",
+          "href": "/ground/pushback"
+        }
+      ],
+      "inputs": []
+    },
+    {
+      "id": "ground-fuel",
+      "route": "/ground/fuel",
+      "fatal": false,
+      "text": "周六 十月 3\n\n0800Z\n\nZUTF\n\n0800Z\n\nZSPD\n\n1100Z\n\n点击打开快速控制\n已与SimBridge断开连接\n\n100%\n\n主页面\n签派\n地面\n性能\n导航和航图\n空中交通管制\n失效\n检查单\n预设\n设置\n地面\n地面服务\n燃油\nPayload\n后推\n本地计划　DEMO330　ZFW 155,000 kg　停机坪燃油 30,000 kg　编辑 / 确认本地载荷燃油 原生控件改变目标后须重新确认核算。\n总燃油量\n\n30000/111662 KGS\n\n中央油箱\n\n0/38367 KGS\n\n左内侧油箱\n\n12071/33718 KGS\n\n左外侧油箱\n\n2931/2930 KGS\n\n右内侧油箱\n\n12072/33718 KGS\n\n右外侧油箱\n\n2931/2930 KGS\n\n加油\n\n(已完成)\n\n预计剩余时间（分钟）: 0\n\nKGS\n使用本地计划燃油\n加油时间\n即时\n快\nfalse\n真实\nfalse\nHEADWIND A339X · 浏览器开发模式 · 本地模拟数据 · 非 MSFS 飞行会话\n载入演示航班",
+      "links": [
+        {
+          "text": "",
+          "href": "/dashboard"
+        },
+        {
+          "text": "",
+          "href": "/dispatch"
+        },
+        {
+          "text": "",
+          "href": "/ground"
+        },
+        {
+          "text": "",
+          "href": "/performance"
+        },
+        {
+          "text": "",
+          "href": "/navigation"
+        },
+        {
+          "text": "",
+          "href": "/atc"
+        },
+        {
+          "text": "",
+          "href": "/failures"
+        },
+        {
+          "text": "",
+          "href": "/checklists"
+        },
+        {
+          "text": "",
+          "href": "/presets"
+        },
+        {
+          "text": "",
+          "href": "/settings"
+        },
+        {
+          "text": "地面服务",
+          "href": "/ground/services"
+        },
+        {
+          "text": "燃油",
+          "href": "/ground/fuel"
+        },
+        {
+          "text": "Payload",
+          "href": "/ground/payload"
+        },
+        {
+          "text": "后推",
+          "href": "/ground/pushback"
+        }
+      ],
+      "inputs": [
+        {
+          "type": "text",
+          "placeholder": "111662",
+          "value": "30000"
+        }
+      ]
+    },
+    {
+      "id": "ground-payload",
+      "route": "/ground/payload",
+      "fatal": false,
+      "text": "周六 十月 3\n\n0800Z\n\nZUTF\n\n0800Z\n\nZSPD\n\n1100Z\n\n点击打开快速控制\n已与SimBridge断开连接\n\n100%\n\n主页面\n签派\n地面\n性能\n导航和航图\n空中交通管制\n失效\n检查单\n预设\n设置\n地面\n地面服务\n燃油\nPayload\n后推\n本地计划　DEMO330　ZFW 155,000 kg　停机坪燃油 30,000 kg　编辑 / 确认本地载荷燃油 原生控件改变目标后须重新确认核算。\n\t已计划\t当前\n\n乘客\t\nPAX\n最大载客人数 436\n\t\n00\n0\nPAX\n\n货舱\t\nKGS\n最大搭载重量 44836 KGS\n\t\n0000\n0\nKGS\n\n零燃油重量\t\nKGS\n最大零燃油重量 181000 KGS\n\t\n155000\nKGS\n\n\nZFWCG\n\t\n0.00\n%\n最大零燃油重心 41%\n\t\n28.00\n%\nKGS\n每位乘客重量\nKGS\n每位乘客行李重量\n开始登机\n开始下客\n登机需时\n(21:50 分钟)\n即时\n快\n真实\n\n15%\n\n20%\n\n25%\n\n30%\n\n35%\n\n40%\n\n260\n\n240\n\n220\n\n200\n\n180\n\n160\n\n140\n\n120\n\nx 1000 kgs\n\nMTOW\n\nMLDW\n\nMZFW\n\nHEADWIND A339X · 浏览器开发模式 · 本地模拟数据 · 非 MSFS 飞行会话\n载入演示航班",
+      "links": [
+        {
+          "text": "",
+          "href": "/dashboard"
+        },
+        {
+          "text": "",
+          "href": "/dispatch"
+        },
+        {
+          "text": "",
+          "href": "/ground"
+        },
+        {
+          "text": "",
+          "href": "/performance"
+        },
+        {
+          "text": "",
+          "href": "/navigation"
+        },
+        {
+          "text": "",
+          "href": "/atc"
+        },
+        {
+          "text": "",
+          "href": "/failures"
+        },
+        {
+          "text": "",
+          "href": "/checklists"
+        },
+        {
+          "text": "",
+          "href": "/presets"
+        },
+        {
+          "text": "",
+          "href": "/settings"
+        },
+        {
+          "text": "地面服务",
+          "href": "/ground/services"
+        },
+        {
+          "text": "燃油",
+          "href": "/ground/fuel"
+        },
+        {
+          "text": "Payload",
+          "href": "/ground/payload"
+        },
+        {
+          "text": "后推",
+          "href": "/ground/pushback"
+        }
+      ],
+      "inputs": [
+        {
+          "type": "text",
+          "placeholder": "",
+          "value": "250"
+        },
+        {
+          "type": "text",
+          "placeholder": "",
+          "value": "8000"
+        },
+        {
+          "type": "text",
+          "placeholder": "",
+          "value": "155000"
+        },
+        {
+          "type": "text",
+          "placeholder": "84",
+          "value": "80"
+        },
+        {
+          "type": "text",
+          "placeholder": "20",
+          "value": "24"
+        }
+      ]
+    },
+    {
+      "id": "ground-pushback",
+      "route": "/ground/pushback",
+      "fatal": false,
+      "text": "周六 十月 3\n\n0800Z\n\nZUTF\n\n0800Z\n\nZSPD\n\n1100Z\n\n点击打开快速控制\n已与SimBridge断开连接\n\n100%\n\n主页面\n签派\n地面\n性能\n导航和航图\n空中交通管制\n失效\n检查单\n预设\n设置\n地面\n地面服务\n燃油\nPayload\n后推\n本地计划　DEMO330　ZFW 155,000 kg　停机坪燃油 30,000 kg　编辑 / 确认本地载荷燃油 原生控件改变目标后须重新确认核算。\n地图居中于本机 开/关\n放大\n缩小\n\n推出系统关\n\n点击以打开退出系统\n\n呼叫推车\n\n呼叫或释放拖车\n\n停机刹车 断开停机刹车\n\n设置或释放停留刹车\n\n向后\n\n向后或慢速向前\n\n向前\n\n向前或慢速向后\n\n暂停\n\n暂停或恢复后推\n\n向左\n\n向左\n\n向右\n\n向右\n\n后推方向\n\n向所需方向移动\n\n后推速度\n\n以所需的速度移动\n使用控制器输入\n打开/关闭方向舵和升降舵的控制器输入\nHEADWIND A339X · 浏览器开发模式 · 本地模拟数据 · 非 MSFS 飞行会话\n载入演示航班",
+      "links": [
+        {
+          "text": "",
+          "href": "/dashboard"
+        },
+        {
+          "text": "",
+          "href": "/dispatch"
+        },
+        {
+          "text": "",
+          "href": "/ground"
+        },
+        {
+          "text": "",
+          "href": "/performance"
+        },
+        {
+          "text": "",
+          "href": "/navigation"
+        },
+        {
+          "text": "",
+          "href": "/atc"
+        },
+        {
+          "text": "",
+          "href": "/failures"
+        },
+        {
+          "text": "",
+          "href": "/checklists"
+        },
+        {
+          "text": "",
+          "href": "/presets"
+        },
+        {
+          "text": "",
+          "href": "/settings"
+        },
+        {
+          "text": "地面服务",
+          "href": "/ground/services"
+        },
+        {
+          "text": "燃油",
+          "href": "/ground/fuel"
+        },
+        {
+          "text": "Payload",
+          "href": "/ground/payload"
+        },
+        {
+          "text": "后推",
+          "href": "/ground/pushback"
+        }
+      ],
+      "inputs": []
+    },
+    {
+      "id": "performance-tod",
+      "route": "/performance/top-of-descent",
+      "fatal": false,
+      "text": "周六 十月 3\n\n0800Z\n\nZUTF\n\n0800Z\n\nZSPD\n\n1100Z\n\n点击打开快速控制\n已与SimBridge断开连接\n\n100%\n\n主页面\n签派\n地面\n性能\n导航和航图\n空中交通管制\n失效\n检查单\n预设\n设置\n性能\n离线起飞核算\n下降顶点\n着陆\n地速\n\n从模拟器获取速度\n\n0 节 (kts)\n\n手动输入\n\n数据\n\n当前高度\n\nSYNC\n\n同步输入飞机当前高度\n\n目标高度\n\n角度\n\nX\n结果\n在目标前大约\n0\nNM\n开始你的下降\nHEADWIND A339X · 浏览器开发模式 · 本地模拟数据 · 非 MSFS 飞行会话\n载入演示航班",
+      "links": [
+        {
+          "text": "",
+          "href": "/dashboard"
+        },
+        {
+          "text": "",
+          "href": "/dispatch"
+        },
+        {
+          "text": "",
+          "href": "/ground"
+        },
+        {
+          "text": "",
+          "href": "/performance"
+        },
+        {
+          "text": "",
+          "href": "/navigation"
+        },
+        {
+          "text": "",
+          "href": "/atc"
+        },
+        {
+          "text": "",
+          "href": "/failures"
+        },
+        {
+          "text": "",
+          "href": "/checklists"
+        },
+        {
+          "text": "",
+          "href": "/presets"
+        },
+        {
+          "text": "",
+          "href": "/settings"
+        },
+        {
+          "text": "离线起飞核算",
+          "href": "/performance/local-takeoff"
+        },
+        {
+          "text": "下降顶点",
+          "href": "/performance/top-of-descent"
+        },
+        {
+          "text": "着陆",
+          "href": "/performance/landing"
+        }
+      ],
+      "inputs": [
+        {
+          "type": "text",
+          "placeholder": "英尺 (ft)",
+          "value": ""
+        },
+        {
+          "type": "text",
+          "placeholder": "英尺 (ft)",
+          "value": ""
+        },
+        {
+          "type": "text",
+          "placeholder": "度",
+          "value": "3"
+        }
+      ]
+    },
+    {
+      "id": "performance-landing",
+      "route": "/performance/landing",
+      "fatal": false,
+      "text": "周六 十月 3\n\n0800Z\n\nZUTF\n\n0800Z\n\nZSPD\n\n1100Z\n\n点击打开快速控制\n已与SimBridge断开连接\n\n100%\n\n主页面\n签派\n地面\n性能\n导航和航图\n空中交通管制\n失效\n检查单\n预设\n设置\n性能\n离线起飞核算\n下降顶点\n着陆\n\n机场\n\n填充数据来源于\n\nOFP\n\n跑道\n\n手动输入\n\n跑道航向\n\n跑道可用着陆长度\n\n米 (m)\n\n跑道海拔\n\n跑道坡度\n\n跑道状况\n\n干燥（6）\n\n风\n\n气温\n\nC\n\n海平面气压\n\nhPa\n\n着陆重量\n\nkg\n\n超重程序\n\n否\n\n襟翼配置\n\nFULL\n\n进近速度\n\n反推\n\n否\n\n自动着陆\n\n否\n\n计算\n\n清空\n\n最高性能手动降落\n\n0米 (m)\n\n中刹力\n\n0米 (m)\n\n低刹力\n\n0米 (m)\n\n??\n??\nHEADWIND A339X · 浏览器开发模式 · 本地模拟数据 · 非 MSFS 飞行会话\n载入演示航班",
+      "links": [
+        {
+          "text": "",
+          "href": "/dashboard"
+        },
+        {
+          "text": "",
+          "href": "/dispatch"
+        },
+        {
+          "text": "",
+          "href": "/ground"
+        },
+        {
+          "text": "",
+          "href": "/performance"
+        },
+        {
+          "text": "",
+          "href": "/navigation"
+        },
+        {
+          "text": "",
+          "href": "/atc"
+        },
+        {
+          "text": "",
+          "href": "/failures"
+        },
+        {
+          "text": "",
+          "href": "/checklists"
+        },
+        {
+          "text": "",
+          "href": "/presets"
+        },
+        {
+          "text": "",
+          "href": "/settings"
+        },
+        {
+          "text": "离线起飞核算",
+          "href": "/performance/local-takeoff"
+        },
+        {
+          "text": "下降顶点",
+          "href": "/performance/top-of-descent"
+        },
+        {
+          "text": "着陆",
+          "href": "/performance/landing"
+        }
+      ],
+      "inputs": [
+        {
+          "type": "text",
+          "placeholder": "ICAO",
+          "value": ""
+        },
+        {
+          "type": "text",
+          "placeholder": "°",
+          "value": ""
+        },
+        {
+          "type": "text",
+          "placeholder": "m",
+          "value": ""
+        },
+        {
+          "type": "text",
+          "placeholder": "ft AMSL",
+          "value": ""
+        },
+        {
+          "type": "text",
+          "placeholder": "%",
+          "value": ""
+        },
+        {
+          "type": "text",
+          "placeholder": "节 (kts)",
+          "value": ""
+        },
+        {
+          "type": "text",
+          "placeholder": "°C",
+          "value": ""
+        },
+        {
+          "type": "text",
+          "placeholder": "hPa",
+          "value": ""
+        },
+        {
+          "type": "text",
+          "placeholder": "kg",
+          "value": ""
+        },
+        {
+          "type": "text",
+          "placeholder": "节 (kts)",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "id": "navigation-navigraph",
+      "route": "/navigation/navigraph",
+      "fatal": false,
+      "text": "周六 十月 3\n\n0800Z\n\nZUTF\n\n0800Z\n\nZSPD\n\n1100Z\n\n点击打开快速控制\n已与SimBridge断开连接\n\n100%\n\n主页面\n签派\n地面\n性能\n导航和航图\n空中交通管制\n失效\n检查单\n预设\n设置\n导航和航图\nNavigraph\n本地文件\n固定的航图\n\n.env 文件数量不足\n\nHEADWIND A339X · 浏览器开发模式 · 本地模拟数据 · 非 MSFS 飞行会话\n载入演示航班",
+      "links": [
+        {
+          "text": "",
+          "href": "/dashboard"
+        },
+        {
+          "text": "",
+          "href": "/dispatch"
+        },
+        {
+          "text": "",
+          "href": "/ground"
+        },
+        {
+          "text": "",
+          "href": "/performance"
+        },
+        {
+          "text": "",
+          "href": "/navigation"
+        },
+        {
+          "text": "",
+          "href": "/atc"
+        },
+        {
+          "text": "",
+          "href": "/failures"
+        },
+        {
+          "text": "",
+          "href": "/checklists"
+        },
+        {
+          "text": "",
+          "href": "/presets"
+        },
+        {
+          "text": "",
+          "href": "/settings"
+        },
+        {
+          "text": "Navigraph",
+          "href": "/navigation/navigraph"
+        },
+        {
+          "text": "本地文件",
+          "href": "/navigation/local-files"
+        },
+        {
+          "text": "固定的航图",
+          "href": "/navigation/pinned-charts"
+        }
+      ],
+      "inputs": []
+    },
+    {
+      "id": "navigation-local",
+      "route": "/navigation/local-files",
+      "fatal": false,
+      "text": "周六 十月 3\n\n0800Z\n\nZUTF\n\n0800Z\n\nZSPD\n\n1100Z\n\n点击打开快速控制\n已与SimBridge断开连接\n\n100%\n\n主页面\n签派\n地面\n性能\n导航和航图\n空中交通管制\n失效\n检查单\n预设\n设置\n导航和航图\nNavigraph\n本地文件\n固定的航图\n建立连接失败\n重试\nHEADWIND A339X · 浏览器开发模式 · 本地模拟数据 · 非 MSFS 飞行会话\n载入演示航班",
+      "links": [
+        {
+          "text": "",
+          "href": "/dashboard"
+        },
+        {
+          "text": "",
+          "href": "/dispatch"
+        },
+        {
+          "text": "",
+          "href": "/ground"
+        },
+        {
+          "text": "",
+          "href": "/performance"
+        },
+        {
+          "text": "",
+          "href": "/navigation"
+        },
+        {
+          "text": "",
+          "href": "/atc"
+        },
+        {
+          "text": "",
+          "href": "/failures"
+        },
+        {
+          "text": "",
+          "href": "/checklists"
+        },
+        {
+          "text": "",
+          "href": "/presets"
+        },
+        {
+          "text": "",
+          "href": "/settings"
+        },
+        {
+          "text": "Navigraph",
+          "href": "/navigation/navigraph"
+        },
+        {
+          "text": "本地文件",
+          "href": "/navigation/local-files"
+        },
+        {
+          "text": "固定的航图",
+          "href": "/navigation/pinned-charts"
+        }
+      ],
+      "inputs": []
+    },
+    {
+      "id": "navigation-pinned",
+      "route": "/navigation/pinned-charts",
+      "fatal": false,
+      "text": "周六 十月 3\n\n0800Z\n\nZUTF\n\n0800Z\n\nZSPD\n\n1100Z\n\n点击打开快速控制\n已与SimBridge断开连接\n\n100%\n\n主页面\n签派\n地面\n性能\n导航和航图\n空中交通管制\n失效\n检查单\n预设\n设置\n导航和航图\nNavigraph\n本地文件\n固定的航图\n所有文件\n更换航图来源\n浏览\n编辑\n显示所有供应商的航图\n无\n更改航图排序方式\n未找到任何项目\nHEADWIND A339X · 浏览器开发模式 · 本地模拟数据 · 非 MSFS 飞行会话\n载入演示航班",
+      "links": [
+        {
+          "text": "",
+          "href": "/dashboard"
+        },
+        {
+          "text": "",
+          "href": "/dispatch"
+        },
+        {
+          "text": "",
+          "href": "/ground"
+        },
+        {
+          "text": "",
+          "href": "/performance"
+        },
+        {
+          "text": "",
+          "href": "/navigation"
+        },
+        {
+          "text": "",
+          "href": "/atc"
+        },
+        {
+          "text": "",
+          "href": "/failures"
+        },
+        {
+          "text": "",
+          "href": "/checklists"
+        },
+        {
+          "text": "",
+          "href": "/presets"
+        },
+        {
+          "text": "",
+          "href": "/settings"
+        },
+        {
+          "text": "Navigraph",
+          "href": "/navigation/navigraph"
+        },
+        {
+          "text": "本地文件",
+          "href": "/navigation/local-files"
+        },
+        {
+          "text": "固定的航图",
+          "href": "/navigation/pinned-charts"
+        }
+      ],
+      "inputs": [
+        {
+          "type": "text",
+          "placeholder": "搜索",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "id": "atc",
+      "route": "/atc",
+      "fatal": false,
+      "text": "周六 十月 3\n\n0800Z\n\nZUTF\n\n0800Z\n\nZSPD\n\n1100Z\n\n点击打开快速控制\n已与SimBridge断开连接\n\n100%\n\n主页面\n签派\n地面\n性能\n导航和航图\n空中交通管制\n失效\n检查单\n预设\n设置\n空中交通管制\n只有在设置页面中选择 IVAO 或 VATSIM 作为 ATIS/ATC 来源时,此页面才可用。\n\n更改 ATIS/ATC 来源\n\nHEADWIND A339X · 浏览器开发模式 · 本地模拟数据 · 非 MSFS 飞行会话\n载入演示航班",
+      "links": [
+        {
+          "text": "",
+          "href": "/dashboard"
+        },
+        {
+          "text": "",
+          "href": "/dispatch"
+        },
+        {
+          "text": "",
+          "href": "/ground"
+        },
+        {
+          "text": "",
+          "href": "/performance"
+        },
+        {
+          "text": "",
+          "href": "/navigation"
+        },
+        {
+          "text": "",
+          "href": "/atc"
+        },
+        {
+          "text": "",
+          "href": "/failures"
+        },
+        {
+          "text": "",
+          "href": "/checklists"
+        },
+        {
+          "text": "",
+          "href": "/presets"
+        },
+        {
+          "text": "",
+          "href": "/settings"
+        },
+        {
+          "text": "更改 ATIS/ATC 来源",
+          "href": "/settings/atsu---aoc"
+        }
+      ],
+      "inputs": []
+    },
+    {
+      "id": "failures",
+      "route": "/failures",
+      "fatal": false,
+      "text": "周六 十月 3\n\n0800Z\n\nZUTF\n\n0800Z\n\nZSPD\n\n1100Z\n\n点击打开快速控制\n已与SimBridge断开连接\n\n100%\n\n主页面\n签派\n地面\n性能\n导航和航图\n空中交通管制\n失效\n检查单\n预设\n设置\n失效\n\n以下故障尚不能保证完整模拟\n\n舒适\n紧凑\nATA 21\nAir Conditioning\n\nThe air conditioning system regulates the temperature, air flow and pressure inside the aircraft. Its main function is to supply a high level of comfort to the passengers and crew and protect the aircraft systems like the avionics.\n\nATA 22\nAuto Flight\n\nThe Autoflight systems are responsible for a multitude of functions, including but not limited to: Flight Guidance (AP, FD, A/THR), Flight Management, Flight Augmentation (yaw damper, etc.), and Flight Envelope (Speed scale, Alpha floor, etc.).\n\nATA 24\nElectrical Power\n\nAll things related to the electrical system. The electrical system supplies power from the engines, APU, batteries, or emergency generator to all cockpit instruments.\n\nATA 27\nFlight Controls\n\nThe flight controls contain the various systems used to control the aircraft in flight, such as control surfaces, but also flight control computers. Failure of these systems may lead to loss of control over the aircraft, and/or loss of information about the status of the flight controls.\n\nATA 29\nHydraulic Power\n\nThe hydraulic system connects to the flight controls, flaps and landing gear to provide pressure to these surfaces. Failing these can cause loss of control over some flight surfaces.\n\nATA 31\nIndicating / Recording System\n\nThe cockpit displays give critical flight information to the pilots. In a failure where displays are lost, the pilots must deal with a lack of flight data given to them.\n\nATA 32\nLanding Gear\n\nThe landing gear components are responsible for supporting and steering the aircraft on the ground, and make it possible to retract and store the landing gear in flight. Includes the functioning and maintenance aspects of the landing gear doors.\n\nATA 34\nNavigation\n\nThe navigation systems provide data about the position, speed, heading, and altitude of the aircraft. Failures in a system such as the ADIRS can cause a loss of data sent to instrumentation.\n\nHEADWIND A339X · 浏览器开发模式 · 本地模拟数据 · 非 MSFS 飞行会话\n载入演示航班",
+      "links": [
+        {
+          "text": "",
+          "href": "/dashboard"
+        },
+        {
+          "text": "",
+          "href": "/dispatch"
+        },
+        {
+          "text": "",
+          "href": "/ground"
+        },
+        {
+          "text": "",
+          "href": "/performance"
+        },
+        {
+          "text": "",
+          "href": "/navigation"
+        },
+        {
+          "text": "",
+          "href": "/atc"
+        },
+        {
+          "text": "",
+          "href": "/failures"
+        },
+        {
+          "text": "",
+          "href": "/checklists"
+        },
+        {
+          "text": "",
+          "href": "/presets"
+        },
+        {
+          "text": "",
+          "href": "/settings"
+        },
+        {
+          "text": "舒适",
+          "href": "/failures/comfort"
+        },
+        {
+          "text": "紧凑",
+          "href": "/failures/compact"
+        },
+        {
+          "text": "ATA 21\nAir Conditioning\n\nThe air conditioning system regulates the temperature, air flow and pressure inside the aircraft. Its main function is to supply a high level of comfort to the passengers and crew and protect the aircraft systems like the avionics.",
+          "href": "/failures/comfort/21"
+        },
+        {
+          "text": "ATA 22\nAuto Flight\n\nThe Autoflight systems are responsible for a multitude of functions, including but not limited to: Flight Guidance (AP, FD, A/THR), Flight Management, Flight Augmentation (yaw damper, etc.), and Flight Envelope (Speed scale, Alpha floor, etc.).",
+          "href": "/failures/comfort/22"
+        },
+        {
+          "text": "ATA 24\nElectrical Power\n\nAll things related to the electrical system. The electrical system supplies power from the engines, APU, batteries, or emergency generator to all cockpit instruments.",
+          "href": "/failures/comfort/24"
+        },
+        {
+          "text": "ATA 27\nFlight Controls\n\nThe flight controls contain the various systems used to control the aircraft in flight, such as control surfaces, but also flight control computers. Failure of these systems may lead to loss of control over the aircraft, and/or loss of information about the status of the flight controls.",
+          "href": "/failures/comfort/27"
+        },
+        {
+          "text": "ATA 29\nHydraulic Power\n\nThe hydraulic system connects to the flight controls, flaps and landing gear to provide pressure to these surfaces. Failing these can cause loss of control over some flight surfaces.",
+          "href": "/failures/comfort/29"
+        },
+        {
+          "text": "ATA 31\nIndicating / Recording System\n\nThe cockpit displays give critical flight information to the pilots. In a failure where displays are lost, the pilots must deal with a lack of flight data given to them.",
+          "href": "/failures/comfort/31"
+        },
+        {
+          "text": "ATA 32\nLanding Gear\n\nThe landing gear components are responsible for supporting and steering the aircraft on the ground, and make it possible to retract and store the landing gear in flight. Includes the functioning and maintenance aspects of the landing gear doors.",
+          "href": "/failures/comfort/32"
+        },
+        {
+          "text": "ATA 34\nNavigation\n\nThe navigation systems provide data about the position, speed, heading, and altitude of the aircraft. Failures in a system such as the ADIRS can cause a loss of data sent to instrumentation.",
+          "href": "/failures/comfort/34"
+        }
+      ],
+      "inputs": [
+        {
+          "type": "text",
+          "placeholder": "搜索",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "id": "checklists",
+      "route": "/checklists",
+      "fatal": false,
+      "text": "周六 十月 3\n\n0800Z\n\nZUTF\n\n0800Z\n\nZSPD\n\n1100Z\n\n点击打开快速控制\n已与SimBridge断开连接\n\n100%\n\n主页面\n签派\n地面\n性能\n导航和航图\n空中交通管制\n失效\n检查单\n预设\n设置\n检查单\nCOCKPIT PREPARATION\nBEFORE START\nAFTER START\nTAXI\nLINE-UP\n<< DEPARTURE CHANGE >>\nAPPROACH\nLANDING\nAFTER LANDING\nPARKING\nSECURING AIRCRAFT\n全部重置\n重置检查单\nGEAR PINS & COVERS\nREMOVE\nFUEL QUANTITY\n_____ KG/LB, BALANCED\nSEAT BELTS\nON\nADIRS\nNAV\nBARO REF\n_____ (BOTH)\n标记项目为完成\nHEADWIND A339X · 浏览器开发模式 · 本地模拟数据 · 非 MSFS 飞行会话\n载入演示航班",
+      "links": [
+        {
+          "text": "",
+          "href": "/dashboard"
+        },
+        {
+          "text": "",
+          "href": "/dispatch"
+        },
+        {
+          "text": "",
+          "href": "/ground"
+        },
+        {
+          "text": "",
+          "href": "/performance"
+        },
+        {
+          "text": "",
+          "href": "/navigation"
+        },
+        {
+          "text": "",
+          "href": "/atc"
+        },
+        {
+          "text": "",
+          "href": "/failures"
+        },
+        {
+          "text": "",
+          "href": "/checklists"
+        },
+        {
+          "text": "",
+          "href": "/presets"
+        },
+        {
+          "text": "",
+          "href": "/settings"
+        }
+      ],
+      "inputs": []
+    },
+    {
+      "id": "presets-lighting",
+      "route": "/presets/interior-lighting",
+      "fatal": false,
+      "text": "加载此预设\n\n周六 十月 3\n\n0800Z\n\nZUTF\n\n0800Z\n\nZSPD\n\n1100Z\n\n点击打开快速控制\n已与SimBridge断开连接\n\n100%\n\n主页面\n签派\n地面\n性能\n导航和航图\n空中交通管制\n失效\n检查单\n预设\n设置\n预设\n舱内照明\n飞机状态\n?\n选择舱内照明预设以加载或保存\n1\n点击文本以更改预设名称\n加载预设\n加载此预设\n保存预设\n保存当前照明亮度\n2\n点击文本以更改预设名称\n加载预设\n加载此预设\n保存预设\n保存当前照明亮度\n3\n点击文本以更改预设名称\n加载预设\n加载此预设\n保存预设\n保存当前照明亮度\n4\n点击文本以更改预设名称\n加载预设\n加载此预设\n保存预设\n保存当前照明亮度\n5\n点击文本以更改预设名称\n加载预设\n加载此预设\n保存预设\n保存当前照明亮度\n6\n点击文本以更改预设名称\n加载预设\n加载此预设\n保存预设\n保存当前照明亮度\n7\n点击文本以更改预设名称\n加载预设\n加载此预设\n保存预设\n保存当前照明亮度\n8\n点击文本以更改预设名称\n加载预设\n加载此预设\n保存预设\n保存当前照明亮度\n启用自动加载照明预设：\n白天\n无\n黎明/黄昏：\n无\n夜间：\n无\nHEADWIND A339X · 浏览器开发模式 · 本地模拟数据 · 非 MSFS 飞行会话\n载入演示航班",
+      "links": [
+        {
+          "text": "",
+          "href": "/dashboard"
+        },
+        {
+          "text": "",
+          "href": "/dispatch"
+        },
+        {
+          "text": "",
+          "href": "/ground"
+        },
+        {
+          "text": "",
+          "href": "/performance"
+        },
+        {
+          "text": "",
+          "href": "/navigation"
+        },
+        {
+          "text": "",
+          "href": "/atc"
+        },
+        {
+          "text": "",
+          "href": "/failures"
+        },
+        {
+          "text": "",
+          "href": "/checklists"
+        },
+        {
+          "text": "",
+          "href": "/presets"
+        },
+        {
+          "text": "",
+          "href": "/settings"
+        },
+        {
+          "text": "舱内照明",
+          "href": "/presets/interior-lighting"
+        },
+        {
+          "text": "飞机状态",
+          "href": "/presets/aircraft-states"
+        },
+        {
+          "text": "?",
+          "href": "/presets/-"
+        }
+      ],
+      "inputs": [
+        {
+          "type": "text",
+          "placeholder": "无名称",
+          "value": "无名称"
+        },
+        {
+          "type": "text",
+          "placeholder": "无名称",
+          "value": "无名称"
+        },
+        {
+          "type": "text",
+          "placeholder": "无名称",
+          "value": "无名称"
+        },
+        {
+          "type": "text",
+          "placeholder": "无名称",
+          "value": "无名称"
+        },
+        {
+          "type": "text",
+          "placeholder": "无名称",
+          "value": "无名称"
+        },
+        {
+          "type": "text",
+          "placeholder": "无名称",
+          "value": "无名称"
+        },
+        {
+          "type": "text",
+          "placeholder": "无名称",
+          "value": "无名称"
+        },
+        {
+          "type": "text",
+          "placeholder": "无名称",
+          "value": "无名称"
+        }
+      ]
+    },
+    {
+      "id": "presets-aircraft",
+      "route": "/presets/aircraft-states",
+      "fatal": false,
+      "text": "加载此预设\n\n周六 十月 3\n\n0800Z\n\nZUTF\n\n0800Z\n\nZSPD\n\n1100Z\n\n点击打开快速控制\n已与SimBridge断开连接\n\n100%\n\n主页面\n签派\n地面\n性能\n导航和航图\n空中交通管制\n失效\n检查单\n预设\n设置\n预设\n舱内照明\n飞机状态\n?\n选择要加载的预设\n冷舱\n供电\n准备后推\n准备滑行\n准备起飞\n快速加载（不真实）：\nHEADWIND A339X · 浏览器开发模式 · 本地模拟数据 · 非 MSFS 飞行会话\n载入演示航班",
+      "links": [
+        {
+          "text": "",
+          "href": "/dashboard"
+        },
+        {
+          "text": "",
+          "href": "/dispatch"
+        },
+        {
+          "text": "",
+          "href": "/ground"
+        },
+        {
+          "text": "",
+          "href": "/performance"
+        },
+        {
+          "text": "",
+          "href": "/navigation"
+        },
+        {
+          "text": "",
+          "href": "/atc"
+        },
+        {
+          "text": "",
+          "href": "/failures"
+        },
+        {
+          "text": "",
+          "href": "/checklists"
+        },
+        {
+          "text": "",
+          "href": "/presets"
+        },
+        {
+          "text": "",
+          "href": "/settings"
+        },
+        {
+          "text": "舱内照明",
+          "href": "/presets/interior-lighting"
+        },
+        {
+          "text": "飞机状态",
+          "href": "/presets/aircraft-states"
+        },
+        {
+          "text": "?",
+          "href": "/presets/-"
+        }
+      ],
+      "inputs": []
+    },
+    {
+      "id": "presets-help",
+      "route": "/presets/-",
+      "fatal": false,
+      "text": "加载此预设\n\n周六 十月 3\n\n0800Z\n\nZUTF\n\n0800Z\n\nZSPD\n\n1100Z\n\n点击打开快速控制\n已与SimBridge断开连接\n\n100%\n\n主页面\n签派\n地面\n性能\n导航和航图\n空中交通管制\n失效\n检查单\n预设\n设置\n预设\n舱内照明\n飞机状态\n?\nLighting\n\nLoad a preset by clicking on the corresponding \"Load Preset\" button when the aircraft is powered.\nSave current interior lighting levels by clicking on \"Save Preset\" button of the corresponding preset when the aircraft is powered.\nRename a preset by clicking on the current name and entering a new name. The new name will be saved after leaving the input field.\n\nAircraft\n\nAircraft Presets act as a virtual Co-Pilot supporting you setting up the aircraft correctly while you are preparing the flight management system. The Aircraft Presets do not cover the FMS and FCU setup.\n\nYou still have to setup the FMS using the MCDU and the FCU according to your flight plan.\n\nWhen clicking on a preset button the corresponding preset procedure will be started. This happens in real time as if a Co-Pilot would execute the setup.\nThis means that the preset procedure will take some time to complete especially when waiting for certain steps to finish, e.g. ADIRS alignment, APU start, engines start, etc.\nYou can stop and interrupt the procedure anytime by clicking on \"Cancel\". The procedure will stop after the current step is finished. The aircraft will be in a state in-between two presets. You can always press a preset again and let it run until completion to make sure a procedure is complete.\nIf you have partly setup the aircraft already the presets will check if the correct setting is already done and skip this step. Otherwise it will overwrite your setup.\nIf you change any settings during a running procedure you might confuse your Co-Pilot and end up with an incomplete preset state. You can repeat loading the preset in this case.\n\nHEADWIND A339X · 浏览器开发模式 · 本地模拟数据 · 非 MSFS 飞行会话\n载入演示航班",
+      "links": [
+        {
+          "text": "",
+          "href": "/dashboard"
+        },
+        {
+          "text": "",
+          "href": "/dispatch"
+        },
+        {
+          "text": "",
+          "href": "/ground"
+        },
+        {
+          "text": "",
+          "href": "/performance"
+        },
+        {
+          "text": "",
+          "href": "/navigation"
+        },
+        {
+          "text": "",
+          "href": "/atc"
+        },
+        {
+          "text": "",
+          "href": "/failures"
+        },
+        {
+          "text": "",
+          "href": "/checklists"
+        },
+        {
+          "text": "",
+          "href": "/presets"
+        },
+        {
+          "text": "",
+          "href": "/settings"
+        },
+        {
+          "text": "舱内照明",
+          "href": "/presets/interior-lighting"
+        },
+        {
+          "text": "飞机状态",
+          "href": "/presets/aircraft-states"
+        },
+        {
+          "text": "?",
+          "href": "/presets/-"
+        }
+      ],
+      "inputs": []
+    },
+    {
+      "id": "settings",
+      "route": "/settings",
+      "fatal": false,
+      "text": "加载此预设\n\n周六 十月 3\n\n0800Z\n\nZUTF\n\n0800Z\n\nZSPD\n\n1100Z\n\n点击打开快速控制\n已与SimBridge断开连接\n\n100%\n\n主页面\n签派\n地面\n性能\n导航和航图\n空中交通管制\n失效\n检查单\n预设\n设置\n设置\n\n飞机选项/置顶程序\n\n模拟器选项\n\n仿真度\n\n第三方选项\n\nATSU / AOC\n\n音频\n\nflyPad\n\n相关\n\nHEADWIND A339X · 浏览器开发模式 · 本地模拟数据 · 非 MSFS 飞行会话\n载入演示航班",
+      "links": [
+        {
+          "text": "",
+          "href": "/dashboard"
+        },
+        {
+          "text": "",
+          "href": "/dispatch"
+        },
+        {
+          "text": "",
+          "href": "/ground"
+        },
+        {
+          "text": "",
+          "href": "/performance"
+        },
+        {
+          "text": "",
+          "href": "/navigation"
+        },
+        {
+          "text": "",
+          "href": "/atc"
+        },
+        {
+          "text": "",
+          "href": "/failures"
+        },
+        {
+          "text": "",
+          "href": "/checklists"
+        },
+        {
+          "text": "",
+          "href": "/presets"
+        },
+        {
+          "text": "",
+          "href": "/settings"
+        },
+        {
+          "text": "飞机选项/置顶程序",
+          "href": "/settings/aircraft-options---pin-programs"
+        },
+        {
+          "text": "模拟器选项",
+          "href": "/settings/sim-options"
+        },
+        {
+          "text": "仿真度",
+          "href": "/settings/realism"
+        },
+        {
+          "text": "第三方选项",
+          "href": "/settings/3rd-party-options"
+        },
+        {
+          "text": "ATSU / AOC",
+          "href": "/settings/atsu---aoc"
+        },
+        {
+          "text": "音频",
+          "href": "/settings/audio"
+        },
+        {
+          "text": "flyPad",
+          "href": "/settings/flypad"
+        },
+        {
+          "text": "相关",
+          "href": "/settings/about"
+        }
+      ],
+      "inputs": []
+    },
+    {
+      "id": "settings-aircraft",
+      "route": "/settings/aircraft-options---pin-programs",
+      "fatal": false,
+      "text": "加载此预设\n\n周六 十月 3\n\n0800Z\n\nZUTF\n\n0800Z\n\nZSPD\n\n1100Z\n\n点击打开快速控制\n已与SimBridge断开连接\n\n100%\n\n主页面\n签派\n地面\n性能\n导航和航图\n空中交通管制\n失效\n检查单\n预设\n设置\n设置 - 飞机选项/置顶程序\n减推力高度 (英尺/ft)\n加速高度 (英尺/ft)\n发动机失效加速高度 (英尺/ft)\n综合备用仪表系统 (ISIS) 气压单位\nhPa\nhPa/inHg\n综合备用仪表系统 (ISIS) 米制高度 (m)\n客舱标志\nNo Smoking\nNo Portable Device\nRMP 甚高频间隔\n8.33 kHz\n25 kHz\nFMGC 纬度/经度 航点格式\nLLnn\nAxxByyy\n美制单位\n卫星通信\n自动进近高度提示\n选择\nHEADWIND A339X · 浏览器开发模式 · 本地模拟数据 · 非 MSFS 飞行会话\n载入演示航班",
+      "links": [
+        {
+          "text": "",
+          "href": "/dashboard"
+        },
+        {
+          "text": "",
+          "href": "/dispatch"
+        },
+        {
+          "text": "",
+          "href": "/ground"
+        },
+        {
+          "text": "",
+          "href": "/performance"
+        },
+        {
+          "text": "",
+          "href": "/navigation"
+        },
+        {
+          "text": "",
+          "href": "/atc"
+        },
+        {
+          "text": "",
+          "href": "/failures"
+        },
+        {
+          "text": "",
+          "href": "/checklists"
+        },
+        {
+          "text": "",
+          "href": "/presets"
+        },
+        {
+          "text": "",
+          "href": "/settings"
+        },
+        {
+          "text": "设置 - 飞机选项/置顶程序",
+          "href": "/settings"
+        },
+        {
+          "text": "选择",
+          "href": "/settings/aircraft-options---pin-programs/automatic-call-outs"
+        }
+      ],
+      "inputs": [
+        {
+          "type": "text",
+          "placeholder": "1500",
+          "value": "1500"
+        },
+        {
+          "type": "text",
+          "placeholder": "1500",
+          "value": "1500"
+        },
+        {
+          "type": "text",
+          "placeholder": "1500",
+          "value": "1500"
+        }
+      ]
+    },
+    {
+      "id": "settings-sim",
+      "route": "/settings/sim-options",
+      "fatal": false,
+      "text": "加载此预设\n\n周六 十月 3\n\n0800Z\n\nZUTF\n\n0800Z\n\nZSPD\n\n1100Z\n\n点击打开快速控制\n已与SimBridge断开连接\n\n100%\n\n主页面\n签派\n地面\n性能\n导航和航图\n空中交通管制\n失效\n检查单\n预设\n设置\n设置 - 模拟器选项\n默认气压单位\n自动\n英寸汞柱 (inHg)\n百帕 (hPa)\n同步 MSFS 内飞行计划\n无\n仅加载\n保存\n启用 Simbridge 连接 (5 分钟之内无连接将自动停用)\n自动\n关\n启用\nSimbridge 主机\n这台电脑\n远程电脑\n外部 SimBridge 端口\n使用经系统计算的ILS 信号\n启用飞行数据记录器 (FDR)\n轮档\n安全锥\n油门卡位\n校准\nHEADWIND A339X · 浏览器开发模式 · 本地模拟数据 · 非 MSFS 飞行会话\n载入演示航班",
+      "links": [
+        {
+          "text": "",
+          "href": "/dashboard"
+        },
+        {
+          "text": "",
+          "href": "/dispatch"
+        },
+        {
+          "text": "",
+          "href": "/ground"
+        },
+        {
+          "text": "",
+          "href": "/performance"
+        },
+        {
+          "text": "",
+          "href": "/navigation"
+        },
+        {
+          "text": "",
+          "href": "/atc"
+        },
+        {
+          "text": "",
+          "href": "/failures"
+        },
+        {
+          "text": "",
+          "href": "/checklists"
+        },
+        {
+          "text": "",
+          "href": "/presets"
+        },
+        {
+          "text": "",
+          "href": "/settings"
+        },
+        {
+          "text": "设置 - 模拟器选项",
+          "href": "/settings"
+        }
+      ],
+      "inputs": [
+        {
+          "type": "text",
+          "placeholder": "",
+          "value": "8380"
+        }
+      ]
+    },
+    {
+      "id": "settings-realism",
+      "route": "/settings/realism",
+      "fatal": false,
+      "text": "加载此预设\n\n周六 十月 3\n\n0800Z\n\nZUTF\n\n0800Z\n\nZSPD\n\n1100Z\n\n点击打开快速控制\n已与SimBridge断开连接\n\n100%\n\n主页面\n签派\n地面\n性能\n导航和航图\n空中交通管制\n失效\n检查单\n预设\n设置\n设置 - 仿真度\nADIRS 校准需时\n即时\n快\n真实\nDMC 自检需时\n即时\n快\n真实\n登机需时\n即时\n快\n真实\n自动填充检查单 (不真实)\n将舵柄与脚舵输入分开\nMCDU 键盘输入 (不真实)\n在机长和副驾驶之间同步 EFIS 和音频控制 (不真实)\n显示飞行员头像\n显示副驾驶员头像\n下降顶点暂停 (不真实)\nHEADWIND A339X · 浏览器开发模式 · 本地模拟数据 · 非 MSFS 飞行会话\n载入演示航班",
+      "links": [
+        {
+          "text": "",
+          "href": "/dashboard"
+        },
+        {
+          "text": "",
+          "href": "/dispatch"
+        },
+        {
+          "text": "",
+          "href": "/ground"
+        },
+        {
+          "text": "",
+          "href": "/performance"
+        },
+        {
+          "text": "",
+          "href": "/navigation"
+        },
+        {
+          "text": "",
+          "href": "/atc"
+        },
+        {
+          "text": "",
+          "href": "/failures"
+        },
+        {
+          "text": "",
+          "href": "/checklists"
+        },
+        {
+          "text": "",
+          "href": "/presets"
+        },
+        {
+          "text": "",
+          "href": "/settings"
+        },
+        {
+          "text": "设置 - 仿真度",
+          "href": "/settings"
+        }
+      ],
+      "inputs": []
+    },
+    {
+      "id": "settings-third-party",
+      "route": "/settings/3rd-party-options",
+      "fatal": false,
+      "text": "加载此预设\n\n周六 十月 3\n\n0800Z\n\nZUTF\n\n0800Z\n\nZSPD\n\n1100Z\n\n点击打开快速控制\n已与SimBridge断开连接\n\n100%\n\n主页面\n签派\n地面\n性能\n导航和航图\n空中交通管制\n失效\n检查单\n预设\n设置\n设置 - 第三方选项\nNavigraph 帐户关联\n关联账户\n覆盖 SimBrief 用户 ID\n使用替代 Simbrief 用户ID，而不是已连接的 Navigraph 账户\n自动加载 SimBrief 数据\nGSX 插件加油同步\nGSX 插件配载同步\nGSX External Power Synchronization\nHEADWIND A339X · 浏览器开发模式 · 本地模拟数据 · 非 MSFS 飞行会话\n载入演示航班",
+      "links": [
+        {
+          "text": "",
+          "href": "/dashboard"
+        },
+        {
+          "text": "",
+          "href": "/dispatch"
+        },
+        {
+          "text": "",
+          "href": "/ground"
+        },
+        {
+          "text": "",
+          "href": "/performance"
+        },
+        {
+          "text": "",
+          "href": "/navigation"
+        },
+        {
+          "text": "",
+          "href": "/atc"
+        },
+        {
+          "text": "",
+          "href": "/failures"
+        },
+        {
+          "text": "",
+          "href": "/checklists"
+        },
+        {
+          "text": "",
+          "href": "/presets"
+        },
+        {
+          "text": "",
+          "href": "/settings"
+        },
+        {
+          "text": "设置 - 第三方选项",
+          "href": "/settings"
+        }
+      ],
+      "inputs": [
+        {
+          "type": "text",
+          "placeholder": "",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "id": "settings-atsu",
+      "route": "/settings/atsu---aoc",
+      "fatal": false,
+      "text": "加载此预设\n\n周六 十月 3\n\n0800Z\n\nZUTF\n\n0800Z\n\nZSPD\n\n1100Z\n\n点击打开快速控制\n已与SimBridge断开连接\n\n100%\n\n主页面\n签派\n地面\n性能\n导航和航图\n空中交通管制\n失效\n检查单\n预设\n设置\n设置 - ATSU / AOC\nATIS/ATC 来源\nFAA (US)\nPilotEdge\nIVAO\nVATSIM\nMETAR 来源\nMSFS\nNOAA\nPilotEdge\nVATSIM\nTAF 来源\nNOAA\nATSAW Traffic: Data Source\nNone\nMSFS\nVATSIM\nIVAO\nATSAW Traffic: Hide Aircraft Callsigns\nNo\nYes\n报告错误\n电传（TELEX）\nACARS Provider\nNone\nHoppie\nBATC\nSAI\nHEADWIND A339X · 浏览器开发模式 · 本地模拟数据 · 非 MSFS 飞行会话\n载入演示航班",
+      "links": [
+        {
+          "text": "",
+          "href": "/dashboard"
+        },
+        {
+          "text": "",
+          "href": "/dispatch"
+        },
+        {
+          "text": "",
+          "href": "/ground"
+        },
+        {
+          "text": "",
+          "href": "/performance"
+        },
+        {
+          "text": "",
+          "href": "/navigation"
+        },
+        {
+          "text": "",
+          "href": "/atc"
+        },
+        {
+          "text": "",
+          "href": "/failures"
+        },
+        {
+          "text": "",
+          "href": "/checklists"
+        },
+        {
+          "text": "",
+          "href": "/presets"
+        },
+        {
+          "text": "",
+          "href": "/settings"
+        },
+        {
+          "text": "设置 - ATSU / AOC",
+          "href": "/settings"
+        }
+      ],
+      "inputs": []
+    },
+    {
+      "id": "settings-audio",
+      "route": "/settings/audio",
+      "fatal": false,
+      "text": "加载此预设\n\n周六 十月 3\n\n0800Z\n\nZUTF\n\n0800Z\n\nZSPD\n\n1100Z\n\n点击打开快速控制\n已与SimBridge断开连接\n\n100%\n\n主页面\n签派\n地面\n性能\n导航和航图\n空中交通管制\n失效\n检查单\n预设\n设置\n设置 - 音频\n舱外主音量\n舱内引擎音量\n舱内气流音量\n乘客氛围\n广播\n登机音乐\nHEADWIND A339X · 浏览器开发模式 · 本地模拟数据 · 非 MSFS 飞行会话\n载入演示航班",
+      "links": [
+        {
+          "text": "",
+          "href": "/dashboard"
+        },
+        {
+          "text": "",
+          "href": "/dispatch"
+        },
+        {
+          "text": "",
+          "href": "/ground"
+        },
+        {
+          "text": "",
+          "href": "/performance"
+        },
+        {
+          "text": "",
+          "href": "/navigation"
+        },
+        {
+          "text": "",
+          "href": "/atc"
+        },
+        {
+          "text": "",
+          "href": "/failures"
+        },
+        {
+          "text": "",
+          "href": "/checklists"
+        },
+        {
+          "text": "",
+          "href": "/presets"
+        },
+        {
+          "text": "",
+          "href": "/settings"
+        },
+        {
+          "text": "设置 - 音频",
+          "href": "/settings"
+        }
+      ],
+      "inputs": [
+        {
+          "type": "text",
+          "placeholder": "",
+          "value": "50"
+        },
+        {
+          "type": "text",
+          "placeholder": "",
+          "value": "50"
+        },
+        {
+          "type": "text",
+          "placeholder": "",
+          "value": "50"
+        }
+      ]
+    },
+    {
+      "id": "settings-flypad",
+      "route": "/settings/flypad",
+      "fatal": false,
+      "text": "加载此预设\n\n周六 十月 3\n\n0800Z\n\nZUTF\n\n0800Z\n\nZSPD\n\n1100Z\n\n点击打开快速控制\n已与SimBridge断开连接\n\n100%\n\n主页面\n签派\n地面\n性能\n导航和航图\n空中交通管制\n失效\n检查单\n预设\n设置\n设置 - flyPad\n语言 (Language)\n中国简体\n屏幕键盘布局\nEnglish\n自动显示屏幕键盘\n自动调节亮度\n亮度\n模拟电池电量\n显示飞行进度\n显示彩色原始 METAR\n显示时间\n世界标准时间 (UTC)\n本地\n世界标准时间 (UTC) 与本地时间\n主题\n橙\n蓝色\n深色\n浅色\nHEADWIND A339X · 浏览器开发模式 · 本地模拟数据 · 非 MSFS 飞行会话\n载入演示航班",
+      "links": [
+        {
+          "text": "",
+          "href": "/dashboard"
+        },
+        {
+          "text": "",
+          "href": "/dispatch"
+        },
+        {
+          "text": "",
+          "href": "/ground"
+        },
+        {
+          "text": "",
+          "href": "/performance"
+        },
+        {
+          "text": "",
+          "href": "/navigation"
+        },
+        {
+          "text": "",
+          "href": "/atc"
+        },
+        {
+          "text": "",
+          "href": "/failures"
+        },
+        {
+          "text": "",
+          "href": "/checklists"
+        },
+        {
+          "text": "",
+          "href": "/presets"
+        },
+        {
+          "text": "",
+          "href": "/settings"
+        },
+        {
+          "text": "设置 - flyPad",
+          "href": "/settings"
+        }
+      ],
+      "inputs": [
+        {
+          "type": "text",
+          "placeholder": "",
+          "value": "80"
+        }
+      ]
+    },
+    {
+      "id": "settings-about",
+      "route": "/settings/about",
+      "fatal": false,
+      "text": "加载此预设\n\n周六 十月 3\n\n0800Z\n\nZUTF\n\n0800Z\n\nZSPD\n\n1100Z\n\n点击打开快速控制\n已与SimBridge断开连接\n\n100%\n\n主页面\n签派\n地面\n性能\n导航和航图\n空中交通管制\n失效\n检查单\n预设\n设置\n设置 - 相关\nflyPadOS 3\n\nMade with love by contributors in Québec, Germany, the United States, Singapore, Indonesia, New Zealand, Australia, Spain, the United Kingdom, France, the Netherlands, Sweden, and Switzerland!\n\n© 2020-2025 FlyByWire Simulations and its contributors, all rights reserved.\n\nLicensed under the GNU General Public License Version 3\n\nBuild Info\n\nSim Version                 \n\nAircraft Version            \n\nHeadwind browser development\n\nLivery Title                \n\nHeadwind A330-900neo\n\nBuilt                       \n\n2026-10-04\n\nRef                         \n\nlocal-efb\n\nSHA                         \n\n41eace79ed442696a6361dc72947954c9a6cf5cb\n\nEvent Name                  \n\nlocal-browser-build\n\nPretty Release Name         \n\nLocal EFB\n\n故障排除\nHEADWIND A339X · 浏览器开发模式 · 本地模拟数据 · 非 MSFS 飞行会话\n载入演示航班",
+      "links": [
+        {
+          "text": "",
+          "href": "/dashboard"
+        },
+        {
+          "text": "",
+          "href": "/dispatch"
+        },
+        {
+          "text": "",
+          "href": "/ground"
+        },
+        {
+          "text": "",
+          "href": "/performance"
+        },
+        {
+          "text": "",
+          "href": "/navigation"
+        },
+        {
+          "text": "",
+          "href": "/atc"
+        },
+        {
+          "text": "",
+          "href": "/failures"
+        },
+        {
+          "text": "",
+          "href": "/checklists"
+        },
+        {
+          "text": "",
+          "href": "/presets"
+        },
+        {
+          "text": "",
+          "href": "/settings"
+        },
+        {
+          "text": "设置 - 相关",
+          "href": "/settings"
+        },
+        {
+          "text": "故障排除",
+          "href": "/settings/about/troubleshooting"
+        }
+      ],
+      "inputs": []
+    }
+  ],
+  "errors": [
+    "Failed to load resource: net::ERR_CONNECTION_REFUSED",
+    "Failed to load resource: net::ERR_CONNECTION_REFUSED",
+    "Failed to load resource: net::ERR_CONNECTION_REFUSED",
+    "Failed to load resource: net::ERR_CONNECTION_REFUSED",
+    "Failed to load resource: net::ERR_CONNECTION_REFUSED",
+    "Failed to load resource: net::ERR_CONNECTION_REFUSED"
+  ]
+}

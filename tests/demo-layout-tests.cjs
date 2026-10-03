@@ -1,0 +1,7 @@
+const baseURL=process.env.EFB_BASE_URL||'http://127.0.0.1:9698';
+const {chromium}=require('playwright');
+const fs=require('node:fs'),assert=require('node:assert/strict');
+fs.mkdirSync('.artifacts/demo',{recursive:true});
+(async()=>{const b=await chromium.launch({executablePath:process.env.EFB_BROWSER_EXECUTABLE||undefined,headless:true});try{const p=await b.newPage({viewport:{width:1920,height:1080}});const errors=[],checks=[];p.on('pageerror',e=>errors.push(e.message));await p.goto(baseURL+"/demo.html");await p.waitForFunction(()=>window.__BID_PRESENTATION__&&!window.__BID_PRESENTATION__.status().busy);await p.evaluate(()=>window.__BID_PRESENTATION__.seek(10));await p.waitForFunction(()=>{const s=window.__BID_PRESENTATION__.status();return !s.busy&&s.actionIndex===3;});await p.evaluate(()=>window.__BID_PRESENTATION__.pause());
+ for(const [width,height] of [[1920,1080],[1280,720],[320,960]]){await p.setViewportSize({width,height});await p.waitForTimeout(300);assert.ok(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));const box=await p.locator('#efb').boundingBox();assert.ok(box.width>250);assert.ok(box.height>150);await p.screenshot({path:`.artifacts/demo/final-${width}x${height}.png`});checks.push(`${width}×${height} 显示 EFB 与讲解且无页面横向溢出`);}
+ assert.deepEqual(errors,[]);fs.writeFileSync('.artifacts/demo/demo-layout-tests.json',JSON.stringify({at:new Date().toISOString(),status:'PASS',checks,errors},null,2));console.log('Layout PASS',checks.length);}finally{await b.close();}})().catch(e=>{console.error(e);process.exit(1)});

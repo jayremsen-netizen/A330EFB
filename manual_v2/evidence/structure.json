@@ -1,0 +1,15 @@
+{
+  "pages": 300,
+  "chapters": 22,
+  "sections": 93,
+  "operation_sections": 30,
+  "operation_pages": 60,
+  "all_sections_illustrated": true,
+  "all_operation_sections_real_screenshots": true,
+  "duplicate_long_paragraphs": [],
+  "total_extracted_characters": 185493,
+  "sha256": "4916d3a4df8667fe00fe4e0a60c7ca0d83470abc1379f104a04458e630787fee",
+  "rendered_pages": 300,
+  "contact_sheets": 19,
+  "visual_review": "PASS"
+}

@@ -1,0 +1,3002 @@
+[
+  {
+    "page": 1,
+    "chapter": 0,
+    "section": "封面",
+    "title": "封面",
+    "bottom": 101,
+    "font": 12,
+    "figures": 1,
+    "characters": 110
+  },
+  {
+    "page": 2,
+    "chapter": 0,
+    "section": "文件定位与版本基线",
+    "title": "文件定位与版本基线",
+    "bottom": 170.4,
+    "font": 11.3,
+    "figures": true,
+    "characters": 261
+  },
+  {
+    "page": 3,
+    "chapter": 0,
+    "section": "技术方案摘要",
+    "title": "技术方案摘要",
+    "bottom": 160.8,
+    "font": 11.3,
+    "figures": true,
+    "characters": 276
+  },
+  {
+    "page": 4,
+    "chapter": 0,
+    "section": "系统能力与实现状态",
+    "title": "系统能力与实现状态",
+    "bottom": 191.8,
+    "font": 11.3,
+    "figures": true,
+    "characters": 179
+  },
+  {
+    "page": 5,
+    "chapter": 0,
+    "section": "阅读路径与图文约定",
+    "title": "阅读路径与图文约定",
+    "bottom": 170.4,
+    "font": 11.3,
+    "figures": true,
+    "characters": 250
+  },
+  {
+    "page": 6,
+    "chapter": 0,
+    "section": "目录",
+    "title": "详细目录",
+    "bottom": 148.88980000000004,
+    "font": 10,
+    "figures": 0,
+    "characters": 319
+  },
+  {
+    "page": 7,
+    "chapter": 0,
+    "section": "目录",
+    "title": "详细目录",
+    "bottom": 173.88980000000004,
+    "font": 10,
+    "figures": 0,
+    "characters": 339
+  },
+  {
+    "page": 8,
+    "chapter": 0,
+    "section": "目录",
+    "title": "详细目录",
+    "bottom": 148.88980000000004,
+    "font": 10,
+    "figures": 0,
+    "characters": 380
+  },
+  {
+    "page": 9,
+    "chapter": 0,
+    "section": "目录",
+    "title": "详细目录",
+    "bottom": 148.88980000000004,
+    "font": 10,
+    "figures": 0,
+    "characters": 374
+  },
+  {
+    "page": 10,
+    "chapter": 0,
+    "section": "目录",
+    "title": "详细目录",
+    "bottom": 123.88980000000004,
+    "font": 10,
+    "figures": 0,
+    "characters": 388
+  },
+  {
+    "page": 11,
+    "chapter": 1,
+    "section": 1,
+    "title": "电子飞行包的业务定位",
+    "bottom": 97.1,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 376
+  },
+  {
+    "page": 12,
+    "chapter": 1,
+    "section": 1,
+    "title": "业务边界与系统责任",
+    "bottom": 68.4,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 362
+  },
+  {
+    "page": 13,
+    "chapter": 1,
+    "section": 1,
+    "title": "运行形态及其适用边界",
+    "bottom": 64.4,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 358
+  },
+  {
+    "page": 14,
+    "chapter": 1,
+    "section": 2,
+    "title": "功能域的组织方式",
+    "bottom": 116.6,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 325
+  },
+  {
+    "page": 15,
+    "chapter": 1,
+    "section": 2,
+    "title": "从航班准备到结果归档",
+    "bottom": 87.1,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 301
+  },
+  {
+    "page": 16,
+    "chapter": 1,
+    "section": 2,
+    "title": "离线与外部资料并存的场景",
+    "bottom": 68.4,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 313
+  },
+  {
+    "page": 17,
+    "chapter": 1,
+    "section": 3,
+    "title": "围绕数据来源组织职责",
+    "bottom": 57.5,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 354
+  },
+  {
+    "page": 18,
+    "chapter": 1,
+    "section": 3,
+    "title": "模块化与可替换性",
+    "bottom": 93.5,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 355
+  },
+  {
+    "page": 19,
+    "chapter": 1,
+    "section": 3,
+    "title": "版本基线与实现范围",
+    "bottom": 68.4,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 379
+  },
+  {
+    "page": 20,
+    "chapter": 1,
+    "section": 3,
+    "title": "技术说明与使用说明的阅读关系",
+    "bottom": 87.5,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 330
+  },
+  {
+    "page": 21,
+    "chapter": 2,
+    "section": 1,
+    "title": "五层逻辑结构",
+    "bottom": 251.8,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 322
+  },
+  {
+    "page": 22,
+    "chapter": 2,
+    "section": 1,
+    "title": "组件职责分配",
+    "bottom": 58.8,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 349
+  },
+  {
+    "page": 23,
+    "chapter": 2,
+    "section": 1,
+    "title": "为什么保留原生组件",
+    "bottom": 136.6,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 301
+  },
+  {
+    "page": 24,
+    "chapter": 2,
+    "section": 1,
+    "title": "组件边界中的失败隔离",
+    "bottom": 77.9,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 304
+  },
+  {
+    "page": 25,
+    "chapter": 2,
+    "section": 2,
+    "title": "从静态入口到原生平板",
+    "bottom": 275.8,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 355
+  },
+  {
+    "page": 26,
+    "chapter": 2,
+    "section": 2,
+    "title": "上下文与提供器的职责",
+    "bottom": 72.2,
+    "font": 10.7,
+    "figures": 1,
+    "characters": 380
+  },
+  {
+    "page": 27,
+    "chapter": 2,
+    "section": 2,
+    "title": "同步状态与异步资源",
+    "bottom": 87.9,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 309
+  },
+  {
+    "page": 28,
+    "chapter": 2,
+    "section": 2,
+    "title": "本地服务的职责收敛",
+    "bottom": 97.5,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 344
+  },
+  {
+    "page": 29,
+    "chapter": 2,
+    "section": 3,
+    "title": "输入到结果的主数据流",
+    "bottom": 117.1,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 339
+  },
+  {
+    "page": 30,
+    "chapter": 2,
+    "section": 3,
+    "title": "本地模型到原生页面的投影",
+    "bottom": 60.8,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 320
+  },
+  {
+    "page": 31,
+    "chapter": 2,
+    "section": 3,
+    "title": "地面目标变化的数据回路",
+    "bottom": 116.2,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 315
+  },
+  {
+    "page": 32,
+    "chapter": 2,
+    "section": 3,
+    "title": "报告、历史与文件的出口",
+    "bottom": 126.6,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 328
+  },
+  {
+    "page": 33,
+    "chapter": 2,
+    "section": 4,
+    "title": "真实宿主接入的架构位置",
+    "bottom": 97.5,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 302
+  },
+  {
+    "page": 34,
+    "chapter": 2,
+    "section": 4,
+    "title": "多机型配置的分离方式",
+    "bottom": 57.5,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 291
+  },
+  {
+    "page": 35,
+    "chapter": 2,
+    "section": 4,
+    "title": "服务化扩展与本地优先",
+    "bottom": 96.6,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 310
+  },
+  {
+    "page": 36,
+    "chapter": 2,
+    "section": 4,
+    "title": "架构决策及其影响",
+    "bottom": 58.8,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 312
+  },
+  {
+    "page": 37,
+    "chapter": 3,
+    "section": 1,
+    "title": "进程、存储与访问地址",
+    "bottom": 146.2,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 334
+  },
+  {
+    "page": 38,
+    "chapter": 3,
+    "section": 1,
+    "title": "交付目录的组织",
+    "bottom": 90.7,
+    "font": 10.7,
+    "figures": 1,
+    "characters": 378
+  },
+  {
+    "page": 39,
+    "chapter": 3,
+    "section": 1,
+    "title": "环境依赖及部署约束",
+    "bottom": 68.4,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 338
+  },
+  {
+    "page": 40,
+    "chapter": 3,
+    "section": 2,
+    "title": "启动脚本的判断流程",
+    "bottom": 136.6,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 297
+  },
+  {
+    "page": 41,
+    "chapter": 3,
+    "section": 2,
+    "title": "页面启动与电源状态",
+    "bottom": 136.6,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 306
+  },
+  {
+    "page": 42,
+    "chapter": 3,
+    "section": 2,
+    "title": "停止和启动异常的呈现",
+    "bottom": 77.9,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 302
+  },
+  {
+    "page": 43,
+    "chapter": 3,
+    "section": 3,
+    "title": "共享源码和机型覆盖顺序",
+    "bottom": 201.8,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 330
+  },
+  {
+    "page": 44,
+    "chapter": 3,
+    "section": 3,
+    "title": "模块解析与构建别名",
+    "bottom": 90.4,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 334
+  },
+  {
+    "page": 45,
+    "chapter": 3,
+    "section": 3,
+    "title": "构建产物与发布过程",
+    "bottom": 87.9,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 331
+  },
+  {
+    "page": 46,
+    "chapter": 3,
+    "section": 4,
+    "title": "机型配置的装载路径",
+    "bottom": 96.6,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 327
+  },
+  {
+    "page": 47,
+    "chapter": 3,
+    "section": 4,
+    "title": "字体、本地化与显示资源",
+    "bottom": 83.9,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 310
+  },
+  {
+    "page": 48,
+    "chapter": 3,
+    "section": 4,
+    "title": "缓存策略与版本可识别性",
+    "bottom": 87.5,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 350
+  },
+  {
+    "page": 49,
+    "chapter": 4,
+    "section": 1,
+    "title": "Flight 作为业务聚合根",
+    "bottom": 107.1,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 309
+  },
+  {
+    "page": 50,
+    "chapter": 4,
+    "section": 1,
+    "title": "身份字段与版本字段",
+    "bottom": 59.3,
+    "font": 10.7,
+    "figures": 1,
+    "characters": 313
+  },
+  {
+    "page": 51,
+    "chapter": 4,
+    "section": 1,
+    "title": "机场与航路字段",
+    "bottom": 87.9,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 304
+  },
+  {
+    "page": 52,
+    "chapter": 4,
+    "section": 1,
+    "title": "不可变快照与派生视图",
+    "bottom": 117.1,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 312
+  },
+  {
+    "page": 53,
+    "chapter": 4,
+    "section": 2,
+    "title": "质量字段及其计算关系",
+    "bottom": 157.5,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 317
+  },
+  {
+    "page": 54,
+    "chapter": 4,
+    "section": 2,
+    "title": "跑道对象",
+    "bottom": 67.9,
+    "font": 10.4,
+    "figures": 1,
+    "characters": 354
+  },
+  {
+    "page": 55,
+    "chapter": 4,
+    "section": 2,
+    "title": "天气对象与方向约定",
+    "bottom": 118.4,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 298
+  },
+  {
+    "page": 56,
+    "chapter": 4,
+    "section": 2,
+    "title": "构型字段与模型支持范围",
+    "bottom": 87.9,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 336
+  },
+  {
+    "page": 57,
+    "chapter": 4,
+    "section": 3,
+    "title": "Result 的组成",
+    "bottom": 58.4,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 385
+  },
+  {
+    "page": 58,
+    "chapter": 4,
+    "section": 3,
+    "title": "当前有效结果的判定",
+    "bottom": 147.5,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 341
+  },
+  {
+    "page": 59,
+    "chapter": 4,
+    "section": 3,
+    "title": "历史对象与恢复规则",
+    "bottom": 87.1,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 300
+  },
+  {
+    "page": 60,
+    "chapter": 4,
+    "section": 4,
+    "title": "资料包的身份和来源",
+    "bottom": 78.1,
+    "font": 10.4,
+    "figures": 1,
+    "characters": 336
+  },
+  {
+    "page": 61,
+    "chapter": 4,
+    "section": 4,
+    "title": "表格结构与节点",
+    "bottom": 106.6,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 294
+  },
+  {
+    "page": 62,
+    "chapter": 4,
+    "section": 4,
+    "title": "配置与能力描述",
+    "bottom": 68.4,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 333
+  },
+  {
+    "page": 63,
+    "chapter": 4,
+    "section": 5,
+    "title": "本机状态记录",
+    "bottom": 65.7,
+    "font": 11,
+    "figures": 1,
+    "characters": 317
+  },
+  {
+    "page": 64,
+    "chapter": 4,
+    "section": 5,
+    "title": "航班 JSON 的导入边界",
+    "bottom": 87.9,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 343
+  },
+  {
+    "page": 65,
+    "chapter": 4,
+    "section": 5,
+    "title": "序列化、字符转义与文件命名",
+    "bottom": 87.9,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 298
+  },
+  {
+    "page": 66,
+    "chapter": 4,
+    "section": 5,
+    "title": "模式演进与兼容性",
+    "bottom": 117.1,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 290
+  },
+  {
+    "page": 67,
+    "chapter": 5,
+    "section": 1,
+    "title": "领域函数的调用契约",
+    "bottom": 68.4,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 352
+  },
+  {
+    "page": 68,
+    "chapter": 5,
+    "section": 1,
+    "title": "应用动作接口",
+    "bottom": 58.8,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 358
+  },
+  {
+    "page": 69,
+    "chapter": 5,
+    "section": 1,
+    "title": "错误返回与界面转换",
+    "bottom": 77.9,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 333
+  },
+  {
+    "page": 70,
+    "chapter": 5,
+    "section": 1,
+    "title": "接口的副作用约束",
+    "bottom": 107.5,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 274
+  },
+  {
+    "page": 71,
+    "chapter": 5,
+    "section": 2,
+    "title": "兼容层的输入输出",
+    "bottom": 126.2,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 275
+  },
+  {
+    "page": 72,
+    "chapter": 5,
+    "section": 2,
+    "title": "质量与燃油的字段映射",
+    "bottom": 78.8,
+    "font": 10.4,
+    "figures": 1,
+    "characters": 321
+  },
+  {
+    "page": 73,
+    "chapter": 5,
+    "section": 2,
+    "title": "开发宿主中的目标与样例状态",
+    "bottom": 64.9,
+    "font": 11,
+    "figures": 1,
+    "characters": 332
+  },
+  {
+    "page": 74,
+    "chapter": 5,
+    "section": 2,
+    "title": "反向读取的限定范围",
+    "bottom": 136.6,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 293
+  },
+  {
+    "page": 75,
+    "chapter": 5,
+    "section": 3,
+    "title": "SimVar 接口形状",
+    "bottom": 62.5,
+    "font": 11,
+    "figures": 1,
+    "characters": 321
+  },
+  {
+    "page": 76,
+    "chapter": 5,
+    "section": 3,
+    "title": "更新节拍与 React Hook",
+    "bottom": 106.6,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 306
+  },
+  {
+    "page": 77,
+    "chapter": 5,
+    "section": 3,
+    "title": "Coherent 与监听器适配",
+    "bottom": 70.8,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 333
+  },
+  {
+    "page": 78,
+    "chapter": 5,
+    "section": 3,
+    "title": "请求完成与状态生效",
+    "bottom": 156.2,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 265
+  },
+  {
+    "page": 79,
+    "chapter": 5,
+    "section": 4,
+    "title": "会话与状态快照",
+    "bottom": 97.5,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 286
+  },
+  {
+    "page": 80,
+    "chapter": 5,
+    "section": 4,
+    "title": "命令与回执对象",
+    "bottom": 63.0,
+    "font": 10.4,
+    "figures": 1,
+    "characters": 346
+  },
+  {
+    "page": 81,
+    "chapter": 5,
+    "section": 4,
+    "title": "断线、重连与能力降级",
+    "bottom": 117.1,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 274
+  },
+  {
+    "page": 82,
+    "chapter": 5,
+    "section": 5,
+    "title": "资料请求的领域边界",
+    "bottom": 117.1,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 262
+  },
+  {
+    "page": 83,
+    "chapter": 5,
+    "section": 5,
+    "title": "本地文件与资料文件的差异",
+    "bottom": 77.9,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 304
+  },
+  {
+    "page": 84,
+    "chapter": 5,
+    "section": 5,
+    "title": "接口来源、时效和错误说明",
+    "bottom": 97.5,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 289
+  },
+  {
+    "page": 85,
+    "chapter": 6,
+    "section": 1,
+    "title": "一级业务域与二级标签",
+    "bottom": 116.6,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 279
+  },
+  {
+    "page": 86,
+    "chapter": 6,
+    "section": 1,
+    "title": "MemoryRouter 的运行语义",
+    "bottom": 67.5,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 355
+  },
+  {
+    "page": 87,
+    "chapter": 6,
+    "section": 1,
+    "title": "跨页面上下文的保持",
+    "bottom": 87.9,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 272
+  },
+  {
+    "page": 88,
+    "chapter": 6,
+    "section": 2,
+    "title": "字段组件与可访问标签",
+    "bottom": 117.1,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 287
+  },
+  {
+    "page": 89,
+    "chapter": 6,
+    "section": 2,
+    "title": "显示单位与内部单位",
+    "bottom": 77.5,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 299
+  },
+  {
+    "page": 90,
+    "chapter": 6,
+    "section": 2,
+    "title": "即时反馈与提交反馈",
+    "bottom": 68.4,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 294
+  },
+  {
+    "page": 91,
+    "chapter": 6,
+    "section": 3,
+    "title": "逻辑画布与可视区域",
+    "bottom": 149.9,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 268
+  },
+  {
+    "page": 92,
+    "chapter": 6,
+    "section": 3,
+    "title": "长页面和局部滚动",
+    "bottom": 79.8,
+    "font": 11,
+    "figures": 1,
+    "characters": 232
+  },
+  {
+    "page": 93,
+    "chapter": 6,
+    "section": 3,
+    "title": "界面、报告与无数据状态",
+    "bottom": 107.5,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 255
+  },
+  {
+    "page": 94,
+    "chapter": 6,
+    "section": 4,
+    "title": "状态提示的分级",
+    "bottom": 82.6,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 260
+  },
+  {
+    "page": 95,
+    "chapter": 6,
+    "section": 4,
+    "title": "破坏有效性的动作保持可见",
+    "bottom": 126.2,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 232
+  },
+  {
+    "page": 96,
+    "chapter": 6,
+    "section": 4,
+    "title": "一致的异常恢复路径",
+    "bottom": 68.4,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 271
+  },
+  {
+    "page": 97,
+    "chapter": 7,
+    "section": 1,
+    "title": "页面组成与数据绑定",
+    "bottom": 87.9,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 328
+  },
+  {
+    "page": 98,
+    "chapter": 7,
+    "section": 1,
+    "title": "草稿更新的执行轨迹",
+    "bottom": 87.1,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 331
+  },
+  {
+    "page": 99,
+    "chapter": 7,
+    "section": 1,
+    "title": "新建航班与默认值",
+    "bottom": 78.4,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 272
+  },
+  {
+    "page": 100,
+    "chapter": 7,
+    "section": 1,
+    "title": "输入过程中不完整数据的处理",
+    "bottom": 136.6,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 293
+  },
+  {
+    "page": 101,
+    "chapter": 7,
+    "section": 2,
+    "title": "从对象结构到业务约束",
+    "bottom": 107.5,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 253
+  },
+  {
+    "page": 102,
+    "chapter": 7,
+    "section": 2,
+    "title": "质量约束的相互作用",
+    "bottom": 108.8,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 293
+  },
+  {
+    "page": 103,
+    "chapter": 7,
+    "section": 2,
+    "title": "跑道与环境校验的语义",
+    "bottom": 127.0,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 262
+  },
+  {
+    "page": 104,
+    "chapter": 7,
+    "section": 2,
+    "title": "错误集合与原子导入",
+    "bottom": 135.7,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 249
+  },
+  {
+    "page": 105,
+    "chapter": 7,
+    "section": 3,
+    "title": "确认动作的执行顺序",
+    "bottom": 87.1,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 342
+  },
+  {
+    "page": 106,
+    "chapter": 7,
+    "section": 3,
+    "title": "确认后的目标初始化",
+    "bottom": 87.9,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 309
+  },
+  {
+    "page": 107,
+    "chapter": 7,
+    "section": 3,
+    "title": "计算资格与地面变化",
+    "bottom": 165.7,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 309
+  },
+  {
+    "page": 108,
+    "chapter": 7,
+    "section": 3,
+    "title": "确认状态的恢复与显示",
+    "bottom": 117.1,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 275
+  },
+  {
+    "page": 109,
+    "chapter": 7,
+    "section": 4,
+    "title": "文件选择与重复导入",
+    "bottom": 87.1,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 309
+  },
+  {
+    "page": 110,
+    "chapter": 7,
+    "section": 4,
+    "title": "报告的数据装配",
+    "bottom": 102.2,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 258
+  },
+  {
+    "page": 111,
+    "chapter": 7,
+    "section": 4,
+    "title": "HTML 安全呈现与打印",
+    "bottom": 107.5,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 266
+  },
+  {
+    "page": 112,
+    "chapter": 7,
+    "section": 4,
+    "title": "历史记录与文件出口的组合",
+    "bottom": 136.6,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 276
+  },
+  {
+    "page": 113,
+    "chapter": 8,
+    "section": 1,
+    "title": "FlightWidget 的显示模型",
+    "bottom": 79.1,
+    "font": 11,
+    "figures": 1,
+    "characters": 311
+  },
+  {
+    "page": 114,
+    "chapter": 8,
+    "section": 1,
+    "title": "进度显示与地理状态",
+    "bottom": 167.1,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 277
+  },
+  {
+    "page": 115,
+    "chapter": 8,
+    "section": 1,
+    "title": "提醒组件与个性化排列",
+    "bottom": 126.6,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 271
+  },
+  {
+    "page": 116,
+    "chapter": 8,
+    "section": 2,
+    "title": "签派页面的组成",
+    "bottom": 165.7,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 294
+  },
+  {
+    "page": 117,
+    "chapter": 8,
+    "section": 2,
+    "title": "本地 loadsheet 模板",
+    "bottom": 78.1,
+    "font": 10.4,
+    "figures": 1,
+    "characters": 285
+  },
+  {
+    "page": 118,
+    "chapter": 8,
+    "section": 2,
+    "title": "缩放和阅读位置",
+    "bottom": 126.6,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 329
+  },
+  {
+    "page": 119,
+    "chapter": 8,
+    "section": 2,
+    "title": "HTML 阅读边界",
+    "bottom": 117.1,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 286
+  },
+  {
+    "page": 120,
+    "chapter": 8,
+    "section": 3,
+    "title": "天气组件的数据模型",
+    "bottom": 156.2,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 269
+  },
+  {
+    "page": 121,
+    "chapter": 8,
+    "section": 3,
+    "title": "机场选择和气压显示",
+    "bottom": 126.2,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 257
+  },
+  {
+    "page": 122,
+    "chapter": 8,
+    "section": 3,
+    "title": "资料更新与航班一致性",
+    "bottom": 156.2,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 253
+  },
+  {
+    "page": 123,
+    "chapter": 9,
+    "section": 1,
+    "title": "总量计划与空间分布",
+    "bottom": 136.2,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 277
+  },
+  {
+    "page": 124,
+    "chapter": 9,
+    "section": 1,
+    "title": "座位位图与目标集合",
+    "bottom": 146.2,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 314
+  },
+  {
+    "page": 125,
+    "chapter": 9,
+    "section": 1,
+    "title": "行李货物的分配规则",
+    "bottom": 186.6,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 280
+  },
+  {
+    "page": 126,
+    "chapter": 9,
+    "section": 1,
+    "title": "总重反推与重心显示",
+    "bottom": 165.7,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 263
+  },
+  {
+    "page": 127,
+    "chapter": 9,
+    "section": 2,
+    "title": "质量、体积与显示单位",
+    "bottom": 215.7,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 282
+  },
+  {
+    "page": 128,
+    "chapter": 9,
+    "section": 2,
+    "title": "原生页面的分级分配",
+    "bottom": 165.7,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 288
+  },
+  {
+    "page": 129,
+    "chapter": 9,
+    "section": 2,
+    "title": "30 吨计划的分配示例",
+    "bottom": 136.6,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 285
+  },
+  {
+    "page": 130,
+    "chapter": 9,
+    "section": 2,
+    "title": "总目标输入与时间估计",
+    "bottom": 235.3,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 255
+  },
+  {
+    "page": 131,
+    "chapter": 9,
+    "section": 3,
+    "title": "服务可用性的组合条件",
+    "bottom": 107.5,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 261
+  },
+  {
+    "page": 132,
+    "chapter": 9,
+    "section": 3,
+    "title": "命令发送与反馈读取",
+    "bottom": 87.1,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 295
+  },
+  {
+    "page": 133,
+    "chapter": 9,
+    "section": 3,
+    "title": "复杂服务的过渡状态",
+    "bottom": 194.9,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 300
+  },
+  {
+    "page": 134,
+    "chapter": 9,
+    "section": 3,
+    "title": "地面变化与本地计划的关联",
+    "bottom": 135.7,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 269
+  },
+  {
+    "page": 135,
+    "chapter": 9,
+    "section": 4,
+    "title": "登机目标与过程显示",
+    "bottom": 185.3,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 218
+  },
+  {
+    "page": 136,
+    "chapter": 9,
+    "section": 4,
+    "title": "推出页面的控制边界",
+    "bottom": 185.3,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 238
+  },
+  {
+    "page": 137,
+    "chapter": 9,
+    "section": 4,
+    "title": "地面模块的依赖结构",
+    "bottom": 185.3,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 239
+  },
+  {
+    "page": 138,
+    "chapter": 9,
+    "section": 4,
+    "title": "本地表现与真实接入的接口分工",
+    "bottom": 184.9,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 246
+  },
+  {
+    "page": 139,
+    "chapter": 10,
+    "section": 1,
+    "title": "计算内核的功能范围",
+    "bottom": 107.1,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 275
+  },
+  {
+    "page": 140,
+    "chapter": 10,
+    "section": 1,
+    "title": "Result 对象的语义",
+    "bottom": 165.3,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 291
+  },
+  {
+    "page": 141,
+    "chapter": 10,
+    "section": 1,
+    "title": "校验、适用性与插值顺序",
+    "bottom": 165.7,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 255
+  },
+  {
+    "page": 142,
+    "chapter": 10,
+    "section": 1,
+    "title": "结果与界面的解耦",
+    "bottom": 165.7,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 257
+  },
+  {
+    "page": 143,
+    "chapter": 10,
+    "section": 2,
+    "title": "重量链条的正向计算",
+    "bottom": 215.7,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 245
+  },
+  {
+    "page": 144,
+    "chapter": 10,
+    "section": 2,
+    "title": "完整数值演算",
+    "bottom": 107.5,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 300
+  },
+  {
+    "page": 145,
+    "chapter": 10,
+    "section": 2,
+    "title": "结构上限与表格上限",
+    "bottom": 156.2,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 271
+  },
+  {
+    "page": 146,
+    "chapter": 10,
+    "section": 2,
+    "title": "输入敏感性与变化解释",
+    "bottom": 264.4,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 254
+  },
+  {
+    "page": 147,
+    "chapter": 10,
+    "section": 3,
+    "title": "资料表的离散节点",
+    "bottom": 135.7,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 254
+  },
+  {
+    "page": 148,
+    "chapter": 10,
+    "section": 3,
+    "title": "区间定位与线性组合",
+    "bottom": 264.4,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 247
+  },
+  {
+    "page": 149,
+    "chapter": 10,
+    "section": 3,
+    "title": "184.5 吨参考结果的形成",
+    "bottom": 184.4,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 307
+  },
+  {
+    "page": 150,
+    "chapter": 10,
+    "section": 3,
+    "title": "异常节点与资料版本",
+    "bottom": 155.3,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 263
+  },
+  {
+    "page": 151,
+    "chapter": 10,
+    "section": 4,
+    "title": "气压高度近似换算",
+    "bottom": 235.3,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 247
+  },
+  {
+    "page": 152,
+    "chapter": 10,
+    "section": 4,
+    "title": "顺风、逆风与侧风投影",
+    "bottom": 235.3,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 249
+  },
+  {
+    "page": 153,
+    "chapter": 10,
+    "section": 4,
+    "title": "声明距离与入口扣减",
+    "bottom": 206.2,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 263
+  },
+  {
+    "page": 154,
+    "chapter": 10,
+    "section": 5,
+    "title": "计算结果的当前性",
+    "bottom": 165.7,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 273
+  },
+  {
+    "page": 155,
+    "chapter": 10,
+    "section": 5,
+    "title": "历史快照与重新使用",
+    "bottom": 135.7,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 271
+  },
+  {
+    "page": 156,
+    "chapter": 10,
+    "section": 5,
+    "title": "报告内容与可读性",
+    "bottom": 117.1,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 250
+  },
+  {
+    "page": 157,
+    "chapter": 11,
+    "section": 1,
+    "title": "高度、距离与角度的关系",
+    "bottom": 215.7,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 278
+  },
+  {
+    "page": 158,
+    "chapter": 11,
+    "section": 1,
+    "title": "三度路径的数值示例",
+    "bottom": 184.4,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 247
+  },
+  {
+    "page": 159,
+    "chapter": 11,
+    "section": 1,
+    "title": "下降率与时间表达",
+    "bottom": 244.9,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 290
+  },
+  {
+    "page": 160,
+    "chapter": 11,
+    "section": 2,
+    "title": "高度区间的构造",
+    "bottom": 194.9,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 228
+  },
+  {
+    "page": 161,
+    "chapter": 11,
+    "section": 2,
+    "title": "高度加权平均地速",
+    "bottom": 264.4,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 279
+  },
+  {
+    "page": 162,
+    "chapter": 11,
+    "section": 2,
+    "title": "自动与手工输入模式",
+    "bottom": 155.7,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 272
+  },
+  {
+    "page": 163,
+    "chapter": 11,
+    "section": 3,
+    "title": "三维系数表与计算入口",
+    "bottom": 158.2,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 261
+  },
+  {
+    "page": 164,
+    "chapter": 11,
+    "section": 3,
+    "title": "基准距离与加性修正",
+    "bottom": 244.9,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 252
+  },
+  {
+    "page": 165,
+    "chapter": 11,
+    "section": 3,
+    "title": "风、气温、坡度与反推",
+    "bottom": 185.3,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 215
+  },
+  {
+    "page": 166,
+    "chapter": 11,
+    "section": 3,
+    "title": "自动着陆与程序修正",
+    "bottom": 194.9,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 275
+  },
+  {
+    "page": 167,
+    "chapter": 11,
+    "section": 4,
+    "title": "VLS 目标与速度超额",
+    "bottom": 264.4,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 319
+  },
+  {
+    "page": 168,
+    "chapter": 11,
+    "section": 4,
+    "title": "隔离环境影响的计算示例",
+    "bottom": 175.3,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 289
+  },
+  {
+    "page": 169,
+    "chapter": 11,
+    "section": 4,
+    "title": "重量系数的量纲疑点",
+    "bottom": 194.9,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 289
+  },
+  {
+    "page": 170,
+    "chapter": 11,
+    "section": 4,
+    "title": "计算模块之间的复用边界",
+    "bottom": 204.4,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 271
+  },
+  {
+    "page": 171,
+    "chapter": 12,
+    "section": 1,
+    "title": "三个入口与一个查看器",
+    "bottom": 194.9,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 289
+  },
+  {
+    "page": 172,
+    "chapter": 12,
+    "section": 1,
+    "title": "提供者独立保存视图状态",
+    "bottom": 155.7,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 262
+  },
+  {
+    "page": 173,
+    "chapter": 12,
+    "section": 1,
+    "title": "图件身份与资源地址",
+    "bottom": 155.3,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 275
+  },
+  {
+    "page": 174,
+    "chapter": 12,
+    "section": 2,
+    "title": "缩放、平移与旋转",
+    "bottom": 181.3,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 282
+  },
+  {
+    "page": 175,
+    "chapter": 12,
+    "section": 2,
+    "title": "多页 PDF 的页码状态",
+    "bottom": 155.3,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 289
+  },
+  {
+    "page": 176,
+    "chapter": 12,
+    "section": 2,
+    "title": "地理范围与飞机图标",
+    "bottom": 235.3,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 214
+  },
+  {
+    "page": 177,
+    "chapter": 12,
+    "section": 2,
+    "title": "主题与全屏阅读",
+    "bottom": 185.3,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 250
+  },
+  {
+    "page": 178,
+    "chapter": 12,
+    "section": 3,
+    "title": "Local Files 的连接模型",
+    "bottom": 194.9,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 308
+  },
+  {
+    "page": 179,
+    "chapter": 12,
+    "section": 3,
+    "title": "固定图件的引用模型",
+    "bottom": 155.7,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 251
+  },
+  {
+    "page": 180,
+    "chapter": 12,
+    "section": 3,
+    "title": "资料失效与空状态表达",
+    "bottom": 156.2,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 242
+  },
+  {
+    "page": 181,
+    "chapter": 13,
+    "section": 1,
+    "title": "内容定义和完成状态分离",
+    "bottom": 107.1,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 318
+  },
+  {
+    "page": 182,
+    "chapter": 13,
+    "section": 1,
+    "title": "条目类型与表现规则",
+    "bottom": 175.3,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 242
+  },
+  {
+    "page": 183,
+    "chapter": 13,
+    "section": 1,
+    "title": "完成比例与整单确认",
+    "bottom": 165.7,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 271
+  },
+  {
+    "page": 184,
+    "chapter": 13,
+    "section": 2,
+    "title": "条件表达与比较器",
+    "bottom": 165.7,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 288
+  },
+  {
+    "page": 185,
+    "chapter": 13,
+    "section": 2,
+    "title": "刷新周期与已完成清单",
+    "bottom": 135.7,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 262
+  },
+  {
+    "page": 186,
+    "chapter": 13,
+    "section": 2,
+    "title": "人工动作与条件条目的协调",
+    "bottom": 214.4,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 221
+  },
+  {
+    "page": 187,
+    "chapter": 13,
+    "section": 3,
+    "title": "飞行阶段的相关性选择",
+    "bottom": 185.3,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 279
+  },
+  {
+    "page": 188,
+    "chapter": 13,
+    "section": 3,
+    "title": "统一完成入口与外设变量",
+    "bottom": 165.7,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 252
+  },
+  {
+    "page": 189,
+    "chapter": 13,
+    "section": 3,
+    "title": "单张与全部复位",
+    "bottom": 184.4,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 241
+  },
+  {
+    "page": 190,
+    "chapter": 13,
+    "section": 3,
+    "title": "与仪表盘和本地流程衔接",
+    "bottom": 185.3,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 230
+  },
+  {
+    "page": 191,
+    "chapter": 14,
+    "section": 1,
+    "title": "故障定义与活动集合",
+    "bottom": 155.7,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 264
+  },
+  {
+    "page": 192,
+    "chapter": 14,
+    "section": 1,
+    "title": "ATA 分组与搜索规则",
+    "bottom": 185.3,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 250
+  },
+  {
+    "page": 193,
+    "chapter": 14,
+    "section": 1,
+    "title": "活动状态的视觉表达",
+    "bottom": 135.7,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 248
+  },
+  {
+    "page": 194,
+    "chapter": 14,
+    "section": 2,
+    "title": "异步激活和解除接口",
+    "bottom": 135.7,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 286
+  },
+  {
+    "page": 195,
+    "chapter": 14,
+    "section": 2,
+    "title": "页面筛选与故障身份稳定性",
+    "bottom": 175.3,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 232
+  },
+  {
+    "page": 196,
+    "chapter": 14,
+    "section": 2,
+    "title": "故障管理的扩展接口",
+    "bottom": 185.3,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 230
+  },
+  {
+    "page": 197,
+    "chapter": 14,
+    "section": 3,
+    "title": "飞机预设的前后台协议",
+    "bottom": 106.6,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 255
+  },
+  {
+    "page": 198,
+    "chapter": 14,
+    "section": 3,
+    "title": "进度、取消与加速选项",
+    "bottom": 214.4,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 238
+  },
+  {
+    "page": 199,
+    "chapter": 14,
+    "section": 3,
+    "title": "灯光预设名称与编号",
+    "bottom": 175.3,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 256
+  },
+  {
+    "page": 200,
+    "chapter": 14,
+    "section": 3,
+    "title": "自动灯光选择与模块分工",
+    "bottom": 204.4,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 226
+  },
+  {
+    "page": 201,
+    "chapter": 15,
+    "section": 1,
+    "title": "设置导航的专业分组",
+    "bottom": 155.7,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 343
+  },
+  {
+    "page": 202,
+    "chapter": 15,
+    "section": 1,
+    "title": "类型化设置和历史键",
+    "bottom": 136.2,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 295
+  },
+  {
+    "page": 203,
+    "chapter": 15,
+    "section": 1,
+    "title": "本地默认值与用户保存值",
+    "bottom": 185.3,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 243
+  },
+  {
+    "page": 204,
+    "chapter": 15,
+    "section": 2,
+    "title": "平板显示偏好",
+    "bottom": 185.3,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 237
+  },
+  {
+    "page": 205,
+    "chapter": 15,
+    "section": 2,
+    "title": "真实性与操作便利参数",
+    "bottom": 133.9,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 231
+  },
+  {
+    "page": 206,
+    "chapter": 15,
+    "section": 2,
+    "title": "音量分组与模型选项",
+    "bottom": 175.3,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 213
+  },
+  {
+    "page": 207,
+    "chapter": 15,
+    "section": 3,
+    "title": "天气与通信服务选择",
+    "bottom": 185.3,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 278
+  },
+  {
+    "page": 208,
+    "chapter": 15,
+    "section": 3,
+    "title": "第三方集成的配置条件",
+    "bottom": 185.3,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 246
+  },
+  {
+    "page": 209,
+    "chapter": 15,
+    "section": 3,
+    "title": "凭据与本地文件出口",
+    "bottom": 175.3,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 233
+  },
+  {
+    "page": 210,
+    "chapter": 15,
+    "section": 3,
+    "title": "版本身份与 About 页面",
+    "bottom": 155.7,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 260
+  },
+  {
+    "page": 211,
+    "chapter": 16,
+    "section": 1,
+    "title": "内容身份的组成",
+    "bottom": 196.2,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 300
+  },
+  {
+    "page": 212,
+    "chapter": 16,
+    "section": 1,
+    "title": "派生数据不反向成为输入",
+    "bottom": 185.3,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 238
+  },
+  {
+    "page": 213,
+    "chapter": 16,
+    "section": 1,
+    "title": "失效属于业务状态",
+    "bottom": 146.2,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 248
+  },
+  {
+    "page": 214,
+    "chapter": 16,
+    "section": 2,
+    "title": "轻量状态容器的发布机制",
+    "bottom": 135.7,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 307
+  },
+  {
+    "page": 215,
+    "chapter": 16,
+    "section": 2,
+    "title": "内存成功与持久化失败",
+    "bottom": 165.7,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 301
+  },
+  {
+    "page": 216,
+    "chapter": 16,
+    "section": 2,
+    "title": "多窗口并发的实际边界",
+    "bottom": 185.3,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 275
+  },
+  {
+    "page": 217,
+    "chapter": 16,
+    "section": 3,
+    "title": "计划、目标和实际值的三层语义",
+    "bottom": 185.3,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 222
+  },
+  {
+    "page": 218,
+    "chapter": 16,
+    "section": 3,
+    "title": "扩展快照的版本和时间",
+    "bottom": 155.7,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 248
+  },
+  {
+    "page": 219,
+    "chapter": 16,
+    "section": 3,
+    "title": "扩展命令的幂等与回执",
+    "bottom": 135.7,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 251
+  },
+  {
+    "page": 220,
+    "chapter": 16,
+    "section": 3,
+    "title": "断线恢复与陈旧数据",
+    "bottom": 185.3,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 230
+  },
+  {
+    "page": 221,
+    "chapter": 17,
+    "section": 1,
+    "title": "宿主初始化先于原生入口",
+    "bottom": 116.2,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 307
+  },
+  {
+    "page": 222,
+    "chapter": 17,
+    "section": 1,
+    "title": "电源状态与启动显示",
+    "bottom": 165.7,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 255
+  },
+  {
+    "page": 223,
+    "chapter": 17,
+    "section": 1,
+    "title": "逻辑画布与窗口适配",
+    "bottom": 215.7,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 284
+  },
+  {
+    "page": 224,
+    "chapter": 17,
+    "section": 2,
+    "title": "基线、叠加与构建目录",
+    "bottom": 99.9,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 313
+  },
+  {
+    "page": 225,
+    "chapter": 17,
+    "section": 2,
+    "title": "依赖锁定与失败传播",
+    "bottom": 135.7,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 311
+  },
+  {
+    "page": 226,
+    "chapter": 17,
+    "section": 2,
+    "title": "静态产物与源码交付关系",
+    "bottom": 175.3,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 250
+  },
+  {
+    "page": 227,
+    "chapter": 17,
+    "section": 3,
+    "title": "静态服务的路径处理",
+    "bottom": 156.2,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 271
+  },
+  {
+    "page": 228,
+    "chapter": 17,
+    "section": 3,
+    "title": "重复启动与进程归属",
+    "bottom": 155.3,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 283
+  },
+  {
+    "page": 229,
+    "chapter": 17,
+    "section": 3,
+    "title": "分层定位白屏与资源异常",
+    "bottom": 92.2,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 252
+  },
+  {
+    "page": 230,
+    "chapter": 17,
+    "section": 3,
+    "title": "验证证据与设计结论的范围",
+    "bottom": 165.7,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 256
+  },
+  {
+    "page": 231,
+    "chapter": 18,
+    "section": 1,
+    "title": "首次打开 EFB",
+    "bottom": 65.0,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 162
+  },
+  {
+    "page": 232,
+    "chapter": 18,
+    "section": 1,
+    "title": "再次进入和结束使用",
+    "bottom": 135.8,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 173
+  },
+  {
+    "page": 233,
+    "chapter": 18,
+    "section": 2,
+    "title": "主页面的阅读顺序",
+    "bottom": 87.0,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 134
+  },
+  {
+    "page": 234,
+    "chapter": 18,
+    "section": 2,
+    "title": "空航班状态与已有计划",
+    "bottom": 87.0,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 141
+  },
+  {
+    "page": 235,
+    "chapter": 18,
+    "section": 3,
+    "title": "使用左侧导航和页内标签",
+    "bottom": 87.0,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 142
+  },
+  {
+    "page": 236,
+    "chapter": 18,
+    "section": 3,
+    "title": "从设置返回与避免误刷新",
+    "bottom": 57.9,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 150
+  },
+  {
+    "page": 237,
+    "chapter": 18,
+    "section": 4,
+    "title": "打开快速控制面板",
+    "bottom": 87.0,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 125
+  },
+  {
+    "page": 238,
+    "chapter": 18,
+    "section": 4,
+    "title": "主动休眠后恢复",
+    "bottom": 55.4,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 141
+  },
+  {
+    "page": 239,
+    "chapter": 18,
+    "section": 5,
+    "title": "调整平板阅读偏好",
+    "bottom": 87.0,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 132
+  },
+  {
+    "page": 240,
+    "chapter": 18,
+    "section": 5,
+    "title": "时间和单位的区别",
+    "bottom": 57.9,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 177
+  },
+  {
+    "page": 241,
+    "chapter": 18,
+    "section": 6,
+    "title": "浏览器没有正常显示时",
+    "bottom": 55.4,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 172
+  },
+  {
+    "page": 242,
+    "chapter": 18,
+    "section": 6,
+    "title": "窗口过窄与连接提示",
+    "bottom": 57.9,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 159
+  },
+  {
+    "page": 243,
+    "chapter": 19,
+    "section": 1,
+    "title": "进入工作台并建立草稿",
+    "bottom": 87.0,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 142
+  },
+  {
+    "page": 244,
+    "chapter": 19,
+    "section": 1,
+    "title": "辨认草稿与确认状态",
+    "bottom": 153.2,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 148
+  },
+  {
+    "page": 245,
+    "chapter": 19,
+    "section": 2,
+    "title": "录入航班基本资料",
+    "bottom": 148.6,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 155
+  },
+  {
+    "page": 246,
+    "chapter": 19,
+    "section": 2,
+    "title": "修正输入提示",
+    "bottom": 57.9,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 160
+  },
+  {
+    "page": 247,
+    "chapter": 19,
+    "section": 3,
+    "title": "保存可再次编辑的输入文件",
+    "bottom": 147.1,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 152
+  },
+  {
+    "page": 248,
+    "chapter": 19,
+    "section": 3,
+    "title": "管理多个航班文件",
+    "bottom": 231.0,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 161
+  },
+  {
+    "page": 249,
+    "chapter": 19,
+    "section": 4,
+    "title": "读取已有航班文件",
+    "bottom": 57.9,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 149
+  },
+  {
+    "page": 250,
+    "chapter": 19,
+    "section": 4,
+    "title": "导入失败时保留原航班",
+    "bottom": 57.9,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 145
+  },
+  {
+    "page": 251,
+    "chapter": 19,
+    "section": 5,
+    "title": "提交当前航班重量",
+    "bottom": 87.0,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 147
+  },
+  {
+    "page": 252,
+    "chapter": 19,
+    "section": 5,
+    "title": "核对摘要是否对应本次计划",
+    "bottom": 57.9,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 148
+  },
+  {
+    "page": 253,
+    "chapter": 19,
+    "section": 6,
+    "title": "打开 OFP 资料页",
+    "bottom": 57.9,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 154
+  },
+  {
+    "page": 254,
+    "chapter": 19,
+    "section": 6,
+    "title": "调整字号与检查资料来源",
+    "bottom": 292.5,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 140
+  },
+  {
+    "page": 255,
+    "chapter": 20,
+    "section": 1,
+    "title": "在工作台填写质量组成",
+    "bottom": 126.8,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 167
+  },
+  {
+    "page": 256,
+    "chapter": 20,
+    "section": 1,
+    "title": "用重量卡片核对输入",
+    "bottom": 160.5,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 234
+  },
+  {
+    "page": 257,
+    "chapter": 20,
+    "section": 2,
+    "title": "停机坪燃油和滑行耗油",
+    "bottom": 128.4,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 164
+  },
+  {
+    "page": 258,
+    "chapter": 20,
+    "section": 2,
+    "title": "切换 kg 和 lb 后继续输入",
+    "bottom": 155.9,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 156
+  },
+  {
+    "page": 259,
+    "chapter": 20,
+    "section": 3,
+    "title": "打开油箱图并读取当前和目标",
+    "bottom": 57.9,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 148
+  },
+  {
+    "page": 260,
+    "chapter": 20,
+    "section": 3,
+    "title": "改变燃油目标后返回核对",
+    "bottom": 152.7,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 227
+  },
+  {
+    "page": 261,
+    "chapter": 20,
+    "section": 4,
+    "title": "查看座位图和装载计划",
+    "bottom": 57.9,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 169
+  },
+  {
+    "page": 262,
+    "chapter": 20,
+    "section": 4,
+    "title": "找到底部控件并理解状态",
+    "bottom": 57.9,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 154
+  },
+  {
+    "page": 263,
+    "chapter": 20,
+    "section": 5,
+    "title": "辨认地面变化提示",
+    "bottom": 87.0,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 138
+  },
+  {
+    "page": 264,
+    "chapter": 20,
+    "section": 5,
+    "title": "把新目标变为当前计划",
+    "bottom": 57.9,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 132
+  },
+  {
+    "page": 265,
+    "chapter": 20,
+    "section": 6,
+    "title": "查看舱门、车辆和设备入口",
+    "bottom": 57.9,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 149
+  },
+  {
+    "page": 266,
+    "chapter": 20,
+    "section": 6,
+    "title": "进入推出页面并返回",
+    "bottom": 57.9,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 143
+  },
+  {
+    "page": 267,
+    "chapter": 21,
+    "section": 1,
+    "title": "进入离线起飞核算页面",
+    "bottom": 57.9,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 148
+  },
+  {
+    "page": 268,
+    "chapter": 21,
+    "section": 1,
+    "title": "输入风、气温和气压",
+    "bottom": 55.4,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 175
+  },
+  {
+    "page": 269,
+    "chapter": 21,
+    "section": 2,
+    "title": "确认构型与当前输入",
+    "bottom": 167.0,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 137
+  },
+  {
+    "page": 270,
+    "chapter": 21,
+    "section": 2,
+    "title": "阅读结果和辅助量",
+    "bottom": 64.2,
+    "font": 10.7,
+    "figures": 1,
+    "characters": 179
+  },
+  {
+    "page": 271,
+    "chapter": 21,
+    "section": 3,
+    "title": "输入修改后重新计算",
+    "bottom": 57.9,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 119
+  },
+  {
+    "page": 272,
+    "chapter": 21,
+    "section": 3,
+    "title": "超出支持范围时查看原因",
+    "bottom": 57.9,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 140
+  },
+  {
+    "page": 273,
+    "chapter": 21,
+    "section": 4,
+    "title": "保存当前参考记录",
+    "bottom": 57.9,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 145
+  },
+  {
+    "page": 274,
+    "chapter": 21,
+    "section": 4,
+    "title": "恢复旧输入后重新确认",
+    "bottom": 57.9,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 137
+  },
+  {
+    "page": 275,
+    "chapter": 21,
+    "section": 5,
+    "title": "选择适合的文件出口",
+    "bottom": 55.4,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 148
+  },
+  {
+    "page": 276,
+    "chapter": 21,
+    "section": 5,
+    "title": "打印或保存为 PDF",
+    "bottom": 57.9,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 162
+  },
+  {
+    "page": 277,
+    "chapter": 21,
+    "section": 6,
+    "title": "计算三度下降距离",
+    "bottom": 57.9,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 153
+  },
+  {
+    "page": 278,
+    "chapter": 21,
+    "section": 6,
+    "title": "录入着陆条件并读取三组距离",
+    "bottom": 67.4,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 192
+  },
+  {
+    "page": 279,
+    "chapter": 22,
+    "section": 1,
+    "title": "选择清单并逐项阅读",
+    "bottom": 87.0,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 160
+  },
+  {
+    "page": 280,
+    "chapter": 22,
+    "section": 1,
+    "title": "条目完成后确认整张清单",
+    "bottom": 57.9,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 141
+  },
+  {
+    "page": 281,
+    "chapter": 22,
+    "section": 2,
+    "title": "复位当前清单或全部清单",
+    "bottom": 57.9,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 124
+  },
+  {
+    "page": 282,
+    "chapter": 22,
+    "section": 2,
+    "title": "选择人工或自动填写方式",
+    "bottom": 87.0,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 147
+  },
+  {
+    "page": 283,
+    "chapter": 22,
+    "section": 3,
+    "title": "选择提供者并理解连接状态",
+    "bottom": 67.4,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 173
+  },
+  {
+    "page": 284,
+    "chapter": 22,
+    "section": 3,
+    "title": "固定图件列表和阅读控件",
+    "bottom": 57.9,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 142
+  },
+  {
+    "page": 285,
+    "chapter": 22,
+    "section": 4,
+    "title": "查看飞机状态预设",
+    "bottom": 87.0,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 158
+  },
+  {
+    "page": 286,
+    "chapter": 22,
+    "section": 4,
+    "title": "命名灯光槽位与选择时段",
+    "bottom": 57.9,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 147
+  },
+  {
+    "page": 287,
+    "chapter": 22,
+    "section": 5,
+    "title": "按系统分类查找故障",
+    "bottom": 57.9,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 133
+  },
+  {
+    "page": 288,
+    "chapter": 22,
+    "section": 5,
+    "title": "理解活动状态与当前环境",
+    "bottom": 212.9,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 138
+  },
+  {
+    "page": 289,
+    "chapter": 22,
+    "section": 6,
+    "title": "保持本地流程并查看服务配置",
+    "bottom": 57.9,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 180
+  },
+  {
+    "page": 290,
+    "chapter": 22,
+    "section": 6,
+    "title": "查询版本并结束一次演示",
+    "bottom": 57.9,
+    "font": 11.3,
+    "figures": 1,
+    "characters": 153
+  },
+  {
+    "page": 291,
+    "chapter": 99,
+    "section": "附录 A  术语与缩略语",
+    "title": "附录 A  术语与缩略语",
+    "bottom": 125.3,
+    "font": 11.3,
+    "figures": true,
+    "characters": 135
+  },
+  {
+    "page": 292,
+    "chapter": 99,
+    "section": "附录 B  航班身份字段词典",
+    "title": "附录 B  航班身份字段词典",
+    "bottom": 94.4,
+    "font": 11.3,
+    "figures": true,
+    "characters": 157
+  },
+  {
+    "page": 293,
+    "chapter": 99,
+    "section": "附录 C  质量与构型字段词典",
+    "title": "附录 C  质量与构型字段词典",
+    "bottom": 174.0,
+    "font": 11.3,
+    "figures": true,
+    "characters": 160
+  },
+  {
+    "page": 294,
+    "chapter": 99,
+    "section": "附录 D  跑道与天气字段词典",
+    "title": "附录 D  跑道与天气字段词典",
+    "bottom": 91.0,
+    "font": 11.3,
+    "figures": true,
+    "characters": 131
+  },
+  {
+    "page": 295,
+    "chapter": 99,
+    "section": "附录 E  状态与事件速查",
+    "title": "附录 E  状态与事件速查",
+    "bottom": 104.4,
+    "font": 11.3,
+    "figures": true,
+    "characters": 127
+  },
+  {
+    "page": 296,
+    "chapter": 99,
+    "section": "附录 F  网络资料与固定提交",
+    "title": "附录 F  网络资料与固定提交",
+    "bottom": 69.6,
+    "font": 11.3,
+    "figures": true,
+    "characters": 80
+  },
+  {
+    "page": 297,
+    "chapter": 99,
+    "section": "附录 G  本地实现与专题资料索引",
+    "title": "附录 G  本地实现与专题资料索引",
+    "bottom": 82.0,
+    "font": 11.3,
+    "figures": true,
+    "characters": 181
+  },
+  {
+    "page": 298,
+    "chapter": 99,
+    "section": "附录 H  图件与截图来源",
+    "title": "附录 H  图件与截图来源",
+    "bottom": 141.3,
+    "font": 11.3,
+    "figures": true,
+    "characters": 293
+  },
+  {
+    "page": 299,
+    "chapter": 99,
+    "section": "附录 I  本地启动与重建命令",
+    "title": "附录 I  本地启动与重建命令",
+    "bottom": 129.1,
+    "font": 11.3,
+    "figures": true,
+    "characters": 204
+  },
+  {
+    "page": 300,
+    "chapter": 99,
+    "section": "附录 J  本书贯穿样例速查",
+    "title": "附录 J  本书贯穿样例速查",
+    "bottom": 137.3,
+    "font": 11.3,
+    "figures": true,
+    "characters": 149
+  }
+]

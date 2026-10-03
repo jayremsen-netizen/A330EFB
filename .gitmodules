@@ -1,0 +1,6 @@
+[submodule "upstream/headwind"]
+	path = upstream/headwind
+	url = https://github.com/headwindsim/aircraft.git
+[submodule "upstream/flybywire"]
+	path = upstream/flybywire
+	url = https://github.com/flybywiresim/aircraft.git

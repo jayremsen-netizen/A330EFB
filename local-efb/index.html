@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"><link rel="icon" href="data:,">
+  <title>Headwind A339X EFB 本地开发环境</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#151d29;}
+    #instrument{position:relative;width:1430px;height:1000px;overflow:hidden;margin:0 auto;}
+    #MSFS_REACT_MOUNT{position:absolute;top:0;left:0;width:1430px;height:1000px;transform-origin:0 0;}
+    /* Keep instrument viewport units on its logical canvas, before browser scaling. */
+    #MSFS_REACT_MOUNT .w-screen{width:1430px;}
+    #MSFS_REACT_MOUNT .h-screen{height:1000px;}
+    #dev-banner{position:fixed;z-index:20000;bottom:0;left:0;right:0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:4px 12px;background:#111927;color:#b5bdc9;font:12px Arial;padding:5px 12px;pointer-events:none;}
+    #boot-status{position:absolute;z-index:100;top:20%;left:0;right:0;color:#e7f0ff;text-align:center;font:16px Arial;}
+    #boot-error{color:#fff;white-space:pre-wrap;padding:24px;}
+    #MSFS_REACT_MOUNT .local-wake-screen{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px;color:#e7f0ff;background:#151d29;font:28px Arial;}
+    .local-wake-screen h1{font-size:42px;font-weight:600;}
+    .local-wake-screen button{border:1px solid #5ebeff;border-radius:10px;background:#16639b;color:white;padding:18px 44px;font-size:30px;cursor:pointer;}
+    .local-wake-screen button:focus-visible{outline:4px solid #fff;outline-offset:5px;}
+  </style>
+</head>
+<body>
+  <div id="boot-status" role="status">正在启动 Headwind EFB…</div>
+  <div id="instrument"><div id="MSFS_REACT_MOUNT"></div></div>
+  <div id="dev-banner"><span>HEADWIND A339X · 浏览器开发模式 · 本地模拟数据 · 非 MSFS 飞行会话</span></div>
+  <script type="module" src="/bootstrap.ts"></script>
+</body>
+</html>

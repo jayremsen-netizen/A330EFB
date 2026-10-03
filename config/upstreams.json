@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "repositories": [
+    {
+      "name": "headwind",
+      "path": "upstream/headwind",
+      "url": "https://github.com/headwindsim/aircraft.git",
+      "commit": "41eace79ed442696a6361dc72947954c9a6cf5cb",
+      "sparsePaths": ["hdw-common", "hdw-a339x-common", "hdw-a339x/src/systems", "hdw-a339x/src/localization", "hdw-a339x/src/base/headwindsim-aircraft-a330-900/config"]
+    },
+    {
+      "name": "flybywire",
+      "path": "upstream/flybywire",
+      "url": "https://github.com/flybywiresim/aircraft.git",
+      "commit": "1bf4b8edccf84d0fb83d0eb15e42f2c773e09582",
+      "sparsePaths": ["fbw-common/src/systems", "fbw-common/src/typings", "fbw-a32nx/src/systems", "fbw-a32nx/src/localization", "fbw-a32nx/src/fonts", "fbw-a32nx/src/base/flybywire-aircraft-a320-neo/html_ui"]
+    }
+  ]
+}

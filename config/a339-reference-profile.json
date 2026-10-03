@@ -1,0 +1,48 @@
+{
+  "profileId": "A330-941-TRENT7000-LOCAL",
+  "profileVersion": "1.0.0",
+  "engineVersion": "1.0.0",
+  "aircraft": "A330-941",
+  "engine": "RR TRENT 7000",
+  "sourceCommit": "41eace79ed442696a6361dc72947954c9a6cf5cb",
+  "source": "hdw-a339x/src/systems/instruments/src/MCDU/legacy/NXSpeeds.ts, lines 2-55",
+  "sourceUrl": "https://github.com/headwindsim/aircraft/blob/41eace79ed442696a6361dc72947954c9a6cf5cb/hdw-a339x/src/systems/instruments/src/MCDU/legacy/NXSpeeds.ts",
+  "license": "Headwind textual source GPL-3.0; preserve attribution and corresponding source",
+  "validation": "Source-table arithmetic checked; original aircraft performance data not independently validated",
+  "massUnit": "kg",
+  "speedUnit": "kt CAS",
+  "massMin": 130000,
+  "massMax": 250000,
+  "step": 10000,
+  "structuralMtowKg": 251000,
+  "maxZfwKg": 181000,
+  "oewKg": 127000,
+  "interpolation": "Linear interpolation within weight rows; ceil only for display",
+  "supported": [
+    "weight consistency",
+    "structural mass checks",
+    "V2 source-table reference interpolation",
+    "pressure altitude",
+    "headwind and crosswind components",
+    "runway declared-distance consistency"
+  ],
+  "unsupported": [
+    "V1",
+    "VR",
+    "FLEX",
+    "TOGA performance guarantee",
+    "runway-limited mass",
+    "accelerate-stop distance",
+    "takeoff distance",
+    "obstacle clearance",
+    "engine-out climb",
+    "brake energy",
+    "tire speed",
+    "wet or contaminated runway correction",
+    "temperature, altitude, slope and bleed correction to V2"
+  ],
+  "knownIssues": [
+    "CONF 3 source table changes from 151 kt at 220 t to 166 kt at 230 t; retained and flagged, not silently corrected",
+    "Source table comments cite FCOM but original source and configuration validity were not established"
+  ]
+}

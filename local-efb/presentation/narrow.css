@@ -1,0 +1,10 @@
+@media(max-width:760px){
+ html,body,#demo-app{height:auto;min-height:100%;overflow-x:hidden;overflow-y:auto}
+ .masthead{padding:14px;flex-wrap:wrap;gap:14px}.brand{gap:12px}.brand h1{font-size:17px;letter-spacing:0}.brand-mark{flex:none}
+ .header-actions{width:100%;display:flex;gap:6px}.scene-label{flex:1;min-width:0}.scene-label select{width:100%;min-width:0;font-size:12px;padding:8px}.header-actions>button{font-size:12px;padding:8px}
+ .workspace{display:flex;flex-direction:column;flex:none;padding:12px;gap:15px}.stage{flex:none;width:100%;border-radius:8px}.stage-heading{padding:8px;font-size:10px}.stage-heading>span:last-child{display:none}
+ .screen{flex:none;width:100%;height:auto;aspect-ratio:1.38}.screen>iframe{position:absolute;inset:0}.stage-footer{display:block;padding:8px;line-height:1.6}.stage-footer::after{display:block;content:'窄屏预览 · 正式演示请用电脑浏览器全屏';color:#7cbea9;font-size:10px}
+ .narration{width:100%;overflow:visible;display:block;padding:2px 4px}.step-counter{float:right;margin-top:-16px}.narration h2{font-size:22px;margin:10px 0}.narration>#description{font-size:14px}.facts{margin:15px 0}.reference{margin-top:18px}.boundary{font-size:11px}
+ .director{padding:12px;position:sticky;bottom:0;background:#14202ff5;border-top:1px solid #344557;z-index:6}.controls{flex-wrap:wrap;gap:10px}.transport{gap:5px;width:100%}.transport button{font-size:11px;padding:8px 6px;white-space:nowrap}.transport #play{flex:1;min-width:90px}.preferences{width:100%;justify-content:flex-end}.preferences .loop-label{display:flex}.preferences select{font-size:11px}.timeline button{flex:none;min-width:36px}.timeline button.current{min-width:150px}.bottom-line{font-size:9px;justify-content:center}
+ .error{left:12px;right:12px;top:145px;padding:15px}.report-dialog{width:96vw;max-width:96vw;height:91vh;padding:10px}.report-dialog .dialog-head{display:block}.report-dialog .dialog-head strong{font-size:16px}.report-dialog .transport{margin-top:10px}.report-dialog .dialog-head span{font-size:10px}.artifact-grid{grid-template-columns:1fr}dialog{padding:15px}dialog .dialog-head{gap:10px}dialog .dialog-head strong{font-size:16px}
+}
