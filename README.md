@@ -63,7 +63,7 @@ npm run test:ui
 
 `npm test` 包含 25 项独立算例、输入约束和固定源码对照检查。UI 测试会启动独立端口 19798 的服务，实际播放三个场景，检查数据隔离、暂停、定位、报告下载、失效重算、错误恢复与三种窗口尺寸。截图和结果写入忽略目录 `.artifacts/`。可通过 `EFB_TEST_PORT` 指定测试端口，`EFB_BROWSER_EXECUTABLE` 指定本机 Chromium/Chrome 程序路径。
 
-[GitHub Actions](.github/workflows/ci.yml) 在 Windows 和 Ubuntu 上执行安装、上游获取、构建和测试。历史演示验证记录位于 [docs/verification](docs/verification)，新的运行记录以实际执行结果为准。
+[GitHub Actions](https://github.com/jayremsen-netizen/A330EFB/actions) 在 Windows 和 Ubuntu 上执行安装、上游获取、构建和测试。独立克隆验证见 [构建验证记录](docs/reproducibility.md)，历史演示记录位于 [docs/verification](docs/verification)，新的运行记录以实际执行结果为准。
 
 ## 目录
 
