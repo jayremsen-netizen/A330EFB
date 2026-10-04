@@ -3,25 +3,52 @@ import {Flight,example,validate,weights,signature,calculate,profile} from './fli
 import {store} from '../build-common/src/systems/instruments/src/EFB/Store/store';
 import {initialState,setSimbriefData,setFuelImported,setPayloadImported} from '../build-common/src/systems/instruments/src/EFB/Store/features/simBrief';
 import {storageName} from '../local-efb/presentation-mode';
+import {restoreStored} from './persistence';
+import {metarFor} from './weather';
+import {initializeRuntime,runtime} from './runtime-host';
 type Result=ReturnType<typeof calculate>;
-type State={flight:Flight;confirmed:string;result:Result|null;history:Result[];notice:string;storageError:string;groundChanged:boolean};
+type State={flight:Flight;confirmed:string;result:Result|null;history:Result[];notice:string;storageError:string;groundChanged:boolean;revision:number;storageConflict:boolean;hasRecovery:boolean};
 const KEY=storageName('A339_LOCAL_FLIGHT_V1');
-let state:State={flight:example(),confirmed:'',result:null,history:[],notice:'本地手工样例。请核对所有输入并保存确认。',storageError:'',groundChanged:false};
-try{const raw=localStorage.getItem(KEY);if(raw){const v=JSON.parse(raw);const es=validate(v.flight);if(es.length)throw Error(es.join('；'));state={...state,...v,notice:'已恢复本机保存的航班',storageError:''};}}catch(e){state.storageError='保存内容读取失败，原文件保留。'+String(e);}
+const recoveryPrefix=KEY+'_RECOVERY_';
+let lastStored:string|null=null;
+let state:State={flight:example(),confirmed:'',result:null,history:[],notice:'本地手工样例。请核对所有输入并保存确认。',storageError:'',groundChanged:false,revision:0,storageConflict:false,hasRecovery:false};
+function preserve(raw:string){
+ const existing=Object.keys(localStorage).filter(k=>k.startsWith(recoveryPrefix));
+ if(!existing.some(k=>{try{return JSON.parse(localStorage.getItem(k)!).raw===raw;}catch{return false;}}))
+  localStorage.setItem(recoveryPrefix+Date.now(),JSON.stringify({at:new Date().toISOString(),raw}));
+ state.hasRecovery=true;
+}
+function restore(raw:string|null){
+ if(!raw)return;
+ try{const {data,issues}=restoreStored(raw);state={...state,...data,storageConflict:false,storageError:'',notice:issues.length?`已隔离 ${issues.length} 项异常内容，可以导出恢复备份。`:'已恢复本机航班草稿'};if(issues.length)preserve(raw);}
+ catch(e){try{preserve(raw);}catch{state.storageConflict=true;}state.storageError='保存内容不能直接恢复，已保留原文，请导出恢复备份。'+String(e);}
+}
+try{lastStored=localStorage.getItem(KEY);restore(lastStored);state.hasRecovery=Object.keys(localStorage).some(k=>k.startsWith(recoveryPrefix));}catch(e){state.storageError='本机存储不可用。'+String(e);}
 const listeners=new Set<Function>();
 const esc=(v:any)=>String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]!));
 export function getState(){return state;}
-function publish(){try{localStorage.setItem(KEY,JSON.stringify(state));state.storageError='';}catch(e){state.storageError='本地保存失败，请导出航班文件。'+String(e);}listeners.forEach(f=>f(state));}
+function notify(){listeners.forEach(f=>f(state));}
+function conflict(){state={...state,storageConflict:true,confirmed:'',notice:'另一个窗口已保存新版本。本窗口已停止写入；可导出当前草稿或读取最新版本。'};notify();}
+function writable(){try{if(state.storageConflict||localStorage.getItem(KEY)!==lastStored){conflict();return false;}}catch{}return true;}
+function publish(){
+ if(!writable())return;
+ state={...state,revision:state.revision+1,storageError:''};
+ try{const raw=JSON.stringify(state);localStorage.setItem(KEY,raw);lastStored=raw;}
+ catch(e){state={...state,storageError:'本地保存失败，请导出航班文件。'+String(e)};}
+ notify();
+}
 export const useLocal=()=>{const [s,set]=useState(state);useEffect(()=>{listeners.add(set);return()=>{listeners.delete(set);};},[]);return s;};
-export function editFlight(f:Flight){state={...state,flight:f,confirmed:'',groundChanged:false,notice:state.result?'输入已修改，旧结果已失效，请重新确认并计算。':'草稿已保存，等待确认重量。'};publish();}
+export function editFlight(f:Flight){if(!writable())return;state={...state,flight:f,confirmed:'',groundChanged:false,notice:state.result?'输入已修改，旧结果已失效，请重新确认并计算。':'草稿已保存，等待确认重量。'};publish();}
 export function loadFlight(f:Flight){const errors=validate(f);if(errors.length)throw Error(errors.join('；'));editFlight({...f,source:f.source==='local-example'?'local-example':'local-file'});}
-export function confirmFlight(){const errors=validate(state.flight);if(errors.length){state={...state,notice:errors.join('；')};publish();return false;}state={...state,confirmed:signature(state.flight),groundChanged:false,notice:'本地航班与重量已确认，并同步到仪表盘、签派和地面目标数据。'};applyToEfb(state.flight);publish();return true;}
-export function runCalculation(){if(state.confirmed!==signature(state.flight)||state.groundChanged){state={...state,notice:'请先保存并确认当前航班重量；地面目标变更后需要重新确认。'};publish();return;}state={...state,result:calculate(state.flight),notice:'本地核算完成。速度仅为未校准源码表参考；不构成可起飞判定。'};publish();}
-export function currentResult(){return state.result&&state.result.signature===signature(state.flight)&&state.confirmed===signature(state.flight)&&!state.groundChanged&&state.result.status==='reference-only'?state.result:null;}
+export function confirmFlight(){if(!writable())return false;const errors=validate(state.flight);if(errors.length){state={...state,notice:errors.join('；')};publish();return false;}state={...state,confirmed:signature(state.flight),groundChanged:false,notice:'本地航班与重量已确认，并同步到仪表盘、签派和地面目标数据。'};applyToEfb(state.flight);publish();return true;}
+export function runCalculation(){if(!writable())return;if(state.confirmed!==signature(state.flight)||state.groundChanged){state={...state,notice:'请先保存并确认当前航班重量；地面目标变更后需要重新确认。'};publish();return;}state={...state,result:calculate(state.flight),notice:'本地核算完成。速度仅为未校准源码表参考；不构成可起飞判定。'};publish();}
+export function currentResult(){return !state.storageConflict&&state.result&&state.result.signature===signature(state.flight)&&state.confirmed===signature(state.flight)&&!state.groundChanged&&state.result.status==='reference-only'?state.result:null;}
 export function archiveResult(){const r=currentResult();if(!r)throw Error('仅能保存当前有效的参考核算记录');state={...state,history:[r,...state.history].slice(0,20),notice:'参考核算已保存到本机历史（最多 20 条）'};publish();}
 export function restoreHistory(i:number){const r=state.history[i];if(!r)throw Error('记录不存在');loadFlight(structuredClone(r.input));}
-export function notice(message:string){state={...state,notice:message};publish();}
+export function notice(message:string){state={...state,notice:message};notify();}
 export function markGroundChanged(){if(state.confirmed&&!state.groundChanged){state={...state,groundChanged:true,notice:'地面目标发生变化，计算已失效。请在本地航班中核对并重新确认计划重量。'};publish();}}
+export function adoptLatest(){lastStored=localStorage.getItem(KEY);state={...state,storageConflict:false};restore(lastStored);if(!lastStored){state={...state,confirmed:'',result:null,history:[],notice:'保存内容已清除，当前草稿保留，请重新确认。'};}if(state.confirmed===signature(state.flight)&&!state.storageConflict)applyToEfb(state.flight);notify();}
+export function exportRecovery(){const data=Object.keys(localStorage).filter(k=>k.startsWith(recoveryPrefix)).map(k=>({key:k,content:localStorage.getItem(k)}));if(!data.length&&lastStored)data.push({key:KEY,content:lastStored});download('a330efb-recovery.json',data);}
 export function readFuelTarget(){const n=(window as any).__LOCAL_EFB__?.vars.get('L:A32NX_FUEL_DESIRED');if(!Number.isFinite(n)||n<0)throw Error('没有可用地面燃油目标');editFlight({...state.flight,rampKg:n});}
 export function applyToEfb(f:Flight){
  const w=weights(f),data=structuredClone(initialState.data);const out=String(Date.parse(f.date+'T08:00:00Z')/1000);
@@ -29,10 +56,11 @@ export function applyToEfb(f:Flight){
  data.loadsheet=`<div style="padding:30px;background:#fff;color:#111"><h1 style="color:#111">LOCAL FLIGHT / 本地航班 ${esc(f.number)}</h1><p style="color:#111">${esc(f.date)} · ${esc(f.from)} → ${esc(f.to)} · A330-941</p><p style="color:#111">SOURCE: ${esc(f.source)} / 本地手工计划，非实际签派文件</p><p style="color:#111">${esc(f.route)}</p><p style="color:#111">OEW ${w.zfw-w.payload} kg + PAYLOAD ${w.payload} kg = ZFW ${w.zfw} kg</p><p style="color:#111">RAMP FUEL ${f.rampKg} kg - TAXI ${f.taxiKg} kg</p><p style="color:#111">TOW ${w.tow} kg · PAX ${f.pax}</p><p style="color:#111">本地计划为重量核算来源；实际模拟器状态未连接。</p></div>`;
  Object.assign(data.weights,{cargo:String(f.pax*f.bagKg+f.freightKg),estLandingWeight:String(w.tow),estTakeOffWeight:String(w.tow),estZeroFuelWeight:String(w.zfw),maxLandingWeight:'191000',maxTakeOffWeight:'251000',maxZeroFuelWeight:'181000',bagCount:String(f.pax),passengerCount:String(f.pax),passengerWeight:String(f.paxKg),bagWeight:String(f.bagKg),payload:String(w.payload),freight:String(f.freightKg)});
  Object.assign(data.fuels,{planRamp:f.rampKg,planTakeOff:f.rampKg-f.taxiKg,taxi:f.taxiKg,planLanding:0,enrouteBurn:0});data.weather={avgWindDir:String(f.weather.windDir),avgWindSpeed:String(f.weather.windKt)};
+ data.departingMetar=metarFor(f.from,f);data.arrivingMetar=metarFor(f.to,f);
  store.dispatch(setSimbriefData(data));store.dispatch(setFuelImported(false));store.dispatch(setPayloadImported(false));
- const host=(window as any).__LOCAL_EFB__;if(host){for(const [k,v] of Object.entries({'EMPTY WEIGHT':f.oewKg,'TOTAL WEIGHT':w.ramp,'L:A32NX_AIRFRAME_ZFW':w.zfw,'L:A32NX_AIRFRAME_ZFW_DESIRED':w.zfw,'L:A32NX_AIRFRAME_GW':w.ramp,'L:A32NX_AIRFRAME_GW_DESIRED':w.ramp,'L:A32NX_WB_PER_PAX_WEIGHT':f.paxKg,'L:A32NX_WB_PER_BAG_WEIGHT':f.bagKg,'L:A32NX_FUEL_DESIRED':f.rampKg})){host.set(k,v);}const gallons=f.rampKg/3.039;const outer=Math.min(964,gallons/2),inner=Math.min(11095,Math.max(0,gallons-outer*2)/2),center=Math.max(0,gallons-2*outer-2*inner);for(const [k,v] of Object.entries({'FUEL TANK LEFT AUX QUANTITY':outer,'FUEL TANK RIGHT AUX QUANTITY':outer,'FUEL TANK LEFT MAIN QUANTITY':inner,'FUEL TANK RIGHT MAIN QUANTITY':inner,'FUEL TANK CENTER QUANTITY':center}))host.set(k,v);}
+ const host=(window as any).__LOCAL_EFB__;if(host){for(const [k,v] of Object.entries({'EMPTY WEIGHT':f.oewKg,'L:A32NX_AIRFRAME_ZFW_DESIRED':w.zfw,'L:A32NX_AIRFRAME_GW_DESIRED':w.ramp,'L:A32NX_WB_PER_PAX_WEIGHT':f.paxKg,'L:A32NX_WB_PER_BAG_WEIGHT':f.bagKg,'L:A32NX_FUEL_DESIRED':f.rampKg})){host.set(k,v);}}runtime.setPlan(f);
 }
 export function download(name:string,value:any){const blob=new Blob([typeof value==='string'?value:JSON.stringify(value,null,2)],{type:typeof value==='string'?'text/html;charset=utf-8':'application/json'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=name.replace(/[^a-zA-Z0-9_.-]/g,'_');a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}
 export function reportHtml(){const r=currentResult();if(!r)throw Error('结果无效、过期或超出支持范围，不能导出当前报告');return `<!doctype html><meta charset="utf-8"><title>A339 本地参考核算单</title><style>body{font-family:Arial,'Microsoft YaHei';max-width:900px;margin:40px auto;color:#172b44;line-height:1.6}h1{font-size:26px}.notice{border:2px solid #d58b24;padding:16px}pre{white-space:pre-wrap;word-break:break-all;font-size:12px}@media print{button{display:none}}</style><button onclick="window.print()">打印 / 保存为 PDF</button><h1>A339 本地起飞参考核算单</h1><p class="notice">仅为未校准源码速度表参考。未提供 V1、VR、FLEX、起飞距离、加速停止距离、障碍物净空及单发爬升判定；不得据此判断允许起飞。</p><p>航班 ${esc(r.input.number)} · ${esc(r.input.date)} · ${esc(r.input.from)} / ${esc(r.input.runway.ident)}</p><p>TOW ${r.weights!.tow.toFixed(1)} kg；V2 参考 ${r.v2!.toFixed(2)} kt（上取整 ${Math.ceil(r.v2!)} kt）；压力高度 ${r.pressureAltitudeFt!.toFixed(1)} ft</p><p>迎风 ${r.headwindKt!.toFixed(1)} kt；侧风 ${r.crosswindKt!.toFixed(1)} kt；扣减后 TORA ${r.effectiveTora} m（无性能可用性判定）</p><p>数据包 ${esc(r.profileVersion)} / 内核 ${esc(r.engineVersion)}；生成 ${esc(r.at)}</p><p>来源：${esc(profile.sourceUrl)}</p><h2>输入快照与覆盖范围</h2><pre>${esc(JSON.stringify(r,null,2))}</pre>`;}
 export function printReport(){const html=reportHtml();const w=window.open('','_blank');if(!w)throw Error('浏览器阻止弹窗，请使用 HTML 导出');w.document.write(html);w.document.close();}
-export function initializeLocal(){if(state.confirmed===signature(state.flight))applyToEfb(state.flight);(window as any).__LOCAL_FLIGHT__={getState,editFlight,confirmFlight,runCalculation,currentResult};window.addEventListener('local-ground-change',markGroundChanged);}
+export function initializeLocal(){initializeRuntime();if(state.confirmed===signature(state.flight)&&!state.storageConflict)applyToEfb(state.flight);(window as any).__LOCAL_FLIGHT__={getState,editFlight,confirmFlight,runCalculation,currentResult};window.addEventListener('local-ground-change',markGroundChanged);window.addEventListener('local-runtime-error',(e:any)=>notice(e.detail));window.addEventListener('storage',e=>{if(e.key===KEY&&e.newValue!==lastStored)conflict();});}

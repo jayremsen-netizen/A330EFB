@@ -1,7 +1,7 @@
 {
   "profileId": "A330-941-TRENT7000-LOCAL",
-  "profileVersion": "1.0.0",
-  "engineVersion": "1.0.0",
+  "profileVersion": "1.1.0",
+  "engineVersion": "1.1.0",
   "aircraft": "A330-941",
   "engine": "RR TRENT 7000",
   "sourceCommit": "41eace79ed442696a6361dc72947954c9a6cf5cb",

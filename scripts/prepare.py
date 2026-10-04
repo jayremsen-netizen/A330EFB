@@ -32,13 +32,17 @@ def prepare():
     fonts=f/'fbw-a32nx/src/base/flybywire-aircraft-a320-neo/html_ui/Fonts/fbw-a32nx'
     if fonts.exists():merge(fonts,p/'Fonts/A339X')
     merge(f/'fbw-a32nx/src/fonts',p/'Fonts/A339X')
+    merge(ROOT/'local-efb/assets',p/'demo-assets')
+    for asset in ['cmaps','standard_fonts','wasm']:
+        merge(ROOT/'node_modules/pdfjs-dist'/asset,p/'pdfjs'/asset)
+    shutil.copy2(ROOT/'node_modules/pdfjs-dist/LICENSE',p/'pdfjs/LICENSE')
     languages=ROOT/'build-common/src/systems/instruments/src/EFB/Localization/data'
     for source in (languages/'Headwind').glob('*.json'):
         old=json.loads((languages/source.name).read_text('utf-8')) if (languages/source.name).exists() else {}
         old.update(json.loads(source.read_text('utf-8')))
         (languages/source.name).write_text(json.dumps(old,ensure_ascii=False),'utf-8')
     (p/'Data').mkdir();(p/'Data/a339x_hashes.json').write_text('{}','utf-8')
-    info={'built':'2026-10-04','ref':'A330EFB','sha':LOCK['repositories'][0]['commit'],'actor':'A330EFB local build','version':'A330EFB 1.0.0','pretty_release_name':'A330EFB browser demonstration','event_name':'local-browser-build'}
+    info={'built':'2026-10-04','ref':'A330EFB','sha':LOCK['repositories'][0]['commit'],'actor':'A330EFB local build','version':'A330EFB '+json.loads((ROOT/'package.json').read_text('utf-8'))['version'],'pretty_release_name':'A330EFB browser demonstration','event_name':'local-browser-build'}
     for name in ['a339x_build_info.json','a339x_build_info','VFS/a339x_build_info.json']:(p/name).write_text(json.dumps(info),'utf-8')
     replace_once(ROOT/'build-common/src/systems/shared/src/failures/index.ts','export { FailuresOrchestrator, FailureDefinition }','export { FailuresOrchestrator, type FailureDefinition }')
     replace_once(ROOT/'build-common/src/systems/shared/src/checklists/ChecklistProvider.ts','      response\n        .text()','      return response\n        .text()')

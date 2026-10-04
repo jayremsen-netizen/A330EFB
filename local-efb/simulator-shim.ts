@@ -1,26 +1,36 @@
 // Local development adapter. This emulates instrument host APIs, not aircraft physics.
 import {storageName} from './presentation-mode';
+import {canonicalUnit,convertVariable} from './units';
+import {metarFor} from '../local-extensions/weather';
 const W:any=window;
 W.InputBar={MENU_BUTTON_A:'KEY_MENU_VALID'};
 const handlers=new Map<string,Set<Function>>();
 const on=(n:string,f:Function)=>{if(!handlers.has(n))handlers.set(n,new Set());handlers.get(n)!.add(f);return {clear:()=>handlers.get(n)?.delete(f),off:()=>handlers.get(n)?.delete(f)};};
 const emit=(n:string,...a:any[])=>handlers.get(n)?.forEach(f=>f(...a));
 const vars=new Map<string,any>(Object.entries({'ATC MODEL':'A339','ATC TYPE':'A330-941','ATC ID':'LOCAL-DEMO','TITLE':'Headwind A330-900neo','PLANE LATITUDE':30.312,'PLANE LONGITUDE':104.442,'PLANE ALTITUDE':1450,'SIM ON GROUND':1,'BRAKE PARKING POSITION':1,'L:A32NX_ELEC_DC_2_BUS_IS_POWERED':1,'L:A32NX_ELEC_AC_1_BUS_IS_POWERED':1,'E:TIME OF DAY':1,'GLASSCOCKPIT AUTOMATIC BRIGHTNESS':80,'FUEL WEIGHT PER GALLON':3.039,'TOTAL WEIGHT':190000,'EMPTY WEIGHT':132000,'CG PERCENT':28,'L:A32NX_AIRFRAME_ZFW_CG_PERCENT_MAC':28,'L:A32NX_FWC_FLIGHT_PHASE':1,'L:A32NX_COLD_AND_DARK_SPAWN':1,'L:A32NX_EFB_BRIGHTNESS':80}));
-const ids:string[]=[];
+const ids:{name:string;unit:string}[]=[];
+const variableUnits=new Map<string,string>();
+const varName=(name:string)=>name?.replace(/^A:/,'');
+const unitFor=(name:string,requested:string)=>{
+ const key=varName(name);if(!variableUnits.has(key))variableUnits.set(key,canonicalUnit(key,requested));
+ return variableUnits.get(key)!;
+};
 let plannedSyncDepth=0;
 const syncPlan=(apply:()=>void)=>{plannedSyncDepth++;try{return apply();}finally{plannedSyncDepth--;}};
-const writeLocal=(name:string,value:any)=>{const old=vars.get(name);vars.set(name,value);if(!plannedSyncDepth&&old!==value&&/L:A32NX_.*(DESIRED|PER_PAX_WEIGHT|PER_BAG_WEIGHT)$/.test(name||''))window.dispatchEvent(new CustomEvent('local-ground-change',{detail:{name,value}}));};
+const writeLocal=(name:string,value:any,unit='number')=>{name=varName(name);const canonical=unitFor(name,unit);if(!/string/i.test(unit)){value=convertVariable(Number(value),name,unit,canonical,Number(vars.get('FUEL WEIGHT PER GALLON')));if(!Number.isFinite(value))return;}const old=vars.get(name);vars.set(name,value);if(!plannedSyncDepth&&old!==value&&/L:A32NX_.*(DESIRED|PER_PAX_WEIGHT|PER_BAG_WEIGHT)$/.test(name||''))window.dispatchEvent(new CustomEvent('local-ground-change',{detail:{name,value}}));};
 // Capacities in US gallons from the pinned Headwind flight_model.cfg. Quantities are fictional.
 Object.entries({'FUEL TOTAL CAPACITY':36743,'FUEL TANK LEFT AUX CAPACITY':964,'FUEL TANK RIGHT AUX CAPACITY':964,'FUEL TANK LEFT MAIN CAPACITY':11095,'FUEL TANK RIGHT MAIN CAPACITY':11095,'FUEL TANK CENTER CAPACITY':12625,'FUEL TANK LEFT AUX QUANTITY':800,'FUEL TANK RIGHT AUX QUANTITY':800,'FUEL TANK LEFT MAIN QUANTITY':4100,'FUEL TANK RIGHT MAIN QUANTITY':4100,'FUEL TANK CENTER QUANTITY':0,'L:A32NX_IS_STATIONARY':1,'L:A32NX_GND_EQP_IS_VISIBLE':1,'L:A32NX_MODEL_WHEELCHOCKS_ENABLED':1,'L:A32NX_MODEL_CONES_ENABLED':1}).forEach(([k,v])=>vars.set(k,v));
 Object.entries({'E:ZULU DAY OF WEEK':6,'E:ZULU MONTH OF YEAR':10,'E:ZULU DAY OF MONTH':3,'E:ZULU TIME':28800,'E:LOCAL TIME':57600,'SIMULATION RATE':1,'L:A32NX_AIRFRAME_ZFW':160000,'L:A32NX_AIRFRAME_GW_CG_PERCENT_MAC':28,'L:A32NX_AIRFRAME_GW':190000,'L:A32NX_FM_GROSS_WEIGHT':190000,'L:A32NX_FM_ZFW':160000}).forEach(([k,v])=>vars.set(k,v));
 const readLocal=(n:string)=>n==='E:ABSOLUTE TIME'?62135596800+Date.now()/1000:vars.get(n?.startsWith('A:')?n.slice(2):n);
+const writeSim=(name:string,value:any,unit='number')=>{writeLocal(name,value,unit);const key=varName(name);if(['L:A32NX_REFUEL_STARTED_BY_USR','L:A32NX_BOARDING_STARTED_BY_USR'].includes(key)&&W.__LOCAL_RUNTIME__){try{if(Number(value))W.__LOCAL_RUNTIME__.command(key.includes('REFUEL')?'refuel':'board');else W.__LOCAL_RUNTIME__.cancel();}catch(e){vars.set(key,0);window.dispatchEvent(new CustomEvent('local-runtime-error',{detail:String((e as Error).message)}));}}};
+const readValue=(name:string,unit='number')=>/string/i.test(unit)?String(readLocal(name)??''):convertVariable(Number(readLocal(name)??0),varName(name),unitFor(name,unit),unit,Number(vars.get('FUEL WEIGHT PER GALLON')));
 // MSFS permits decimal string writes for seat flags; numeric reads must still be numbers.
-W.simvar={getValueReg:(id:number)=>Number(readLocal(ids[id])??0),getValueReg_String:(id:number)=>String(readLocal(ids[id])??''),getValue_LatLongAlt:()=>({lat:30.312,long:104.442,alt:1450})};
-W.SimVar={GetSimVarValue:(n:string,u:string)=>/string/i.test(u)?String(readLocal(n)??''):Number(readLocal(n)??0),SetSimVarValue:async(n:string,u:string,v:any)=>{writeLocal(n,v);emit('simvar',n,v);},GetGlobalVarValue:(n:string,u:string)=>W.SimVar.GetSimVarValue(n,u),GetGameVarValue:(n:string,u:string,v:any)=>v??0,GetRegisteredId:(n:string)=>{ids.push(n);return ids.length-1;},GetRegisteredSimVarValue:(id:number)=>W.SimVar.GetSimVarValue(ids[id],''),SetRegisteredSimVarValue:async(id:number,v:any)=>writeLocal(ids[id],v)};
+W.simvar={getValueReg:(id:number)=>readValue(ids[id].name,ids[id].unit),getValueReg_String:(id:number)=>String(readLocal(ids[id].name)??''),getValue_LatLongAlt:()=>({lat:30.312,long:104.442,alt:1450})};
+W.SimVar={GetSimVarValue:readValue,SetSimVarValue:async(n:string,u:string,v:any)=>{writeSim(n,v,u);emit('simvar',n,v);},GetGlobalVarValue:readValue,GetGameVarValue:(n:string,u:string,v:any)=>v??0,GetRegisteredId:(n:string,u='number')=>{ids.push({name:n,unit:u});unitFor(n,u);return ids.length-1;},GetRegisteredSimVarValue:(id:number)=>readValue(ids[id].name,ids[id].unit),SetRegisteredSimVarValue:async(id:number,v:any)=>writeSim(ids[id].name,v,ids[id].unit)};
 W.__LOCAL_EFB__={vars,set:(n:string,v:any)=>vars.set(n,v),syncPlan,mode:'browser-development',aircraft:'A330-941'};
 W.RegisterViewListener=(name:string,cb?:Function)=>{const listener={on,off:(n:string,f:Function)=>handlers.get(n)?.delete(f),trigger:emit,triggerToAllSubscribers:emit,isReady:true};if(cb)setTimeout(cb,0);return listener;};
 W.RegisterGenericDataListener=(cb?:Function)=>{const listener={onDataReceived:(k:string,f:Function)=>on('generic-data-'+k,f),send:(k:string,data:any)=>emit('generic-data-'+k,data),on,trigger:emit};if(cb)setTimeout(()=>cb(listener),0);return listener;};
-W.Coherent={on,off:(n:string,f:Function)=>handlers.get(n)?.delete(f),trigger:emit,call:async(n:string,...a:any[])=>{if(n.startsWith('setValueReg_')){writeLocal(ids[a[0]],a[1]);return;}if(n==='GET_METAR_BY_IDENT')return {icao:a[0],metarString:''};return n.includes('GET')?[]:undefined;}};
+W.Coherent={on,off:(n:string,f:Function)=>handlers.get(n)?.delete(f),trigger:emit,call:async(n:string,...a:any[])=>{if(n.startsWith('setValueReg_')){const entry=ids[a[0]];writeSim(entry.name,a[1],entry.unit);return;}if(n==='GET_METAR_BY_IDENT')return {icao:a[0],metarString:metarFor(a[0],W.__LOCAL_FLIGHT__?.getState().flight)};return n.includes('GET')?[]:undefined;}};
 W.GetStoredData=(key:string)=>localStorage.getItem(storageName(key))??'';
 W.SetStoredData=(key:string,v:any)=>localStorage.setItem(storageName(key),String(v));
 W.DeleteStoredData=(key:string)=>localStorage.removeItem(storageName(key));

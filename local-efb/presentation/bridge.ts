@@ -1,6 +1,7 @@
 import {presentationMode} from '../presentation-mode';
 import {example,weights} from '../../local-extensions/flight';
 import {getState,currentResult,reportHtml} from '../../local-extensions/state';
+import {runtime} from '../../local-extensions/runtime-host';
 import {store} from '../../build-common/src/systems/instruments/src/EFB/Store/store';
 import type {Action,Bridge,Snapshot} from './types';
 
@@ -24,11 +25,11 @@ function setValue(el:HTMLInputElement,value:string){
  el.focus();setter.call(el,value);el.dispatchEvent(new Event('input',{bubbles:true}));el.dispatchEvent(new Event('change',{bubbles:true}));el.blur();
 }
 function snapshot():Snapshot{
- const s=getState(),w=weights(s.flight),r=currentResult(),native:any=store.getState();
+ const s=getState(),w=weights(s.flight),r=currentResult(),native:any=store.getState(),sim=runtime.snapshot();
  const tracking=native.trackingChecklists,selected=tracking?.selectedChecklistIndex||0;
  const defs=tracking?.aircraftChecklists?.[selected]?.items||[];
  const checkedItems=(tracking?.checklists?.[selected]?.items||[]).filter((x:any,i:number)=>x.completed&&!['LINE','SUBLISTHEADER'].includes(defs[i]?.type)).length;
- return {flightNumber:s.flight.number,route:`${s.flight.from} → ${s.flight.to}`,zfw:w.zfw,tow:w.tow,fuel:s.flight.rampKg,fuelTarget:Number(W.__LOCAL_EFB__.vars.get('L:A32NX_FUEL_DESIRED')||0),confirmed:!!s.confirmed,groundChanged:s.groundChanged,v2:s.result?.v2??null,valid:!!r,resultStatus:s.result?.status||'not-calculated',history:s.history.length,checkedItems,todAltitude:native.todCalculator?.currentAltitude??null,todTarget:native.todCalculator?.targetAltitude??null,landing:native.performance,notice:s.notice};
+ return {flightNumber:s.flight.number,route:`${s.flight.from} → ${s.flight.to}`,zfw:w.zfw,tow:w.tow,fuel:s.flight.rampKg,fuelTarget:Number(W.__LOCAL_EFB__.vars.get('L:A32NX_FUEL_DESIRED')||0),confirmed:!!s.confirmed,groundChanged:s.groundChanged,v2:s.result?.v2??null,valid:!!r,resultStatus:s.result?.status||'not-calculated',history:s.history.length,checkedItems,todAltitude:native.todCalculator?.currentAltitude??null,todTarget:native.todCalculator?.targetAltitude??null,landing:native.performance,notice:s.notice,gpuConnected:sim.gpuConnected,currentFuel:sim.fuelKg,currentPax:sim.pax,pushbackMetres:sim.pushbackMetres,activeFaults:sim.faults.length,lastCommandStatus:sim.commands[0]?.status||'none',weatherSource:s.flight.weather.source||'手工输入'};
 }
 function artifacts(){return {flight:JSON.stringify(getState().flight,null,2),result:currentResult()?JSON.stringify(currentResult(),null,2):null,report:currentResult()?reportHtml():null};}
 async function execute(action:Action,fast=false){

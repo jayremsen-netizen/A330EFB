@@ -1,0 +1,197 @@
+{
+  "version": "1.1",
+  "baseline": "5df16641b1d45f1a91cf00e5f9b56c1365eec3c5",
+  "goal": "交付可离线运行并支持现场自由操作的 A330EFB 1.1 投标演示版",
+  "tasks": [
+    {
+      "id": "T01",
+      "title": "方案与任务基线",
+      "depends": [],
+      "status": "done",
+      "scope": "固化完善方案、实施任务书、问题对应关系与验收条件。",
+      "files": [
+        "docs/implementation",
+        "output/word"
+      ],
+      "acceptance": "两个 Word 文件可编辑、自然分页并通过逐页检查；目标和实施范围明确。",
+      "evidence": "完善方案、实施任务书及任务清单已编制；Word 初稿共 7 页，逐页排版复核完成。"
+    },
+    {
+      "id": "T02",
+      "title": "性能范围与结果守卫",
+      "depends": [
+        "T01"
+      ],
+      "status": "done",
+      "scope": "拒绝着陆非基准重量、非有限或非正结果；阻止 CONF 3 已知疑点区间输出。",
+      "files": [
+        "local-extensions/performance-guards.ts",
+        "local-extensions/flight.ts",
+        "scripts/integrate_extensions.py"
+      ],
+      "acceptance": "130 吨着陆显示不支持且无旧数值；190 吨基准算例保持；疑点速度范围明确拒绝。",
+      "evidence": "可靠性单元与浏览器算例验证 130 吨拒绝、190 吨基准、非物理结果及 CONF 3 疑点区间；旧跑道标注同步撤销。"
+    },
+    {
+      "id": "T03",
+      "title": "单位质量与燃油分配",
+      "depends": [
+        "T02"
+      ],
+      "status": "done",
+      "scope": "统一变量读写单位，补足 44836 kg 货舱约束，统一低油量分配。",
+      "files": [
+        "local-efb/simulator-shim.ts",
+        "local-efb/units.ts",
+        "local-extensions/fuel.ts",
+        "local-extensions/state.ts"
+      ],
+      "acceptance": "kg/lb 读写往返、注册变量和低油量测试通过；50 吨货物确认被拒绝；燃油总量守恒。",
+      "evidence": "kg/lb 直接与注册读写、Coherent 写入、货舱边界及六组油量守恒检查通过；原生目标接入统一分配函数。"
+    },
+    {
+      "id": "T04",
+      "title": "草稿与损坏记录恢复",
+      "depends": [
+        "T03"
+      ],
+      "status": "done",
+      "scope": "区分草稿和确认数据，校验结果历史，保留恢复备份并支持导出。",
+      "files": [
+        "local-extensions/persistence.ts",
+        "local-extensions/state.ts",
+        "local-extensions/LocalPages.tsx"
+      ],
+      "acceptance": "空字段刷新保留其他输入；损坏历史不会退出整页；坏记录可导出且不会覆盖唯一备份。",
+      "evidence": "空数值草稿刷新、坏历史隔离、篡改结果拒绝及恢复文件下载检查通过。"
+    },
+    {
+      "id": "T05",
+      "title": "窗口冲突与输入语义",
+      "depends": [
+        "T04"
+      ],
+      "status": "done",
+      "scope": "检测同源保存冲突，提供读取最新数据入口，补足日期和必填字段校验。",
+      "files": [
+        "local-extensions/state.ts",
+        "local-extensions/flight.ts",
+        "local-extensions/LocalPages.tsx"
+      ],
+      "acceptance": "两窗口编辑不静默覆盖；2026-02-31、空航班号和 99 跑道不能确认。",
+      "evidence": "两窗口旧版本写入被拒绝，读取最新记录同步人数；日历、必填身份、跑道范围检查通过。"
+    },
+    {
+      "id": "T06",
+      "title": "离线资料阅读",
+      "depends": [
+        "T05"
+      ],
+      "status": "done",
+      "scope": "增加自制示意图、资料索引、浏览工具、收藏及 PDF 图片选择。",
+      "files": [
+        "local-extensions/Resources.tsx",
+        "local-efb/assets",
+        "scripts/prepare.py"
+      ],
+      "acceptance": "断网可读取内置图件；缩放旋转及收藏有效；合法文件可阅读，非法文件不替换当前图件。",
+      "evidence": "断网图件检索、旋转、缩放、收藏刷新、固定航图页以及 PDF 两页渲染与图片选择检查通过。"
+    },
+    {
+      "id": "T07",
+      "title": "天气样例与计划采用",
+      "depends": [
+        "T05"
+      ],
+      "status": "done",
+      "scope": "提供带来源时间的样例天气，明确采用动作和结果失效，联动签派兼容字段。",
+      "files": [
+        "local-extensions/weather.ts",
+        "local-extensions/Resources.tsx",
+        "local-extensions/state.ts"
+      ],
+      "acceptance": "页面持续显示样例来源；采用新天气后撤销确认并禁用旧报告；重新确认计算后恢复。",
+      "evidence": "天气采用撤销旧结果，确认后原生签派报文和报告采用新参数；手工修改不保留旧样例报文。"
+    },
+    {
+      "id": "T08",
+      "title": "地服故障与预设运行模型",
+      "depends": [
+        "T03",
+        "T05"
+      ],
+      "status": "done",
+      "scope": "实现命令回执、进度、外接电源、加油、登机、推出、故障与预设的本地状态。",
+      "files": [
+        "local-extensions/demo-runtime.ts",
+        "local-extensions/SimulationPages.tsx",
+        "scripts/integrate_extensions.py"
+      ],
+      "acceptance": "请求状态真实推进；条件不足时拒绝；故障影响操作且解除后恢复；重试幂等；重置隔离旧动作。",
+      "evidence": "命令幂等、并发拒绝、故障中止、解除恢复、会话复位及 30 米推出检查通过；客舱人数与质量同步。"
+    },
+    {
+      "id": "T09",
+      "title": "演示工作流和文档引用",
+      "depends": [
+        "T06",
+        "T07",
+        "T08"
+      ],
+      "status": "done",
+      "scope": "保留三套场景，新增资料与地面协同，取消旧页码引用。",
+      "files": [
+        "local-efb/presentation",
+        "演示"
+      ],
+      "acceptance": "四场景实际执行；暂停接管、定位重播、状态核对和下载通过；引用现行版本章节。",
+      "evidence": "四套场景 20/7/7/12 步完成；控制回归与三种窗口尺寸通过；讲解稿改为版本和章节引用。"
+    },
+    {
+      "id": "T10",
+      "title": "回归与自由操作验收",
+      "depends": [
+        "T09"
+      ],
+      "status": "done",
+      "scope": "新增边界回归、离线场景、冲突和异常数据测试，检查两种桌面尺寸及窄屏。",
+      "files": [
+        "tests",
+        "scripts/project.mjs",
+        "docs/verification"
+      ],
+      "acceptance": "全部测试通过，外网阻断下关键工作流完成；本轮范围无未处置的阻断缺陷。",
+      "evidence": "本地构建、57 项单元与 37 项浏览器检查通过；PDF 与收藏页的后续修订单独回归，远端还将执行全部检查。"
+    },
+    {
+      "id": "T11",
+      "title": "文档与验收记录",
+      "depends": [
+        "T10"
+      ],
+      "status": "in_progress",
+      "scope": "更新任务证据、操作补充说明、README 与两份 Word。",
+      "files": [
+        "docs/implementation",
+        "README.md",
+        "output/word"
+      ],
+      "acceptance": "现状、完成项、限制和操作一致；每项任务有证据；Word 无排版缺陷。",
+      "evidence": "操作补充说明含实际程序截图；设计变更说明与 README 已同步，Word 正在完成最终状态更新。"
+    },
+    {
+      "id": "T12",
+      "title": "独立构建与 GitHub 交付",
+      "depends": [
+        "T11"
+      ],
+      "status": "todo",
+      "scope": "提交成果，执行独立构建或远端双平台 CI，核对上游引用与仓库内容。",
+      "files": [
+        ".github/workflows/ci.yml",
+        "docs/verification"
+      ],
+      "acceptance": "GitHub 包含源码文档；Windows 和 Ubuntu 构建测试通过；没有上游源码副本和本机私密文件。"
+    }
+  ]
+}

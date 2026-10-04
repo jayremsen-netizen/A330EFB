@@ -48,6 +48,7 @@ fs.mkdirSync('.artifacts/demo',{recursive:true});
  await page.setViewportSize({width:1280,height:720});await page.screenshot({path:out+'/layout-1280x720.png'});assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);await page.setViewportSize({width:1920,height:1080});
  await page.evaluate(()=>window.__BID_PRESENTATION__.select('change'));const change=await runScene('change');assert.equal(change.current.history,2);checks.push('地面变更场景独立重播 7 步');
  await page.evaluate(()=>window.__BID_PRESENTATION__.select('tools'));await runScene('tools');checks.push('专业工具场景独立重播 7 步');
+ await page.evaluate(()=>window.__BID_PRESENTATION__.select('resources'));const resources=await runScene('resources');assert.equal(resources.current.currentFuel,30000);assert.equal(resources.current.pushbackMetres,30);checks.push('资料与地面协同场景独立执行 12 步');
  await page.evaluate(()=>window.__BID_PRESENTATION__.select('change'));await runScene('change',false);checks.push('第二次重播历史仍为 2 条，检查单状态已复位');
  await page.goto(baseURL+"/");await page.waitForFunction(()=>window.__LOCAL_FLIGHT__&&window.__EFB_NAVIGATE);await page.waitForTimeout(2800);
  assert.equal(await page.evaluate(()=>window.__LOCAL_FLIGHT__.getState().flight.number),'KEEP901');
