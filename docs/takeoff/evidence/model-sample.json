@@ -1,0 +1,2855 @@
+{
+  "status": "engineering-feasible",
+  "label": "工程模型 · 未经航空性能校准 · 仅用于投标演示",
+  "at": "2026-10-04T12:58:24.247Z",
+  "input": {
+    "schemaVersion": 1,
+    "profileId": "A330-941-TRENT7000-LOCAL",
+    "id": "LOCAL-DEMO-330",
+    "number": "DEMO330",
+    "date": "2026-10-03",
+    "from": "ZUTF",
+    "to": "ZSPD",
+    "alternate": "ZSSS",
+    "route": "ZUTF DCT ZSPD - LOCAL SAMPLE",
+    "source": "local-example",
+    "pax": 250,
+    "paxKg": 80,
+    "bagKg": 24,
+    "freightKg": 2000,
+    "oewKg": 127000,
+    "rampKg": 30000,
+    "taxiKg": 500,
+    "runway": {
+      "ident": "01",
+      "heading": 10,
+      "tora": 3500,
+      "toda": 3500,
+      "asda": 3500,
+      "elevationFt": 1450,
+      "slope": 0,
+      "condition": "dry",
+      "intersection": 0,
+      "source": "手动示例，非机场权威数据"
+    },
+    "weather": {
+      "windDir": 10,
+      "windKt": 0,
+      "oat": 15,
+      "qnh": 1013.25
+    },
+    "flaps": 1,
+    "antiIce": false,
+    "packs": false
+  },
+  "options": {
+    "mode": "FLEX",
+    "maxFlexC": 70
+  },
+  "model": {
+    "id": "A339-ENGINEERING-DEMO",
+    "version": "0.1.0",
+    "provenance": {
+      "status": "assumed-engineering-configuration",
+      "author": "A330EFB project",
+      "description": "All aircraft, aerodynamic, engine, brake and operational coefficients below are explicitly assumed for an original demonstrator. They are not certified A330/Trent performance data and are not fitted to the legacy V2 table.",
+      "physicalConstants": "Conventional SI gravity and dry-air/ISA constants; these are physical definitions, not aircraft performance validation.",
+      "algorithm": "Original point-mass longitudinal force integration, a dry-runway brake model and excess-thrust climb model. No upstream performance table is copied."
+    }
+  },
+  "assumptions": [
+    "机翼面积、推力、升阻力系数、摩擦系数、速度比和适用包线均为本项目公开的工程假设，未完成 A330 航空性能校准。",
+    "CAS 使用亚声速可压缩空速关系；受力计算采用 TAS，地面距离采用地速。输入的稳定沿跑道风分量全额进入模型，未套用运行规章中的风修正比例。",
+    "发动机恰在所选 V1 失效。中断分支按单发推力继续 1 秒识别时间，然后将两台发动机推力置零并施加干跑道制动，不计反推。继续分支不重复加入识别时间。",
+    "VR、V2 由工程失速升力模型及公开假设倍率确定。V1 的 100 kt 下界仅是演示搜索边界，不代表 VMCA、VMCG 或任何经审定的操纵速度。",
+    "单发继续分支依次计算地面加速、2 秒抬轮及空中加速爬升。空中阶段按小角度近似分配剩余推力给加速和爬升；终点同时满足 35 ft 与 V2，不等同于经审定起飞距离的定义。",
+    "2.4% 爬升梯度是工程模型的演示判据。障碍物净空、审定净飞行航迹、刹车能量、轮胎速度、路面变化和发动机动态未建模。",
+    "入口扣减同时从 TORA、TODA、ASDA 中减去。停止道和净空道仅以声明距离参与比较，未接入机场几何数据库。",
+    "FLEX 温度用于标识显式的线性推力折减，不是 Trent 发动机额定推力计划。不存在可行减推解时，若 TOGA 可行则返回 TOGA 工程结果并说明原因。",
+    "跑道限重按所选构型及 TOGA 在 130–251 t 范围搜索，与当前航班的装载分布分开；限重结果不是装载或签派放行依据。"
+  ],
+  "errors": [],
+  "warnings": [
+    "满足的是本项目工程模型约束，不是航空运行可起飞结论。"
+  ],
+  "environment": {
+    "pressureAltitudeFt": 1450.0000000000039,
+    "pressurePa": 96127.09381582006,
+    "temperatureK": 288.15,
+    "densityKgM3": 1.1621583189401894,
+    "headwindKt": 0,
+    "crosswindKt": 0
+  },
+  "available": {
+    "toraM": 3500,
+    "todaM": 3500,
+    "asdaM": 3500
+  },
+  "solution": {
+    "v1Kt": 135,
+    "vrKt": 135.01724745464526,
+    "v2Kt": 147.29921011150756,
+    "thrustMode": "FLEX",
+    "assumedTemperatureC": 44,
+    "thrustRatio": 0.826,
+    "asdM": 1968.4674479832615,
+    "todM": 3447.4396080123424,
+    "torM": 1281.7455608229998,
+    "runwayLimitKg": 211600,
+    "limitingFactor": "TODA 单发继续起飞",
+    "margins": {
+      "asdaM": 1531.5325520167385,
+      "todaM": 52.56039198765757,
+      "toraM": 2218.254439177,
+      "climbGradient": 0.012804409157580146
+    },
+    "climbGradient": 0.03680440915758015,
+    "trajectory": {
+      "accelerateStop": [
+        {
+          "distanceM": 0,
+          "timeS": 0,
+          "speedKt": 0,
+          "groundSpeedKt": 0,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 0.20061233182240976,
+          "timeS": 0.4023848016127751,
+          "speedKt": 1.8875873864234878,
+          "groundSpeedKt": 1.9379494408047246,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 0.80312232894289,
+          "timeS": 0.8052592919117674,
+          "speedKt": 3.7751753960351317,
+          "groundSpeedKt": 3.8758988816094493,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 1.808540975009046,
+          "timeS": 1.208637341080744,
+          "speedKt": 5.662764652451671,
+          "groundSpeedKt": 5.813848322414175,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 3.2179210858175296,
+          "timeS": 1.6125329189183206,
+          "speedKt": 7.550355778699384,
+          "groundSpeedKt": 7.751797763218899,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 5.032357720685529,
+          "timeS": 2.0169600979846756,
+          "speedKt": 9.437949398060878,
+          "groundSpeedKt": 9.689747204023623,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 7.252988609797009,
+          "timeS": 2.421933056800928,
+          "speedKt": 11.32554613351714,
+          "groundSpeedKt": 11.62769664482835,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 9.880994597851213,
+          "timeS": 2.8274660831031087,
+          "speedKt": 13.21314660799842,
+          "groundSpeedKt": 13.565646085633073,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 12.917600104354841,
+          "timeS": 3.233573577152704,
+          "speedKt": 15.100751444205427,
+          "groundSpeedKt": 15.503595526437797,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 16.36407360091356,
+          "timeS": 3.640270055105816,
+          "speedKt": 16.988361264606695,
+          "groundSpeedKt": 17.441544967242525,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 20.22172810589337,
+          "timeS": 4.047570152443027,
+          "speedKt": 18.875976691488784,
+          "groundSpeedKt": 19.379494408047247,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 24.491921696837576,
+          "timeS": 4.455488627462145,
+          "speedKt": 20.763598346826853,
+          "groundSpeedKt": 21.317443848851973,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 29.17605804104095,
+          "timeS": 4.864040364836032,
+          "speedKt": 22.65122685230555,
+          "groundSpeedKt": 23.2553932896567,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 34.27558694469897,
+          "timeS": 5.273240379237821,
+          "speedKt": 24.53886282928062,
+          "groundSpeedKt": 25.19334273046142,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 39.79200492106705,
+          "timeS": 5.683103819035879,
+          "speedKt": 26.426506898720064,
+          "groundSpeedKt": 27.131292171266146,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 45.72685577808199,
+          "timeS": 6.093645970060942,
+          "speedKt": 28.31415968124587,
+          "groundSpeedKt": 29.06924161207087,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 52.081731225916336,
+          "timeS": 6.504882259447931,
+          "speedKt": 30.201821797007224,
+          "groundSpeedKt": 31.007191052875594,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 58.85827150495473,
+          "timeS": 6.916828259555045,
+          "speedKt": 32.08949386572698,
+          "groundSpeedKt": 32.94514049368032,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 66.05816603470124,
+          "timeS": 7.3294996919627895,
+          "speedKt": 33.97717650666822,
+          "groundSpeedKt": 34.88308993448505,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 73.68315408414658,
+          "timeS": 7.7429124315557045,
+          "speedKt": 35.86487033853675,
+          "groundSpeedKt": 36.821039375289764,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 81.73502546414514,
+          "timeS": 8.157082510689627,
+          "speedKt": 37.75257597952212,
+          "groundSpeedKt": 38.758988816094494,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 90.21562124237376,
+          "timeS": 8.572026123447431,
+          "speedKt": 39.64029404723497,
+          "groundSpeedKt": 40.696938256899216,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 99.12683448146629,
+          "timeS": 8.987759629986288,
+          "speedKt": 41.52802515870224,
+          "groundSpeedKt": 42.634887697703945,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 108.47061100094199,
+          "timeS": 9.404299560979565,
+          "speedKt": 43.41576993029088,
+          "groundSpeedKt": 44.57283713850867,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 118.24895016356967,
+          "timeS": 9.82166262215663,
+          "speedKt": 45.30352897772022,
+          "groundSpeedKt": 46.5107865793134,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 128.46390568683537,
+          "timeS": 10.23986569894389,
+          "speedKt": 47.19130291602495,
+          "groundSpeedKt": 48.44873602011811,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 139.117586480207,
+          "timeS": 10.658925861210546,
+          "speedKt": 49.07909235952663,
+          "groundSpeedKt": 50.38668546092284,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 150.21215750891747,
+          "timeS": 11.07886036812266,
+          "speedKt": 50.96689792177329,
+          "groundSpeedKt": 52.32463490172756,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 161.74984068501584,
+          "timeS": 11.49968667310922,
+          "speedKt": 52.85472021554703,
+          "groundSpeedKt": 54.26258434253229,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 173.73291578646587,
+          "timeS": 11.92142242894409,
+          "speedKt": 54.74255985283014,
+          "groundSpeedKt": 56.200533783337015,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 186.1637214051019,
+          "timeS": 12.34408549294778,
+          "speedKt": 56.630417444756375,
+          "groundSpeedKt": 58.13848322414174,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 199.04465592428483,
+          "timeS": 12.767693932313195,
+          "speedKt": 58.518293601600725,
+          "groundSpeedKt": 60.07643266494646,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 212.3781785271335,
+          "timeS": 13.19226602955963,
+          "speedKt": 60.40618893274289,
+          "groundSpeedKt": 62.01438210575119,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 226.16681023624238,
+          "timeS": 13.617820288119416,
+          "speedKt": 62.294104046629556,
+          "groundSpeedKt": 63.95233154655592,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 240.41313498583213,
+          "timeS": 14.044375438061854,
+          "speedKt": 64.18203955076214,
+          "groundSpeedKt": 65.89028098736064,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 255.1198007273185,
+          "timeS": 14.471950441959136,
+          "speedKt": 66.0699960516572,
+          "groundSpeedKt": 67.82823042816537,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 270.2895205693233,
+          "timeS": 14.900564500899252,
+          "speedKt": 67.95797415482423,
+          "groundSpeedKt": 69.7661798689701,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 285.9250739531931,
+          "timeS": 15.330237060650965,
+          "speedKt": 69.84597446472588,
+          "groundSpeedKt": 71.70412930977481,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 302.02930786513434,
+          "timeS": 15.760987817986198,
+          "speedKt": 71.73399758476845,
+          "groundSpeedKt": 73.64207875057953,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 318.60513808611825,
+          "timeS": 16.192836727165318,
+          "speedKt": 73.62204411725054,
+          "groundSpeedKt": 75.58002819138426,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 335.65555048075544,
+          "timeS": 16.62580400659109,
+          "speedKt": 75.51011466335196,
+          "groundSpeedKt": 77.51797763218899,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 353.18360232638986,
+          "timeS": 17.059910145637218,
+          "speedKt": 77.39820982309551,
+          "groundSpeedKt": 79.4559270729937,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 371.19242368371175,
+          "timeS": 17.49517591165768,
+          "speedKt": 79.28633019533602,
+          "groundSpeedKt": 81.39387651379843,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 389.68521881024395,
+          "timeS": 17.93162235718325,
+          "speedKt": 81.17447637769385,
+          "groundSpeedKt": 83.33182595460316,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 408.66526761811065,
+          "timeS": 18.36927082731196,
+          "speedKt": 83.06264896658207,
+          "groundSpeedKt": 85.26977539540789,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 428.1359271775566,
+          "timeS": 18.80814296730032,
+          "speedKt": 84.95084855712176,
+          "groundSpeedKt": 87.2077248362126,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 448.1006332677454,
+          "timeS": 19.248260730362645,
+          "speedKt": 86.83907574316297,
+          "groundSpeedKt": 89.14567427701733,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 468.56290197643045,
+          "timeS": 19.689646385685936,
+          "speedKt": 88.72733111721561,
+          "groundSpeedKt": 91.08362371782206,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 489.5263313501572,
+          "timeS": 20.132322526668137,
+          "speedKt": 90.61561527046403,
+          "groundSpeedKt": 93.0215731586268,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 510.9946030967271,
+          "timeS": 20.576312079387904,
+          "speedKt": 92.50392879270082,
+          "groundSpeedKt": 94.95952259943151,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 532.971484341726,
+          "timeS": 21.02163831131438,
+          "speedKt": 94.39227227232017,
+          "groundSpeedKt": 96.89747204023622,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 555.4608294409961,
+          "timeS": 21.468324840265748,
+          "speedKt": 96.2806462962917,
+          "groundSpeedKt": 98.83542148104095,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 578.4665818510124,
+          "timeS": 21.916395643625812,
+          "speedKt": 98.16905145012252,
+          "groundSpeedKt": 100.77337092184568,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 601.9927760592069,
+          "timeS": 22.365875067828128,
+          "speedKt": 100.0574883178356,
+          "groundSpeedKt": 102.71132036265041,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 626.0435395763744,
+          "timeS": 22.816787838117666,
+          "speedKt": 101.94595748195533,
+          "groundSpeedKt": 104.64926980345513,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 650.6230949933845,
+          "timeS": 23.269159068600434,
+          "speedKt": 103.83445952345485,
+          "groundSpeedKt": 106.58721924425986,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 675.735762104522,
+          "timeS": 23.723014272591893,
+          "speedKt": 105.72299502175045,
+          "groundSpeedKt": 108.52516868506459,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 701.3859600998812,
+          "timeS": 24.17837937327545,
+          "speedKt": 107.6115645546737,
+          "groundSpeedKt": 110.46311812586931,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 727.5782098293456,
+          "timeS": 24.635280714682885,
+          "speedKt": 109.50016869843579,
+          "groundSpeedKt": 112.40106756667403,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 754.3171361407956,
+          "timeS": 25.093745073008982,
+          "speedKt": 111.38880802760366,
+          "groundSpeedKt": 114.33901700747874,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 781.6074702953085,
+          "timeS": 25.55379966827324,
+          "speedKt": 113.27748311508111,
+          "groundSpeedKt": 116.27696644828347,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 809.454052462235,
+          "timeS": 26.01547217634211,
+          "speedKt": 115.1661945320788,
+          "groundSpeedKt": 118.2149158890882,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 837.8618342971702,
+          "timeS": 26.478790741325763,
+          "speedKt": 117.05494284808317,
+          "groundSpeedKt": 120.15286532989292,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 866.835881605972,
+          "timeS": 26.943783988364036,
+          "speedKt": 118.94372863084239,
+          "groundSpeedKt": 122.09081477069765,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 896.3813770981251,
+          "timeS": 27.41048103681691,
+          "speedKt": 120.83255244633575,
+          "groundSpeedKt": 124.02876421150238,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 926.5036232329,
+          "timeS": 27.87891151387552,
+          "speedKt": 122.72141485874174,
+          "groundSpeedKt": 125.9667136523071,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 957.2080451619164,
+          "timeS": 28.3491055686104,
+          "speedKt": 124.61031643042269,
+          "groundSpeedKt": 127.90466309311184,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 988.5001937718876,
+          "timeS": 28.821093886474582,
+          "speedKt": 126.49925772189545,
+          "groundSpeedKt": 129.84261253391657,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 1020.3857488315012,
+          "timeS": 29.29490770427976,
+          "speedKt": 128.38823929181032,
+          "groundSpeedKt": 131.78056197472128,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 1052.8705222465771,
+          "timeS": 29.770578825664817,
+          "speedKt": 130.2772616969205,
+          "groundSpeedKt": 133.718511415526,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 1085.9604614278378,
+          "timeS": 30.248139637076758,
+          "speedKt": 132.16632549206167,
+          "groundSpeedKt": 135.65646085633074,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 1119.661652775838,
+          "timeS": 30.72762312428506,
+          "speedKt": 134.0554312301278,
+          "groundSpeedKt": 137.59441029713545,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 1136.7434089026146,
+          "timeS": 30.968096347432088,
+          "speedKt": 135.0000000000005,
+          "groundSpeedKt": 138.5633850175378,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 1143.8757998511037,
+          "timeS": 31.06809634743209,
+          "speedKt": 135.15435897829659,
+          "groundSpeedKt": 138.72173131216127,
+          "heightM": 0,
+          "phase": "engine-failure-recognition"
+        },
+        {
+          "distanceM": 1158.1650041875828,
+          "timeS": 31.26809634743209,
+          "speedKt": 135.46272140631277,
+          "groundSpeedKt": 139.0380583107532,
+          "heightM": 0,
+          "phase": "engine-failure-recognition"
+        },
+        {
+          "distanceM": 1172.486729976249,
+          "timeS": 31.468096347432088,
+          "speedKt": 135.7706096748063,
+          "groundSpeedKt": 139.35389773305258,
+          "heightM": 0,
+          "phase": "engine-failure-recognition"
+        },
+        {
+          "distanceM": 1186.8409270435232,
+          "timeS": 31.668096347432087,
+          "speedKt": 136.078023641787,
+          "groundSpeedKt": 139.66924943638293,
+          "heightM": 0,
+          "phase": "engine-failure-recognition"
+        },
+        {
+          "distanceM": 1201.227545201371,
+          "timeS": 31.868096347432086,
+          "speedKt": 136.384963169487,
+          "groundSpeedKt": 139.98411328243063,
+          "heightM": 0,
+          "phase": "engine-failure-recognition"
+        },
+        {
+          "distanceM": 1208.432996501657,
+          "timeS": 31.968096347432088,
+          "speedKt": 136.53825497671792,
+          "groundSpeedKt": 140.14136221694062,
+          "heightM": 0,
+          "phase": "engine-failure-recognition"
+        },
+        {
+          "distanceM": 1218.6256083501326,
+          "timeS": 32.10996316443351,
+          "speedKt": 135.59608882825847,
+          "groundSpeedKt": 139.17487006372033,
+          "heightM": 0,
+          "phase": "dry-braking"
+        },
+        {
+          "distanceM": 1238.81947533155,
+          "timeS": 32.393982002331015,
+          "speedKt": 133.71178850480325,
+          "groundSpeedKt": 137.24188575727976,
+          "heightM": 0,
+          "phase": "dry-braking"
+        },
+        {
+          "distanceM": 1258.757319145391,
+          "timeS": 32.67837753487943,
+          "speedKt": 131.82753035818075,
+          "groundSpeedKt": 135.30890145083922,
+          "heightM": 0,
+          "phase": "dry-braking"
+        },
+        {
+          "distanceM": 1278.4380916318282,
+          "timeS": 32.963145436009185,
+          "speedKt": 129.94331384133278,
+          "groundSpeedKt": 133.37591714439864,
+          "heightM": 0,
+          "phase": "dry-braking"
+        },
+        {
+          "distanceM": 1297.8607549525589,
+          "timeS": 33.24828134171379,
+          "speedKt": 128.05913840526125,
+          "groundSpeedKt": 131.4429328379581,
+          "heightM": 0,
+          "phase": "dry-braking"
+        },
+        {
+          "distanceM": 1317.0242817613864,
+          "timeS": 33.533780850343156,
+          "speedKt": 126.1750034990413,
+          "groundSpeedKt": 129.50994853151755,
+          "heightM": 0,
+          "phase": "dry-braking"
+        },
+        {
+          "distanceM": 1335.9276553739394,
+          "timeS": 33.81963952290574,
+          "speedKt": 124.2909085698664,
+          "groundSpeedKt": 127.57696422507698,
+          "heightM": 0,
+          "phase": "dry-braking"
+        },
+        {
+          "distanceM": 1354.5698699364693,
+          "timeS": 34.105852883379754,
+          "speedKt": 122.40685306304844,
+          "groundSpeedKt": 125.64397991863642,
+          "heightM": 0,
+          "phase": "dry-braking"
+        },
+        {
+          "distanceM": 1372.9499305936743,
+          "timeS": 34.39241641903327,
+          "speedKt": 120.52283642206174,
+          "groundSpeedKt": 123.71099561219584,
+          "heightM": 0,
+          "phase": "dry-braking"
+        },
+        {
+          "distanceM": 1391.0668536554947,
+          "timeS": 34.67932558075319,
+          "speedKt": 118.63885808855673,
+          "groundSpeedKt": 121.7780113057553,
+          "heightM": 0,
+          "phase": "dry-braking"
+        },
+        {
+          "distanceM": 1408.9196667628244,
+          "timeS": 34.96657578338319,
+          "speedKt": 116.754917502381,
+          "groundSpeedKt": 119.84502699931474,
+          "heightM": 0,
+          "phase": "dry-braking"
+        },
+        {
+          "distanceM": 1426.5074090520827,
+          "timeS": 35.25416240607041,
+          "speedKt": 114.87101410161738,
+          "groundSpeedKt": 117.91204269287418,
+          "heightM": 0,
+          "phase": "dry-braking"
+        },
+        {
+          "distanceM": 1443.8291313185935,
+          "timeS": 35.54208079262105,
+          "speedKt": 112.98714732259756,
+          "groundSpeedKt": 115.97905838643362,
+          "heightM": 0,
+          "phase": "dry-braking"
+        },
+        {
+          "distanceM": 1460.8838961787155,
+          "timeS": 35.83032625186469,
+          "speedKt": 111.10331659993285,
+          "groundSpeedKt": 114.04607407999305,
+          "heightM": 0,
+          "phase": "dry-braking"
+        },
+        {
+          "distanceM": 1477.6707782306696,
+          "timeS": 36.118894058027365,
+          "speedKt": 109.21952136653199,
+          "groundSpeedKt": 112.11308977355249,
+          "heightM": 0,
+          "phase": "dry-braking"
+        },
+        {
+          "distanceM": 1494.1888642140075,
+          "timeS": 36.407779451113335,
+          "speedKt": 107.33576105363709,
+          "groundSpeedKt": 110.18010546711193,
+          "heightM": 0,
+          "phase": "dry-braking"
+        },
+        {
+          "distanceM": 1510.4372531676688,
+          "timeS": 36.696977637295475,
+          "speedKt": 105.45203509084013,
+          "groundSpeedKt": 108.24712116067138,
+          "heightM": 0,
+          "phase": "dry-braking"
+        },
+        {
+          "distanceM": 1526.4150565865684,
+          "timeS": 36.986483789314256,
+          "speedKt": 103.56834290611549,
+          "groundSpeedKt": 106.31413685423081,
+          "heightM": 0,
+          "phase": "dry-braking"
+        },
+        {
+          "distanceM": 1542.1213985766663,
+          "timeS": 37.276293046885286,
+          "speedKt": 101.68468392583907,
+          "groundSpeedKt": 104.38115254779026,
+          "heightM": 0,
+          "phase": "dry-braking"
+        },
+        {
+          "distanceM": 1557.5554160084566,
+          "timeS": 37.56640051711529,
+          "speedKt": 99.80105757481473,
+          "groundSpeedKt": 102.44816824134969,
+          "heightM": 0,
+          "phase": "dry-braking"
+        },
+        {
+          "distanceM": 1572.7162586688326,
+          "timeS": 37.856801274926475,
+          "speedKt": 97.91746327631107,
+          "groundSpeedKt": 100.51518393490913,
+          "heightM": 0,
+          "phase": "dry-braking"
+        },
+        {
+          "distanceM": 1587.603089411263,
+          "timeS": 38.14749036348926,
+          "speedKt": 96.03390045207449,
+          "groundSpeedKt": 98.58219962846857,
+          "heightM": 0,
+          "phase": "dry-braking"
+        },
+        {
+          "distanceM": 1602.215084304236,
+          "timeS": 38.43846279466327,
+          "speedKt": 94.15036852235713,
+          "groundSpeedKt": 96.64921532202801,
+          "heightM": 0,
+          "phase": "dry-braking"
+        },
+        {
+          "distanceM": 1616.5514327779097,
+          "timeS": 38.72971354944649,
+          "speedKt": 92.26686690595301,
+          "groundSpeedKt": 94.71623101558747,
+          "heightM": 0,
+          "phase": "dry-braking"
+        },
+        {
+          "distanceM": 1630.6113377689242,
+          "timeS": 39.021237578432505,
+          "speedKt": 90.38339502021215,
+          "groundSpeedKt": 92.7832467091469,
+          "heightM": 0,
+          "phase": "dry-braking"
+        },
+        {
+          "distanceM": 1644.3940158633143,
+          "timeS": 39.31302980227583,
+          "speedKt": 88.49995228107817,
+          "groundSpeedKt": 90.85026240270633,
+          "heightM": 0,
+          "phase": "dry-braking"
+        },
+        {
+          "distanceM": 1657.8986974374798,
+          "timeS": 39.60508511216509,
+          "speedKt": 86.61653810310284,
+          "groundSpeedKt": 88.91727809626578,
+          "heightM": 0,
+          "phase": "dry-braking"
+        },
+        {
+          "distanceM": 1671.124626797154,
+          "timeS": 39.89739837030409,
+          "speedKt": 84.73315189949113,
+          "groundSpeedKt": 86.98429378982522,
+          "heightM": 0,
+          "phase": "dry-braking"
+        },
+        {
+          "distanceM": 1684.071062314326,
+          "timeS": 40.18996441040059,
+          "speedKt": 82.84979308210562,
+          "groundSpeedKt": 85.05130948338466,
+          "heightM": 0,
+          "phase": "dry-braking"
+        },
+        {
+          "distanceM": 1696.737276562061,
+          "timeS": 40.48277803816277,
+          "speedKt": 80.96646106151026,
+          "groundSpeedKt": 83.1183251769441,
+          "heightM": 0,
+          "phase": "dry-braking"
+        },
+        {
+          "distanceM": 1709.1225564471724,
+          "timeS": 40.77583403180318,
+          "speedKt": 79.08315524700207,
+          "groundSpeedKt": 81.18534087050354,
+          "heightM": 0,
+          "phase": "dry-braking"
+        },
+        {
+          "distanceM": 1721.2262033406935,
+          "timeS": 41.069127142550165,
+          "speedKt": 77.19987504660654,
+          "groundSpeedKt": 79.25235656406296,
+          "heightM": 0,
+          "phase": "dry-braking"
+        },
+        {
+          "distanceM": 1733.0475332061033,
+          "timeS": 41.362652095166595,
+          "speedKt": 75.31661986714964,
+          "groundSpeedKt": 77.31937225762242,
+          "heightM": 0,
+          "phase": "dry-braking"
+        },
+        {
+          "distanceM": 1744.585876725254,
+          "timeS": 41.65640358847581,
+          "speedKt": 73.43338911425488,
+          "groundSpeedKt": 75.38638795118186,
+          "heightM": 0,
+          "phase": "dry-braking"
+        },
+        {
+          "distanceM": 1755.840579421957,
+          "timeS": 41.950376295894635,
+          "speedKt": 71.5501821923772,
+          "groundSpeedKt": 73.4534036447413,
+          "heightM": 0,
+          "phase": "dry-braking"
+        },
+        {
+          "distanceM": 1766.8110017831764,
+          "timeS": 42.2445648659734,
+          "speedKt": 69.66699850483546,
+          "groundSpeedKt": 71.52041933830074,
+          "heightM": 0,
+          "phase": "dry-braking"
+        },
+        {
+          "distanceM": 1777.496519377789,
+          "timeS": 42.53896392294279,
+          "speedKt": 67.78383745383935,
+          "groundSpeedKt": 69.58743503186017,
+          "heightM": 0,
+          "phase": "dry-braking"
+        },
+        {
+          "distanceM": 1787.8965229728583,
+          "timeS": 42.83356806726737,
+          "speedKt": 65.90069844051358,
+          "groundSpeedKt": 67.65445072541961,
+          "heightM": 0,
+          "phase": "dry-braking"
+        },
+        {
+          "distanceM": 1798.0104186473873,
+          "timeS": 43.128371876205776,
+          "speedKt": 64.01758086493392,
+          "groundSpeedKt": 65.72146641897905,
+          "heightM": 0,
+          "phase": "dry-braking"
+        },
+        {
+          "distanceM": 1807.8376279034953,
+          "timeS": 43.423369904377296,
+          "speedKt": 62.13448412613849,
+          "groundSpeedKt": 63.78848211253849,
+          "heightM": 0,
+          "phase": "dry-braking"
+        },
+        {
+          "distanceM": 1817.3775877749872,
+          "timeS": 43.71855668433475,
+          "speedKt": 60.25140762218132,
+          "groundSpeedKt": 61.85549780609794,
+          "heightM": 0,
+          "phase": "dry-braking"
+        },
+        {
+          "distanceM": 1826.629750933263,
+          "timeS": 44.013926727143634,
+          "speedKt": 58.36835075013797,
+          "groundSpeedKt": 59.92251349965738,
+          "heightM": 0,
+          "phase": "dry-braking"
+        },
+        {
+          "distanceM": 1835.5935857905336,
+          "timeS": 44.309474522967164,
+          "speedKt": 56.485312906142454,
+          "groundSpeedKt": 57.98952919321682,
+          "heightM": 0,
+          "phase": "dry-braking"
+        },
+        {
+          "distanceM": 1844.2685766002983,
+          "timeS": 44.605194541657305,
+          "speedKt": 54.602293485427175,
+          "groundSpeedKt": 56.05654488677625,
+          "heightM": 0,
+          "phase": "dry-braking"
+        },
+        {
+          "distanceM": 1852.6542235550478,
+          "timeS": 44.90108123335145,
+          "speedKt": 52.71929188232524,
+          "groundSpeedKt": 54.12356058033569,
+          "heightM": 0,
+          "phase": "dry-braking"
+        },
+        {
+          "distanceM": 1860.750042881151,
+          "timeS": 45.19712902907473,
+          "speedKt": 50.836307490325915,
+          "groundSpeedKt": 52.19057627389513,
+          "heightM": 0,
+          "phase": "dry-braking"
+        },
+        {
+          "distanceM": 1868.555566930892,
+          "timeS": 45.49333234134771,
+          "speedKt": 48.95333970208817,
+          "groundSpeedKt": 50.257591967454566,
+          "heightM": 0,
+          "phase": "dry-braking"
+        },
+        {
+          "distanceM": 1876.0703442716158,
+          "timeS": 45.78968556479934,
+          "speedKt": 47.070387909467684,
+          "groundSpeedKt": 48.32460766101401,
+          "heightM": 0,
+          "phase": "dry-braking"
+        },
+        {
+          "distanceM": 1883.2939397719542,
+          "timeS": 46.08618307678506,
+          "speedKt": 45.187451503566656,
+          "groundSpeedKt": 46.391623354573454,
+          "heightM": 0,
+          "phase": "dry-braking"
+        },
+        {
+          "distanceM": 1890.2259346850915,
+          "timeS": 46.38281923800971,
+          "speedKt": 43.30452987472931,
+          "groundSpeedKt": 44.458639048132895,
+          "heightM": 0,
+          "phase": "dry-braking"
+        },
+        {
+          "distanceM": 1896.8659267290395,
+          "timeS": 46.67958839315535,
+          "speedKt": 41.42162241260047,
+          "groundSpeedKt": 42.525654741692335,
+          "heightM": 0,
+          "phase": "dry-braking"
+        },
+        {
+          "distanceM": 1903.2135301638905,
+          "timeS": 46.976484871513584,
+          "speedKt": 39.53872850615173,
+          "groundSpeedKt": 40.59267043525177,
+          "heightM": 0,
+          "phase": "dry-braking"
+        },
+        {
+          "distanceM": 1909.2683758660146,
+          "timeS": 47.27350298762234,
+          "speedKt": 37.65584754368308,
+          "groundSpeedKt": 38.65968612881121,
+          "heightM": 0,
+          "phase": "dry-braking"
+        },
+        {
+          "distanceM": 1915.0301113991761,
+          "timeS": 47.57063704190684,
+          "speedKt": 35.77297891287251,
+          "groundSpeedKt": 36.72670182237065,
+          "heightM": 0,
+          "phase": "dry-braking"
+        },
+        {
+          "distanceM": 1920.4984010825347,
+          "timeS": 47.86788132132475,
+          "speedKt": 33.89012200082762,
+          "groundSpeedKt": 34.79371751593008,
+          "heightM": 0,
+          "phase": "dry-braking"
+        },
+        {
+          "distanceM": 1925.6729260555085,
+          "timeS": 48.16523010001512,
+          "speedKt": 32.00727619406441,
+          "groundSpeedKt": 32.860733209489524,
+          "heightM": 0,
+          "phase": "dry-braking"
+        },
+        {
+          "distanceM": 1930.5533843394708,
+          "timeS": 48.462677639951046,
+          "speedKt": 30.12444087859077,
+          "groundSpeedKt": 30.927748903048975,
+          "heightM": 0,
+          "phase": "dry-braking"
+        },
+        {
+          "distanceM": 1935.1394908962568,
+          "timeS": 48.760218191595925,
+          "speedKt": 28.241615439877048,
+          "groundSpeedKt": 28.994764596608416,
+          "heightM": 0,
+          "phase": "dry-braking"
+        },
+        {
+          "distanceM": 1939.4309776834543,
+          "timeS": 49.057845994562975,
+          "speedKt": 26.358799262942895,
+          "groundSpeedKt": 27.061780290167853,
+          "heightM": 0,
+          "phase": "dry-braking"
+        },
+        {
+          "distanceM": 1943.4275937064585,
+          "timeS": 49.35555527827795,
+          "speedKt": 24.475991732345083,
+          "groundSpeedKt": 25.12879598372729,
+          "heightM": 0,
+          "phase": "dry-braking"
+        },
+        {
+          "distanceM": 1947.1291050672685,
+          "timeS": 49.65334026264479,
+          "speedKt": 22.593192232255873,
+          "groundSpeedKt": 23.195811677286727,
+          "heightM": 0,
+          "phase": "dry-braking"
+        },
+        {
+          "distanceM": 1950.535295010005,
+          "timeS": 49.951195158714086,
+          "speedKt": 20.710400146407952,
+          "groundSpeedKt": 21.262827370846168,
+          "heightM": 0,
+          "phase": "dry-braking"
+        },
+        {
+          "distanceM": 1953.6459639631341,
+          "timeS": 50.2491141693541,
+          "speedKt": 18.827614858225505,
+          "groundSpeedKt": 19.329843064405605,
+          "heightM": 0,
+          "phase": "dry-braking"
+        },
+        {
+          "distanceM": 1956.4609295783728,
+          "timeS": 50.547091489924185,
+          "speedKt": 16.94483575075576,
+          "groundSpeedKt": 17.39685875796504,
+          "heightM": 0,
+          "phase": "dry-braking"
+        },
+        {
+          "distanceM": 1958.9800267662686,
+          "timeS": 50.84512130895035,
+          "speedKt": 15.062062206806942,
+          "groundSpeedKt": 15.463874451524495,
+          "heightM": 0,
+          "phase": "dry-braking"
+        },
+        {
+          "distanceM": 1961.203107728434,
+          "timeS": 51.14319780880293,
+          "speedKt": 13.179293608872422,
+          "groundSpeedKt": 13.53089014508392,
+          "heightM": 0,
+          "phase": "dry-braking"
+        },
+        {
+          "distanceM": 1963.130041986422,
+          "timeS": 51.44131516637598,
+          "speedKt": 11.296529339236764,
+          "groundSpeedKt": 11.59790583864337,
+          "heightM": 0,
+          "phase": "dry-braking"
+        },
+        {
+          "distanceM": 1964.7607164072342,
+          "timeS": 51.73946755376826,
+          "speedKt": 9.413768779950571,
+          "groundSpeedKt": 9.664921532202795,
+          "heightM": 0,
+          "phase": "dry-braking"
+        },
+        {
+          "distanceM": 1966.095035225449,
+          "timeS": 52.03764913896569,
+          "speedKt": 7.531011312896081,
+          "groundSpeedKt": 7.731937225762247,
+          "heightM": 0,
+          "phase": "dry-braking"
+        },
+        {
+          "distanceM": 1967.132920061958,
+          "timeS": 52.33585408652496,
+          "speedKt": 5.648256319811314,
+          "groundSpeedKt": 5.7989529193216995,
+          "heightM": 0,
+          "phase": "dry-braking"
+        },
+        {
+          "distanceM": 1967.8743099393114,
+          "timeS": 52.6340765582582,
+          "speedKt": 3.7655031822566296,
+          "groundSpeedKt": 3.8659686128811237,
+          "heightM": 0,
+          "phase": "dry-braking"
+        },
+        {
+          "distanceM": 1968.3191612936544,
+          "timeS": 52.932310713918355,
+          "speedKt": 1.8827512818945766,
+          "groundSpeedKt": 1.9329843064405756,
+          "heightM": 0,
+          "phase": "dry-braking"
+        },
+        {
+          "distanceM": 1968.4674479832615,
+          "timeS": 53.2305507118853,
+          "speedKt": 0,
+          "groundSpeedKt": 0,
+          "heightM": 0,
+          "phase": "dry-braking"
+        }
+      ],
+      "continueTakeoff": [
+        {
+          "distanceM": 0,
+          "timeS": 0,
+          "speedKt": 0,
+          "groundSpeedKt": 0,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 0.05013052108453192,
+          "timeS": 0.20113205280088423,
+          "speedKt": 0.9437936542866073,
+          "groundSpeedKt": 0.9689747204023623,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 0.20061233182240976,
+          "timeS": 0.4023848016127751,
+          "speedKt": 1.8875873864234878,
+          "groundSpeedKt": 1.9379494408047246,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 0.4515679114704535,
+          "timeS": 0.6037599710882078,
+          "speedKt": 2.831381274346689,
+          "groundSpeedKt": 2.9069241612070873,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 0.80312232894289,
+          "timeS": 0.8052592919117674,
+          "speedKt": 3.7751753960351317,
+          "groundSpeedKt": 3.8758988816094493,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 1.255403255055,
+          "timeS": 1.0068845008964402,
+          "speedKt": 4.7189698294162294,
+          "groundSpeedKt": 4.844873602011812,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 1.808540975009046,
+          "timeS": 1.208637341080744,
+          "speedKt": 5.662764652451671,
+          "groundSpeedKt": 5.813848322414175,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 2.462668401124862,
+          "timeS": 1.4105195618266513,
+          "speedKt": 6.606559942855536,
+          "groundSpeedKt": 6.782823042816537,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 3.2179210858175296,
+          "timeS": 1.6125329189183206,
+          "speedKt": 7.550355778699384,
+          "groundSpeedKt": 7.751797763218899,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 4.074437234824619,
+          "timeS": 1.8146791746616515,
+          "speedKt": 8.494152237784677,
+          "groundSpeedKt": 8.720772483621262,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 5.032357720685529,
+          "timeS": 2.0169600979846756,
+          "speedKt": 9.437949398060878,
+          "groundSpeedKt": 9.689747204023623,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 6.091826096475511,
+          "timeS": 2.2193774645388014,
+          "speedKt": 10.381747337347553,
+          "groundSpeedKt": 10.658721924425986,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 7.252988609797009,
+          "timeS": 2.421933056800928,
+          "speedKt": 11.32554613351714,
+          "groundSpeedKt": 11.62769664482835,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 8.515994217031018,
+          "timeS": 2.624628664176441,
+          "speedKt": 12.26934586445474,
+          "groundSpeedKt": 12.59667136523071,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 9.880994597851213,
+          "timeS": 2.8274660831031087,
+          "speedKt": 13.21314660799842,
+          "groundSpeedKt": 13.565646085633073,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 11.34814417000364,
+          "timeS": 3.0304471171558953,
+          "speedKt": 14.156948441971975,
+          "groundSpeedKt": 14.534620806035434,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 12.917600104354841,
+          "timeS": 3.233573577152704,
+          "speedKt": 15.100751444205427,
+          "groundSpeedKt": 15.503595526437797,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 14.58952234021136,
+          "timeS": 3.4368472812610698,
+          "speedKt": 16.044555692487727,
+          "groundSpeedKt": 16.47257024684016,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 16.36407360091356,
+          "timeS": 3.640270055105816,
+          "speedKt": 16.988361264606695,
+          "groundSpeedKt": 17.441544967242525,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 18.241419409706847,
+          "timeS": 3.843843731877695,
+          "speedKt": 17.93216823836281,
+          "groundSpeedKt": 18.410519687644882,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 20.22172810589337,
+          "timeS": 4.047570152443027,
+          "speedKt": 18.875976691488784,
+          "groundSpeedKt": 19.379494408047247,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 22.3051708612674,
+          "timeS": 4.251451165454358,
+          "speedKt": 19.819786701751426,
+          "groundSpeedKt": 20.348469128449608,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 24.491921696837576,
+          "timeS": 4.455488627462145,
+          "speedKt": 20.763598346826853,
+          "groundSpeedKt": 21.317443848851973,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 26.782157499839343,
+          "timeS": 4.659684403027507,
+          "speedKt": 21.707411704465613,
+          "groundSpeedKt": 22.286418569254334,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 29.17605804104095,
+          "timeS": 4.864040364836032,
+          "speedKt": 22.65122685230555,
+          "groundSpeedKt": 23.2553932896567,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 31.673805992346413,
+          "timeS": 5.068558393812685,
+          "speedKt": 23.595043868048702,
+          "groundSpeedKt": 24.224368010059056,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 34.27558694469897,
+          "timeS": 5.273240379237821,
+          "speedKt": 24.53886282928062,
+          "groundSpeedKt": 25.19334273046142,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 36.98158942628857,
+          "timeS": 5.47808821886432,
+          "speedKt": 25.482683813644407,
+          "groundSpeedKt": 26.16231745086378,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 39.79200492106705,
+          "timeS": 5.683103819035879,
+          "speedKt": 26.426506898720064,
+          "groundSpeedKt": 27.131292171266146,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 42.70702788757469,
+          "timeS": 5.888289094806463,
+          "speedKt": 27.370332162079688,
+          "groundSpeedKt": 28.100266891668507,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 45.72685577808199,
+          "timeS": 6.093645970060942,
+          "speedKt": 28.31415968124587,
+          "groundSpeedKt": 29.06924161207087,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 48.851689058050454,
+          "timeS": 6.299176377636946,
+          "speedKt": 29.25798953372447,
+          "groundSpeedKt": 30.03821633247323,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 52.081731225916336,
+          "timeS": 6.504882259447931,
+          "speedKt": 30.201821797007224,
+          "groundSpeedKt": 31.007191052875594,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 55.41718883320139,
+          "timeS": 6.710765566607511,
+          "speedKt": 31.145656548527008,
+          "groundSpeedKt": 31.97616577327796,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 58.85827150495473,
+          "timeS": 6.916828259555045,
+          "speedKt": 32.08949386572698,
+          "groundSpeedKt": 32.94514049368032,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 62.40519196052985,
+          "timeS": 7.123072308182528,
+          "speedKt": 33.03333382599291,
+          "groundSpeedKt": 33.914115214082685,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 66.05816603470124,
+          "timeS": 7.3294996919627895,
+          "speedKt": 33.97717650666822,
+          "groundSpeedKt": 34.88308993448505,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 69.81741269912483,
+          "timeS": 7.536112400079027,
+          "speedKt": 34.92102198508049,
+          "groundSpeedKt": 35.85206465488741,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 73.68315408414658,
+          "timeS": 7.7429124315557045,
+          "speedKt": 35.86487033853675,
+          "groundSpeedKt": 36.821039375289764,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 77.65561550096405,
+          "timeS": 7.9499017953908275,
+          "speedKt": 36.80872164426664,
+          "groundSpeedKt": 37.79001409569213,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 81.73502546414514,
+          "timeS": 8.157082510689627,
+          "speedKt": 37.75257597952212,
+          "groundSpeedKt": 38.758988816094494,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 85.921615714509,
+          "timeS": 8.36445660679967,
+          "speedKt": 38.69643342146168,
+          "groundSpeedKt": 39.72796353649685,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 90.21562124237376,
+          "timeS": 8.572026123447431,
+          "speedKt": 39.64029404723497,
+          "groundSpeedKt": 40.696938256899216,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 94.61728031117588,
+          "timeS": 8.77979311087633,
+          "speedKt": 40.584157933965756,
+          "groundSpeedKt": 41.66591297730158,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 99.12683448146629,
+          "timeS": 8.987759629986288,
+          "speedKt": 41.52802515870224,
+          "groundSpeedKt": 42.634887697703945,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 103.74452863528825,
+          "timeS": 9.195927752474798,
+          "speedKt": 42.47189579848251,
+          "groundSpeedKt": 43.6038624181063,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 108.47061100094199,
+          "timeS": 9.404299560979565,
+          "speedKt": 43.41576993029088,
+          "groundSpeedKt": 44.57283713850867,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 113.30533317814164,
+          "timeS": 9.612877149222717,
+          "speedKt": 44.359647631069,
+          "groundSpeedKt": 45.54181185891103,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 118.24895016356967,
+          "timeS": 9.82166262215663,
+          "speedKt": 45.30352897772022,
+          "groundSpeedKt": 46.5107865793134,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 123.30172037683428,
+          "timeS": 10.030658096111384,
+          "speedKt": 46.24741404710825,
+          "groundSpeedKt": 47.479761299715754,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 128.46390568683537,
+          "timeS": 10.23986569894389,
+          "speedKt": 47.19130291602495,
+          "groundSpeedKt": 48.44873602011811,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 133.73577143854487,
+          "timeS": 10.4492875701887,
+          "speedKt": 48.13519566126301,
+          "groundSpeedKt": 49.41771074052048,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 139.117586480207,
+          "timeS": 10.658925861210546,
+          "speedKt": 49.07909235952663,
+          "groundSpeedKt": 50.38668546092284,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 144.6096231909646,
+          "timeS": 10.868782735358625,
+          "speedKt": 50.022993087483606,
+          "groundSpeedKt": 51.355660181325206,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 150.21215750891747,
+          "timeS": 11.07886036812266,
+          "speedKt": 50.96689792177329,
+          "groundSpeedKt": 52.32463490172756,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 155.92546895961874,
+          "timeS": 11.289160947290776,
+          "speedKt": 51.91080693894842,
+          "groundSpeedKt": 53.29360962212993,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 161.74984068501584,
+          "timeS": 11.49968667310922,
+          "speedKt": 52.85472021554703,
+          "groundSpeedKt": 54.26258434253229,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 167.68555947284213,
+          "timeS": 11.710439758443943,
+          "speedKt": 53.798637828035055,
+          "groundSpeedKt": 55.23155906293466,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 173.73291578646587,
+          "timeS": 11.92142242894409,
+          "speedKt": 54.74255985283014,
+          "groundSpeedKt": 56.200533783337015,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 179.89220379520322,
+          "timeS": 12.132636923207437,
+          "speedKt": 55.686486366301445,
+          "groundSpeedKt": 57.16950850373937,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 186.1637214051019,
+          "timeS": 12.34408549294778,
+          "speedKt": 56.630417444756375,
+          "groundSpeedKt": 58.13848322414174,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 192.54777029020258,
+          "timeS": 12.555770403164338,
+          "speedKt": 57.57435316445823,
+          "groundSpeedKt": 59.1074579445441,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 199.04465592428483,
+          "timeS": 12.767693932313195,
+          "speedKt": 58.518293601600725,
+          "groundSpeedKt": 60.07643266494646,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 205.65468761310504,
+          "timeS": 12.979858372480809,
+          "speedKt": 59.462238832333796,
+          "groundSpeedKt": 61.045407385348824,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 212.3781785271335,
+          "timeS": 13.19226602955963,
+          "speedKt": 60.40618893274289,
+          "groundSpeedKt": 62.01438210575119,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 219.21544573479812,
+          "timeS": 13.404919223425862,
+          "speedKt": 61.35014397884989,
+          "groundSpeedKt": 62.98335682615355,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 226.16681023624238,
+          "timeS": 13.617820288119416,
+          "speedKt": 62.294104046629556,
+          "groundSpeedKt": 63.95233154655592,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 233.23259699760544,
+          "timeS": 13.830971572026062,
+          "speedKt": 63.238069211982264,
+          "groundSpeedKt": 64.92130626695828,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 240.41313498583213,
+          "timeS": 14.044375438061854,
+          "speedKt": 64.18203955076214,
+          "groundSpeedKt": 65.89028098736064,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 247.70875720402097,
+          "timeS": 14.258034263859845,
+          "speedKt": 65.126015138743,
+          "groundSpeedKt": 66.859255707763,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 255.1198007273185,
+          "timeS": 14.471950441959136,
+          "speedKt": 66.0699960516572,
+          "groundSpeedKt": 67.82823042816537,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 262.64660673936834,
+          "timeS": 14.686126379996306,
+          "speedKt": 67.01398236515132,
+          "groundSpeedKt": 68.79720514856773,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 270.2895205693233,
+          "timeS": 14.900564500899252,
+          "speedKt": 67.95797415482423,
+          "groundSpeedKt": 69.7661798689701,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 278.04889172942984,
+          "timeS": 15.11526724308349,
+          "speedKt": 68.90197149619505,
+          "groundSpeedKt": 70.73515458937246,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 285.9250739531931,
+          "timeS": 15.330237060650965,
+          "speedKt": 69.84597446472588,
+          "groundSpeedKt": 71.70412930977481,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 293.9184252341321,
+          "timeS": 15.545476423591392,
+          "speedKt": 70.78998313580841,
+          "groundSpeedKt": 72.67310403017717,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 302.02930786513434,
+          "timeS": 15.760987817986198,
+          "speedKt": 71.73399758476845,
+          "groundSpeedKt": 73.64207875057953,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 310.2580884784189,
+          "timeS": 15.976773746215091,
+          "speedKt": 72.6780178868534,
+          "groundSpeedKt": 74.61105347098189,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 318.60513808611825,
+          "timeS": 16.192836727165318,
+          "speedKt": 73.62204411725054,
+          "groundSpeedKt": 75.58002819138426,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 327.070832121488,
+          "timeS": 16.40917929644364,
+          "speedKt": 74.56607635106789,
+          "groundSpeedKt": 76.54900291178662,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 335.65555048075544,
+          "timeS": 16.62580400659109,
+          "speedKt": 75.51011466335196,
+          "groundSpeedKt": 77.51797763218899,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 344.3596775656161,
+          "timeS": 16.842713427300552,
+          "speedKt": 76.45415912906292,
+          "groundSpeedKt": 78.48695235259135,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 353.18360232638986,
+          "timeS": 17.059910145637218,
+          "speedKt": 77.39820982309551,
+          "groundSpeedKt": 79.4559270729937,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 362.12771830584643,
+          "timeS": 17.27739676626196,
+          "speedKt": 78.34226682027362,
+          "groundSpeedKt": 80.42490179339607,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 371.19242368371175,
+          "timeS": 17.49517591165768,
+          "speedKt": 79.28633019533602,
+          "groundSpeedKt": 81.39387651379843,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 380.3781213218658,
+          "timeS": 17.713250222358706,
+          "speedKt": 80.23040002294444,
+          "groundSpeedKt": 82.3628512342008,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 389.68521881024395,
+          "timeS": 17.93162235718325,
+          "speedKt": 81.17447637769385,
+          "groundSpeedKt": 83.33182595460316,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 399.1141285134524,
+          "timeS": 18.15029499346901,
+          "speedKt": 82.11855933409853,
+          "groundSpeedKt": 84.30080067500552,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 408.66526761811065,
+          "timeS": 18.36927082731196,
+          "speedKt": 83.06264896658207,
+          "groundSpeedKt": 85.26977539540789,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 418.3390581809323,
+          "timeS": 18.588552573808403,
+          "speedKt": 84.00674534949675,
+          "groundSpeedKt": 86.23875011581025,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 428.1359271775566,
+          "timeS": 18.80814296730032,
+          "speedKt": 84.95084855712176,
+          "groundSpeedKt": 87.2077248362126,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 438.05630655214355,
+          "timeS": 19.02804476162409,
+          "speedKt": 85.89495866363889,
+          "groundSpeedKt": 88.17669955661498,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 448.1006332677454,
+          "timeS": 19.248260730362645,
+          "speedKt": 86.83907574316297,
+          "groundSpeedKt": 89.14567427701733,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 458.26934935746726,
+          "timeS": 19.468793667101096,
+          "speedKt": 87.7831998697038,
+          "groundSpeedKt": 90.1146489974197,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 468.56290197643045,
+          "timeS": 19.689646385685936,
+          "speedKt": 88.72733111721561,
+          "groundSpeedKt": 91.08362371782206,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 478.98174345455254,
+          "timeS": 19.910821720487835,
+          "speedKt": 89.6714695595457,
+          "groundSpeedKt": 92.05259843822442,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 489.5263313501572,
+          "timeS": 20.132322526668137,
+          "speedKt": 90.61561527046403,
+          "groundSpeedKt": 93.0215731586268,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 500.197128504429,
+          "timeS": 20.35415168044909,
+          "speedKt": 91.55976832365131,
+          "groundSpeedKt": 93.99054787902914,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 510.9946030967271,
+          "timeS": 20.576312079387904,
+          "speedKt": 92.50392879270082,
+          "groundSpeedKt": 94.95952259943151,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 521.9192287007727,
+          "timeS": 20.798806642654696,
+          "speedKt": 93.44809675112018,
+          "groundSpeedKt": 95.92849731983387,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 532.971484341726,
+          "timeS": 21.02163831131438,
+          "speedKt": 94.39227227232017,
+          "groundSpeedKt": 96.89747204023622,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 544.1518545541667,
+          "timeS": 21.244810048612596,
+          "speedKt": 95.33645542963468,
+          "groundSpeedKt": 97.8664467606386,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 555.4608294409961,
+          "timeS": 21.468324840265748,
+          "speedKt": 96.2806462962917,
+          "groundSpeedKt": 98.83542148104095,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 566.8989047332745,
+          "timeS": 21.692185694755214,
+          "speedKt": 97.22484494543588,
+          "groundSpeedKt": 99.80439620144331,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 578.4665818510124,
+          "timeS": 21.916395643625812,
+          "speedKt": 98.16905145012252,
+          "groundSpeedKt": 100.77337092184568,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 590.1643679649303,
+          "timeS": 22.140957741788608,
+          "speedKt": 99.11326588329983,
+          "groundSpeedKt": 101.74234564224804,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 601.9927760592069,
+          "timeS": 22.365875067828128,
+          "speedKt": 100.0574883178356,
+          "groundSpeedKt": 102.71132036265041,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 613.9523249952307,
+          "timeS": 22.591150724314083,
+          "speedKt": 101.00171882649707,
+          "groundSpeedKt": 103.68029508305277,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 626.0435395763744,
+          "timeS": 22.816787838117666,
+          "speedKt": 101.94595748195533,
+          "groundSpeedKt": 104.64926980345513,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 638.2669506138103,
+          "timeS": 23.042789560732512,
+          "speedKt": 102.89020435678034,
+          "groundSpeedKt": 105.6182445238575,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 650.6230949933845,
+          "timeS": 23.269159068600434,
+          "speedKt": 103.83445952345485,
+          "groundSpeedKt": 106.58721924425986,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 663.1125157435708,
+          "timeS": 23.49589956344197,
+          "speedKt": 104.77872305435267,
+          "groundSpeedKt": 107.55619396466223,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 675.735762104522,
+          "timeS": 23.723014272591893,
+          "speedKt": 105.72299502175045,
+          "groundSpeedKt": 108.52516868506459,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 688.4933895982393,
+          "timeS": 23.950506449339738,
+          "speedKt": 106.66727549783415,
+          "groundSpeedKt": 109.49414340546694,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 701.3859600998812,
+          "timeS": 24.17837937327545,
+          "speedKt": 107.6115645546737,
+          "groundSpeedKt": 110.46311812586931,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 714.414041910231,
+          "timeS": 24.406636350640262,
+          "speedKt": 108.55586226425254,
+          "groundSpeedKt": 111.43209284627167,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 727.5782098293456,
+          "timeS": 24.635280714682885,
+          "speedKt": 109.50016869843579,
+          "groundSpeedKt": 112.40106756667403,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 740.8790452314063,
+          "timeS": 24.864315826021116,
+          "speedKt": 110.44448392899945,
+          "groundSpeedKt": 113.3700422870764,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 754.3171361407956,
+          "timeS": 25.093745073008982,
+          "speedKt": 111.38880802760366,
+          "groundSpeedKt": 114.33901700747874,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 767.8930773094207,
+          "timeS": 25.32357187210951,
+          "speedKt": 112.33314106581254,
+          "groundSpeedKt": 115.30799172788112,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 781.6074702953085,
+          "timeS": 25.55379966827324,
+          "speedKt": 113.27748311508111,
+          "groundSpeedKt": 116.27696644828347,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 795.4609235424952,
+          "timeS": 25.784431935322573,
+          "speedKt": 114.22183424675535,
+          "groundSpeedKt": 117.24594116868583,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 809.454052462235,
+          "timeS": 26.01547217634211,
+          "speedKt": 115.1661945320788,
+          "groundSpeedKt": 118.2149158890882,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 823.5874795155537,
+          "timeS": 26.246923924075045,
+          "speedKt": 116.11056404218002,
+          "groundSpeedKt": 119.18389060949056,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 837.8618342971702,
+          "timeS": 26.478790741325763,
+          "speedKt": 117.05494284808317,
+          "groundSpeedKt": 120.15286532989292,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 852.2777536208154,
+          "timeS": 26.711076221368767,
+          "speedKt": 117.99933102070415,
+          "groundSpeedKt": 121.12184005029529,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 866.835881605972,
+          "timeS": 26.943783988364036,
+          "speedKt": 118.94372863084239,
+          "groundSpeedKt": 122.09081477069765,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 881.5368697660642,
+          "timeS": 27.176917697778947,
+          "speedKt": 119.88813574919365,
+          "groundSpeedKt": 123.05978949110002,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 896.3813770981251,
+          "timeS": 27.41048103681691,
+          "speedKt": 120.83255244633575,
+          "groundSpeedKt": 124.02876421150238,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 911.3700701739691,
+          "timeS": 27.64447772485283,
+          "speedKt": 121.77697879273329,
+          "groundSpeedKt": 124.99773893190472,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 926.5036232329,
+          "timeS": 27.87891151387552,
+          "speedKt": 122.72141485874174,
+          "groundSpeedKt": 125.9667136523071,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 941.7827182759838,
+          "timeS": 28.113786188937222,
+          "speedKt": 123.66586071459602,
+          "groundSpeedKt": 126.93568837270945,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 957.2080451619164,
+          "timeS": 28.3491055686104,
+          "speedKt": 124.61031643042269,
+          "groundSpeedKt": 127.90466309311184,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 972.7803017045183,
+          "timeS": 28.58487350545189,
+          "speedKt": 125.5547820762247,
+          "groundSpeedKt": 128.87363781351416,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 988.5001937718876,
+          "timeS": 28.821093886474582,
+          "speedKt": 126.49925772189545,
+          "groundSpeedKt": 129.84261253391657,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 1004.3684353872447,
+          "timeS": 29.057770633626852,
+          "speedKt": 127.44374343720773,
+          "groundSpeedKt": 130.8115872543189,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 1020.3857488315012,
+          "timeS": 29.29490770427976,
+          "speedKt": 128.38823929181032,
+          "groundSpeedKt": 131.78056197472128,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 1036.552864747588,
+          "timeS": 29.5325090917223,
+          "speedKt": 129.33274535524387,
+          "groundSpeedKt": 132.74953669512362,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 1052.8705222465771,
+          "timeS": 29.770578825664817,
+          "speedKt": 130.2772616969205,
+          "groundSpeedKt": 133.718511415526,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 1069.3394690156344,
+          "timeS": 30.009120972750726,
+          "speedKt": 131.22178838613576,
+          "groundSpeedKt": 134.68748613592837,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 1085.9604614278378,
+          "timeS": 30.248139637076758,
+          "speedKt": 132.16632549206167,
+          "groundSpeedKt": 135.65646085633074,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 1102.7342646539007,
+          "timeS": 30.487638960721878,
+          "speedKt": 133.1108730837494,
+          "groundSpeedKt": 136.62543557673308,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 1119.661652775838,
+          "timeS": 30.72762312428506,
+          "speedKt": 134.0554312301278,
+          "groundSpeedKt": 137.59441029713545,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 1136.7434089026146,
+          "timeS": 30.968096347432088,
+          "speedKt": 135.0000000000005,
+          "groundSpeedKt": 138.5633850175378,
+          "heightM": 0,
+          "phase": "all-engines-acceleration"
+        },
+        {
+          "distanceM": 1137.539677762934,
+          "timeS": 30.979266138245915,
+          "speedKt": 135.01724745464526,
+          "groundSpeedKt": 138.5810780134976,
+          "heightM": 0,
+          "phase": "oei-ground-acceleration"
+        },
+        {
+          "distanceM": 1144.672978567711,
+          "timeS": 31.079266138245917,
+          "speedKt": 135.17159319728114,
+          "groundSpeedKt": 138.73941069783305,
+          "heightM": 0,
+          "phase": "rotation"
+        },
+        {
+          "distanceM": 1151.8144215752156,
+          "timeS": 31.179266138245914,
+          "speedKt": 135.3258204344604,
+          "groundSpeedKt": 138.8976215227075,
+          "heightM": 0,
+          "phase": "rotation"
+        },
+        {
+          "distanceM": 1158.9640005159767,
+          "timeS": 31.279266138245916,
+          "speedKt": 135.47992914779977,
+          "groundSpeedKt": 139.05571046963345,
+          "heightM": 0,
+          "phase": "rotation"
+        },
+        {
+          "distanceM": 1166.1217091195788,
+          "timeS": 31.379266138245914,
+          "speedKt": 135.6339193191813,
+          "groundSpeedKt": 139.213677520397,
+          "heightM": 0,
+          "phase": "rotation"
+        },
+        {
+          "distanceM": 1173.2875411146763,
+          "timeS": 31.479266138245915,
+          "speedKt": 135.78779093075255,
+          "groundSpeedKt": 139.37152265705774,
+          "heightM": 0,
+          "phase": "rotation"
+        },
+        {
+          "distanceM": 1180.4614902290082,
+          "timeS": 31.579266138245917,
+          "speedKt": 135.94154396492837,
+          "groundSpeedKt": 139.5292458619481,
+          "heightM": 0,
+          "phase": "rotation"
+        },
+        {
+          "distanceM": 1187.6435501894114,
+          "timeS": 31.679266138245914,
+          "speedKt": 136.09517840438582,
+          "groundSpeedKt": 139.68684711767338,
+          "heightM": 0,
+          "phase": "rotation"
+        },
+        {
+          "distanceM": 1194.8337147218347,
+          "timeS": 31.779266138245916,
+          "speedKt": 136.24869423206414,
+          "groundSpeedKt": 139.84432640711097,
+          "heightM": 0,
+          "phase": "rotation"
+        },
+        {
+          "distanceM": 1202.0319775513535,
+          "timeS": 31.879266138245914,
+          "speedKt": 136.40209143117048,
+          "groundSpeedKt": 140.00168371341016,
+          "heightM": 0,
+          "phase": "rotation"
+        },
+        {
+          "distanceM": 1209.2383324021828,
+          "timeS": 31.979266138245915,
+          "speedKt": 136.5553699851781,
+          "groundSpeedKt": 140.1589190199919,
+          "heightM": 0,
+          "phase": "rotation"
+        },
+        {
+          "distanceM": 1216.4527729976924,
+          "timeS": 32.07926613824591,
+          "speedKt": 136.70852987781575,
+          "groundSpeedKt": 140.3160323105483,
+          "heightM": 0,
+          "phase": "rotation"
+        },
+        {
+          "distanceM": 1223.675293060419,
+          "timeS": 32.179266138245914,
+          "speedKt": 136.8615710930788,
+          "groundSpeedKt": 140.47302356904225,
+          "heightM": 0,
+          "phase": "rotation"
+        },
+        {
+          "distanceM": 1230.9058863120827,
+          "timeS": 32.279266138245916,
+          "speedKt": 137.01449361522742,
+          "groundSpeedKt": 140.62989277970712,
+          "heightM": 0,
+          "phase": "rotation"
+        },
+        {
+          "distanceM": 1238.144546473598,
+          "timeS": 32.37926613824592,
+          "speedKt": 137.1672974287814,
+          "groundSpeedKt": 140.7866399270463,
+          "heightM": 0,
+          "phase": "rotation"
+        },
+        {
+          "distanceM": 1245.3912672650902,
+          "timeS": 32.47926613824592,
+          "speedKt": 137.3199825185258,
+          "groundSpeedKt": 140.9432649958331,
+          "heightM": 0,
+          "phase": "rotation"
+        },
+        {
+          "distanceM": 1252.6460424059073,
+          "timeS": 32.57926613824591,
+          "speedKt": 137.47254886950384,
+          "groundSpeedKt": 141.09976797110994,
+          "heightM": 0,
+          "phase": "rotation"
+        },
+        {
+          "distanceM": 1259.908865614636,
+          "timeS": 32.679266138245914,
+          "speedKt": 137.6249964670173,
+          "groundSpeedKt": 141.25614883818835,
+          "heightM": 0,
+          "phase": "rotation"
+        },
+        {
+          "distanceM": 1267.1797306091128,
+          "timeS": 32.779266138245916,
+          "speedKt": 137.7773252966372,
+          "groundSpeedKt": 141.41240758264854,
+          "heightM": 0,
+          "phase": "rotation"
+        },
+        {
+          "distanceM": 1274.4586311064404,
+          "timeS": 32.87926613824592,
+          "speedKt": 137.92953534418461,
+          "groundSpeedKt": 141.56854419033883,
+          "heightM": 0,
+          "phase": "rotation"
+        },
+        {
+          "distanceM": 1281.7455608229998,
+          "timeS": 32.97926613824592,
+          "speedKt": 138.08162659575194,
+          "groundSpeedKt": 141.72455864737546,
+          "heightM": 0,
+          "phase": "rotation"
+        },
+        {
+          "distanceM": 1506.754287207145,
+          "timeS": 36.05514716987358,
+          "speedKt": 139.0033371406353,
+          "groundSpeedKt": 142.67003856592856,
+          "heightM": 3.6282728803403246,
+          "phase": "oei-accelerating-climb"
+        },
+        {
+          "distanceM": 1729.388041260566,
+          "timeS": 39.07845998458128,
+          "speedKt": 139.92505814127028,
+          "groundSpeedKt": 143.61551848448167,
+          "heightM": 7.280670404263942,
+          "phase": "oei-accelerating-climb"
+        },
+        {
+          "distanceM": 1949.860548155185,
+          "timeS": 42.052777759606364,
+          "speedKt": 140.84678966085124,
+          "groundSpeedKt": 144.56099840303477,
+          "heightM": 10.957192571770854,
+          "phase": "oei-accelerating-climb"
+        },
+        {
+          "distanceM": 2168.3683550989585,
+          "timeS": 44.981373559997756,
+          "speedKt": 141.7685317624464,
+          "groundSpeedKt": 145.50647832158788,
+          "heightM": 14.657839382861058,
+          "phase": "oei-accelerating-climb"
+        },
+        {
+          "distanceM": 2385.0927824128585,
+          "timeS": 47.86725409404013,
+          "speedKt": 142.69028450901217,
+          "groundSpeedKt": 146.45195824014098,
+          "heightM": 18.382610837534553,
+          "phase": "oei-accelerating-climb"
+        },
+        {
+          "distanceM": 2600.201610344317,
+          "timeS": 50.71318888631304,
+          "speedKt": 143.6120479633846,
+          "groundSpeedKt": 147.3974381586941,
+          "heightM": 22.131506935791343,
+          "phase": "oei-accelerating-climb"
+        },
+        {
+          "distanceM": 2813.8505436183264,
+          "timeS": 53.52173559631407,
+          "speedKt": 144.53382218828193,
+          "groundSpeedKt": 148.3429180772472,
+          "heightM": 25.904527677631428,
+          "phase": "oei-accelerating-climb"
+        },
+        {
+          "distanceM": 3026.184488147982,
+          "timeS": 56.29526207919842,
+          "speedKt": 145.45560724630286,
+          "groundSpeedKt": 149.2883979958003,
+          "heightM": 29.701673063054805,
+          "phase": "oei-accelerating-climb"
+        },
+        {
+          "distanceM": 3237.338668271111,
+          "timeS": 59.0359656802306,
+          "speedKt": 146.37740319992542,
+          "groundSpeedKt": 150.2338779143534,
+          "heightM": 33.522943092061475,
+          "phase": "oei-accelerating-climb"
+        },
+        {
+          "distanceM": 3447.4396080123424,
+          "timeS": 61.74589017017597,
+          "speedKt": 147.29921011150756,
+          "groundSpeedKt": 151.1793578329065,
+          "heightM": 37.368337764651436,
+          "phase": "oei-accelerating-climb"
+        },
+        {
+          "distanceM": 3447.4396080123424,
+          "timeS": 61.74589017017597,
+          "speedKt": 147.29921011150756,
+          "groundSpeedKt": 151.1793578329065,
+          "heightM": 37.368337764651436,
+          "phase": "oei-screen-and-v2"
+        }
+      ]
+    }
+  },
+  "diagnostics": {
+    "runwayLimitKg": 211600,
+    "limitingFactor": "TODA 单发继续起飞",
+    "reasons": [],
+    "massResolutionKg": 100,
+    "v1ResolutionKt": 0.5,
+    "flexResolutionC": 1,
+    "modelSignature": "{\"id\":\"A339-ENGINEERING-DEMO\",\"version\":\"0.1.0\",\"label\":\"工程模型 · 未经航空性能校准 · 仅用于投标演示\",\"provenance\":{\"status\":\"assumed-engineering-configuration\",\"author\":\"A330EFB project\",\"description\":\"All aircraft, aerodynamic, engine, brake and operational coefficients below are explicitly assumed for an original demonstrator. They are not certified A330/Trent performance data and are not fitted to the legacy V2 table.\",\"physicalConstants\":\"Conventional SI gravity and dry-air/ISA constants; these are physical definitions, not aircraft performance validation.\",\"algorithm\":\"Original point-mass longitudinal force integration, a dry-runway brake model and excess-thrust climb model. No upstream performance table is copied.\"},\"constants\":{\"gravity\":9.80665,\"gasConstant\":287.05287,\"gamma\":1.4,\"seaPressurePa\":101325,\"seaTemperatureK\":288.15,\"seaDensityKgM3\":1.225,\"lapseKPerM\":0.0065,\"ktToMs\":0.5144444444444445,\"ftToM\":0.3048},\"airframe\":{\"wingAreaM2\":361.6,\"engines\":2,\"engineStaticThrustN\":310000,\"structuralMaxKg\":251000,\"modelMinKg\":130000},\"configurations\":{\"1\":{\"clMax\":2.05,\"groundCl\":0.55,\"cd0\":0.032,\"inducedDragK\":0.044},\"2\":{\"clMax\":2.28,\"groundCl\":0.65,\"cd0\":0.04,\"inducedDragK\":0.045},\"3\":{\"clMax\":2.48,\"groundCl\":0.75,\"cd0\":0.05,\"inducedDragK\":0.047}},\"ground\":{\"rollingFriction\":0.02,\"brakeFriction\":0.34,\"brakingCl\":0.15,\"brakingCd\":0.08,\"recognitionSeconds\":1,\"rotationSeconds\":2},\"speeds\":{\"vrToStall\":1.1,\"v2ToStall\":1.2,\"minimumDecisionCasKt\":100},\"engine\":{\"densityLapseExponent\":0.7,\"speedLapsePerMs\":0.0011,\"minimumSpeedFactor\":0.65,\"failedEngineDragCoefficient\":0.004,\"flexReductionPerC\":0.006,\"minimumFlexRatio\":0.75,\"maximumFlexC\":70},\"climb\":{\"screenHeightM\":10.668,\"minimumGradient\":0.024,\"accelerationExcessFraction\":0.5},\"envelope\":{\"pressureAltitudeMinFt\":-1000,\"pressureAltitudeMaxFt\":8000,\"temperatureMinC\":-20,\"temperatureMaxC\":45,\"slopeMaxPercent\":2,\"headwindMaxKt\":30,\"tailwindMaxKt\":10,\"crosswindMaxKt\":25,\"maximumDeclaredDistanceM\":6000},\"numerics\":{\"speedStepMs\":0.5,\"timeStepS\":0.1,\"maximumSteps\":12000,\"v1ResolutionKt\":0.5,\"massResolutionKg\":100,\"flexResolutionC\":1},\"assumptions\":[\"机翼面积、推力、升阻力系数、摩擦系数、速度比和适用包线均为本项目公开的工程假设，未完成 A330 航空性能校准。\",\"CAS 使用亚声速可压缩空速关系；受力计算采用 TAS，地面距离采用地速。输入的稳定沿跑道风分量全额进入模型，未套用运行规章中的风修正比例。\",\"发动机恰在所选 V1 失效。中断分支按单发推力继续 1 秒识别时间，然后将两台发动机推力置零并施加干跑道制动，不计反推。继续分支不重复加入识别时间。\",\"VR、V2 由工程失速升力模型及公开假设倍率确定。V1 的 100 kt 下界仅是演示搜索边界，不代表 VMCA、VMCG 或任何经审定的操纵速度。\",\"单发继续分支依次计算地面加速、2 秒抬轮及空中加速爬升。空中阶段按小角度近似分配剩余推力给加速和爬升；终点同时满足 35 ft 与 V2，不等同于经审定起飞距离的定义。\",\"2.4% 爬升梯度是工程模型的演示判据。障碍物净空、审定净飞行航迹、刹车能量、轮胎速度、路面变化和发动机动态未建模。\",\"入口扣减同时从 TORA、TODA、ASDA 中减去。停止道和净空道仅以声明距离参与比较，未接入机场几何数据库。\",\"FLEX 温度用于标识显式的线性推力折减，不是 Trent 发动机额定推力计划。不存在可行减推解时，若 TOGA 可行则返回 TOGA 工程结果并说明原因。\",\"跑道限重按所选构型及 TOGA 在 130–251 t 范围搜索，与当前航班的装载分布分开；限重结果不是装载或签派放行依据。\"]}",
+    "elapsedMs": 588
+  },
+  "parameters": {
+    "id": "A339-ENGINEERING-DEMO",
+    "version": "0.1.0",
+    "label": "工程模型 · 未经航空性能校准 · 仅用于投标演示",
+    "provenance": {
+      "status": "assumed-engineering-configuration",
+      "author": "A330EFB project",
+      "description": "All aircraft, aerodynamic, engine, brake and operational coefficients below are explicitly assumed for an original demonstrator. They are not certified A330/Trent performance data and are not fitted to the legacy V2 table.",
+      "physicalConstants": "Conventional SI gravity and dry-air/ISA constants; these are physical definitions, not aircraft performance validation.",
+      "algorithm": "Original point-mass longitudinal force integration, a dry-runway brake model and excess-thrust climb model. No upstream performance table is copied."
+    },
+    "constants": {
+      "gravity": 9.80665,
+      "gasConstant": 287.05287,
+      "gamma": 1.4,
+      "seaPressurePa": 101325,
+      "seaTemperatureK": 288.15,
+      "seaDensityKgM3": 1.225,
+      "lapseKPerM": 0.0065,
+      "ktToMs": 0.5144444444444445,
+      "ftToM": 0.3048
+    },
+    "airframe": {
+      "wingAreaM2": 361.6,
+      "engines": 2,
+      "engineStaticThrustN": 310000,
+      "structuralMaxKg": 251000,
+      "modelMinKg": 130000
+    },
+    "configurations": {
+      "1": {
+        "clMax": 2.05,
+        "groundCl": 0.55,
+        "cd0": 0.032,
+        "inducedDragK": 0.044
+      },
+      "2": {
+        "clMax": 2.28,
+        "groundCl": 0.65,
+        "cd0": 0.04,
+        "inducedDragK": 0.045
+      },
+      "3": {
+        "clMax": 2.48,
+        "groundCl": 0.75,
+        "cd0": 0.05,
+        "inducedDragK": 0.047
+      }
+    },
+    "ground": {
+      "rollingFriction": 0.02,
+      "brakeFriction": 0.34,
+      "brakingCl": 0.15,
+      "brakingCd": 0.08,
+      "recognitionSeconds": 1,
+      "rotationSeconds": 2
+    },
+    "speeds": {
+      "vrToStall": 1.1,
+      "v2ToStall": 1.2,
+      "minimumDecisionCasKt": 100
+    },
+    "engine": {
+      "densityLapseExponent": 0.7,
+      "speedLapsePerMs": 0.0011,
+      "minimumSpeedFactor": 0.65,
+      "failedEngineDragCoefficient": 0.004,
+      "flexReductionPerC": 0.006,
+      "minimumFlexRatio": 0.75,
+      "maximumFlexC": 70
+    },
+    "climb": {
+      "screenHeightM": 10.668,
+      "minimumGradient": 0.024,
+      "accelerationExcessFraction": 0.5
+    },
+    "envelope": {
+      "pressureAltitudeMinFt": -1000,
+      "pressureAltitudeMaxFt": 8000,
+      "temperatureMinC": -20,
+      "temperatureMaxC": 45,
+      "slopeMaxPercent": 2,
+      "headwindMaxKt": 30,
+      "tailwindMaxKt": 10,
+      "crosswindMaxKt": 25,
+      "maximumDeclaredDistanceM": 6000
+    },
+    "numerics": {
+      "speedStepMs": 0.5,
+      "timeStepS": 0.1,
+      "maximumSteps": 12000,
+      "v1ResolutionKt": 0.5,
+      "massResolutionKg": 100,
+      "flexResolutionC": 1
+    },
+    "assumptions": [
+      "机翼面积、推力、升阻力系数、摩擦系数、速度比和适用包线均为本项目公开的工程假设，未完成 A330 航空性能校准。",
+      "CAS 使用亚声速可压缩空速关系；受力计算采用 TAS，地面距离采用地速。输入的稳定沿跑道风分量全额进入模型，未套用运行规章中的风修正比例。",
+      "发动机恰在所选 V1 失效。中断分支按单发推力继续 1 秒识别时间，然后将两台发动机推力置零并施加干跑道制动，不计反推。继续分支不重复加入识别时间。",
+      "VR、V2 由工程失速升力模型及公开假设倍率确定。V1 的 100 kt 下界仅是演示搜索边界，不代表 VMCA、VMCG 或任何经审定的操纵速度。",
+      "单发继续分支依次计算地面加速、2 秒抬轮及空中加速爬升。空中阶段按小角度近似分配剩余推力给加速和爬升；终点同时满足 35 ft 与 V2，不等同于经审定起飞距离的定义。",
+      "2.4% 爬升梯度是工程模型的演示判据。障碍物净空、审定净飞行航迹、刹车能量、轮胎速度、路面变化和发动机动态未建模。",
+      "入口扣减同时从 TORA、TODA、ASDA 中减去。停止道和净空道仅以声明距离参与比较，未接入机场几何数据库。",
+      "FLEX 温度用于标识显式的线性推力折减，不是 Trent 发动机额定推力计划。不存在可行减推解时，若 TOGA 可行则返回 TOGA 工程结果并说明原因。",
+      "跑道限重按所选构型及 TOGA 在 130–251 t 范围搜索，与当前航班的装载分布分开；限重结果不是装载或签派放行依据。"
+    ]
+  }
+}

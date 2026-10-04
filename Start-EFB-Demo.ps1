@@ -1,4 +1,4 @@
-﻿param([switch]$NoBrowser,[ValidateSet('preflight','change','tools','resources')][string]$Scenario='preflight')
+﻿param([switch]$NoBrowser,[ValidateSet('preflight','change','tools','resources','takeoff')][string]$Scenario='preflight')
 $ErrorActionPreference='Stop'
 $taskRoot=$PSScriptRoot
 $serverFile=Join-Path $taskRoot 'local-efb\server.cjs'

@@ -1,0 +1,117 @@
+{
+  "version": "1.2",
+  "baseline": "f34b202035135910bfc3ea0ca8c4609d7bf987eb",
+  "goal": "A330EFB起飞性能工程演示实现与验收",
+  "purpose": "投标演示，非航空性能校准",
+  "tasks": [
+    {
+      "id": "TO01",
+      "title": "方案与资料基线",
+      "depends": [],
+      "files": "docs/takeoff",
+      "acceptance": "目标、来源判断、数据边界与接口固定",
+      "status": "done",
+      "evidence": "实施方案、资料边界和模型说明已形成；Word共5页，4幅技术图，全部页面已复核。"
+    },
+    {
+      "id": "TO02",
+      "title": "参数包与空气状态",
+      "depends": [
+        "TO01"
+      ],
+      "files": "local-extensions/takeoff",
+      "acceptance": "参数来源分类、有效域、CAS/TAS/GS转换和空气状态验证",
+      "status": "done",
+      "evidence": "参数包明确工程假设；空气状态与CAS/TAS检查通过。"
+    },
+    {
+      "id": "TO03",
+      "title": "运动积分与轨迹",
+      "depends": [
+        "TO02"
+      ],
+      "files": "local-extensions/takeoff",
+      "acceptance": "定力加速和定减速解析核对及步长收敛",
+      "status": "done",
+      "evidence": "独立定力、定减速、二次阻力解析与速度域收敛通过。"
+    },
+    {
+      "id": "TO04",
+      "title": "速度与跑道约束",
+      "depends": [
+        "TO03"
+      ],
+      "files": "local-extensions/takeoff",
+      "acceptance": "V1搜索同时满足三类距离与工程爬升约束，无解有原因",
+      "status": "done",
+      "evidence": "V1完整网格同时评估三类距离与工程爬升约束。"
+    },
+    {
+      "id": "TO05",
+      "title": "FLEX与限制重量",
+      "depends": [
+        "TO04"
+      ],
+      "files": "local-extensions/takeoff",
+      "acceptance": "FLEX回退、上限与温度搜索、TOGA限重保守定位",
+      "status": "done",
+      "evidence": "FLEX完整V1复核，限重改为100kg降序扫描；1480m和1515m复现回归通过。"
+    },
+    {
+      "id": "TO06",
+      "title": "页面图形与失效",
+      "depends": [
+        "TO04"
+      ],
+      "files": "local-extensions/EngineeringTakeoff.tsx",
+      "acceptance": "同源输入确认、旧结果与图同时撤下、实际轨迹和距离图",
+      "status": "done",
+      "evidence": "新工程页面、实际轨迹SVG及结果失效已接通。"
+    },
+    {
+      "id": "TO07",
+      "title": "报告与会话记录",
+      "depends": [
+        "TO05",
+        "TO06"
+      ],
+      "files": "local-extensions/EngineeringTakeoff.tsx",
+      "acceptance": "完整快照、模型身份、参数与限制输出，恢复输入需重算",
+      "status": "done",
+      "evidence": "JSON与HTML含完整快照和参数；工程会话记录恢复需重算。"
+    },
+    {
+      "id": "TO08",
+      "title": "自动演示与操作说明",
+      "depends": [
+        "TO07"
+      ],
+      "files": "local-efb/presentation",
+      "acceptance": "TOGA、FLEX、短跑道、恢复和报告通过实际控件执行",
+      "status": "done",
+      "evidence": "新增takeoff八步场景已实际执行，配套操作说明每节有程序画面。"
+    },
+    {
+      "id": "TO09",
+      "title": "独立验证与回归",
+      "depends": [
+        "TO08"
+      ],
+      "files": "tests",
+      "acceptance": "解析及收敛、边界、外网阻断浏览器、新旧工作流通过",
+      "status": "done",
+      "evidence": "40项新增内核检查、15项新增浏览器检查通过；全项目97项单元、55项浏览器检查，五场景54步全部通过。"
+    },
+    {
+      "id": "TO10",
+      "title": "文档与双平台交付",
+      "depends": [
+        "TO09"
+      ],
+      "files": "docs/takeoff;output/word",
+      "acceptance": "Word逐页检查，Windows和Ubuntu构建测试通过，GitHub提交一致",
+      "status": "in_progress",
+      "evidence": ""
+    }
+  ]
+}

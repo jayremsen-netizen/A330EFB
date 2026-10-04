@@ -1333,5 +1333,286 @@
         ]
       }
     ]
+  },
+  {
+    "id": "takeoff",
+    "name": "工程起飞性能",
+    "summary": "确认计划 → TOGA → FLEX → 轨迹与余量 → 短跑道无解 → 恢复重算 → 工程报告",
+    "steps": [
+      {
+        "id": "engineering-base",
+        "chapter": "01 / 工程计算准备",
+        "title": "确认本次计算的航班输入",
+        "description": "导入 DEMO330 样例并保存确认，采用 184,500 kg 起飞重量和 3,500 m 声明距离。本场景使用公开列示的工程假设，展示数值求解与软件流程。",
+        "watch": "未经航空性能校准；结果只表示本模型内的约束状态",
+        "manual": "起飞性能操作说明 · §1",
+        "seconds": 16,
+        "actions": [
+          {
+            "type": "nav",
+            "route": "/dispatch/local-flight",
+            "ready": ".lf-root [data-field=\"number\"]"
+          },
+          {
+            "type": "import"
+          },
+          {
+            "type": "button",
+            "name": "保存并确认重量"
+          },
+          {
+            "type": "expect",
+            "values": {
+              "flightNumber": "DEMO330",
+              "tow": 184500,
+              "confirmed": true
+            }
+          },
+          {
+            "type": "nav",
+            "route": "/performance/engineering-takeoff",
+            "ready": "[data-testid=\"engineering-takeoff\"]"
+          },
+          {
+            "type": "expect",
+            "values": {
+              "engineeringActive": true,
+              "engineeringValid": false
+            }
+          },
+          {
+            "type": "focus",
+            "selector": "[data-testid=\"engineering-takeoff\"]"
+          }
+        ]
+      },
+      {
+        "id": "engineering-toga",
+        "chapter": "02 / 速度与推力",
+        "title": "按 TOGA 工程模型求解",
+        "description": "选择 TOGA 并执行计算。程序搜索满足继续起飞、加速停止、地面滑跑及工程爬升条件的 V1，计算 VR、V2、需求距离与 TOGA 工程限制重量。",
+        "watch": "速度、距离和限制因素来自本次计算",
+        "manual": "起飞性能操作说明 · §2",
+        "seconds": 20,
+        "actions": [
+          {
+            "type": "button",
+            "name": "使用 TOGA"
+          },
+          {
+            "type": "button",
+            "name": "计算工程起飞性能"
+          },
+          {
+            "type": "expect",
+            "values": {
+              "engineeringValid": true,
+              "engineeringStatus": "engineering-feasible",
+              "engineeringMode": "TOGA",
+              "engineeringThrustMode": "TOGA"
+            }
+          },
+          {
+            "type": "focus",
+            "selector": "[data-testid=\"engineering-result\"]"
+          }
+        ]
+      },
+      {
+        "id": "engineering-flex",
+        "chapter": "02 / 速度与推力",
+        "title": "切换 FLEX 并重新求解",
+        "description": "通过实际按钮切换 FLEX，撤下前一次结果，然后按假设温度搜索减推力工程解。每个候选温度都重新核对速度和距离约束；减推力不可行时模型尝试 TOGA。",
+        "watch": "FLEX 采用工程推力假设，不代表 Trent 7000 已校准性能",
+        "manual": "起飞性能操作说明 · §2",
+        "seconds": 20,
+        "actions": [
+          {
+            "type": "button",
+            "name": "使用 FLEX"
+          },
+          {
+            "type": "expect",
+            "values": {
+              "engineeringValid": false,
+              "engineeringStatus": "stale",
+              "engineeringMode": "FLEX"
+            }
+          },
+          {
+            "type": "button",
+            "name": "计算工程起飞性能"
+          },
+          {
+            "type": "expect",
+            "values": {
+              "engineeringValid": true,
+              "engineeringStatus": "engineering-feasible",
+              "engineeringMode": "FLEX"
+            }
+          },
+          {
+            "type": "focus",
+            "selector": "[data-testid=\"engineering-result\"]"
+          }
+        ]
+      },
+      {
+        "id": "engineering-chart",
+        "chapter": "03 / 图形复核",
+        "title": "查看两条轨迹与声明距离",
+        "description": "图中展示当前解的继续起飞和加速停止轨迹，并分别比较 TORA、TODA、ASDA 的模型需求与可用距离。曲线直接读取求解轨迹。",
+        "watch": "观察速度—距离曲线与三条距离余量",
+        "manual": "起飞性能操作说明 · §3",
+        "seconds": 18,
+        "actions": [
+          {
+            "type": "focus",
+            "selector": "[data-testid=\"engineering-chart\"]"
+          },
+          {
+            "type": "expect",
+            "values": {
+              "engineeringValid": true
+            }
+          }
+        ]
+      },
+      {
+        "id": "engineering-stale",
+        "chapter": "04 / 条件变更",
+        "title": "缩短跑道使旧结果失效",
+        "description": "把 TORA、TODA 和 ASDA 同时改为 1,000 m。修改后原确认失效，旧速度和曲线撤下；当前结果与报告不能继续使用。",
+        "watch": "输入变更后必须重新确认和计算",
+        "manual": "起飞性能操作说明 · §4",
+        "seconds": 16,
+        "actions": [
+          {
+            "type": "field",
+            "name": "tora",
+            "value": "1000"
+          },
+          {
+            "type": "field",
+            "name": "toda",
+            "value": "1000"
+          },
+          {
+            "type": "field",
+            "name": "asda",
+            "value": "1000"
+          },
+          {
+            "type": "expect",
+            "values": {
+              "confirmed": false,
+              "engineeringValid": false,
+              "engineeringStatus": "stale"
+            }
+          },
+          {
+            "type": "focus",
+            "selector": "[data-testid=\"engineering-result\"]"
+          }
+        ]
+      },
+      {
+        "id": "engineering-infeasible",
+        "chapter": "04 / 条件变更",
+        "title": "确认短跑道并查看无解诊断",
+        "description": "确认新的跑道条件后重新计算。当前重量在本模型的短跑道条件下不可行，结果区显示诊断而不提供可采用的速度。",
+        "watch": "“工程模型不可行”仅表示已实现约束没有可行解",
+        "manual": "起飞性能操作说明 · §4",
+        "seconds": 18,
+        "actions": [
+          {
+            "type": "button",
+            "name": "保存并确认重量"
+          },
+          {
+            "type": "button",
+            "name": "计算工程起飞性能"
+          },
+          {
+            "type": "expect",
+            "values": {
+              "confirmed": true,
+              "engineeringValid": false,
+              "engineeringStatus": "engineering-infeasible"
+            }
+          },
+          {
+            "type": "focus",
+            "selector": "[data-testid=\"engineering-result\"]"
+          }
+        ]
+      },
+      {
+        "id": "engineering-restore",
+        "chapter": "04 / 条件变更",
+        "title": "恢复条件，形成新的有效工程解",
+        "description": "将三项声明距离恢复为 3,500 m，重新确认并计算。新结果使用更新后的输入快照，完成条件变更、失效、诊断和重算过程。",
+        "watch": "重新获得当前输入下的可行工程解",
+        "manual": "起飞性能操作说明 · §4",
+        "seconds": 18,
+        "actions": [
+          {
+            "type": "field",
+            "name": "tora",
+            "value": "3500"
+          },
+          {
+            "type": "field",
+            "name": "toda",
+            "value": "3500"
+          },
+          {
+            "type": "field",
+            "name": "asda",
+            "value": "3500"
+          },
+          {
+            "type": "button",
+            "name": "保存并确认重量"
+          },
+          {
+            "type": "button",
+            "name": "计算工程起飞性能"
+          },
+          {
+            "type": "expect",
+            "values": {
+              "confirmed": true,
+              "engineeringValid": true,
+              "engineeringStatus": "engineering-feasible"
+            }
+          },
+          {
+            "type": "focus",
+            "selector": "[data-testid=\"engineering-chart\"]"
+          }
+        ]
+      },
+      {
+        "id": "engineering-report",
+        "chapter": "05 / 结果归档",
+        "title": "预览本次工程起飞报告",
+        "description": "打开程序生成的工程报告，核对输入、计算选项、数值结果、轨迹、模型版本、参数假设和未覆盖范围。可通过演示资料保存 JSON 和 HTML。",
+        "watch": "报告与页面采用同一个有效计算结果",
+        "manual": "起飞性能操作说明 · §5",
+        "seconds": 20,
+        "actions": [
+          {
+            "type": "expect",
+            "values": {
+              "engineeringValid": true
+            }
+          },
+          {
+            "type": "report"
+          }
+        ]
+      }
+    ]
   }
 ]

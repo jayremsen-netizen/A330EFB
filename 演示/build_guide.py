@@ -4,7 +4,7 @@ from html import escape
 
 R=Path(__file__).resolve().parent
 scenes=json.loads((R/'场景脚本.json').read_text('utf-8'))
-lines=['# A330 EFB 现场讲解脚本','', '本脚本与程序的四套自动场景逐节对应。每一步均由软件执行实际页面操作，讲解人员可暂停补充说明。文档引用采用技术说明书 2.0 的章节和 1.1 操作补充说明的节号。','']
+lines=['# A330 EFB 现场讲解脚本','', '本脚本与程序的五套自动场景逐节对应。每一步均由软件执行实际页面操作，讲解人员可暂停补充说明。文档引用采用技术说明书 2.0、1.1 操作补充说明和起飞性能操作说明的章节。工程起飞数值来自明确假设的模型，未经航空性能校准。','']
 for scene in scenes:
     seconds=sum(s['seconds'] for s in scene['steps'])
     lines += [f"## {scene['name']}",'',scene['summary'],'',f"共 {len(scene['steps'])} 节，标准速度的讲解停留合计 {seconds//60} 分 {seconds%60} 秒，另加页面操作时间。",'']

@@ -26,12 +26,24 @@ function setValue(el:HTMLInputElement,value:string){
 }
 function snapshot():Snapshot{
  const s=getState(),w=weights(s.flight),r=currentResult(),native:any=store.getState(),sim=runtime.snapshot();
+ const engineeringActive=!!document.querySelector('[data-testid="engineering-takeoff"]');
+ const engineering=engineeringActive?W.__TAKEOFF_ENGINEERING__?.snapshot():undefined;
+ const engineeringSolution=engineering?.valid?engineering.result?.solution:undefined;
  const tracking=native.trackingChecklists,selected=tracking?.selectedChecklistIndex||0;
  const defs=tracking?.aircraftChecklists?.[selected]?.items||[];
  const checkedItems=(tracking?.checklists?.[selected]?.items||[]).filter((x:any,i:number)=>x.completed&&!['LINE','SUBLISTHEADER'].includes(defs[i]?.type)).length;
- return {flightNumber:s.flight.number,route:`${s.flight.from} → ${s.flight.to}`,zfw:w.zfw,tow:w.tow,fuel:s.flight.rampKg,fuelTarget:Number(W.__LOCAL_EFB__.vars.get('L:A32NX_FUEL_DESIRED')||0),confirmed:!!s.confirmed,groundChanged:s.groundChanged,v2:s.result?.v2??null,valid:!!r,resultStatus:s.result?.status||'not-calculated',history:s.history.length,checkedItems,todAltitude:native.todCalculator?.currentAltitude??null,todTarget:native.todCalculator?.targetAltitude??null,landing:native.performance,notice:s.notice,gpuConnected:sim.gpuConnected,currentFuel:sim.fuelKg,currentPax:sim.pax,pushbackMetres:sim.pushbackMetres,activeFaults:sim.faults.length,lastCommandStatus:sim.commands[0]?.status||'none',weatherSource:s.flight.weather.source||'手工输入'};
+ return {flightNumber:s.flight.number,route:`${s.flight.from} → ${s.flight.to}`,zfw:w.zfw,tow:w.tow,fuel:s.flight.rampKg,fuelTarget:Number(W.__LOCAL_EFB__.vars.get('L:A32NX_FUEL_DESIRED')||0),confirmed:!!s.confirmed,groundChanged:s.groundChanged,v2:s.result?.v2??null,valid:!!r,resultStatus:s.result?.status||'not-calculated',history:s.history.length,checkedItems,todAltitude:native.todCalculator?.currentAltitude??null,todTarget:native.todCalculator?.targetAltitude??null,landing:native.performance,notice:s.notice,gpuConnected:sim.gpuConnected,currentFuel:sim.fuelKg,currentPax:sim.pax,pushbackMetres:sim.pushbackMetres,activeFaults:sim.faults.length,lastCommandStatus:sim.commands[0]?.status||'none',weatherSource:s.flight.weather.source||'手工输入',engineeringActive,engineeringStatus:engineeringActive?(engineering?.status||'not-calculated'):'inactive',engineeringValid:!!engineering?.valid,engineeringMode:engineering?.mode??null,engineeringThrustMode:engineeringSolution?.thrustMode??null,engineeringV1:engineeringSolution?.v1Kt??null,engineeringVR:engineeringSolution?.vrKt??null,engineeringV2:engineeringSolution?.v2Kt??null,engineeringFlex:engineeringSolution?.assumedTemperatureC??null};
 }
-function artifacts(){return {flight:JSON.stringify(getState().flight,null,2),result:currentResult()?JSON.stringify(currentResult(),null,2):null,report:currentResult()?reportHtml():null};}
+function artifacts(){
+ const flight=JSON.stringify(getState().flight,null,2);
+ if(document.querySelector('[data-testid="engineering-takeoff"]')){
+  const api=W.__TAKEOFF_ENGINEERING__,engineering=api?.snapshot();
+  const result=engineering?.valid?engineering.result:null;
+  return {flight,result:result?JSON.stringify(result,null,2):null,report:result?api.report():null};
+ }
+ const result=currentResult();
+ return {flight,result:result?JSON.stringify(result,null,2):null,report:result?reportHtml():null};
+}
 async function execute(action:Action,fast=false){
  if(!presentationMode)throw Error('演示桥只在独立演示会话中启用');
  switch(action.type){

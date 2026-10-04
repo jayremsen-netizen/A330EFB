@@ -6,7 +6,7 @@ def patch(rel,old,new):
     if s.count(old)!=1:raise RuntimeError('Patch anchor mismatch: '+rel+' '+old[:50])
     p.write_text(s.replace(old,new),'utf-8')
 patch('build-common/src/systems/instruments/src/EFB/Performance/Performance.tsx',"import React, { useContext } from 'react';","import React, { useContext } from 'react';\nimport { LocalTakeoffPage } from '@localefb/LocalPages';")
-patch('build-common/src/systems/instruments/src/EFB/Performance/Performance.tsx','  const tabs: PageLink[] = [',"  const tabs: PageLink[] = [\n    { name: 'Local Takeoff', alias: '离线起飞核算', component: <LocalTakeoffPage /> },")
+patch('build-common/src/systems/instruments/src/EFB/Performance/Performance.tsx','  const tabs: PageLink[] = [',"  const tabs: PageLink[] = [\n    { name: 'Engineering Takeoff', alias: '工程起飞', component: <LocalTakeoffPage engineering /> },\n    { name: 'Local Takeoff', alias: '离线起飞核算（参考）', component: <LocalTakeoffPage /> },")
 patch('build-common/src/systems/instruments/src/EFB/Dispatch/Dispatch.tsx',"import React from 'react';","import React from 'react';\nimport { LocalFlightPage } from '@localefb/LocalPages';")
 patch('build-common/src/systems/instruments/src/EFB/Dispatch/Dispatch.tsx','  const tabs: PageLink[] = [',"  const tabs: PageLink[] = [\n    { name: 'Local Flight', alias: '本地航班', component: <LocalFlightPage /> },")
 patch('build-common/src/systems/instruments/src/EFB/Ground/Ground.tsx',"import React from 'react';","import React from 'react';\nimport { LocalGroundLink } from '@localefb/LocalPages';")

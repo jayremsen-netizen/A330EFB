@@ -15,7 +15,7 @@ async function ui(){
   let ready=false;
   for(let attempt=0;attempt<50;attempt++){try{const r=await fetch(base+'/__health',{signal:AbortSignal.timeout(700)});if(r.ok){ready=true;break;}}catch{}await new Promise(r=>setTimeout(r,100));}
   if(!ready)throw Error('Test server did not start.');
-  const available=['demo-tests.cjs','demo-controls-tests.cjs','demo-layout-tests.cjs','reliability-ui-tests.cjs'];
+  const available=['demo-tests.cjs','demo-controls-tests.cjs','demo-layout-tests.cjs','reliability-ui-tests.cjs','takeoff-ui-tests.cjs'];
   const selected=process.argv.slice(3);if(selected.some(file=>!available.includes(file)))throw Error('Unknown UI test suite');
   for(const file of selected.length?selected:available)run(process.execPath,['tests/'+file],{env:{...process.env,EFB_BASE_URL:base}});
  }finally{server.kill();}
@@ -24,7 +24,7 @@ try{
  if(command==='setup')run(python(),['scripts/upstreams.py']);
  else if(command==='prepare')run(python(),['scripts/prepare.py']);
  else if(command==='build'||command==='dev'){run(python(),['scripts/prepare.py']);run(process.execPath,['node_modules/vite/bin/vite.js',...(command==='build'?['build']:[]),'--config','local-efb/vite.config.mjs',...process.argv.slice(3)]);}
- else if(command==='unit'){if(!fs.existsSync('local-extensions/data/a339-reference.json'))run(python(),['scripts/prepare.py']);for(const file of ['offline-tests.cjs','reliability-tests.cjs'])run(process.execPath,['tests/'+file]);}
+ else if(command==='unit'){if(!fs.existsSync('local-extensions/data/a339-reference.json'))run(python(),['scripts/prepare.py']);for(const file of ['offline-tests.cjs','reliability-tests.cjs','takeoff-engine-tests.cjs'])run(process.execPath,['tests/'+file]);}
  else if(command==='ui')await ui();
  else throw Error('Use setup, prepare, build, dev, unit or ui.');
 }catch(e){console.error(e.message);process.exitCode=1;}

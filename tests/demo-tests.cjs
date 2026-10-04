@@ -32,6 +32,7 @@ fs.mkdirSync('.artifacts/demo',{recursive:true});
       await page.evaluate(()=>window.__BID_PRESENTATION__.pause());const a=await status();await page.waitForTimeout(1100);const b=await status();assert.equal(b.index,a.index);assert.ok(Math.abs(b.remaining-a.remaining)<.15);assert.equal(b.playing,false);checks.push('暂停冻结剩余讲解时间');await page.evaluate(()=>window.__BID_PRESENTATION__.play());
      }
      if(step.id==='report'){assert.equal(await page.locator('#report-dialog').evaluate(e=>e.open),true);const html=await page.locator('#report-frame').getAttribute('srcdoc');assert.ok(html.includes(id==='preflight'?'150.80':'151.20'));checks.push(id+' 实际核算报告预览');}
+     if(step.id==='engineering-report'){assert.equal(await page.locator('#report-dialog').evaluate(e=>e.open),true);const html=await page.locator('#report-frame').getAttribute('srcdoc');assert.match(html,/工程模型/);assert.match(html,/V1/);assert.match(html,/参数来源/);checks.push('工程场景预览当前模型报告及参数来源');}
      if(step.id==='stale'){const frame=page.frame({url:/demo-session=1/});assert.equal(await frame.getByRole('button',{name:'导出报告 HTML',exact:true}).isDisabled(),true);checks.push(id+' 失效结果禁止导出');}
      if(step.id==='landing'){fs.writeFileSync(out+'/landing-state.json',JSON.stringify(s.snapshot.landing,null,2));const l=s.snapshot.landing.landing;assert.equal(l.weight,190000);assert.ok(l.maxAutobrakeLandingDist>0);assert.ok(l.lowAutobrakeLandingDist>l.maxAutobrakeLandingDist);checks.push('原生着陆计算返回三档制动距离');}
     }
@@ -49,6 +50,8 @@ fs.mkdirSync('.artifacts/demo',{recursive:true});
  await page.evaluate(()=>window.__BID_PRESENTATION__.select('change'));const change=await runScene('change');assert.equal(change.current.history,2);checks.push('地面变更场景独立重播 7 步');
  await page.evaluate(()=>window.__BID_PRESENTATION__.select('tools'));await runScene('tools');checks.push('专业工具场景独立重播 7 步');
  await page.evaluate(()=>window.__BID_PRESENTATION__.select('resources'));const resources=await runScene('resources');assert.equal(resources.current.currentFuel,30000);assert.equal(resources.current.pushbackMetres,30);checks.push('资料与地面协同场景独立执行 12 步');
+ await page.evaluate(()=>window.__BID_PRESENTATION__.select('takeoff'));const takeoff=await runScene('takeoff');assert.equal(takeoff.current.engineeringValid,true);assert.equal(takeoff.current.engineeringStatus,'engineering-feasible');checks.push('工程起飞场景8步完成TOGA FLEX短跑道诊断与恢复');
+ await page.click('#close-report');await page.click('#materials');dl=page.waitForEvent('download');await page.click('[data-download="result"]');await(await dl).saveAs(out+'/download-engineering-result.json');assert.equal(JSON.parse(fs.readFileSync(out+'/download-engineering-result.json','utf8')).status,'engineering-feasible');await page.click('#close-materials');checks.push('演示资料下载当前工程结果而非旧V2参考结果');
  await page.evaluate(()=>window.__BID_PRESENTATION__.select('change'));await runScene('change',false);checks.push('第二次重播历史仍为 2 条，检查单状态已复位');
  await page.goto(baseURL+"/");await page.waitForFunction(()=>window.__LOCAL_FLIGHT__&&window.__EFB_NAVIGATE);await page.waitForTimeout(2800);
  assert.equal(await page.evaluate(()=>window.__LOCAL_FLIGHT__.getState().flight.number),'KEEP901');
