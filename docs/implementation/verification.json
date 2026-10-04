@@ -1,0 +1,24 @@
+{
+  "version": "1.1",
+  "reviewDate": "2026-10-04",
+  "softwareCommit": "b652181e9ba3468fadb178c6f8500424dc2e8778",
+  "ci": "https://github.com/jayremsen-netizen/A330EFB/actions/runs/37200746624",
+  "documents": [
+    {
+      "file": "output/word/A330EFB投标演示版完善方案.docx",
+      "sha256": "b8da23a15f78a2859a5ccfcb0e726b243dca3d93a4cc0993fde79caa5e0e4718",
+      "pages": 3,
+      "tables": 0,
+      "visualReview": "all pages reviewed; no clipping, overlap or blank-page defects"
+    },
+    {
+      "file": "output/word/A330EFB投标演示版实施任务书.docx",
+      "sha256": "f211e908b955ca848f0e3609e0ec0238fc90387f21bcc661f34a64f68717a103",
+      "pages": 5,
+      "tables": 0,
+      "visualReview": "all pages reviewed; no clipping, overlap or blank-page defects"
+    }
+  ],
+  "taskCount": 12,
+  "completedTaskCount": 12
+}

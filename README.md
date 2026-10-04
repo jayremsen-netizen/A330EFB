@@ -70,6 +70,8 @@ npm run test:ui
 
 [GitHub Actions](https://github.com/jayremsen-netizen/A330EFB/actions) 在 Windows 和 Ubuntu 上执行安装、上游获取、构建和测试。独立克隆验证见 [构建验证记录](docs/reproducibility.md)，历史演示记录位于 [docs/verification](docs/verification)，新的运行记录以实际执行结果为准。
 
+1.1 的复盘问题处置、测试数量、构建记录及保留范围见 [1.1 验收记录](docs/verification/1.1验收记录.md)。
+
 ## 目录
 
 ```text
