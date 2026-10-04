@@ -1,0 +1,133 @@
+{
+  "at": "2026-10-04T12:48:54.051Z",
+  "cases": [
+    {
+      "name": "货舱上限检查独立于 MZFW",
+      "status": "PASS"
+    },
+    {
+      "name": "拒绝无效 date 2026-02-31",
+      "status": "PASS"
+    },
+    {
+      "name": "拒绝无效 date 2026-04-31",
+      "status": "PASS"
+    },
+    {
+      "name": "拒绝无效 number  ",
+      "status": "PASS"
+    },
+    {
+      "name": "拒绝无效 id ",
+      "status": "PASS"
+    },
+    {
+      "name": "拒绝无效 alternate XYZ",
+      "status": "PASS"
+    },
+    {
+      "name": "闰日按实际日历判断",
+      "status": "PASS"
+    },
+    {
+      "name": "跑道范围而非仅字符串形状",
+      "status": "PASS"
+    },
+    {
+      "name": "CONF3 220至230吨明确拒绝疑点值",
+      "status": "PASS"
+    },
+    {
+      "name": "185000 kg 与 lb 保持同一质量",
+      "status": "PASS"
+    },
+    {
+      "name": "油箱体积质量使用密度转换",
+      "status": "PASS"
+    },
+    {
+      "name": "英尺米及角度转换",
+      "status": "PASS"
+    },
+    {
+      "name": "油量 0 分配守恒且符合首段顺序",
+      "status": "PASS"
+    },
+    {
+      "name": "油量 5000 分配守恒且符合首段顺序",
+      "status": "PASS"
+    },
+    {
+      "name": "油量 8995.44 分配守恒且符合首段顺序",
+      "status": "PASS"
+    },
+    {
+      "name": "油量 14854.632 分配守恒且符合首段顺序",
+      "status": "PASS"
+    },
+    {
+      "name": "油量 30000 分配守恒且符合首段顺序",
+      "status": "PASS"
+    },
+    {
+      "name": "油量 111661.977 分配守恒且符合首段顺序",
+      "status": "PASS"
+    },
+    {
+      "name": "空字段草稿能恢复且保留航班身份",
+      "status": "PASS"
+    },
+    {
+      "name": "坏历史被隔离 有效记录保留",
+      "status": "PASS"
+    },
+    {
+      "name": "存储数值被改写不能充当有效结果",
+      "status": "PASS"
+    },
+    {
+      "name": "原有版本记录保留为历史而不恢复确认",
+      "status": "PASS"
+    },
+    {
+      "name": "着陆只接受已声明的基准重量",
+      "status": "PASS"
+    },
+    {
+      "name": "非物理着陆结果被拒绝",
+      "status": "PASS"
+    },
+    {
+      "name": "容量边界与航班确认采用同一个值",
+      "status": "PASS"
+    },
+    {
+      "name": "天气样例与手工修改不混用",
+      "status": "PASS"
+    },
+    {
+      "name": "地面命令回执幂等并真实推进",
+      "status": "PASS"
+    },
+    {
+      "name": "外接电源联锁拒绝推出",
+      "status": "PASS"
+    },
+    {
+      "name": "加油中故障停止且解除后重新请求",
+      "status": "PASS"
+    },
+    {
+      "name": "重置使旧会话命令失效",
+      "status": "PASS"
+    },
+    {
+      "name": "地面非法输入与重复并发请求被拒绝",
+      "status": "PASS"
+    },
+    {
+      "name": "零旅客的货物计划仍完成装载",
+      "status": "PASS"
+    }
+  ]
+}

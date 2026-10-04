@@ -110,8 +110,11 @@
       ],
       "files": "docs/takeoff;output/word",
       "acceptance": "Word逐页检查，Windows和Ubuntu构建测试通过，GitHub提交一致",
-      "status": "in_progress",
-      "evidence": ""
+      "status": "done",
+      "evidence": "Word共5页、4幅技术图，逐页检查通过；软件基线348c8d3在Windows和Ubuntu独立构建及97项单元、55项浏览器检查全部通过。CI证据见evidence/ci.json。"
     }
-  ]
+  ],
+  "softwareCommit": "348c8d38ce61f918d8284f377a05af6c2b740a7b",
+  "acceptanceStatus": "passed",
+  "ci": "https://github.com/jayremsen-netizen/A330EFB/actions/runs/37204133467"
 }
