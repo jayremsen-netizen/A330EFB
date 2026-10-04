@@ -29,13 +29,15 @@ function snapshot():Snapshot{
  const engineeringActive=!!document.querySelector('[data-testid="engineering-takeoff"]');
  const engineering=engineeringActive?W.__TAKEOFF_ENGINEERING__?.snapshot():undefined;
  const engineeringSolution=engineering?.valid?engineering.result?.solution:undefined;
+ const planning=W.__LOCAL_PLANNING__?.snapshot(),landingEngineering=W.__LANDING_ENGINEERING__?.snapshot();
  const tracking=native.trackingChecklists,selected=tracking?.selectedChecklistIndex||0;
  const defs=tracking?.aircraftChecklists?.[selected]?.items||[];
  const checkedItems=(tracking?.checklists?.[selected]?.items||[]).filter((x:any,i:number)=>x.completed&&!['LINE','SUBLISTHEADER'].includes(defs[i]?.type)).length;
- return {flightNumber:s.flight.number,route:`${s.flight.from} → ${s.flight.to}`,zfw:w.zfw,tow:w.tow,fuel:s.flight.rampKg,fuelTarget:Number(W.__LOCAL_EFB__.vars.get('L:A32NX_FUEL_DESIRED')||0),confirmed:!!s.confirmed,groundChanged:s.groundChanged,v2:s.result?.v2??null,valid:!!r,resultStatus:s.result?.status||'not-calculated',history:s.history.length,checkedItems,todAltitude:native.todCalculator?.currentAltitude??null,todTarget:native.todCalculator?.targetAltitude??null,landing:native.performance,notice:s.notice,gpuConnected:sim.gpuConnected,currentFuel:sim.fuelKg,currentPax:sim.pax,pushbackMetres:sim.pushbackMetres,activeFaults:sim.faults.length,lastCommandStatus:sim.commands[0]?.status||'none',weatherSource:s.flight.weather.source||'手工输入',engineeringActive,engineeringStatus:engineeringActive?(engineering?.status||'not-calculated'):'inactive',engineeringValid:!!engineering?.valid,engineeringMode:engineering?.mode??null,engineeringThrustMode:engineeringSolution?.thrustMode??null,engineeringV1:engineeringSolution?.v1Kt??null,engineeringVR:engineeringSolution?.vrKt??null,engineeringV2:engineeringSolution?.v2Kt??null,engineeringFlex:engineeringSolution?.assumedTemperatureC??null};
+ return {planningReady:!!planning?.ready,planningFuelStatus:planning?.fuelStatus||'not-planned',loadingAccepted:!!planning?.loadingAccepted,landingMassKg:planning?.landingKg??null,landingEngineeringStatus:landingEngineering?.status||'not-calculated',landingEngineeringValid:!!landingEngineering?.valid,fuelCalculationStatus:document.querySelector('[data-testid="fuel-plan-result"]')?.getAttribute('data-status')||'not-calculated',flightNumber:s.flight.number,route:`${s.flight.from} → ${s.flight.to}`,zfw:w.zfw,tow:w.tow,fuel:s.flight.rampKg,fuelTarget:Number(W.__LOCAL_EFB__.vars.get('L:A32NX_FUEL_DESIRED')||0),confirmed:!!s.confirmed,groundChanged:s.groundChanged,v2:s.result?.v2??null,valid:!!r,resultStatus:s.result?.status||'not-calculated',history:s.history.length,checkedItems,todAltitude:native.todCalculator?.currentAltitude??null,todTarget:native.todCalculator?.targetAltitude??null,landing:native.performance,notice:s.notice,gpuConnected:sim.gpuConnected,currentFuel:sim.fuelKg,currentPax:sim.pax,pushbackMetres:sim.pushbackMetres,activeFaults:sim.faults.length,lastCommandStatus:sim.commands[0]?.status||'none',weatherSource:s.flight.weather.source||'手工输入',engineeringActive,engineeringStatus:engineeringActive?(engineering?.status||'not-calculated'):'inactive',engineeringValid:!!engineering?.valid,engineeringMode:engineering?.mode??null,engineeringThrustMode:engineeringSolution?.thrustMode??null,engineeringV1:engineeringSolution?.v1Kt??null,engineeringVR:engineeringSolution?.vrKt??null,engineeringV2:engineeringSolution?.v2Kt??null,engineeringFlex:engineeringSolution?.assumedTemperatureC??null};
 }
 function artifacts(){
  const flight=JSON.stringify(getState().flight,null,2);
+ if(document.querySelector('[data-testid="planning-workspace"]')&&W.__LOCAL_PLANNING__)return {flight,...W.__LOCAL_PLANNING__.artifacts()};
  if(document.querySelector('[data-testid="engineering-takeoff"]')){
   const api=W.__TAKEOFF_ENGINEERING__,engineering=api?.snapshot();
   const result=engineering?.valid?engineering.result:null;
@@ -54,6 +56,10 @@ async function execute(action:Action,fast=false){
   }
   case 'field':{
    const input=await until(()=>document.querySelector<HTMLInputElement>(`[data-field="${action.name}"]`),'找到输入项 '+action.name);
+   await highlight(input,fast);setValue(input,action.value);await delay(80);break;
+  }
+  case 'inputLabel':{
+   const input=await until(()=>Array.from(document.querySelectorAll<HTMLInputElement>('input[aria-label]')).find(e=>e.getAttribute('aria-label')===action.label),'找到输入项 '+action.label);
    await highlight(input,fast);setValue(input,action.value);await delay(80);break;
   }
   case 'button':{

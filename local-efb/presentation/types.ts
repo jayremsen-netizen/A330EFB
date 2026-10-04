@@ -1,6 +1,7 @@
 export type Action =
  | {type:'nav';route:string;ready:string}
  | {type:'field';name:string;value:string}
+ | {type:'inputLabel';label:string;value:string}
  | {type:'button';name:string}
  | {type:'import'}
  | {type:'focus';selector:string}

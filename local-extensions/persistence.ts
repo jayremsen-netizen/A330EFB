@@ -1,4 +1,5 @@
 import {Flight,example,validate,signature,calculate,profile} from './flight';
+import {restorePlanning} from './planning-schema';
 type Result=ReturnType<typeof calculate>;
 const object=(v:any)=>!!v&&typeof v==='object'&&!Array.isArray(v);
 
@@ -30,13 +31,14 @@ export function restoreDraft(value:any):Flight {
     if(!object(r)||typeof r.airport!=='string'||typeof r.previousAirport!=='string'||r.airport.length>500||r.previousAirport.length>500||typeof r.weather!=='boolean'||typeof r.runway!=='boolean')throw Error('起飞机场资料复核状态无效');
     f.departureReview={airport:r.airport,previousAirport:r.previousAirport,weather:r.weather,runway:r.runway};
   }
+  if(value.planning!==undefined)f.planning=restorePlanning(value.planning);
   return f;
 }
 
 export function validSavedResult(r:any):r is Result {
   try{
     if(!object(r)||!object(r.input)||validate(r.input).length||r.status!=='reference-only'||
-      typeof r.at!=='string'||!Number.isFinite(Date.parse(r.at))||typeof r.signature!=='string'||r.signature.length>100000||
+      typeof r.at!=='string'||!Number.isFinite(Date.parse(r.at))||typeof r.signature!=='string'||r.signature.length>524288||
       typeof r.profileVersion!=='string'||typeof r.engineVersion!=='string'||
       !Array.isArray(r.errors)||r.errors.length||!Array.isArray(r.unsupported)||r.unsupported.some((v:any)=>typeof v!=='string')||
       !object(r.weights)||['payload','zfw','ramp','tow'].some(k=>typeof r.weights[k]!=='number'||!Number.isFinite(r.weights[k]))||

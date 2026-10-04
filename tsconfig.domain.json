@@ -3,7 +3,10 @@
     "target": "ES2022",
     "module": "ESNext",
     "moduleResolution": "Bundler",
-    "lib": ["ES2022", "DOM"],
+    "lib": [
+      "ES2022",
+      "DOM"
+    ],
     "strict": true,
     "noEmit": true,
     "resolveJsonModule": true,
@@ -26,6 +29,12 @@
     "local-efb/presentation-mode.ts",
     "local-efb/presentation/types.ts",
     "local-efb/presentation/scenarios.ts",
-    "local-efb/presentation/main.ts"
+    "local-efb/presentation/main.ts",
+    "local-extensions/planning-schema.ts",
+    "local-extensions/planning-context.ts",
+    "local-extensions/planning-report.ts",
+    "local-extensions/landing/**/*.ts",
+    "local-extensions/loading/**/*.ts",
+    "local-extensions/fuel-planning/**/*.ts"
   ]
 }

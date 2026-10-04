@@ -1,0 +1,10 @@
+import React,{useMemo} from 'react';
+import {Link} from 'react-router-dom';
+import {useLocal} from './state';
+import {useRuntime} from './SimulationPages';
+import {signature} from './flight';
+import {derivePlanning} from './planning-context';
+import {calculateGroundCG} from './loading';
+function useBalance(){const s=useLocal(),actual=useRuntime(),p=useMemo(()=>derivePlanning(s.flight),[s.flight]);const valid=p.loadingAccepted&&s.confirmed===signature(s.flight)&&!s.groundChanged&&!s.storageConflict;const point=valid?calculateGroundCG(s.flight,s.flight.planning!.loading!,actual):null;const zero=valid?calculateGroundCG(s.flight,s.flight.planning!.loading!,{...actual,fuelKg:0}):null;return {p,point,zero,valid};}
+export function LocalCGValue({planned,zeroFuel}:{planned?:boolean;zeroFuel:boolean}){const b=useBalance();const value=b.valid?(planned?(zeroFuel?b.p.loading?.points?.zfw.cgPercentMac:b.p.loading?.points?.ramp.cgPercentMac):(zeroFuel?b.zero?.cgPercentMac:b.point?.cgPercentMac)):null;return <span title="本地工程配载重心">{typeof value==='number'&&Number.isFinite(value)?value.toFixed(2)+' %':'—'}</span>;}
+export function GroundBalanceSummary(){const b=useBalance();return <div className="lf-root" style={{width:525,height:511}} data-testid="ground-engineering-cg"><h3>工程配载与当前装载</h3><p>重心由已确认分区和质量力矩计算；原生座椅图用于装载操作，工程包线见配载页。</p><div className="lf-metrics" style={{gridTemplateColumns:'1fr 1fr'}}><div>计划停机坪重心<strong><LocalCGValue planned zeroFuel={false}/></strong></div><div>实际演示重心<strong><LocalCGValue zeroFuel={false}/></strong></div></div>{b.point?<><p>当前质量 {b.point.massKg.toFixed(0)} kg；纵向力矩 {b.point.momentKgM.toFixed(0)} kg·m。</p><p>当前重心 {b.point.cgPercentMac.toFixed(2)} %MAC；工程包线 {b.point.forwardLimit.toFixed(2)}–{b.point.aftLimit.toFixed(2)} %MAC。</p><p className={b.point.withinCg&&b.point.withinMass?'lf-message':'lf-error'}>{b.point.withinCg&&b.point.withinMass?'当前状态在演示工程包线内':'当前装载状态超出演示工程包线'}</p></>:<p className="lf-warning">请先确认当前燃油与工程配载。没有有效分区时不显示固定重心数值。</p>}<p className="lf-muted">地面过程按已确认分区比例分配已装载人数和货物；这是工程插值示意，未模拟逐座登机顺序及配平油转输。</p><Link to="/ground/loading-balance">查看分区、力矩与工程包线 →</Link></div>;}

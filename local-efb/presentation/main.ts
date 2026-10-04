@@ -30,9 +30,9 @@ function closeReport(){$<HTMLDialogElement>('report-dialog').close();}
 function speak(step:Step){if(!voice||!('speechSynthesis'in window))return;window.speechSynthesis.cancel();const text=new SpeechSynthesisUtterance(step.title+'。'+step.description);text.lang='zh-CN';text.rate=Math.min(1.4,speed);speechSynthesis.speak(text);}
 function renderStep(){
  const step=current();$('chapter').textContent=step.chapter;$('step-counter').textContent=String(index+1).padStart(2,'0')+' / '+String(scenario.steps.length).padStart(2,'0');
- const engineering=scenario.id==='takeoff';
- $('v2').previousElementSibling!.textContent=engineering?'工程 V2':'V2 参考';
- document.querySelector('.boundary')!.textContent=engineering?'起飞数值来自公开假设的工程模型，未经航空性能校准，仅用于投标演示。':'浏览器本地演示，未连接飞行模拟器。性能数值为源码参考核算。';
+ const engineering=scenario.id==='takeoff';const planning=scenario.id==='planning';
+ $('v2').previousElementSibling!.textContent=planning?'预计着陆重量':engineering?'工程 V2':'V2 参考';
+ document.querySelector('.boundary')!.textContent=planning?'燃油、配载及着陆均使用公开假设的工程模型，仅用于投标演示。':engineering?'起飞数值来自公开假设的工程模型，未经航空性能校准，仅用于投标演示。':'浏览器本地演示，未连接飞行模拟器。性能数值为源码参考核算。';
  $('step-title').textContent=step.title;$('description').textContent=step.description;$('watch').textContent=step.watch;$('manual').textContent=step.manual;$('summary').textContent=scenario.summary;
  $('timeline').innerHTML=scenario.steps.map((s,i)=>`<button data-step="${i}" title="${esc(s.title)}" aria-label="第 ${i+1} 节 ${esc(s.title)}" class="${i===index?'current':i<index?'past':''}"><span>${String(i+1).padStart(2,'0')}</span><em>${esc(s.title)}</em></button>`).join('');
  const active=$('timeline').querySelector<HTMLElement>('.current');if(active)$('timeline').scrollLeft=Math.max(0,active.offsetLeft-$('timeline').offsetLeft-10);
@@ -52,7 +52,11 @@ function renderControls(){
 function updateSnapshot(){
  if(!bridge)return;try{lastSnapshot=bridge.snapshot();const s=lastSnapshot;
  $('tow').textContent=s.tow.toLocaleString('en-US')+' kg';
- if(scenario.id==='takeoff'){
+ if(scenario.id==='planning'){
+  $('v2').textContent=typeof s.landingMassKg==='number'?s.landingMassKg.toLocaleString('en-US')+' kg':'—';
+  $('result-status').textContent=s.landingEngineeringStatus==='engineering-infeasible'?'着陆距离不足':s.landingEngineeringValid?'着陆工程约束满足':s.planningReady?'工程计划已确认':s.loadingAccepted?'配载已确认':'工程计划待核对';
+  $('result-status').className=s.planningReady?'good':'warning';
+ }else if(scenario.id==='takeoff'){
   $('v2').textContent=typeof s.engineeringV2==='number'?s.engineeringV2.toFixed(1)+' kt':'—';
   const labels:Record<string,string>={'engineering-feasible':'工程模型可行','engineering-infeasible':'工程模型不可行',unsupported:'超出模型范围',invalid:'输入无效',stale:'结果已过期',calculating:'计算中'};
   $('result-status').textContent=labels[String(s.engineeringStatus)]||'尚未计算';$('result-status').className=s.engineeringValid?'good':s.engineeringStatus==='stale'?'warning':'';

@@ -1,5 +1,7 @@
 import profile from './data/a339-reference.json';
 import {FUEL_CAPACITY_GALLONS,FUEL_KG_PER_GALLON} from './fuel';
+import {planningShapeErrors} from './planning-schema';
+import type {PlanningInputs} from './planning-schema';
 export {profile};
 export interface Flight {
  schemaVersion:1;profileId:string;id:string;number:string;date:string;from:string;to:string;alternate:string;route:string;source:string;
@@ -7,6 +9,7 @@ export interface Flight {
  runway:{ident:string;heading:number;tora:number;toda:number;asda:number;elevationFt:number;slope:number;condition:string;intersection:number;source:string};
  weather:{windDir:number;windKt:number;oat:number;qnh:number;source?:string;observedAt?:string;station?:string;supersededSource?:string};flaps:number;antiIce:boolean;packs:boolean;
  departureReview?:{airport:string;previousAirport:string;weather:boolean;runway:boolean};
+ planning?:PlanningInputs;
 }
 export const example=():Flight=>({schemaVersion:1,profileId:profile.profileId,id:'LOCAL-DEMO-330',number:'DEMO330',date:'2026-10-03',from:'ZUTF',to:'ZSPD',alternate:'ZSSS',route:'ZUTF DCT ZSPD - LOCAL SAMPLE',source:'local-example',pax:250,paxKg:80,bagKg:24,freightKg:2000,oewKg:127000,rampKg:30000,taxiKg:500,runway:{ident:'01',heading:10,tora:3500,toda:3500,asda:3500,elevationFt:1450,slope:0,condition:'dry',intersection:0,source:'手动示例，非机场权威数据'},weather:{windDir:10,windKt:0,oat:15,qnh:1013.25},flaps:1,antiIce:false,packs:false});
 export const weights=(f:Flight)=>{const payload=f.pax*(f.paxKg+f.bagKg)+f.freightKg;const zfw=f.oewKg+payload;return {payload,zfw,ramp:zfw+f.rampKg,tow:zfw+f.rampKg-f.taxiKg};};
@@ -14,6 +17,7 @@ export function validate(f:any):string[]{
  const e:string[]=[];
  if(!f||typeof f!=='object'||Array.isArray(f))return ['航班文件必须是 JSON 对象'];
  if(f.schemaVersion!==1)e.push('不支持的 schemaVersion');if(f.profileId!==profile.profileId)e.push('机型必须为 A330-941 / Trent 7000');
+ e.push(...planningShapeErrors(f.planning));
  for(const k of ['id','number','date','from','to','alternate','route','source'])if(typeof f[k]!=='string'||f[k].length>500)e.push(k+' 必须是有长度限制的文本');
  for(const k of ['id','number'])if(typeof f[k]==='string'&&!f[k].trim())e.push(k+' 不能为空');
  for(const k of ['from','to'])if(!/^[A-Z]{4}$/.test(f[k]||''))e.push(k+' 必须为四位 ICAO 代码');
@@ -46,7 +50,7 @@ export function validate(f:any):string[]{
  const w=weights(f);if(w.zfw>profile.maxZfwKg)e.push('ZFW 超过 181000 kg 结构配置值');if(w.tow>profile.structuralMtowKg)e.push('TOW 超过 251000 kg 结构配置值');
  return e;
 }
-export function parseFlight(text:string):Flight{if(text.length>100000)throw Error('文件超过 100 KB 限制');const f=JSON.parse(text);const e=validate(f);if(e.length)throw Error(e.join('；'));return f;}
+export function parseFlight(text:string):Flight{if(new TextEncoder().encode(text).length>524288)throw Error('文件超过 512 KB 限制');const f=JSON.parse(text);const e=validate(f);if(e.length)throw Error(e.join('；'));return f;}
 export const signature=(f:Flight)=>JSON.stringify({f,profile,engine:profile.engineVersion});
 export function calculate(f:Flight){
  const errors=validate(f);const sig=signature(f);const base={at:new Date().toISOString(),signature:sig,input:structuredClone(f),profileVersion:profile.profileVersion,engineVersion:profile.engineVersion,errors,unsupported:profile.unsupported,v2:null as number|null,pressureAltitudeFt:null as number|null,headwindKt:null as number|null,crosswindKt:null as number|null,effectiveTora:null as number|null,weights:errors.length?null:weights(f),status:'invalid'};

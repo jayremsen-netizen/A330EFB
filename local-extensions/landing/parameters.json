@@ -1,0 +1,29 @@
+{
+ "id":"A339-LANDING-ENGINEERING-DEMO","version":"0.1.0",
+ "label":"工程模型 · 未经航空性能校准 · 仅用于投标演示",
+ "provenance":{"status":"assumed-engineering-configuration","description":"Original demonstrator with explicitly assumed geometry, aerodynamic coefficients, brake friction, reverser force, delays and support envelope. These are not certified Airbus A330 landing data. General public references explain physical principles and arrival-assessment concepts only."},
+ "constants":{"gravity":9.80665,"gasConstant":287.05287,"gamma":1.4,"seaPressurePa":101325,"seaTemperatureK":288.15,"lapseKPerM":0.0065,"ktToMs":0.5144444444444445,"ftToM":0.3048},
+ "airframe":{"wingAreaM2":361.6,"modelMinKg":120000,"modelMaxKg":191000},
+ "configurations":{"FULL":{"clMax":2.65,"brakingCd":0.11},"CONF3":{"clMax":2.42,"brakingCd":0.095}},
+ "approach":{"vrefToStall":1.23,"screenHeightM":15.24,"flareHeightM":5,"pathAngleDeg":3,"flareSeconds":4,"touchdownTasRatio":0.96,"minimumAdditiveKt":5,"maximumAdditiveKt":20,"headwindAdditiveRatio":0.3333333333333333},
+ "ground":{"delaySeconds":2,"brakingCl":0.12,"dryFriction":0.34,"wetFriction":0.18,"reverseForcePerEngineN":26000,"reverseFullAboveGroundSpeedMs":35,"autobrakeDecelerationMs2":{"LOW":1.7,"MED":2.5,"MAX":4}},
+ "envelope":{"pressureAltitudeMinFt":-1000,"pressureAltitudeMaxFt":8000,"temperatureMinC":-20,"temperatureMaxC":45,"maximumSlopePercent":2,"maximumHeadwindKt":30,"maximumTailwindKt":10,"maximumCrosswindKt":25,"minimumLdaM":300,"maximumLdaM":6000,"minimumDistanceFactor":1.15,"maximumDistanceFactor":1.67},
+ "numerics":{"speedStepMs":0.25,"maximumSteps":10000,"massResolutionKg":100},
+ "assumptions":[
+  "本模型全部飞机专用常数均为工程假设。191000 kg 是演示质量包线的上限，不是本项目验证过的结构最大着陆重量。",
+  "Vref 来自失速升力平衡和假设倍率，使用可压缩 CAS/TAS 换算。Vapp 附加量取手工值、5 kt、三分之一稳定迎风和阵风增量的最大值；超出 20 kt 时拒绝计算。这不是 Airbus 的 VLS/GS mini 算法。",
+  "空中段由 50 ft 至假设拉平高度的 3° 下降与 4 秒拉平构成；拉平期间 TAS 线性降至 Vapp 对应 TAS 的 96%。这是演示轨迹，不是飞行指导。",
+  "接地后 2 秒延迟按恒定地速推进一次。制动阶段以地速积分，轮刹车受摩擦上限约束；自动刹车目标指总减速度，阻力或反推贡献优先抵扣轮刹需求。",
+  "干、湿跑道使用不同的假设摩擦系数；湿跑道不是污染跑道，积水、雪、冰、RCAM 等级、非均匀附着与侧向操纵均未建模。",
+  "反推力为常量假设并在低地速线性衰减，不是 Trent 7000 反推性能图。坡度对地面纵向重力分量采用小坡度近似。",
+  "稳定沿跑道风全额用于地速；阵风只参与附加速度和最坏风分量包线检查。风输入使用同一真/磁基准，程序不转换磁差。",
+  "默认 1.15 距离系数仅借用到达评估中附加余量的展示概念；不是签派 RLD、法规符合性或经批准 AFM/FCOM 结果。",
+  "场长限重对 120000–191000 kg 的每个 100 kg 档位保守搜索；只反映工程模型的 LDA 约束。未评价刹车能量、轮胎、爬升、障碍物、故障、自动着陆或真实结构限制。"
+ ],
+ "sources":[
+  {"title":"NASA Glenn — Lift equation","url":"https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/lift-equation-2/","use":"General lift relation only; no aircraft coefficients imported."},
+  {"title":"FAA SAFO 19001 — Landing Performance Assessments at Time of Arrival","url":"https://www.faa.gov/sites/faa.gov/files/other_visit/aviation_industry/airline_operators/airline_safety/SAFO19001.pdf","use":"Arrival conditions and added distance margin concept; not a model validation or approval."},
+  {"title":"Airbus Safety First — Airbus Brake Testing","url":"https://safetyfirst.airbus.com/airbus-brake-testing/","use":"Braking and operational landing distance concepts; no Airbus performance tables copied."},
+  {"title":"FAA — Takeoff and Landing Performance Assessment (TALPA)","url":"https://www.faa.gov/about/initiatives/talpa","use":"Runway-condition scope; contaminated conditions explicitly unsupported here."}
+ ]
+}

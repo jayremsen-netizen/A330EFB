@@ -7,6 +7,7 @@ import {restoreStored} from './persistence';
 import {metarFor} from './weather';
 import {initializeRuntime,runtime} from './runtime-host';
 import {departureChanged} from './departure-review';
+import {derivePlanning} from './planning-context';
 import {setChecklistCompletion,setChecklistItemCompletion,setSelectedChecklistIndex} from '../build-common/src/systems/instruments/src/EFB/Store/features/checklists';
 type Result=ReturnType<typeof calculate>;
 type State={flight:Flight;confirmed:string;result:Result|null;history:Result[];notice:string;storageError:string;groundChanged:boolean;revision:number;storageConflict:boolean;hasRecovery:boolean};
@@ -51,6 +52,7 @@ export function editFlight(f:Flight){
  const newFlight=f.id!==state.flight.id,airportChanged=f.from!==state.flight.from;
  f=departureChanged(state.flight,f);
  if(newFlight)resetFlightSession(f);
+ else if(f.planning){const data=structuredClone(store.getState().simbrief.data);data.loadsheet='<div style="padding:30px;color:#111;background:#fff"><h1>工程计划已修改，签派资料待重新确认</h1><p>请核对航路燃油、配载及航班重量，再保存确认。上一版签派结果已撤销。</p></div>';data.weights.estLandingWeight='';Object.assign(data,{flightDistance:'',flightETAInSeconds:'',tripTime:0,schedIn:''});Object.assign(data.fuels,{planLanding:0,enrouteBurn:0});store.dispatch(setSimbriefData(data));}
  state={...state,flight:f,confirmed:'',result:newFlight?null:state.result,groundChanged:false,notice:[newFlight?'已开始新航班；检查单清空，地面会话复位至停机状态（5000 kg 燃油、0 人、0 货物），故障与旧请求已清除。':'输入已修改，旧结果已失效，请重新确认并计算。',airportChanged?'起飞机场已变化；旧天气和跑道资料保留供核对，两项均须重新复核。':'请核对并确认当前计划。'].join('')};publish();
 }
 export function loadFlight(f:Flight){const errors=validate(f);if(errors.length)throw Error(errors.join('；'));editFlight({...f,source:f.source==='local-example'?'local-example':'local-file'});}
@@ -66,10 +68,19 @@ export function exportRecovery(){const data=Object.keys(localStorage).filter(k=>
 export function readFuelTarget(){const n=(window as any).__LOCAL_EFB__?.vars.get('L:A32NX_FUEL_DESIRED');if(!Number.isFinite(n)||n<0)throw Error('没有可用地面燃油目标');editFlight({...state.flight,rampKg:n});}
 export function applyToEfb(f:Flight){
  const w=weights(f),data=structuredClone(initialState.data);const out=String(Date.parse(f.date+'T08:00:00Z')/1000);
+ const planning=derivePlanning(f),fuel=planning.fuel?.status==='engineering-feasible'?planning.fuel:null;
  Object.assign(data,{airline:'',flightNum:f.number,departingAirport:f.from,departingRunway:f.runway.ident,departingIata:f.from,departingName:'本地航班 / 手工资料',arrivingAirport:f.to,arrivingRunway:'',arrivingIata:f.to,arrivingName:'本地航班 / 手工资料',aircraftIcao:'A339',aircraftReg:'LOCAL-A339',flightDistance:'0',flightETAInSeconds:'10800',cruiseAltitude:35000,units:'kgs',route:f.route,costInd:'30',altIcao:f.alternate,altIata:f.alternate,tripTime:10800,schedOut:out,schedIn:String(Number(out)+10800)});
  data.loadsheet=`<div style="padding:30px;background:#fff;color:#111"><h1 style="color:#111">LOCAL FLIGHT / 本地航班 ${esc(f.number)}</h1><p style="color:#111">${esc(f.date)} · ${esc(f.from)} → ${esc(f.to)} · A330-941</p><p style="color:#111">SOURCE: ${esc(f.source)} / 本地手工计划，非实际签派文件</p><p style="color:#111">${esc(f.route)}</p><p style="color:#111">OEW ${w.zfw-w.payload} kg + PAYLOAD ${w.payload} kg = ZFW ${w.zfw} kg</p><p style="color:#111">RAMP FUEL ${f.rampKg} kg - TAXI ${f.taxiKg} kg</p><p style="color:#111">TOW ${w.tow} kg · PAX ${f.pax}</p><p style="color:#111">本地计划为重量核算来源；实际模拟器状态未连接。</p></div>`;
  Object.assign(data.weights,{cargo:String(f.pax*f.bagKg+f.freightKg),estLandingWeight:String(w.tow),estTakeOffWeight:String(w.tow),estZeroFuelWeight:String(w.zfw),maxLandingWeight:'191000',maxTakeOffWeight:'251000',maxZeroFuelWeight:'181000',bagCount:String(f.pax),passengerCount:String(f.pax),passengerWeight:String(f.paxKg),bagWeight:String(f.bagKg),payload:String(w.payload),freight:String(f.freightKg)});
  Object.assign(data.fuels,{planRamp:f.rampKg,planTakeOff:f.rampKg-f.taxiKg,taxi:f.taxiKg,planLanding:0,enrouteBurn:0});data.weather={avgWindDir:String(f.weather.windDir),avgWindSpeed:String(f.weather.windKt)};
+ if(f.planning&&!fuel){data.weights.estLandingWeight='';Object.assign(data,{flightDistance:'',flightETAInSeconds:'',tripTime:0,schedIn:''});data.loadsheet+='<div style="padding:30px;color:#111;background:#fff"><h2>燃油预算未通过</h2><p>当前条件尚不能生成预计着陆重量和到达时间。请返回航路燃油页修正预算；基础重量确认不等于工程计划可用。</p></div>';}
+ if(fuel?.planned&&fuel.totals){
+  const duration=Math.round(fuel.totals.tripMinutes*60);
+  Object.assign(data,{flightDistance:String(fuel.totals.tripDistanceNm),flightETAInSeconds:String(duration),tripTime:duration,schedIn:String(Number(out)+duration),cruiseAltitude:f.planning!.fuel!.cruiseAltitudeFt});
+  data.weights.estLandingWeight=String(fuel.planned.destinationLandingMassKg);
+  Object.assign(data.fuels,{planLanding:fuel.planned.destinationLandingFuelKg,enrouteBurn:fuel.totals.tripKg});
+  data.loadsheet+=`<div style="padding:30px;color:#111;background:#fff"><h2>工程航路与配载补充</h2><p>航路 ${fuel.totals.tripDistanceNm.toFixed(1)} NM，耗时 ${fuel.totals.tripMinutes.toFixed(1)} min，耗油 ${fuel.totals.tripKg.toFixed(1)} kg。</p><p>预计目的地着陆 ${fuel.planned.destinationLandingMassKg.toFixed(1)} kg；备降着陆 ${fuel.planned.alternateLandingMassKg.toFixed(1)} kg。</p><p>起飞重心 ${planning.loadingAccepted?planning.loading!.points!.takeoff.cgPercentMac.toFixed(2)+' %MAC（工程配载）':'尚未确认工程配载'}。分段距离、油耗和重心几何为工程输入及假设。</p></div>`;
+ }
  data.departingMetar=metarFor(f.from,f);data.arrivingMetar=metarFor(f.to,f);
  store.dispatch(setSimbriefData(data));store.dispatch(setFuelImported(false));store.dispatch(setPayloadImported(false));
  const host=(window as any).__LOCAL_EFB__;if(host){for(const [k,v] of Object.entries({'EMPTY WEIGHT':f.oewKg,'L:A32NX_AIRFRAME_ZFW_DESIRED':w.zfw,'L:A32NX_AIRFRAME_GW_DESIRED':w.ramp,'L:A32NX_WB_PER_PAX_WEIGHT':f.paxKg,'L:A32NX_WB_PER_BAG_WEIGHT':f.bagKg,'L:A32NX_FUEL_DESIRED':f.rampKg})){host.set(k,v);}}runtime.setPlan(f);

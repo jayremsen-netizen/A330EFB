@@ -27,6 +27,6 @@ export const runtime={
  cancel:()=>{model.cancel();publish();},
  preset:(name:'parked'|'prepared')=>{engaged=true;if(name==='prepared')plan=structuredClone(readyPlan());model.reset(name==='prepared',name==='prepared'?plan.rampKg:5000,name==='prepared'?plan.pax:0,Date.now(),name==='prepared'?plan.pax*plan.bagKg+plan.freightKg:0);publish();},
  startFlight:(f:Flight)=>{engaged=true;plan=structuredClone(f);model.reset(false,5000,0,Date.now(),0);const host=(window as any).__LOCAL_EFB__;if(host){for(const key of host.vars.keys())if(/^L:A32NX_(PAX_|CARGO_).*_DESIRED$/.test(key))host.set(key,0);for(const [key,value] of Object.entries({'L:A32NX_FUEL_DESIRED':5000,'L:A32NX_AIRFRAME_ZFW_DESIRED':f.oewKg,'L:A32NX_AIRFRAME_GW_DESIRED':f.oewKg+5000,'L:A32NX_WB_PER_PAX_WEIGHT':f.paxKg,'L:A32NX_WB_PER_BAG_WEIGHT':f.bagKg}))host.set(key,value);}publish();},
- setPlan:(f:Flight)=>{plan=structuredClone(f);if(!engaged){model.reset(false,f.rampKg,f.pax,Date.now(),f.pax*f.bagKg+f.freightKg);publish();}},
+ setPlan:(f:Flight)=>{plan=structuredClone(f);if(f.planning){engaged=true;publish();return;}if(!engaged){model.reset(false,f.rampKg,f.pax,Date.now(),f.pax*f.bagKg+f.freightKg);publish();}},
 };
 export function initializeRuntime(){if(initialized)return;initialized=true;(window as any).__LOCAL_RUNTIME__=runtime;publish();setInterval(()=>{if(model.tick())publish();},100);}

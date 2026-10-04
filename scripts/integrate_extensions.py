@@ -35,6 +35,33 @@ for lang in ['zh-CN','zh-Hans-CN','en']:
     lp.write_text(json.dumps(d,ensure_ascii=False),'utf-8')
 print('Local flight and offline reference calculation integrated into native EFB routes.')
 
+# Do not overlay engineering CG points onto an unrelated upstream envelope.
+payload='build-common/src/systems/instruments/src/EFB/Ground/Pages/Payload/WideBody/A339Payload.tsx'
+p=R/payload;p.write_text("import { GroundBalanceSummary } from '@localefb/GroundBalanceSummary';\n"+p.read_text('utf-8'),'utf-8')
+patch(payload,'            <ChartWidget\n', '            {process.env.VITE_BUILD ? <GroundBalanceSummary /> : <ChartWidget\n')
+patch(payload,'              zfw={boardingStarted ? Math.round(zfw) : Math.round(zfwDesired)}\n            />', '              zfw={boardingStarted ? Math.round(zfw) : Math.round(zfwDesired)}\n            />}')
+elements='build-common/src/systems/instruments/src/EFB/Ground/Pages/Payload/PayloadElements.tsx'
+p=R/elements;p.write_text("import { LocalCGValue } from '@localefb/GroundBalanceSummary';\n"+p.read_text('utf-8'),'utf-8')
+for planned,old in [(True,'<PayloadPercentUnitDisplay value={displayZfw ? desiredZfwCgMac : desiredGwCgMac} />'),(False,'<PayloadPercentUnitDisplay value={displayZfw ? zfwCgMac : gwCgMac} />')]:
+    patch(elements,old,'{process.env.VITE_BUILD ? <LocalCGValue '+('planned ' if planned else '')+'zeroFuel={displayZfw} /> : '+old+'}')
+
+patch(elements, "              displayZfw\n                ? `${t('Ground.Payload.TT.MaxZFWCG')}", "              process.env.VITE_BUILD ? '工程站位及重心包线请在配载重心页复核，未采用上游认证限制。' : displayZfw\n                ? `${t('Ground.Payload.TT.MaxZFWCG')}")
+
+# Engineering planning pages are independent extensions; upstream remains a pinned reference.
+for area in ['Performance','Dispatch','Ground']:
+    rel=f'build-common/src/systems/instruments/src/EFB/{area}/{area}.tsx'
+    p=R/rel
+    p.write_text("import { PlanningPage } from '@localefb/PlanningPages';\n"+p.read_text('utf-8'),'utf-8')
+patch('build-common/src/systems/instruments/src/EFB/Performance/Performance.tsx',
+      '  const tabs: PageLink[] = [',
+      "  const tabs: PageLink[] = [\n    { name: 'Engineering Landing', alias: '工程着陆', component: <PlanningPage view=\"landing\" /> },")
+patch('build-common/src/systems/instruments/src/EFB/Dispatch/Dispatch.tsx',
+      '  const tabs: PageLink[] = [',
+      "  const tabs: PageLink[] = [\n    { name: 'Engineering Plan', alias: '综合工程计划', component: <PlanningPage /> },\n    { name: 'Fuel Plan', alias: '航路燃油', component: <PlanningPage view=\"fuel\" /> },")
+patch('build-common/src/systems/instruments/src/EFB/Ground/Ground.tsx',
+      '  const tabs: PageLink[] = [',
+      "  const tabs: PageLink[] = [\n    { name: 'Loading Balance', alias: '配载重心', component: <PlanningPage view=\"loading\" /> },")
+
 # Keep the upstream landing coefficients unchanged; enforce the documented local scope.
 landing='build-common/src/systems/instruments/src/EFB/Performance/Widgets/LandingWidget.tsx'
 patch(landing,"import { getAirportMagVar, getRunways } from '../Data/Runways';",

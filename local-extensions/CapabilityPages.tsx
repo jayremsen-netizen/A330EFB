@@ -4,6 +4,10 @@ import {usePersistentNumberProperty,usePersistentProperty,usePersistentSetting} 
 import './local.css';
 
 const features=[
+ ['/dispatch/engineering-plan','综合工程计划','航路燃油、配载重心、着陆性能与综合报告'],
+ ['/dispatch/fuel-plan','航路及备降燃油','分段耗油、复飞备降、储备与预计着陆重量'],
+ ['/ground/loading-balance','配载重心','客舱货舱分区、质量力矩与工程重心包线'],
+ ['/performance/engineering-landing','工程着陆','独立目的地条件、速度、距离、余量与工程限重'],
  ['/dispatch/local-flight','航班与载荷','手工计划、JSON 导入导出、重量确认'],
  ['/performance/engineering-takeoff','起飞性能','工程 TOGA / FLEX、速度、距离、限重及报告'],
  ['/performance/landing','着陆参考','190000 kg 基准重量下的距离参考'],
