@@ -110,3 +110,91 @@ patch(fuelpage,'  const setDesiredFuel = (fuel: number) => {', '''  const setDes
       setCenterTarget(allocation.center);
       return;
     }''')
+
+# Invalidate landing output at the state boundary, including async OFP/weather updates.
+# This covers every input writer instead of relying on individual field handlers.
+patch('build-common/src/systems/instruments/src/EFB/Store/features/performance.ts',
+      '    setLandingValues: (state, action: PayloadAction<Partial<TPerformanceLanding>>) => {',
+      '''    setLandingValues: (state, action: PayloadAction<Partial<TPerformanceLanding>>) => {
+      if (process.env.VITE_BUILD) {
+        const inputs = ['icao','availableRunways','selectedRunwayIndex','runwayHeading','runwayLength','elevation','slope','windDirection','windMagnitude','windEntry','temperature','pressure','weight','overweightProcedure','approachSpeed','flaps','runwayCondition','reverseThrust','autoland'];
+        if (inputs.some(key => Object.prototype.hasOwnProperty.call(action.payload,key) && !Object.is(state.landing[key],action.payload[key]))) {
+          state.landing.maxAutobrakeLandingDist = 0;
+          state.landing.mediumAutobrakeLandingDist = 0;
+          state.landing.lowAutobrakeLandingDist = 0;
+          state.landing.runwayVisualizationLabels = [];
+          state.landing.displayedRunwayLength = 0;
+        }
+      }''')
+patch(landing,'    if (!areInputsValid()) return;',
+      '    if (!areInputsValid()) { clearResult(); return; }')
+patch(landing,"  const [weightUnit, setWeightUnit] = usePersistentProperty('EFB_PREFERRED_WEIGHT_UNIT', usingMetric ? 'kg' : 'lb');",
+      '''  const [weightUnit, setWeightUnit] = usePersistentProperty('EFB_PREFERRED_WEIGHT_UNIT', usingMetric ? 'kg' : 'lb');
+  useEffect(() => { clearResult(); }, [temperatureUnit, pressureUnit, distanceUnit, weightUnit]);''')
+patch(landing,'  const syncValuesWithApiMetar = async (icao: string): Promise<void> => {',
+      '  const syncValuesWithApiMetar = async (icao: string): Promise<void> => {\n    clearResult();')
+patch(landing,'  const syncValuesWithOfp = async () => {',
+      '  const syncValuesWithOfp = async () => {\n    clearResult();')
+
+# A separate local command unloads the current cabin without changing the confirmed plan.
+payload='build-common/src/systems/instruments/src/EFB/Ground/Pages/Payload/WideBody/A339Payload.tsx'
+patch(payload,'          onConfirm={() => {\n            setTargetPax(0);',
+      '''          onConfirm={() => {
+            if (process.env.VITE_BUILD) {
+              try { (window as any).__LOCAL_RUNTIME__.command('deboard'); }
+              catch (e) { window.dispatchEvent(new CustomEvent('local-runtime-error', {detail: (e as Error).message})); }
+              return;
+            }
+            setTargetPax(0);''')
+payload_controls='build-common/src/systems/instruments/src/EFB/Ground/Pages/Payload/PayloadElements.tsx'
+patch(payload_controls,'        onClick={() => setBoardingStarted(!boardingStarted)}',
+      '''        aria-label={process.env.VITE_BUILD ? (boardingStarted ? '停止当前登机或下客' : '按计划登机') : undefined}
+        onClick={() => setBoardingStarted(!boardingStarted)}''')
+patch(payload_controls,'        onClick={() => handleDeboarding()}',
+      '''        aria-label={process.env.VITE_BUILD ? '下客并卸载' : undefined}
+        onClick={() => handleDeboarding()}''')
+patch(payload,'  const remainingTimeString = () => {',
+      "  const remainingTimeString = () => {\n    if (process.env.VITE_BUILD) return '本地演示约 3 秒，实际进度见上方回执';")
+
+# Browser capability routes keep unsupported integrations out of the operating UI.
+for rel,component,local in [
+ ('Settings/Settings.tsx','Settings','LocalSettingsPage'),
+ ('ATC/ATC.tsx','ATC','UnavailableCapability'),
+]:
+    rel='build-common/src/systems/instruments/src/EFB/'+rel
+    p=R/rel;s=p.read_text('utf-8')
+    s=f"import {{ {local} }} from '@localefb/CapabilityPages';\n"+s
+    anchor=f'export const {component} = () => {{'
+    kind=' kind="atc"' if component=='ATC' else ' kind="charts"' if component=='NavigraphPage' else ''
+    if s.count(anchor)!=1:raise RuntimeError('Missing capability route '+component)
+    p.write_text(s.replace(anchor,anchor+f'\n  if (process.env.VITE_BUILD) return <{local}{kind} />;'),'utf-8')
+navigraph='build-common/src/systems/instruments/src/EFB/Navigation/Pages/NavigraphPage/NavigraphPage.tsx'
+patch(navigraph,"import React from 'react';","import React from 'react';\nimport { UnavailableCapability } from '@localefb/CapabilityPages';")
+patch(navigraph,'export const NavigraphPage = () => (',
+      'export const NavigraphPage = () => process.env.VITE_BUILD ? <UnavailableCapability kind="charts" /> : (')
+patch(navigation,"    navigationTabs[0].alias = t('NavigationAndCharts.Navigraph.Title');",
+      "    navigationTabs[0].alias = process.env.VITE_BUILD ? '外部航图（未接入）' : t('NavigationAndCharts.Navigraph.Title');")
+dashboard='build-common/src/systems/instruments/src/EFB/Dashboard/Dashboard.tsx'
+patch(dashboard,"import React from 'react';","import React from 'react';\nimport { LocalCapabilityLink } from '@localefb/CapabilityPages';")
+patch(dashboard,'export const Dashboard = () => (\n  <div className="flex w-full space-x-8">',
+      'export const Dashboard = () => (\n  <div>{process.env.VITE_BUILD && <LocalCapabilityLink />}<div className="flex w-full space-x-8">')
+patch(dashboard,'    <RemindersWidget />\n  </div>','    <RemindersWidget />\n  </div></div>')
+
+# The global quick panel must not offer simulator actions or a SimBridge switch.
+quick='build-common/src/systems/instruments/src/EFB/StatusBar/QuickControls.tsx'
+patch(quick,'  return (\n    <>\n      <div\n        className="absolute left-0 top-0 z-30 h-screen w-screen bg-theme-body opacity-70"',
+      '''  if (process.env.VITE_BUILD) return <>
+    <div className="absolute left-0 top-0 z-30 h-screen w-screen bg-theme-body opacity-70" onMouseDown={() => setShowQuickControlsPane(false)} />
+    <div className="absolute z-40 rounded-md border border-theme-secondary bg-theme-accent p-6" style={{top:'40px',right:'50px',width:'520px'}} data-testid="local-quick-controls">
+      <h2>本地快捷操作</h2><p className="my-3">未连接飞行模拟器。主题、语言与键盘可在本地设置调整。</p>
+      <div className="flex flex-wrap gap-4"><button onClick={() => { setShowQuickControlsPane(false); history.push('/settings'); }}>功能与设置</button><button onClick={handleSleep}>休眠 EFB</button><button onClick={handlePower}>关闭 EFB</button><button onClick={() => setShowQuickControlsPane(false)}>关闭面板</button></div>
+    </div></>;
+  return (
+    <>
+      <div
+        className="absolute left-0 top-0 z-30 h-screen w-screen bg-theme-body opacity-70"''')
+statusbar='build-common/src/systems/instruments/src/EFB/StatusBar/StatusBar.tsx'
+patch(statusbar,"text={simBridgeConnected ? t('StatusBar.TT.ConnectedToLocalApi') : t('StatusBar.TT.DisconnectedFromLocalApi')}",
+      "text={process.env.VITE_BUILD ? '本地演示 · 外部服务未接入' : simBridgeConnected ? t('StatusBar.TT.ConnectedToLocalApi') : t('StatusBar.TT.DisconnectedFromLocalApi')}")
+patch(statusbar,'{!!showStatusBarFlightProgress && data !== initialState.data && (',
+      "{!!showStatusBarFlightProgress && data !== initialState.data && (!process.env.VITE_BUILD || (Number.isFinite(Number.parseInt(schedOut,10)) && Number.isFinite(Number.parseInt(schedIn,10)))) && (")

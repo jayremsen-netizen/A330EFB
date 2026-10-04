@@ -1,4 +1,12 @@
 import './simulator-shim';
+import buildIdentity from '../.artifacts/build-identity.json';
+const buildLabel=`A330EFB ${buildIdentity.version} · build ${buildIdentity.buildId.slice(0,8)}`;
+document.title=buildLabel+' · 投标演示工作台';
+document.querySelector('#dev-banner span')!.textContent=buildLabel+' · Headwind A339X · 本地模拟数据 · 非 MSFS 飞行会话';
+(window as any).__A330EFB_BUILD__=Object.freeze({...buildIdentity});
+if(window.parent!==window&&new URLSearchParams(location.search).get('demo-session')==='1'){
+  try{window.parent.document.title=buildLabel+' · 投标功能演示';}catch{/* A separate origin owns its own page title. */}
+}
 function resize(){
   const banner=document.getElementById('dev-banner')!;
   const scale=Math.max(0.05,Math.min(document.documentElement.clientWidth/1430,(innerHeight-banner.offsetHeight)/1000));

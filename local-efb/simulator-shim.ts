@@ -2,6 +2,7 @@
 import {storageName} from './presentation-mode';
 import {canonicalUnit,convertVariable} from './units';
 import {metarFor} from '../local-extensions/weather';
+import {localCapabilityValue} from '../local-extensions/capability-policy';
 const W:any=window;
 W.InputBar={MENU_BUTTON_A:'KEY_MENU_VALID'};
 const handlers=new Map<string,Set<Function>>();
@@ -31,7 +32,7 @@ W.__LOCAL_EFB__={vars,set:(n:string,v:any)=>vars.set(n,v),syncPlan,mode:'browser
 W.RegisterViewListener=(name:string,cb?:Function)=>{const listener={on,off:(n:string,f:Function)=>handlers.get(n)?.delete(f),trigger:emit,triggerToAllSubscribers:emit,isReady:true};if(cb)setTimeout(cb,0);return listener;};
 W.RegisterGenericDataListener=(cb?:Function)=>{const listener={onDataReceived:(k:string,f:Function)=>on('generic-data-'+k,f),send:(k:string,data:any)=>emit('generic-data-'+k,data),on,trigger:emit};if(cb)setTimeout(()=>cb(listener),0);return listener;};
 W.Coherent={on,off:(n:string,f:Function)=>handlers.get(n)?.delete(f),trigger:emit,call:async(n:string,...a:any[])=>{if(n.startsWith('setValueReg_')){const entry=ids[a[0]];writeSim(entry.name,a[1],entry.unit);return;}if(n==='GET_METAR_BY_IDENT')return {icao:a[0],metarString:metarFor(a[0],W.__LOCAL_FLIGHT__?.getState().flight)};return n.includes('GET')?[]:undefined;}};
-W.GetStoredData=(key:string)=>localStorage.getItem(storageName(key))??'';
+W.GetStoredData=(key:string)=>localCapabilityValue(key)??localStorage.getItem(storageName(key))??'';
 W.SetStoredData=(key:string,v:any)=>localStorage.setItem(storageName(key),String(v));
 W.DeleteStoredData=(key:string)=>localStorage.removeItem(storageName(key));
 for(const [k,v] of Object.entries({'A339X_SENTRY_CONSENT':'Refused','A339X_EFB_BRIGHTNESS':'80','A339X_EFB_BATTERY_LIFE_ENABLED':'0','A339X_CONFIG_SIMBRIDGE_ENABLED':'OFF','A339X_EFB_USING_AUTOBRIGHTNESS':'0','A339X_EFB_LANGUAGE':'zh-CN','A339X_EFB_AUTOFILL_CHECKLISTS':'0'}))if(localStorage.getItem(storageName(k))===null)localStorage.setItem(storageName(k),v);

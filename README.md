@@ -1,6 +1,8 @@
 # A330EFB
 
-**A330EFB 1.2 投标演示版**：A330 电子飞行包本地演示、航班工作台与中文技术文档。基于固定版本的 **Headwind A330-941** 和 **FlyByWire** 构建，提供可实际操作的 EFB，以及同步讲解的投标自动演示。
+**A330EFB 1.2.1 投标演示版**：A330 电子飞行包本地演示、航班工作台与中文技术文档。基于固定版本的 **Headwind A330-941** 和 **FlyByWire** 构建，提供可实际操作的 EFB，以及同步讲解的投标自动演示。
+
+1.2.1 修复着陆旧结果、机场与天气错配、并行演示窗口、新航班状态、原生下客、起飞高度边界、未接入功能入口和启动版本识别。程序标题及底栏显示当前构建身份；复盘处置见 [1.2.1 修复记录](docs/verification/1.2.1修复验收记录.md)。
 
 1.2 新增独立的起飞工程模型，演示 V1/VR/V2、TOGA/FLEX、加速停止与单发继续起飞距离、TOGA 工程限重及约束解释。所有飞机专用参数均明确列为工程假设，未经航空性能校准。自动演示入口：**http://127.0.0.1:9698/demo.html?autoplay=1&scenario=takeoff**。
 
@@ -65,12 +67,13 @@ Windows 用户完成构建后，也可双击 **[启动投标演示.cmd](启动�
 ## 验证
 
 ```sh
+npm run typecheck
 npm test
 npx playwright install chromium
 npm run test:ui
 ```
 
-`npm test` 执行独立算例、固定源码对照、输入约束、存储恢复和地面命令状态检查。新增内核检查含独立解析、收敛和不依赖质量单调假设的限重验证。UI 测试会启动独立端口 19798 的服务，实际播放五个场景，检查数据隔离、暂停、定位、报告下载、失效重算、窗口冲突、异常恢复、离线文件、故障操作与三种窗口尺寸。截图和结果写入忽略目录 `.artifacts/`。可通过 `EFB_TEST_PORT` 指定测试端口，`EFB_BROWSER_EXECUTABLE` 指定本机 Chromium/Chrome 程序路径。
+`npm run typecheck` 对本地领域计算、运行状态模型、单位与演示控制执行严格类型检查；不声称覆盖所有上游源码。`npm test` 执行独立算例、固定源码对照、输入约束、存储恢复和地面命令状态检查。新增内核检查含独立解析、收敛和不依赖质量单调假设的限重验证。UI 测试会启动独立端口 19798 的服务，实际播放五个场景，检查数据隔离、暂停、定位、报告下载、失效重算、窗口冲突、异常恢复、离线文件、故障操作与三种窗口尺寸。截图和结果写入忽略目录 `.artifacts/`。可通过 `EFB_TEST_PORT` 指定测试端口，`EFB_BROWSER_EXECUTABLE` 指定本机 Chromium/Chrome 程序路径。
 
 [GitHub Actions](https://github.com/jayremsen-netizen/A330EFB/actions) 在 Windows 和 Ubuntu 上执行安装、上游获取、构建和测试。独立克隆验证见 [构建验证记录](docs/reproducibility.md)，历史演示记录位于 [docs/verification](docs/verification)，新的运行记录以实际执行结果为准。
 
@@ -90,6 +93,8 @@ manual_v2/          历史 300 页手册的正文、图件和生成源码
 manual/assets/      本地程序操作截图
 演示/               演示使用说明、讲解稿和场景导出
 ```
+
+启动器会核对目录及构建内容身份。若9698已运行其他目录或旧版本，会明确拒绝复用；先从原目录停止对应服务，再启动新目录。可用 `Start-EFB-Demo.ps1 -Port 9798` 启动另一个端口，使用同端口的 `Stop-EFB-Demo.ps1 -Port 9798` 停止。
 
 修改本地业务或演示文件后运行 `npm run build`。只更新讲解、停留时间或步骤时编辑 `local-efb/presentation/scenarios.ts`。更新上游版本时必须同步 Git 子模块提交与 `config/upstreams.json`，检查补丁锚点并完整执行回归测试。
 

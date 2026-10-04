@@ -4,7 +4,7 @@ import {CommandKind} from './demo-runtime';
 import {useLocal} from './state';
 import './local.css';
 
-const labels:Record<string,string>={'gpu-connect':'连接外接电源','gpu-disconnect':'断开外接电源',refuel:'按计划加油',board:'按计划登机',pushback:'请求推出'};
+const labels:Record<string,string>={'gpu-connect':'连接外接电源','gpu-disconnect':'断开外接电源',refuel:'按计划加油',board:'按计划登机',deboard:'下客并卸载',pushback:'请求推出'};
 const status:Record<string,string>={accepted:'已受理',running:'执行中',completed:'完成',rejected:'拒绝',failed:'中止'};
 export function useRuntime(){const [s,set]=useState(runtime.snapshot());useEffect(()=>runtime.subscribe(()=>set(runtime.snapshot())),[]);return s;}
 function Header({title}:{title:string}){return <div className="lf-heading"><div><h2>{title}</h2><p>本地演示模型 · 每个请求具有独立回执</p></div><span className="lf-chip">本地仿真 未连接飞机</span></div>;}
@@ -15,7 +15,7 @@ export function LocalSimulationPage({pushback=false}:{pushback?:boolean}){
  const send=(kind:CommandKind)=>{try{const r=runtime.command(kind);setMessage(`${labels[kind]}：${r.message}`);}catch(e){setMessage((e as Error).message);}};
  return <div className="lf-root" data-testid="local-simulation"><Header title={pushback?'本地推出演示':'地面服务'}/><StateCards/>
  <div className="lf-message" role="status">{message}</div><div className="simulation-grid">
- <section><h3>地面请求</h3><div className="lf-toolbar">{(['gpu-connect','gpu-disconnect','refuel','board','pushback'] as CommandKind[]).map(k=><button key={k} onClick={()=>send(k)}>{labels[k]}</button>)}<button onClick={()=>runtime.cancel()}>停止当前操作</button></div><p>计划：{flight.number} · 燃油 {flight.rampKg} kg · 人数 {flight.pax}。加油与登机使用已确认的计划，演示进度约 3 秒。</p><p>推出前须完成其他操作并断开外接电源；推出距离为示意量，不改变地图或飞机位置。</p></section>
+ <section><h3>地面请求</h3><div className="lf-toolbar">{(['gpu-connect','gpu-disconnect','refuel','board','deboard','pushback'] as CommandKind[]).map(k=><button key={k} onClick={()=>send(k)}>{labels[k]}</button>)}<button onClick={()=>runtime.cancel()}>停止当前操作</button></div><p>计划：{flight.number} · 燃油 {flight.rampKg} kg · 人数 {flight.pax}。加油与登机使用已确认的计划；下客将当前人数与货物归零，计划保持不变。演示进度约 3 秒。</p><p>推出前须完成其他操作并断开外接电源；推出距离为示意量，不改变地图或飞机位置。</p></section>
  <section><h3>设备状态</h3><p className={s.faults.length?'sim-fault':'sim-state'}>{s.faults.length?s.faults.map(f=>f==='gpu'?'外接电源故障':'加油设备故障').join('；'):'无活动故障'}</p><p>会话 {s.session} · 状态版本 {s.revision}</p><p>故障注入与解除在“故障”页面操作；预设页面可恢复停机位或准备完成状态。</p></section></div>
  <section style={{marginTop:14}}><h3>命令回执</h3>{s.commands.length?s.commands.slice(0,12).map(c=><div className="sim-command" key={c.id}><b>{labels[c.kind]} · {status[c.status]}</b><span>　{c.message}</span><progress max={1} value={c.progress}/><small>{c.id} · {Math.round(c.progress*100)}%</small></div>):<p>本会话尚无请求。</p>}</section></div>;
 }

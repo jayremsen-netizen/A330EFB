@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "application": "a330efb",
+  "version": "1.2.1",
+  "buildId": "070afb8234ae9be3",
+  "builtAt": "2026-10-04T14:38:50.098Z",
+  "sourceCommit": "4592dce43389856a5607e4db58006f0bf2556721",
+  "sourceKind": "git",
+  "sourceDirty": true,
+  "contentHash": "56bbd509d49ebe560be6a6f3e05a517d50f9a0fd921700e3fe2eb8e26498832a",
+  "sourceFileCount": 57,
+  "contentAlgorithm": "sha256-runtime-source-v1",
+  "upstreams": [
+    {
+      "name": "headwind",
+      "url": "https://github.com/headwindsim/aircraft.git",
+      "commit": "41eace79ed442696a6361dc72947954c9a6cf5cb"
+    },
+    {
+      "name": "flybywire",
+      "url": "https://github.com/flybywiresim/aircraft.git",
+      "commit": "1bf4b8edccf84d0fb83d0eb15e42f2c773e09582"
+    }
+  ]
+}

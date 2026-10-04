@@ -1,0 +1,72 @@
+{
+  "version": "1.2.1",
+  "baseline": "4592dce43389856a5607e4db58006f0bf2556721",
+  "purpose": "投标演示复盘缺陷修复",
+  "localStatus": "passed",
+  "remoteStatus": "pending",
+  "checks": {
+    "windowsUnit": 127,
+    "ubuntuUnit": 124,
+    "browserPerPlatform": 79,
+    "scenarios": 5,
+    "steps": 54
+  },
+  "tasks": [
+    {
+      "id": "R01",
+      "title": "着陆输入失效",
+      "implementation": "done",
+      "localVerification": "passed",
+      "remoteVerification": "pending"
+    },
+    {
+      "id": "R02",
+      "title": "机场天气与跑道复核",
+      "implementation": "done",
+      "localVerification": "passed",
+      "remoteVerification": "pending"
+    },
+    {
+      "id": "R03",
+      "title": "演示窗口隔离",
+      "implementation": "done",
+      "localVerification": "passed",
+      "remoteVerification": "pending"
+    },
+    {
+      "id": "R04",
+      "title": "新航班生命周期",
+      "implementation": "done",
+      "localVerification": "passed",
+      "remoteVerification": "pending"
+    },
+    {
+      "id": "R05",
+      "title": "实际下客与卸载",
+      "implementation": "done",
+      "localVerification": "passed",
+      "remoteVerification": "pending"
+    },
+    {
+      "id": "R06",
+      "title": "起飞高度边界",
+      "implementation": "done",
+      "localVerification": "passed",
+      "remoteVerification": "pending"
+    },
+    {
+      "id": "R07",
+      "title": "可用功能与外部入口",
+      "implementation": "done",
+      "localVerification": "passed",
+      "remoteVerification": "pending"
+    },
+    {
+      "id": "R08",
+      "title": "构建与启动身份",
+      "implementation": "done",
+      "localVerification": "passed",
+      "remoteVerification": "pending"
+    }
+  ]
+}

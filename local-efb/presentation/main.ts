@@ -100,10 +100,14 @@ async function run(ticket:number){
   }
  }catch(e){if(ticket===generation)fail(e);}
 }
+const presentationOwner = crypto.randomUUID();
+let previousSession = '';
 async function reset(target=0,autoplay=false,reconstruct=true){
  const ticket=++generation;index=target;pause();busy=true;completed=false;failed=false;actionIndex=0;records=[];bridge=undefined;closeReport();$('error').hidden=true;
  $('loading-text').textContent=target>0?'正在定位场景并重建输入…':'正在启动独立演示会话…';$('loading').hidden=false;renderStep();
- const session=String(Date.now())+'-'+ticket;frame.src='/?demo-session=1&reset=1&session='+session;
+ // Replays clear only this controller's previous iframe. Other windows own different prefixes.
+ if(previousSession){const prefix=`A339_BID_DEMO:${previousSession}:`;for(const key of Object.keys(localStorage))if(key.startsWith(prefix))localStorage.removeItem(key);}
+ const session=presentationOwner+'-'+ticket;previousSession=session;frame.src='/?demo-session=1&reset=1&session='+session;
  try{
   bridge=await connect(ticket,session);
   if(reconstruct){for(let i=0;i<target;i++){if(!await perform(scenario.steps[i],0,true,ticket))return;}}

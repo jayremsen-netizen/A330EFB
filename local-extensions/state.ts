@@ -6,6 +6,8 @@ import {storageName} from '../local-efb/presentation-mode';
 import {restoreStored} from './persistence';
 import {metarFor} from './weather';
 import {initializeRuntime,runtime} from './runtime-host';
+import {departureChanged} from './departure-review';
+import {setChecklistCompletion,setChecklistItemCompletion,setSelectedChecklistIndex} from '../build-common/src/systems/instruments/src/EFB/Store/features/checklists';
 type Result=ReturnType<typeof calculate>;
 type State={flight:Flight;confirmed:string;result:Result|null;history:Result[];notice:string;storageError:string;groundChanged:boolean;revision:number;storageConflict:boolean;hasRecovery:boolean};
 const KEY=storageName('A339_LOCAL_FLIGHT_V1');
@@ -38,7 +40,19 @@ function publish(){
  notify();
 }
 export const useLocal=()=>{const [s,set]=useState(state);useEffect(()=>{listeners.add(set);return()=>{listeners.delete(set);};},[]);return s;};
-export function editFlight(f:Flight){if(!writable())return;state={...state,flight:f,confirmed:'',groundChanged:false,notice:state.result?'输入已修改，旧结果已失效，请重新确认并计算。':'草稿已保存，等待确认重量。'};publish();}
+function resetFlightSession(f:Flight){
+ const checklists=store.getState().trackingChecklists.checklists;
+ checklists.forEach((c,checklistIndex)=>{c.items.forEach((_,itemIndex)=>store.dispatch(setChecklistItemCompletion({checklistIndex,itemIndex,completionValue:false})));store.dispatch(setChecklistCompletion({checklistIndex,completion:false}));});
+ store.dispatch(setSelectedChecklistIndex(0));store.dispatch(setSimbriefData(structuredClone(initialState.data)));store.dispatch(setFuelImported(false));store.dispatch(setPayloadImported(false));
+ runtime.startFlight(f);
+}
+export function editFlight(f:Flight){
+ if(!writable())return;
+ const newFlight=f.id!==state.flight.id,airportChanged=f.from!==state.flight.from;
+ f=departureChanged(state.flight,f);
+ if(newFlight)resetFlightSession(f);
+ state={...state,flight:f,confirmed:'',result:newFlight?null:state.result,groundChanged:false,notice:[newFlight?'已开始新航班；检查单清空，地面会话复位至停机状态（5000 kg 燃油、0 人、0 货物），故障与旧请求已清除。':'输入已修改，旧结果已失效，请重新确认并计算。',airportChanged?'起飞机场已变化；旧天气和跑道资料保留供核对，两项均须重新复核。':'请核对并确认当前计划。'].join('')};publish();
+}
 export function loadFlight(f:Flight){const errors=validate(f);if(errors.length)throw Error(errors.join('；'));editFlight({...f,source:f.source==='local-example'?'local-example':'local-file'});}
 export function confirmFlight(){if(!writable())return false;const errors=validate(state.flight);if(errors.length){state={...state,notice:errors.join('；')};publish();return false;}state={...state,confirmed:signature(state.flight),groundChanged:false,notice:'本地航班与重量已确认，并同步到仪表盘、签派和地面目标数据。'};applyToEfb(state.flight);publish();return true;}
 export function runCalculation(){if(!writable())return;if(state.confirmed!==signature(state.flight)||state.groundChanged){state={...state,notice:'请先保存并确认当前航班重量；地面目标变更后需要重新确认。'};publish();return;}state={...state,result:calculate(state.flight),notice:'本地核算完成。速度仅为未校准源码表参考；不构成可起飞判定。'};publish();}
@@ -47,7 +61,7 @@ export function archiveResult(){const r=currentResult();if(!r)throw Error('仅�
 export function restoreHistory(i:number){const r=state.history[i];if(!r)throw Error('记录不存在');loadFlight(structuredClone(r.input));}
 export function notice(message:string){state={...state,notice:message};notify();}
 export function markGroundChanged(){if(state.confirmed&&!state.groundChanged){state={...state,groundChanged:true,notice:'地面目标发生变化，计算已失效。请在本地航班中核对并重新确认计划重量。'};publish();}}
-export function adoptLatest(){lastStored=localStorage.getItem(KEY);state={...state,storageConflict:false};restore(lastStored);if(!lastStored){state={...state,confirmed:'',result:null,history:[],notice:'保存内容已清除，当前草稿保留，请重新确认。'};}if(state.confirmed===signature(state.flight)&&!state.storageConflict)applyToEfb(state.flight);notify();}
+export function adoptLatest(){const previousId=state.flight.id;lastStored=localStorage.getItem(KEY);state={...state,storageConflict:false};restore(lastStored);if(!lastStored){state={...state,confirmed:'',result:null,history:[],notice:'保存内容已清除，当前草稿保留，请重新确认。'};}if(previousId!==state.flight.id){resetFlightSession(state.flight);state={...state,notice:'已读取另一航班，检查单与地面会话已复位，故障已清除。'};}if(state.confirmed===signature(state.flight)&&!state.storageConflict)applyToEfb(state.flight);notify();}
 export function exportRecovery(){const data=Object.keys(localStorage).filter(k=>k.startsWith(recoveryPrefix)).map(k=>({key:k,content:localStorage.getItem(k)}));if(!data.length&&lastStored)data.push({key:KEY,content:lastStored});download('a330efb-recovery.json',data);}
 export function readFuelTarget(){const n=(window as any).__LOCAL_EFB__?.vars.get('L:A32NX_FUEL_DESIRED');if(!Number.isFinite(n)||n<0)throw Error('没有可用地面燃油目标');editFlight({...state.flight,rampKg:n});}
 export function applyToEfb(f:Flight){

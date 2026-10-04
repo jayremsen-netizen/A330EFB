@@ -6,6 +6,9 @@ import {Available,Environment,Point,Solution,TakeoffOptions,TakeoffResult} from 
 export {modelParameters};
 export const MODEL_VERSION=modelParameters.version;
 const P=modelParameters,C=P.constants,MODEL_SIGNATURE=JSON.stringify(P),kt=C.ktToMs;
+// Pressure-height inversion has floating-point roundoff at the declared envelope endpoints.
+// This tolerance is numerical (one millionth of a foot), not an extension of the model envelope.
+const PRESSURE_ALTITUDE_TOLERANCE_FT = 1e-6;
 const model={id:P.id,version:P.version,provenance:P.provenance};
 type Configuration=typeof P.configurations['1'];
 interface Candidate {solution:Solution;score:number;feasible:boolean}
@@ -123,7 +126,7 @@ export function calculateTakeoff(f:Flight,options:TakeoffOptions={}):TakeoffResu
   if(f.runway.condition!=='dry')result.errors.push('本工程模型仅支持干跑道');
   if(f.antiIce||f.packs)result.errors.push('防冰或空调引气修正未建模');
   if(mass<P.airframe.modelMinKg||mass>P.airframe.structuralMaxKg)result.errors.push('重量超出工程包线 130–251 t');
-  if(env.pressureAltitudeFt<envelope.pressureAltitudeMinFt||env.pressureAltitudeFt>envelope.pressureAltitudeMaxFt)result.errors.push('压力高度超出工程包线 -1000 至 8000 ft');
+  if(env.pressureAltitudeFt<envelope.pressureAltitudeMinFt-PRESSURE_ALTITUDE_TOLERANCE_FT||env.pressureAltitudeFt>envelope.pressureAltitudeMaxFt+PRESSURE_ALTITUDE_TOLERANCE_FT)result.errors.push('压力高度超出工程包线 -1000 至 8000 ft');
   if(f.weather.oat<envelope.temperatureMinC||f.weather.oat>envelope.temperatureMaxC)result.errors.push('气温超出工程包线 -20 至 45°C');
   if(Math.abs(f.runway.slope)>envelope.slopeMaxPercent)result.errors.push('坡度超出工程包线 ±2%');
   if(env.headwindKt>envelope.headwindMaxKt+1e-8||env.headwindKt< -envelope.tailwindMaxKt-1e-8||Math.abs(env.crosswindKt)>envelope.crosswindMaxKt+1e-8)result.errors.push('风超出工程包线：迎风30 / 顺风10 / 侧风25 kt');

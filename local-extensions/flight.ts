@@ -5,7 +5,8 @@ export interface Flight {
  schemaVersion:1;profileId:string;id:string;number:string;date:string;from:string;to:string;alternate:string;route:string;source:string;
  pax:number;paxKg:number;bagKg:number;freightKg:number;oewKg:number;rampKg:number;taxiKg:number;
  runway:{ident:string;heading:number;tora:number;toda:number;asda:number;elevationFt:number;slope:number;condition:string;intersection:number;source:string};
- weather:{windDir:number;windKt:number;oat:number;qnh:number;source?:string;observedAt?:string;station?:string};flaps:number;antiIce:boolean;packs:boolean;
+ weather:{windDir:number;windKt:number;oat:number;qnh:number;source?:string;observedAt?:string;station?:string;supersededSource?:string};flaps:number;antiIce:boolean;packs:boolean;
+ departureReview?:{airport:string;previousAirport:string;weather:boolean;runway:boolean};
 }
 export const example=():Flight=>({schemaVersion:1,profileId:profile.profileId,id:'LOCAL-DEMO-330',number:'DEMO330',date:'2026-10-03',from:'ZUTF',to:'ZSPD',alternate:'ZSSS',route:'ZUTF DCT ZSPD - LOCAL SAMPLE',source:'local-example',pax:250,paxKg:80,bagKg:24,freightKg:2000,oewKg:127000,rampKg:30000,taxiKg:500,runway:{ident:'01',heading:10,tora:3500,toda:3500,asda:3500,elevationFt:1450,slope:0,condition:'dry',intersection:0,source:'手动示例，非机场权威数据'},weather:{windDir:10,windKt:0,oat:15,qnh:1013.25},flaps:1,antiIce:false,packs:false});
 export const weights=(f:Flight)=>{const payload=f.pax*(f.paxKg+f.bagKg)+f.freightKg;const zfw=f.oewKg+payload;return {payload,zfw,ramp:zfw+f.rampKg,tow:zfw+f.rampKg-f.taxiKg};};
@@ -25,7 +26,9 @@ export function validate(f:any):string[]{
  if(![1,2,3].includes(f.flaps))e.push('襟翼仅接受 1、2、3');
  if(typeof f.antiIce!=='boolean'||typeof f.packs!=='boolean')e.push('防冰和引气必须为布尔值');
  if(typeof f.runway.ident!=='string'||!/^(0[1-9]|[12]\d|3[0-6])[LRC]?$/.test(f.runway.ident))e.push('跑道编号必须为 01–36，可带 L、R、C');
- for(const key of ['source','observedAt','station'])if(f.weather[key]!==undefined&&(typeof f.weather[key]!=='string'||f.weather[key].length>300))e.push('天气来源字段无效');
+ for(const key of ['source','observedAt','station','supersededSource'])if(f.weather[key]!==undefined&&(typeof f.weather[key]!=='string'||f.weather[key].length>300))e.push('天气来源字段无效');
+ if(f.weather.station!==undefined&&(!/^[A-Z]{4}$/.test(f.weather.station)||f.weather.station!==f.from))e.push('天气站点与起飞机场不一致，请重新采用对应机场天气，或明确复核为本机场手工条件');
+ if(f.departureReview!==undefined){const r=f.departureReview;if(!r||typeof r!=='object'||Array.isArray(r)||typeof r.airport!=='string'||typeof r.previousAirport!=='string'||r.airport.length>500||r.previousAirport.length>500||typeof r.weather!=='boolean'||typeof r.runway!=='boolean')e.push('起飞机场资料复核状态无效');else{if(r.airport!==f.from||!r.weather)e.push('起飞机场天气待复核');if(r.airport!==f.from||!r.runway)e.push('起飞机场跑道资料待复核');}}
  if(typeof f.runway.source!=='string'||f.runway.source.length>300)e.push('跑道来源文本无效');
  if(!['dry','wet','contaminated'].includes(f.runway.condition))e.push('跑道条件无效');
  if(e.length)return e;

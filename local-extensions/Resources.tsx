@@ -2,6 +2,7 @@ import React,{useEffect,useRef,useState} from 'react';
 import {useLocal,editFlight,notice} from './state';
 import {storageName} from '../local-efb/presentation-mode';
 import {weatherSamples,sampleWeather} from './weather';
+import {adoptDepartureWeather} from './departure-review';
 import {PdfReader} from './PdfReader';
 import {loadPdf} from './pdf-library';
 import './local.css';
@@ -58,5 +59,5 @@ export function LocalWeatherPage(){
  return <div className="lf-root" data-testid="offline-weather"><div className="lf-heading"><div><h2>天气资料</h2><p>选择资料后明确采用到当前航班</p></div><span className="lf-chip">本地样例 非实况</span></div>
   <div className="lf-toolbar"><label>天气样例 <select aria-label="天气样例" value={id} onChange={e=>setId(e.target.value)}>{weatherSamples.map(w=><option key={w.id} value={w.id}>{w.name}</option>)}</select></label></div>
   <section><h3>{sample.station} · {sample.name}</h3><p>资料来源：A330EFB 自制天气样例</p><p>样例观测时间：{sample.observedAt} UTC</p><pre className="weather-raw">{sample.raw}</pre><div className="lf-metrics"><div>风向<strong>{sample.windDir}°</strong></div><div>风速<strong>{sample.windKt} kt</strong></div><div>气温<strong>{sample.oat} °C</strong></div><div>气压<strong>{sample.qnh} hPa</strong></div></div>
-  <button className="primary" disabled={sample.station!==s.flight.from||s.storageConflict} onClick={()=>{editFlight({...s.flight,weather:sampleWeather(sample)});notice('已采用本地天气样例；请重新确认计划并计算。');}}>采用到当前航班</button><p>当前航班 {s.flight.number}，起飞机场 {s.flight.from}。{sample.station!==s.flight.from?'所选样例机场不同，不能采用。':'采用后，旧确认与计算结果失效。'}</p></section><div className="lf-message" role="status">{s.notice}</div><p className="lf-muted">该资料为固定教学场景，不表示当前机场实况。未提供的机场继续使用手工天气输入。</p></div>;
+  <button className="primary" disabled={sample.station!==s.flight.from||s.storageConflict} onClick={()=>{editFlight(adoptDepartureWeather(s.flight,sampleWeather(sample)));notice('已采用本地天气样例；请重新确认计划并计算。');}}>采用到当前航班</button><p>当前航班 {s.flight.number}，起飞机场 {s.flight.from}。{sample.station!==s.flight.from?'所选样例机场不同，不能采用。':'采用后，旧确认与计算结果失效。'}</p></section><div className="lf-message" role="status">{s.notice}</div><p className="lf-muted">该资料为固定教学场景，不表示当前机场实况。未提供的机场继续使用手工天气输入。</p></div>;
 }

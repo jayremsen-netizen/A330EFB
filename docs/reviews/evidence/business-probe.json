@@ -1,0 +1,39 @@
+{
+  "scope": "Selected observed fields from the pre-fix browser probe; full transient Redux definitions excluded.",
+  "baseline": "4592dce43389856a5607e4db58006f0bf2556721",
+  "weatherEngineering": {
+    "status": "engineering-feasible",
+    "valid": true,
+    "mode": "TOGA",
+    "input": {
+      "from": "ZBAA",
+      "weather": {
+        "windDir": 10,
+        "windKt": 6,
+        "oat": 22,
+        "qnh": 1013,
+        "source": "A330EFB 本地天气样例 zutf-calm",
+        "observedAt": "2026-10-04T08:00:00Z",
+        "station": "ZUTF"
+      },
+      "runway": {
+        "ident": "01",
+        "heading": 10,
+        "tora": 3500,
+        "toda": 3500,
+        "asda": 3500,
+        "elevationFt": 1450,
+        "slope": 0,
+        "condition": "dry",
+        "intersection": 0,
+        "source": "手动示例，非机场权威数据"
+      }
+    },
+    "errors": [],
+    "warnings": [
+      "满足的是本项目工程模型约束，不是航空运行可起飞结论。"
+    ]
+  },
+  "notice": "本地航班与重量已确认，并同步到仪表盘、签派和地面目标数据。",
+  "confirmed": true
+}

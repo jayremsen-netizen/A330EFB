@@ -1,0 +1,110 @@
+{
+  "scope": "Selected observed fields from the pre-fix browser probe; signatures and redundant upstream configuration excluded.",
+  "baseline": "4592dce43389856a5607e4db58006f0bf2556721",
+  "beforeNew": {
+    "flightId": "LOCAL-DEMO-330",
+    "flightNumber": "DEMO330",
+    "check": {
+      "name": "COCKPIT PREPARATION",
+      "items": [
+        {
+          "completed": true,
+          "hasCondition": false
+        },
+        {
+          "completed": false,
+          "hasCondition": false
+        },
+        {
+          "completed": false,
+          "hasCondition": true
+        },
+        {
+          "completed": false,
+          "hasCondition": true
+        },
+        {
+          "completed": false,
+          "hasCondition": false
+        }
+      ],
+      "markedCompleted": false
+    },
+    "runtime": {
+      "session": 3,
+      "revision": 3,
+      "sampledAt": 1791123172381,
+      "gpuConnected": true,
+      "fuelKg": 30000,
+      "pax": 250,
+      "cargoKg": 8000,
+      "pushbackMetres": 0,
+      "faults": [
+        "refuel"
+      ],
+      "commands": []
+    }
+  },
+  "afterNew": {
+    "flightId": "LOCAL-1791123172939",
+    "flightNumber": "LOCAL330",
+    "check": {
+      "name": "COCKPIT PREPARATION",
+      "items": [
+        {
+          "completed": true,
+          "hasCondition": false
+        },
+        {
+          "completed": false,
+          "hasCondition": false
+        },
+        {
+          "completed": false,
+          "hasCondition": true
+        },
+        {
+          "completed": false,
+          "hasCondition": true
+        },
+        {
+          "completed": false,
+          "hasCondition": false
+        }
+      ],
+      "markedCompleted": false
+    },
+    "runtime": {
+      "session": 3,
+      "revision": 3,
+      "sampledAt": 1791123172381,
+      "gpuConnected": true,
+      "fuelKg": 30000,
+      "pax": 250,
+      "cargoKg": 8000,
+      "pushbackMetres": 0,
+      "faults": [
+        "refuel"
+      ],
+      "commands": []
+    }
+  },
+  "deboard": {
+    "runtime": {
+      "session": 4,
+      "revision": 4,
+      "sampledAt": 1791123173535,
+      "gpuConnected": true,
+      "fuelKg": 30000,
+      "pax": 250,
+      "cargoKg": 8000,
+      "pushbackMetres": 0,
+      "faults": [],
+      "commands": []
+    },
+    "flightId": "LOCAL-1791123172939",
+    "planPax": 250,
+    "groundChanged": true,
+    "notice": "请先核对并确认当前航班与地面目标"
+  }
+}

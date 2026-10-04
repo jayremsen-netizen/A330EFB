@@ -1,0 +1,64 @@
+[
+  {
+    "name": "pressure-boundary",
+    "altitude": -1000,
+    "qnh": 1013.25,
+    "pressureAltitude": -1000.0000000000082,
+    "status": "unsupported",
+    "errors": [
+      "压力高度超出工程包线 -1000 至 8000 ft"
+    ],
+    "elapsed": 1
+  },
+  {
+    "name": "pressure-boundary",
+    "altitude": -999.999999,
+    "qnh": 1013.25,
+    "pressureAltitude": -999.9999990000045,
+    "status": "engineering-feasible",
+    "errors": [],
+    "elapsed": 410
+  },
+  {
+    "name": "pressure-boundary",
+    "altitude": 7999.999999,
+    "qnh": 1013.25,
+    "pressureAltitude": 7999.999998999997,
+    "status": "engineering-feasible",
+    "errors": [],
+    "elapsed": 979
+  },
+  {
+    "name": "pressure-boundary",
+    "altitude": 8000,
+    "qnh": 1013.25,
+    "pressureAltitude": 8000.000000000002,
+    "status": "unsupported",
+    "errors": [
+      "压力高度超出工程包线 -1000 至 8000 ft"
+    ],
+    "elapsed": 0
+  },
+  {
+    "name": "infeasible-diagnostic",
+    "solution": null,
+    "diagnostics": {
+      "runwayLimitKg": 138100,
+      "limitingFactor": "TODA 单发继续起飞",
+      "reasons": [
+        "TODA 单发继续起飞 超过工程阈值",
+        "TOGA 下未找到满足全部工程约束的 V1，禁止输出建议速度"
+      ],
+      "massResolutionKg": 100,
+      "v1ResolutionKt": 0.5,
+      "flexResolutionC": 1,
+      "modelSignature": "{\"id\":\"A339-ENGINEERING-DEMO\",\"version\":\"0.1.0\",\"label\":\"工程模型 · 未经航空性能校准 · 仅用于投标演示\",\"provenance\":{\"status\":\"assumed-engineering-configuration\",\"author\":\"A330EFB project\",\"description\":\"All aircraft, aerodynamic, engine, brake and operational coefficients below are explicitly assumed for an original demonstrator. They are not certified A330/Trent performance data and are not fitted to the legacy V2 table.\",\"physicalConstants\":\"Conventional SI gravity and dry-air/ISA constants; these are physical definitions, not aircraft performance validation.\",\"algorithm\":\"Original point-mass longitudinal force integration, a dry-runway brake model and excess-thrust climb model. No upstream performance table is copied.\"},\"constants\":{\"gravity\":9.80665,\"gasConstant\":287.05287,\"gamma\":1.4,\"seaPressurePa\":101325,\"seaTemperatureK\":288.15,\"seaDensityKgM3\":1.225,\"lapseKPerM\":0.0065,\"ktToMs\":0.5144444444444445,\"ftToM\":0.3048},\"airframe\":{\"wingAreaM2\":361.6,\"engines\":2,\"engineStaticThrustN\":310000,\"structuralMaxKg\":251000,\"modelMinKg\":130000},\"configurations\":{\"1\":{\"clMax\":2.05,\"groundCl\":0.55,\"cd0\":0.032,\"inducedDragK\":0.044},\"2\":{\"clMax\":2.28,\"groundCl\":0.65,\"cd0\":0.04,\"inducedDragK\":0.045},\"3\":{\"clMax\":2.48,\"groundCl\":0.75,\"cd0\":0.05,\"inducedDragK\":0.047}},\"ground\":{\"rollingFriction\":0.02,\"brakeFriction\":0.34,\"brakingCl\":0.15,\"brakingCd\":0.08,\"recognitionSeconds\":1,\"rotationSeconds\":2},\"speeds\":{\"vrToStall\":1.1,\"v2ToStall\":1.2,\"minimumDecisionCasKt\":100},\"engine\":{\"densityLapseExponent\":0.7,\"speedLapsePerMs\":0.0011,\"minimumSpeedFactor\":0.65,\"failedEngineDragCoefficient\":0.004,\"flexReductionPerC\":0.006,\"minimumFlexRatio\":0.75,\"maximumFlexC\":70},\"climb\":{\"screenHeightM\":10.668,\"minimumGradient\":0.024,\"accelerationExcessFraction\":0.5},\"envelope\":{\"pressureAltitudeMinFt\":-1000,\"pressureAltitudeMaxFt\":8000,\"temperatureMinC\":-20,\"temperatureMaxC\":45,\"slopeMaxPercent\":2,\"headwindMaxKt\":30,\"tailwindMaxKt\":10,\"crosswindMaxKt\":25,\"maximumDeclaredDistanceM\":6000},\"numerics\":{\"speedStepMs\":0.5,\"timeStepS\":0.1,\"maximumSteps\":12000,\"v1ResolutionKt\":0.5,\"massResolutionKg\":100,\"flexResolutionC\":1},\"assumptions\":[\"机翼面积、推力、升阻力系数、摩擦系数、速度比和适用包线均为本项目公开的工程假设，未完成 A330 航空性能校准。\",\"CAS 使用亚声速可压缩空速关系；受力计算采用 TAS，地面距离采用地速。输入的稳定沿跑道风分量全额进入模型，未套用运行规章中的风修正比例。\",\"发动机恰在所选 V1 失效。中断分支按单发推力继续 1 秒识别时间，然后将两台发动机推力置零并施加干跑道制动，不计反推。继续分支不重复加入识别时间。\",\"VR、V2 由工程失速升力模型及公开假设倍率确定。V1 的 100 kt 下界仅是演示搜索边界，不代表 VMCA、VMCG 或任何经审定的操纵速度。\",\"单发继续分支依次计算地面加速、2 秒抬轮及空中加速爬升。空中阶段按小角度近似分配剩余推力给加速和爬升；终点同时满足 35 ft 与 V2，不等同于经审定起飞距离的定义。\",\"2.4% 爬升梯度是工程模型的演示判据。障碍物净空、审定净飞行航迹、刹车能量、轮胎速度、路面变化和发动机动态未建模。\",\"入口扣减同时从 TORA、TODA、ASDA 中减去。停止道和净空道仅以声明距离参与比较，未接入机场几何数据库。\",\"FLEX 温度用于标识显式的线性推力折减，不是 Trent 发动机额定推力计划。不存在可行减推解时，若 TOGA 可行则返回 TOGA 工程结果并说明原因。\",\"跑道限重按所选构型及 TOGA 在 130–251 t 范围搜索，与当前航班的装载分布分开；限重结果不是装载或签派放行依据。\"]}",
+      "elapsedMs": 1387
+    },
+    "available": {
+      "toraM": 1000,
+      "todaM": 1000,
+      "asdaM": 1000
+    }
+  }
+]

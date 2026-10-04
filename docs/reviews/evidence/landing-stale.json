@@ -1,0 +1,90 @@
+{
+  "before": {
+    "icao": "",
+    "availableRunways": [],
+    "selectedRunwayIndex": -1,
+    "windDirection": 170,
+    "windMagnitude": 0,
+    "windEntry": "0",
+    "weight": 190000,
+    "runwayHeading": 170,
+    "approachSpeed": 145,
+    "flaps": 1,
+    "runwayCondition": 0,
+    "reverseThrust": false,
+    "elevation": 0,
+    "slope": 0,
+    "temperature": 15,
+    "pressure": 1013.25,
+    "overweightProcedure": false,
+    "runwayLength": 3500,
+    "autoland": false,
+    "runwayNumber": 0,
+    "displayedRunwayLength": 3500,
+    "maxAutobrakeLandingDist": 1571,
+    "mediumAutobrakeLandingDist": 2001,
+    "lowAutobrakeLandingDist": 2658,
+    "runwayVisualizationLabels": [
+      {
+        "label": "LOW",
+        "distance": 2657.6499999999996,
+        "type": 0
+      },
+      {
+        "label": "MED",
+        "distance": 2000.9999999999998,
+        "type": 0
+      },
+      {
+        "label": "MAX",
+        "distance": 1570.8999999999999,
+        "type": 0
+      }
+    ]
+  },
+  "after": {
+    "icao": "",
+    "availableRunways": [],
+    "selectedRunwayIndex": -1,
+    "windDirection": 170,
+    "windMagnitude": 0,
+    "windEntry": "0",
+    "weight": 130000,
+    "runwayHeading": 170,
+    "approachSpeed": 145,
+    "flaps": 1,
+    "runwayCondition": 0,
+    "reverseThrust": false,
+    "elevation": 0,
+    "slope": 0,
+    "temperature": 15,
+    "pressure": 1013.25,
+    "overweightProcedure": false,
+    "runwayLength": 3500,
+    "autoland": false,
+    "runwayNumber": 0,
+    "displayedRunwayLength": 3500,
+    "maxAutobrakeLandingDist": 1571,
+    "mediumAutobrakeLandingDist": 2001,
+    "lowAutobrakeLandingDist": 2658,
+    "runwayVisualizationLabels": [
+      {
+        "label": "LOW",
+        "distance": 2657.6499999999996,
+        "type": 0
+      },
+      {
+        "label": "MED",
+        "distance": 2000.9999999999998,
+        "type": 0
+      },
+      {
+        "label": "MAX",
+        "distance": 1570.8999999999999,
+        "type": 0
+      }
+    ]
+  },
+  "body": "周六 十月 3\n\n0800Z\n\n点击打开快速控制\n已与SimBridge断开连接\n\n100%\n\n主页面\n签派\n地面\n性能\n导航和航图\n空中交通管制\n失效\n检查单\n预设\n设置\n性能\n工程起飞\n离线起飞核算（参考）\n下降顶点\n着陆\n\n机场\n\n填充数据来源于\n\n您需要加载来自SimBrief数据，才能自动填充\nOFP\n\n跑道\n\n手动输入\n\n跑道航向\n\n跑道可用着陆长度\n\n米 (m)\n\n跑道海拔\n\n跑道坡度\n\n跑道状况\n\n干燥（6）\n\n风\n\n气温\n\nC\n\n海平面气压\n\nhPa\n\n本地着陆参考仅支持 190000 kg 基准重量。重量修正资料待核验，其他重量不输出距离。\n\n着陆重量\n\nkg\n\n超重程序\n\n否\n\n襟翼配置\n\nFULL\n\n进近速度\n\n反推\n\n否\n\n自动着陆\n\n否\n\n计算\n\n清空\n\n最高性能手动降落\n\n1571米 (m)\n\n中刹力\n\n2001米 (m)\n\n低刹力\n\n2658米 (m)\n\n35\n17\n\nLOW 2658m\n\nMED 2001m\n\nMAX 1571m\n\nHEADWIND A339X · 浏览器开发模式 · 本地模拟数据 · 非 MSFS 飞行会话\n载入演示航班",
+  "errors": []
+}

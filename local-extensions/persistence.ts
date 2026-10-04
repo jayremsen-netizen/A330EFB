@@ -22,8 +22,13 @@ export function restoreDraft(value:any):Flight {
     return out;
   };
   const f=copy(value,template) as Flight;
-  for(const key of ['source','observedAt','station'] as const){
+  for(const key of ['source','observedAt','station','supersededSource'] as const){
     const v=value.weather[key];if(v!==undefined){if(typeof v!=='string'||v.length>300)throw Error('天气来源无效');f.weather[key]=v;}
+  }
+  if(value.departureReview!==undefined){
+    const r=value.departureReview;
+    if(!object(r)||typeof r.airport!=='string'||typeof r.previousAirport!=='string'||r.airport.length>500||r.previousAirport.length>500||typeof r.weather!=='boolean'||typeof r.runway!=='boolean')throw Error('起飞机场资料复核状态无效');
+    f.departureReview={airport:r.airport,previousAirport:r.previousAirport,weather:r.weather,runway:r.runway};
   }
   return f;
 }

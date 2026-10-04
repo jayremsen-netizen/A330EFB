@@ -1,0 +1,46 @@
+{
+  "at": "2026-10-04T14:33:45.079Z",
+  "platform": "win32",
+  "cases": [
+    {
+      "name": "Download ZIP source never borrows a parent Git commit",
+      "status": "PASS"
+    },
+    {
+      "name": "Documentation and build time do not change the runtime identity",
+      "status": "PASS"
+    },
+    {
+      "name": "Runtime source, package lock and TypeScript policy all change content identity",
+      "status": "PASS"
+    },
+    {
+      "name": "Git checkout records its own actual commit; documentation dirt is not runtime dirt",
+      "status": "PASS"
+    },
+    {
+      "name": "Two directories report distinct directory identities and their actual build metadata",
+      "status": "PASS"
+    },
+    {
+      "name": "Server rejects replaced builds instead of serving mixed revisions",
+      "status": "PASS"
+    },
+    {
+      "name": "Source edits are reported as stale even before another build",
+      "status": "PASS"
+    },
+    {
+      "name": "Windows launcher starts and reuses only its own directory and build",
+      "status": "PASS"
+    },
+    {
+      "name": "Windows launcher refuses the same build from another directory without killing it",
+      "status": "PASS"
+    },
+    {
+      "name": "Windows launcher refuses a newer local build until its old service is stopped",
+      "status": "PASS"
+    }
+  ]
+}

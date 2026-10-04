@@ -1,6 +1,6 @@
 """Build temporary source overlays from read-only upstream Git references."""
 from pathlib import Path
-import shutil,json,re,runpy,sys
+import shutil,json,re,runpy,sys,subprocess
 from upstreams import ROOT,LOCK,setup
 
 def reset_generated(relative):
@@ -42,8 +42,6 @@ def prepare():
         old.update(json.loads(source.read_text('utf-8')))
         (languages/source.name).write_text(json.dumps(old,ensure_ascii=False),'utf-8')
     (p/'Data').mkdir();(p/'Data/a339x_hashes.json').write_text('{}','utf-8')
-    info={'built':'2026-10-04','ref':'A330EFB','sha':LOCK['repositories'][0]['commit'],'actor':'A330EFB local build','version':'A330EFB '+json.loads((ROOT/'package.json').read_text('utf-8'))['version'],'pretty_release_name':'A330EFB browser demonstration','event_name':'local-browser-build'}
-    for name in ['a339x_build_info.json','a339x_build_info','VFS/a339x_build_info.json']:(p/name).write_text(json.dumps(info),'utf-8')
     replace_once(ROOT/'build-common/src/systems/shared/src/failures/index.ts','export { FailuresOrchestrator, FailureDefinition }','export { FailuresOrchestrator, type FailureDefinition }')
     replace_once(ROOT/'build-common/src/systems/shared/src/checklists/ChecklistProvider.ts','      response\n        .text()','      return response\n        .text()')
     efb=ROOT/'build-common/src/systems/instruments/src/EFB/Efb.tsx'
@@ -74,6 +72,9 @@ def prepare():
     profile['v2']={str(i+1):values[i*13:(i+1)*13] for i in range(3)}
     data=ROOT/'local-extensions/data';data.mkdir(exist_ok=True)
     (data/'a339-reference.json').write_text(json.dumps(profile,ensure_ascii=False,indent=2),'utf-8')
+    identity=json.loads(subprocess.check_output(['node',str(ROOT/'scripts/build-identity.cjs'),'write',str(ROOT)],text=True,encoding='utf-8'))
+    info={'built':identity['builtAt'],'ref':'A330EFB','sha':identity['sourceCommit'] or 'unknown-source-archive','actor':'A330EFB local build','version':'A330EFB '+identity['version'],'pretty_release_name':'A330EFB browser demonstration','event_name':'local-browser-build','build_id':identity['buildId'],'content_hash':identity['contentHash'],'upstreams':identity['upstreams']}
+    for name in ['a339x_build_info.json','a339x_build_info','VFS/a339x_build_info.json']:(p/name).write_text(json.dumps(info),'utf-8')
     print('Prepared generated overlays and reference data. Upstream checkouts remain unchanged.',flush=True)
 
 if __name__=='__main__':prepare()

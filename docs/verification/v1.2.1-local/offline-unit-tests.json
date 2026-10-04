@@ -1,0 +1,106 @@
+{
+  "at": "2026-10-04T14:32:40.240Z",
+  "scope": "Software arithmetic and source-table checks; not independent aircraft calibration",
+  "cases": [
+    {
+      "name": "重量独立算例：127000 + 250×104 + 2000 = 155000；TOW 184500",
+      "status": "PASS"
+    },
+    {
+      "name": "源码表节点/独立中点 130000 kg CONF 1",
+      "status": "PASS"
+    },
+    {
+      "name": "源码表节点/独立中点 190000 kg CONF 1",
+      "status": "PASS"
+    },
+    {
+      "name": "源码表节点/独立中点 250000 kg CONF 2",
+      "status": "PASS"
+    },
+    {
+      "name": "源码表节点/独立中点 210000 kg CONF 3",
+      "status": "PASS"
+    },
+    {
+      "name": "源码表节点/独立中点 185000 kg CONF 1",
+      "status": "PASS"
+    },
+    {
+      "name": "压力基准与正迎风",
+      "status": "PASS"
+    },
+    {
+      "name": "垂直侧风几何",
+      "status": "PASS"
+    },
+    {
+      "name": "重量单位 roundtrip",
+      "status": "PASS"
+    },
+    {
+      "name": "长度单位已知参考 1000 ft = 304.8 m",
+      "status": "PASS"
+    },
+    {
+      "name": "压力换算基准",
+      "status": "PASS"
+    },
+    {
+      "name": "负油量",
+      "status": "PASS"
+    },
+    {
+      "name": "滑行油大于总油",
+      "status": "PASS"
+    },
+    {
+      "name": "非有限值",
+      "status": "PASS"
+    },
+    {
+      "name": "结构超重",
+      "status": "PASS"
+    },
+    {
+      "name": "短 ASDA",
+      "status": "PASS"
+    },
+    {
+      "name": "错误机型",
+      "status": "PASS"
+    },
+    {
+      "name": "湿跑道",
+      "status": "PASS"
+    },
+    {
+      "name": "防冰未支持",
+      "status": "PASS"
+    },
+    {
+      "name": "速度表下界外",
+      "status": "PASS"
+    },
+    {
+      "name": "本地 JSON 往返一致",
+      "status": "PASS"
+    },
+    {
+      "name": "文件缺字段拒绝",
+      "status": "PASS"
+    },
+    {
+      "name": "任何输入变化改变结果签名",
+      "status": "PASS"
+    },
+    {
+      "name": "数据表内容变化使旧签名失效",
+      "status": "PASS"
+    },
+    {
+      "name": "性能表与固定源码逐值一致",
+      "status": "PASS"
+    }
+  ]
+}

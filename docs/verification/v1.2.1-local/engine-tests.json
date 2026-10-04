@@ -1,0 +1,182 @@
+{
+  "at": "2026-10-04T14:33:15.435Z",
+  "modelVersion": "0.1.1",
+  "cases": [
+    {
+      "name": "独立解析：定力加速 s=v²/(2a), t=v/a",
+      "status": "PASS"
+    },
+    {
+      "name": "独立解析：定减速度制动距离与停止时间",
+      "status": "PASS"
+    },
+    {
+      "name": "独立解析：定时反应段只推进一次持续时间",
+      "status": "PASS"
+    },
+    {
+      "name": "独立解析：二次阻力 F=20000-v² 的对数距离解",
+      "status": "PASS"
+    },
+    {
+      "name": "独立解析：速度步长减半误差收敛",
+      "status": "PASS"
+    },
+    {
+      "name": "错误加速度与过小步长终止，无无限循环",
+      "status": "PASS"
+    },
+    {
+      "name": "海平面标准大气 CAS=TAS，压缩转换可逆",
+      "status": "PASS"
+    },
+    {
+      "name": "CAS/TAS 区分：高温低气压下同CAS的TAS较大",
+      "status": "PASS"
+    },
+    {
+      "name": "标准案例产生工程解与完整来源",
+      "status": "PASS"
+    },
+    {
+      "name": "旋转速度满足独立升力平衡关系，未读取旧V2表",
+      "status": "PASS"
+    },
+    {
+      "name": "完整模型速度步长减半后距离差小于1%",
+      "status": "PASS"
+    },
+    {
+      "name": "轨迹端点、距离、时间和35ft高度对应当前计算",
+      "status": "PASS"
+    },
+    {
+      "name": "反应时间只存在中断分支，单发继续不重复计数",
+      "status": "PASS"
+    },
+    {
+      "name": "FLEX 输出明确推力比且不比TOGA距离短",
+      "status": "PASS"
+    },
+    {
+      "name": "FLEX 上限不高于OAT时回退TOGA并解释",
+      "status": "PASS"
+    },
+    {
+      "name": "FLEX 最大可行整数温度再加1°C时所有V1均不可行",
+      "status": "PASS"
+    },
+    {
+      "name": "TOGA限重以100kg保守定位，下一档不可行",
+      "status": "PASS"
+    },
+    {
+      "name": "限重完整搜索拒绝二分遗漏 1480m可行小岛",
+      "status": "PASS"
+    },
+    {
+      "name": "限重完整搜索拒绝二分遗漏 1515m可行小岛",
+      "status": "PASS"
+    },
+    {
+      "name": "增重不改善单发距离与速度",
+      "status": "PASS"
+    },
+    {
+      "name": "升温和升高机场不改善TOGA限重",
+      "status": "PASS"
+    },
+    {
+      "name": "迎风改善、顺风恶化停止与继续距离",
+      "status": "PASS"
+    },
+    {
+      "name": "同一V1上坡增加滑跑、降低停止距离",
+      "status": "PASS"
+    },
+    {
+      "name": "入口扣减同时作用于三项声明距离且不改善限重",
+      "status": "PASS"
+    },
+    {
+      "name": "增加ASDA只改变停止余量，不改变固定V1物理距离",
+      "status": "PASS"
+    },
+    {
+      "name": "增加TODA只改变继续余量，不改变固定V1物理距离",
+      "status": "PASS"
+    },
+    {
+      "name": "TOGA不可行不返回速度与可用solution，但提供诊断",
+      "status": "PASS"
+    },
+    {
+      "name": "声明压力高度边界可算 -1000ft",
+      "status": "PASS"
+    },
+    {
+      "name": "压力高度越界不被数值容差放行 -1000ft",
+      "status": "PASS"
+    },
+    {
+      "name": "声明压力高度边界可算 8000ft",
+      "status": "PASS"
+    },
+    {
+      "name": "压力高度越界不被数值容差放行 8000ft",
+      "status": "PASS"
+    },
+    {
+      "name": "湿跑道 拒绝且不遗留速度",
+      "status": "PASS"
+    },
+    {
+      "name": "污染跑道 拒绝且不遗留速度",
+      "status": "PASS"
+    },
+    {
+      "name": "防冰 拒绝且不遗留速度",
+      "status": "PASS"
+    },
+    {
+      "name": "引气 拒绝且不遗留速度",
+      "status": "PASS"
+    },
+    {
+      "name": "超高机场 拒绝且不遗留速度",
+      "status": "PASS"
+    },
+    {
+      "name": "过热 拒绝且不遗留速度",
+      "status": "PASS"
+    },
+    {
+      "name": "过大坡度 拒绝且不遗留速度",
+      "status": "PASS"
+    },
+    {
+      "name": "过大迎风 拒绝且不遗留速度",
+      "status": "PASS"
+    },
+    {
+      "name": "过大侧风 拒绝且不遗留速度",
+      "status": "PASS"
+    },
+    {
+      "name": "NaN与不合法FLEX选项按invalid拒绝",
+      "status": "PASS"
+    },
+    {
+      "name": "纯函数不修改航班且结果参数与快照可追溯",
+      "status": "PASS"
+    },
+    {
+      "name": "独立CONF3工程参数可算，未复用旧表疑点区间",
+      "status": "PASS"
+    },
+    {
+      "name": "现场交互单次计算在2秒内完成",
+      "status": "PASS"
+    }
+  ]
+}
