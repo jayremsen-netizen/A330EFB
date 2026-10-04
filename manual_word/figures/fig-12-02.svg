@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="511.2pt" height="273.6pt" viewBox="0 0 511.2 273.6" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-10-04T18:10:51.283910</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.2, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 273.6
+L 511.2 273.6
+L 511.2 0
+L 0 0
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 79.69608 223.326
+L 398.2248 223.326
+L 398.2248 43.6392
+L 79.69608 43.6392
+z
+" clip-path="url(#p7f5a15066f)" style="fill: #ffffff; stroke: #171c20; stroke-width: 0.85; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 81.696301 43.6392
+Q 265.108087 43.6392 447.569544 43.6392
+" clip-path="url(#p7f5a15066f)" style="fill: none; stroke: #171c20; stroke-width: 0.85; stroke-linecap: round"/>
+    <path d="M 443.969544 41.8392
+L 447.569544 43.6392
+L 443.969544 45.4392
+" clip-path="url(#p7f5a15066f)" style="fill: none; stroke: #171c20; stroke-width: 0.85; stroke-linecap: round"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 79.69608 45.637974
+Q 79.69608 146.137052 79.69608 245.685801
+" clip-path="url(#p7f5a15066f)" style="fill: none; stroke: #171c20; stroke-width: 0.85; stroke-linecap: round"/>
+    <path d="M 81.49608 242.085801
+L 79.69608 245.685801
+L 77.89608 242.085801
+" clip-path="url(#p7f5a15066f)" style="fill: none; stroke: #171c20; stroke-width: 0.85; stroke-linecap: round"/>
+   </g>
+   <g id="PathCollection_1">
+    <defs>
+     <path id="m923988edb2" d="M 0 2.738613
+C 0.726289 2.738613 1.422928 2.450055 1.936492 1.936492
+C 2.450055 1.422928 2.738613 0.726289 2.738613 0
+C 2.738613 -0.726289 2.450055 -1.422928 1.936492 -1.936492
+C 1.422928 -2.450055 0.726289 -2.738613 0 -2.738613
+C -0.726289 -2.738613 -1.422928 -2.450055 -1.936492 -1.936492
+C -2.450055 -1.422928 -2.738613 -0.726289 -2.738613 0
+C -2.738613 0.726289 -2.450055 1.422928 -1.936492 1.936492
+C -1.422928 2.450055 -0.726289 2.738613 0 2.738613
+z
+" style="stroke: #234f78"/>
+    </defs>
+    <g clip-path="url(#p7f5a15066f)">
+     <use xlink:href="#m923988edb2" x="284.12496" y="154.9944" style="fill: #234f78; stroke: #234f78"/>
+    </g>
+   </g>
+   <g id="line2d_1">
+    <path d="M 79.69608 154.9944
+L 284.12496 154.9944
+" clip-path="url(#p7f5a15066f)" style="fill: none; stroke-dasharray: 2.59,1.12; stroke-dashoffset: 0; stroke: #66717c; stroke-width: 0.7"/>
+   </g>
+   <g id="line2d_2">
+    <path d="M 284.12496 154.9944
+L 284.12496 43.6392
+" clip-path="url(#p7f5a15066f)" style="fill: none; stroke-dasharray: 2.59,1.12; stroke-dashoffset: 0; stroke: #66717c; stroke-width: 0.7"/>
+   </g>
+   <g id="text_1">
+    <g id="patch_5">
+     <path d="M 242.325664 34.686
+L 287.890976 34.686
+L 287.890976 22.54602
+L 242.325664 22.54602
+z
+" style="fill: #ffffff"/>
+    </g>
+    <text style="font-size: 9px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #171c20" x="265.10832" y="31.235238" transform="rotate(-0 265.10832 31.235238)">x 像素向右</text>
+   </g>
+   <g id="text_2">
+    <g id="patch_6">
+     <path d="M 37.795534 147.3066
+L 83.563346 147.3066
+L 83.563346 135.158006
+L 37.795534 135.158006
+z
+" style="fill: #ffffff"/>
+    </g>
+    <text style="font-size: 9px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #171c20" x="60.67944" y="143.847225" transform="rotate(-0 60.67944 143.847225)">y 像素向下</text>
+   </g>
+   <g id="text_3">
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(298.38744 141.765358)">飞机位置</text>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(298.38744 152.4636)">(lon, lat)</text>
+   </g>
+   <g id="text_4">
+    <text style="font-size: 9px; font-family: 'Microsoft YaHei'; text-anchor: start" x="84.45024" y="30.9852" transform="rotate(-0 84.45024 30.9852)">lonMin / latMax</text>
+   </g>
+   <g id="text_5">
+    <text style="font-size: 9px; font-family: 'Microsoft YaHei'; text-anchor: start" x="312.64992" y="243.5724" transform="rotate(-0 312.64992 243.5724)">lonMax / latMin</text>
+   </g>
+   <g id="text_6">
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #66717c" x="127.23768" y="205.6104" transform="rotate(-0 127.23768 205.6104)">地理配准范围 boundingBox</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p7f5a15066f">
+   <rect x="17.892" y="8.208" width="475.416" height="253.08"/>
+  </clipPath>
+ </defs>
+</svg>

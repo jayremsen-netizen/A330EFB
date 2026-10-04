@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="511.2pt" height="259.2pt" viewBox="0 0 511.2 259.2" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-10-04T18:10:47.810937</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.2, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 259.2
+L 511.2 259.2
+L 511.2 0
+L 0 0
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 51.17112 144.4392
+L 388.71648 144.4392
+L 388.71648 106.0776
+L 51.17112 106.0776
+z
+" clip-path="url(#pe1a755fbd9)" style="fill: #dce1e5; stroke: #171c20; stroke-width: 0.8; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 388.71648 144.4392
+L 441.01224 144.4392
+L 441.01224 106.0776
+L 388.71648 106.0776
+z
+" clip-path="url(#pe1a755fbd9)" style="fill: url(#h23477a281e); stroke: #66717c; stroke-width: 0.7; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 54.122431 34.1496
+Q 219.944611 34.1496 385.766791 34.1496
+" clip-path="url(#pe1a755fbd9)" style="fill: none; stroke: #171c20; stroke-width: 0.85; stroke-linecap: round"/>
+    <path d="M 57.722431 35.9496
+L 54.122431 34.1496
+L 57.722431 32.3496
+" clip-path="url(#pe1a755fbd9)" style="fill: none; stroke: #171c20; stroke-width: 0.85; stroke-linecap: round"/>
+    <path d="M 382.166791 32.3496
+L 385.766791 34.1496
+L 382.166791 35.9496
+" clip-path="url(#pe1a755fbd9)" style="fill: none; stroke: #171c20; stroke-width: 0.85; stroke-linecap: round"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 54.119675 65.3184
+Q 262.729533 65.3184 471.339391 65.3184
+" clip-path="url(#pe1a755fbd9)" style="fill: none; stroke: #171c20; stroke-width: 0.85; stroke-linecap: round"/>
+    <path d="M 57.719675 67.1184
+L 54.119675 65.3184
+L 57.719675 63.5184
+" clip-path="url(#pe1a755fbd9)" style="fill: none; stroke: #171c20; stroke-width: 0.85; stroke-linecap: round"/>
+    <path d="M 467.739391 63.5184
+L 471.339391 65.3184
+L 467.739391 67.1184
+" clip-path="url(#pe1a755fbd9)" style="fill: none; stroke: #171c20; stroke-width: 0.85; stroke-linecap: round"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 54.12312 182.8008
+Q 246.09386 182.8008 438.064599 182.8008
+" clip-path="url(#pe1a755fbd9)" style="fill: none; stroke: #171c20; stroke-width: 0.85; stroke-linecap: round"/>
+    <path d="M 57.72312 184.6008
+L 54.12312 182.8008
+L 57.72312 181.0008
+" clip-path="url(#pe1a755fbd9)" style="fill: none; stroke: #171c20; stroke-width: 0.85; stroke-linecap: round"/>
+    <path d="M 434.464599 181.0008
+L 438.064599 182.8008
+L 434.464599 184.6008
+" clip-path="url(#pe1a755fbd9)" style="fill: none; stroke: #171c20; stroke-width: 0.85; stroke-linecap: round"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 139.699451 225.9576
+Q 262.731574 225.9576 385.763697 225.9576
+" clip-path="url(#pe1a755fbd9)" style="fill: none; stroke: #171c20; stroke-width: 0.85; stroke-linecap: round"/>
+    <path d="M 143.299451 227.7576
+L 139.699451 225.9576
+L 143.299451 224.1576
+" clip-path="url(#pe1a755fbd9)" style="fill: none; stroke: #171c20; stroke-width: 0.85; stroke-linecap: round"/>
+    <path d="M 382.163697 224.1576
+L 385.763697 225.9576
+L 382.163697 227.7576
+" clip-path="url(#pe1a755fbd9)" style="fill: none; stroke: #171c20; stroke-width: 0.85; stroke-linecap: round"/>
+   </g>
+   <g id="line2d_1">
+    <path d="M 65.4336 125.2584
+L 379.20816 125.2584
+" clip-path="url(#pe1a755fbd9)" style="fill: none; stroke-dasharray: 10,6; stroke-dashoffset: 0; stroke: #ffffff; stroke-width: 2"/>
+   </g>
+   <g id="line2d_2">
+    <path d="M 136.746 240.3432
+L 136.746 98.8848
+" clip-path="url(#pe1a755fbd9)" style="fill: none; stroke-dasharray: 3.33,1.44; stroke-dashoffset: 0; stroke: #a46520; stroke-width: 0.9"/>
+   </g>
+   <g id="text_1">
+    <text style="font-size: 9px; font-family: 'Microsoft YaHei'; text-anchor: middle" x="414.86436" y="91.692" transform="rotate(-0 414.86436 91.692)">停止道</text>
+   </g>
+   <g id="text_2">
+    <g id="patch_8">
+     <path d="M 206.639972 30.5244
+L 233.247628 30.5244
+L 233.247628 18.595533
+L 206.639972 18.595533
+z
+" style="fill: #ffffff"/>
+    </g>
+    <text style="font-size: 9px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #171c20" x="219.9438" y="27.073638" transform="rotate(-0 219.9438 27.073638)">TORA</text>
+   </g>
+   <g id="text_3">
+    <g id="patch_9">
+     <path d="M 249.016084 61.6932
+L 276.446396 61.6932
+L 276.446396 49.764333
+L 249.016084 49.764333
+z
+" style="fill: #ffffff"/>
+    </g>
+    <text style="font-size: 9px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #171c20" x="262.73124" y="58.242438" transform="rotate(-0 262.73124 58.242438)">TODA</text>
+   </g>
+   <g id="text_4">
+    <g id="patch_10">
+     <path d="M 232.643008 179.1756
+L 259.540352 179.1756
+L 259.540352 167.246733
+L 232.643008 167.246733
+z
+" style="fill: #ffffff"/>
+    </g>
+    <text style="font-size: 9px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #171c20" x="246.09168" y="175.724838" transform="rotate(-0 246.09168 175.724838)">ASDA</text>
+   </g>
+   <g id="text_5">
+    <g id="patch_11">
+     <path d="M 196.959521 222.3324
+L 328.502959 222.3324
+L 328.502959 210.175545
+L 196.959521 210.175545
+z
+" style="fill: #ffffff"/>
+    </g>
+    <text style="font-size: 9px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #171c20" x="262.73124" y="218.881638" transform="rotate(-0 262.73124 218.881638)">有效 TORA = TORA − 入口扣减</text>
+   </g>
+   <g id="text_6">
+    <text style="font-size: 9px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #a46520" x="136.746" y="89.2944" transform="rotate(-0 136.746 89.2944)">使用入口</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="pe1a755fbd9">
+   <rect x="17.892" y="7.776" width="475.416" height="239.76"/>
+  </clipPath>
+ </defs>
+ <defs>
+  <pattern id="h23477a281e" patternUnits="userSpaceOnUse" x="0" y="0" width="72" height="72">
+   <rect x="0" y="0" width="73" height="73" fill="#ffffff"/>
+   <path d="M -36 36
+L 36 -36
+M -32 40
+L 40 -32
+M -28 44
+L 44 -28
+M -24 48
+L 48 -24
+M -20 52
+L 52 -20
+M -16 56
+L 56 -16
+M -12 60
+L 60 -12
+M -8 64
+L 64 -8
+M -4 68
+L 68 -4
+M 0 72
+L 72 0
+M 4 76
+L 76 4
+M 8 80
+L 80 8
+M 12 84
+L 84 12
+M 16 88
+L 88 16
+M 20 92
+L 92 20
+M 24 96
+L 96 24
+M 28 100
+L 100 28
+M 32 104
+L 104 32
+M 36 108
+L 108 36
+" style="fill: #66717c; stroke: #66717c; stroke-width: 1.0; stroke-linecap: butt; stroke-linejoin: miter"/>
+  </pattern>
+ </defs>
+</svg>

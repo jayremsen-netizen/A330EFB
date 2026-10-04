@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="511.2pt" height="309.6pt" viewBox="0 0 511.2 309.6" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-10-04T18:10:52.532081</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.2, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 309.6
+L 511.2 309.6
+L 511.2 0
+L 0 0
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 32.15448 95.202
+L 231.8292 95.202
+L 231.8292 26.4708
+L 32.15448 26.4708
+z
+" clip-path="url(#p7fad2f11b4)" style="fill: #ffffff; stroke: #171c20; stroke-width: 0.85; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 279.3708 95.202
+L 479.04552 95.202
+L 479.04552 26.4708
+L 279.3708 26.4708
+z
+" clip-path="url(#p7fad2f11b4)" style="fill: #ffffff; stroke: #171c20; stroke-width: 0.85; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 141.50016 186.8436
+L 369.69984 186.8436
+L 369.69984 129.5676
+L 141.50016 129.5676
+z
+" clip-path="url(#p7fad2f11b4)" style="fill: #f1f4f6; stroke: #171c20; stroke-width: 0.85; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 32.15448 287.0766
+L 227.07504 287.0766
+L 227.07504 229.8006
+L 32.15448 229.8006
+z
+" clip-path="url(#p7fad2f11b4)" style="fill: #ffffff; stroke: #171c20; stroke-width: 0.85; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 293.63328 287.0766
+L 479.04552 287.0766
+L 479.04552 229.8006
+L 293.63328 229.8006
+z
+" clip-path="url(#p7fad2f11b4)" style="fill: #ffffff; stroke: #171c20; stroke-width: 0.85; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 133.789449 96.068272
+Q 167.64524 112.38345 200.644923 128.28607
+" clip-path="url(#p7fad2f11b4)" style="fill: none; stroke: #171c20; stroke-width: 0.85; stroke-linecap: round"/>
+    <path d="M 198.183273 125.10169
+L 200.644923 128.28607
+L 196.620429 128.344762
+" clip-path="url(#p7fad2f11b4)" style="fill: none; stroke: #171c20; stroke-width: 0.85; stroke-linecap: round"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 377.410551 96.068272
+Q 343.55476 112.38345 310.555077 128.28607
+" clip-path="url(#p7fad2f11b4)" style="fill: none; stroke: #171c20; stroke-width: 0.85; stroke-linecap: round"/>
+    <path d="M 314.579571 128.344762
+L 310.555077 128.28607
+L 313.016727 125.10169
+" clip-path="url(#p7fad2f11b4)" style="fill: none; stroke: #171c20; stroke-width: 0.85; stroke-linecap: round"/>
+   </g>
+   <g id="patch_9">
+    <path d="M 229.0778 258.4386
+Q 260.356711 258.4386 290.685293 258.4386
+" clip-path="url(#p7fad2f11b4)" style="fill: none; stroke: #171c20; stroke-width: 0.85; stroke-linecap: round"/>
+    <path d="M 287.085293 256.6386
+L 290.685293 258.4386
+L 287.085293 260.2386
+" clip-path="url(#p7fad2f11b4)" style="fill: none; stroke: #171c20; stroke-width: 0.85; stroke-linecap: round"/>
+   </g>
+   <g id="patch_10">
+    <path d="M 333.214622 188.115215
+Q 357.815671 208.323111 381.682375 227.927798
+" clip-path="url(#p7fad2f11b4)" style="fill: none; stroke: #171c20; stroke-width: 0.85; stroke-linecap: round"/>
+    <path d="M 380.043082 224.251833
+L 381.682375 227.927798
+L 377.758027 227.033654
+" clip-path="url(#p7fad2f11b4)" style="fill: none; stroke: #171c20; stroke-width: 0.85; stroke-linecap: round"/>
+   </g>
+   <g id="text_1">
+    <text style="font-size: 10.4px; font-family: 'Microsoft YaHei'; fill: #171c20" transform="translate(87.780465 52.614916)">Headwind aircraft</text>
+    <text style="font-size: 10.4px; font-family: 'Microsoft YaHei'; fill: #171c20" transform="translate(96.03709 63.741087)">41eace79ed44</text>
+    <text style="font-size: 10.4px; font-family: 'Microsoft YaHei'; fill: #171c20" transform="translate(64.097715 74.867259)">hdw-common / hdw-a339x</text>
+   </g>
+   <g id="text_2">
+    <text style="font-size: 10.4px; font-family: 'Microsoft YaHei'; fill: #171c20" transform="translate(335.737785 52.609939)">FlyByWire aircraft</text>
+    <text style="font-size: 10.4px; font-family: 'Microsoft YaHei'; fill: #171c20" transform="translate(345.298472 63.746064)">1bf4b8edccf8</text>
+    <text style="font-size: 10.4px; font-family: 'Microsoft YaHei'; fill: #171c20" transform="translate(313.870972 74.872236)">fbw-common / fbw-a32nx</text>
+   </g>
+   <g id="text_3">
+    <text style="font-size: 11px; font-family: 'Microsoft YaHei'; fill: #171c20" transform="translate(209.029609 155.51769)">A330EFB 生成目录</text>
+    <text style="font-size: 11px; font-family: 'Microsoft YaHei'; fill: #171c20" transform="translate(179.588281 167.285756)">build-common / build-a339x</text>
+   </g>
+   <g id="text_4">
+    <text style="font-size: 10.4px; font-family: 'Microsoft YaHei'; fill: #171c20" transform="translate(108.81476 255.897303)">本地源码</text>
+    <text style="font-size: 10.4px; font-family: 'Microsoft YaHei'; fill: #171c20" transform="translate(62.23901 267.023475)">local-efb / local-extensions</text>
+   </g>
+   <g id="text_5">
+    <text style="font-size: 10.8px; font-family: 'Microsoft YaHei'; fill: #171c20" transform="translate(364.7394 255.814748)">静态产物</text>
+    <text style="font-size: 10.8px; font-family: 'Microsoft YaHei'; fill: #171c20" transform="translate(351.858712 267.36885)">local-efb/dist</text>
+   </g>
+   <g id="text_6">
+    <g id="patch_11">
+     <path d="M 148.47804 104.9634
+L 186.81804 104.9634
+L 186.81804 92.82342
+L 148.47804 92.82342
+z
+" style="fill: #ffffff"/>
+    </g>
+    <text style="font-size: 9px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #171c20" x="167.64804" y="101.512638" transform="rotate(-0 167.64804 101.512638)">固定引用</text>
+   </g>
+   <g id="text_7">
+    <g id="patch_12">
+     <path d="M 324.38196 104.9634
+L 362.72196 104.9634
+L 362.72196 92.82342
+L 324.38196 92.82342
+z
+" style="fill: #ffffff"/>
+    </g>
+    <text style="font-size: 9px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #171c20" x="343.55196" y="101.512638" transform="rotate(-0 343.55196 101.512638)">固定引用</text>
+   </g>
+   <g id="text_8">
+    <g id="patch_13">
+     <path d="M 240.419863 251.0172
+L 280.288457 251.0172
+L 280.288457 238.930657
+L 240.419863 238.930657
+z
+" style="fill: #ffffff"/>
+    </g>
+    <text style="font-size: 9px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #171c20" x="260.35416" y="247.566438" transform="rotate(-0 260.35416 247.566438)">Vite 构建</text>
+   </g>
+   <g id="text_9">
+    <g id="patch_14">
+     <path d="M 338.64444 200.9007
+L 376.98444 200.9007
+L 376.98444 188.795876
+L 338.64444 188.795876
+z
+" style="fill: #ffffff"/>
+    </g>
+    <text style="font-size: 9px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #171c20" x="357.81444" y="197.449938" transform="rotate(-0 357.81444 197.449938)">模块解析</text>
+   </g>
+   <g id="text_10">
+    <text style="font-size: 9.2px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #66717c" x="41.6628" y="149.6142" transform="rotate(-0 41.6628 149.6142)">补丁在生成目录应用</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p7fad2f11b4">
+   <rect x="17.892" y="9.288" width="475.416" height="286.38"/>
+  </clipPath>
+ </defs>
+</svg>

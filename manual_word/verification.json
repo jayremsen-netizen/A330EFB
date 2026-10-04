@@ -1,0 +1,23 @@
+{
+  "document_version": "2.0",
+  "software_baseline": "f528013463716fa97d670d484aa7be2dca858817",
+  "rendered_pages": 142,
+  "chapters": 23,
+  "sections": 99,
+  "sections_with_figures": 99,
+  "operation_sections": 36,
+  "operation_sections_with_screenshots": 36,
+  "figure_instances": 110,
+  "screen_instances": 48,
+  "tables": 17,
+  "toc_entries": 123,
+  "broken_bookmarks": 0,
+  "text_overflow": 0,
+  "visual_review": {
+    "pages_reviewed": 142,
+    "render_dpi": 110,
+    "method": "All pages reviewed at native raster scale; unchanged pages matched to previously reviewed rendering; changed pages rechecked."
+  },
+  "render_environment": "Windows, LibreOffice 25.8.7, SimSun/SimHei and Microsoft YaHei",
+  "docx_sha256": "37fd0b189892840fbc3762e3d6b07d637fddc7e0a24e9edbd36e350b866d3028"
+}

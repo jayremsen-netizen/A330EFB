@@ -10,6 +10,7 @@ runtime/
 tmp/
 __pycache__/
 *.pyc
+.venv-docs/
 *.log
 .env
 .env.*

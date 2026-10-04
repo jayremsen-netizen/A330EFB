@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="511.2pt" height="295.2pt" viewBox="0 0 511.2 295.2" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-10-04T18:10:50.384835</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.2, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 295.2
+L 511.2 295.2
+L 511.2 0
+L 0 0
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 57.924775 219.1122
+Q 260.352841 219.1122 461.830578 219.1122
+" clip-path="url(#p54cfb4467d)" style="fill: none; stroke: #171c20; stroke-width: 0.85; stroke-linecap: round"/>
+    <path d="M 458.230578 217.3122
+L 461.830578 219.1122
+L 458.230578 220.9122
+" clip-path="url(#p54cfb4467d)" style="fill: none; stroke: #171c20; stroke-width: 0.85; stroke-linecap: round"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 179.53344 266.264715
+Q 179.53344 148.119199 179.53344 30.924012
+" clip-path="url(#p54cfb4467d)" style="fill: none; stroke: #171c20; stroke-width: 0.85; stroke-linecap: round"/>
+    <path d="M 177.73344 34.524012
+L 179.53344 30.924012
+L 181.33344 34.524012
+" clip-path="url(#p54cfb4467d)" style="fill: none; stroke: #171c20; stroke-width: 0.85; stroke-linecap: round"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 181.126478 217.899855
+Q 274.617558 146.750602 367.352396 76.176869
+" clip-path="url(#p54cfb4467d)" style="fill: none; stroke: #234f78; stroke-width: 0.85; stroke-linecap: round"/>
+    <path d="M 363.397548 76.924651
+L 367.352396 76.176869
+L 365.577712 79.789416
+z
+" clip-path="url(#p54cfb4467d)" style="fill: #234f78; stroke: #234f78; stroke-width: 0.85; stroke-linecap: round"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 243.7146 219.1122
+C 243.7146 213.403782 241.406011 207.772625 236.971365 202.663965
+C 232.53672 197.555306 226.09606 193.107431 218.158626 189.672019
+" clip-path="url(#p54cfb4467d)" style="fill: none; stroke: #171c20; stroke-width: 0.9; stroke-linejoin: miter"/>
+   </g>
+   <g id="line2d_1">
+    <path d="M 369.69984 219.1122
+L 369.69984 74.3904
+" clip-path="url(#p54cfb4467d)" style="fill: none; stroke-dasharray: 3.7,1.6; stroke-dashoffset: 0; stroke: #66717c"/>
+   </g>
+   <g id="line2d_2">
+    <path d="M 179.53344 74.3904
+L 369.69984 74.3904
+" clip-path="url(#p54cfb4467d)" style="fill: none; stroke-dasharray: 3.7,1.6; stroke-dashoffset: 0; stroke: #66717c"/>
+   </g>
+   <g id="text_1">
+    <g id="patch_6">
+     <path d="M 379.0548 242.127
+L 417.3948 242.127
+L 417.3948 229.960301
+L 379.0548 229.960301
+z
+" style="fill: #ffffff"/>
+    </g>
+    <text style="font-size: 9px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #171c20" x="398.2248" y="238.676238" transform="rotate(-0 398.2248 238.676238)">跑道纵轴</text>
+   </g>
+   <g id="text_2">
+    <g id="patch_7">
+     <path d="M 121.82184 111.0582
+L 142.16184 111.0582
+L 142.16184 98.944938
+L 121.82184 98.944938
+z
+" style="fill: #ffffff"/>
+    </g>
+    <text style="font-size: 9px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #171c20" x="131.99184" y="107.607438" transform="rotate(-0 131.99184 107.607438)">侧向</text>
+   </g>
+   <g id="text_3">
+    <g id="patch_8">
+     <path d="M 312.621716 147.9213
+L 350.711404 147.9213
+L 350.711404 135.86007
+L 312.621716 135.86007
+z
+" style="fill: #ffffff"/>
+    </g>
+    <text style="font-size: 9px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #234f78" x="331.66656" y="144.470538" transform="rotate(-0 331.66656 144.470538)">风矢量 V</text>
+   </g>
+   <g id="text_4">
+    <text style="font-size: 12px; font-family: 'Microsoft YaHei'; text-anchor: start" x="250.84584" y="194.5368" transform="rotate(-0 250.84584 194.5368)">Δψ</text>
+   </g>
+   <g id="text_5">
+    <text style="font-size: 11px; font-family: 'Microsoft YaHei'; text-anchor: middle" x="284.12496" y="240.957" transform="rotate(-0 284.12496 240.957)">V cos(Δψ)</text>
+   </g>
+   <g id="text_6">
+    <text style="font-size: 11px; font-family: 'Microsoft YaHei'; text-anchor: start" x="388.71648" y="150.8472" transform="rotate(-0 388.71648 150.8472)">V sin(Δψ)</text>
+   </g>
+   <g id="text_7">
+    <text style="font-size: 9.5px; font-family: 'Microsoft YaHei'; text-anchor: start; fill: #66717c" x="36.90864" y="281.916" transform="rotate(-0 36.90864 281.916)">差角 = 风向 − 跑道航向；分量符号按源码约定解释</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p54cfb4467d">
+   <rect x="17.892" y="8.856" width="475.416" height="273.06"/>
+  </clipPath>
+ </defs>
+</svg>

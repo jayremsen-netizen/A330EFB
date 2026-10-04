@@ -50,8 +50,8 @@ Windows 用户完成构建后，也可双击 **[启动投标演示.cmd](启动�
 - [演示操作说明](演示/使用说明.md)
 - [逐节讲解脚本](演示/讲解脚本.md) / [离线 HTML 阅读版](演示/讲解脚本.html)
 - [可执行场景定义](local-efb/presentation/scenarios.ts)
-- [项目技术方案与操作说明书：300 页 PDF](output/pdf/A330电子飞行包系统技术方案与操作说明书_重写版.pdf)
-- [完整可编辑正文](manual_v2/说明书_可编辑正文.md) / [文档生成说明](manual_v2/README.md)
+- [技术方案与操作说明书：Word 版](output/word/A330电子飞行包系统技术方案与操作说明书.docx) / [Word 正文、工程图和生成说明](manual_word/README.md)
+- [历史版本：300 页 PDF](output/pdf/A330电子飞行包系统技术方案与操作说明书_重写版.pdf) / [历史正文](manual_v2/说明书_可编辑正文.md)
 
 ## 验证
 
@@ -74,7 +74,8 @@ config/             上游版本锁及本地参考模型配置
 scripts/            上游获取、生成、构建与仓库审查
 tests/              单元及真实浏览器场景测试
 upstream/           两个 Git 子模块引用
-manual_v2/          300 页手册的正文、图件和生成源码
+manual_word/        Word 手册正文、工程图、截图及生成脚本
+manual_v2/          历史 300 页手册的正文、图件和生成源码
 manual/assets/      本地程序操作截图
 演示/               演示使用说明、讲解稿和场景导出
 ```
@@ -85,4 +86,4 @@ manual/assets/      本地程序操作截图
 
 当前版本为浏览器本地演示，未连接 MSFS、PBNVDT、SimBrief 或订阅航图服务。起飞功能提供重量一致性、源码 V2 插值、压力高度、风分量和声明距离检查；不是完整 V1/VR/FLEX 或放行性能实现。原生着陆工具的资料边界见手册第 11 章。
 
-本地源码按 [GPL-3.0-only](LICENSE) 提供；引用的上游代码、字体和艺术资源继续适用各自原始许可与署名要求，见 [NOTICE.md](NOTICE.md)。手册中早期工作区路径与本仓库路径的对应关系见 [docs/path-map.md](docs/path-map.md)。
+本地源码按 [GPL-3.0-only](LICENSE) 提供；引用的上游代码、字体和艺术资源继续适用各自原始许可与署名要求，见 [NOTICE.md](NOTICE.md)。Word 手册采用本仓库目录；历史手册中的早期路径对应关系见 [docs/path-map.md](docs/path-map.md)。
