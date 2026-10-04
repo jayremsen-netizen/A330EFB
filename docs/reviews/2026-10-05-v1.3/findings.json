@@ -1,0 +1,239 @@
+{
+  "reviewDate": "2026-10-05",
+  "timezone": "Asia/Shanghai",
+  "baseline": {
+    "repositoryCommit": "eb28b56352ad53ef57bfa31adb3256b717ecb277",
+    "softwareCommit": "6a4fea2c7a3636e2b197d0e2ded6578a5ce5abf2",
+    "version": "1.3.0",
+    "buildId": "0a78a56c98dc7f34"
+  },
+  "scope": "Read-only software review in isolated browser contexts; no product source changes",
+  "findings": [
+    {
+      "id": "R01",
+      "priority": "P2",
+      "classification": "defect",
+      "input": {
+        "pax": 1,
+        "paxKg": 80,
+        "bagKg": 24,
+        "freightKg": 44812,
+        "baseErrors": [],
+        "input": {
+          "cabinPax": [
+            1,
+            0,
+            0,
+            0
+          ],
+          "holdBaggageKg": [
+            10.7,
+            10.7,
+            2.6
+          ],
+          "holdFreightKg": [
+            19989.29,
+            19989.29,
+            4833.42
+          ]
+        },
+        "errors": [
+          "散货舱 行李与货物合计超过演示容量 4836 kg"
+        ],
+        "status": "invalid",
+        "holds": [
+          19999.99,
+          19999.99,
+          4836.02
+        ]
+      },
+      "ui": {
+        "status": "invalid",
+        "message": "输入或合计不符 · 未生成重心解\n散货舱 行李与货物合计超过演示容量 4836 kg",
+        "adoptDisabled": true
+      },
+      "corrected": {
+        "holdTotalsKg": [
+          20000,
+          20000,
+          4836
+        ],
+        "fuelStatus": "engineering-feasible",
+        "loadingReady": true
+      }
+    },
+    {
+      "id": "R02",
+      "priority": "P2",
+      "classification": "defect",
+      "evidence": {
+        "confirmed": false,
+        "groundChanged": false,
+        "notice": "导入失败，保留原航班：freightKg 必须为非负有限数",
+        "freightKg": null
+      }
+    },
+    {
+      "id": "R03",
+      "priority": "P2",
+      "classification": "defect",
+      "evidence": [
+        {
+          "slopePercent": -2,
+          "status": "engineering-infeasible",
+          "requiredDistanceM": 1663.9608367949504,
+          "lastGroundHeightM": -28.938449335564357,
+          "diagramYMin": 72.9,
+          "diagramYMax": 285.3,
+          "svgHeight": 386
+        },
+        {
+          "slopePercent": -1,
+          "status": "engineering-infeasible",
+          "requiredDistanceM": 1663.9608367949504,
+          "lastGroundHeightM": -14.469224667782179,
+          "diagramYMin": 75.9,
+          "diagramYMax": 237.3,
+          "svgHeight": 386
+        },
+        {
+          "slopePercent": 0,
+          "status": "engineering-infeasible",
+          "requiredDistanceM": 1663.9608367949504,
+          "lastGroundHeightM": 0,
+          "diagramYMin": 79.8,
+          "diagramYMax": 175,
+          "svgHeight": 386
+        },
+        {
+          "slopePercent": 1,
+          "status": "engineering-infeasible",
+          "requiredDistanceM": 1663.9608367949504,
+          "lastGroundHeightM": 14.469224667782179,
+          "diagramYMin": 79.8,
+          "diagramYMax": 146.1,
+          "svgHeight": 386
+        },
+        {
+          "slopePercent": 2,
+          "status": "engineering-infeasible",
+          "requiredDistanceM": 1663.9608367949504,
+          "lastGroundHeightM": 28.938449335564357,
+          "diagramYMin": 50,
+          "diagramYMax": 136.5,
+          "svgHeight": 386
+        }
+      ],
+      "plotYRange": [
+        50,
+        175
+      ]
+    },
+    {
+      "id": "R04",
+      "priority": "P2",
+      "classification": "workflow-improvement",
+      "flight": {
+        "rampKg": 21257,
+        "confirmed": true,
+        "groundChanged": false
+      },
+      "actual": {
+        "session": 3,
+        "gpuConnected": false,
+        "fuelKg": 30000,
+        "pax": 0,
+        "cargoKg": 0,
+        "pushbackMetres": 0,
+        "commands": [
+          {
+            "id": "command-2",
+            "kind": "refuel",
+            "status": "completed",
+            "target": 30000,
+            "progress": 1
+          }
+        ]
+      },
+      "pushback": {
+        "session": 3,
+        "gpuConnected": false,
+        "fuelKg": 30000,
+        "pax": 0,
+        "cargoKg": 0,
+        "pushbackMetres": 30,
+        "commands": [
+          {
+            "id": "command-3",
+            "kind": "pushback",
+            "status": "completed",
+            "progress": 1
+          },
+          {
+            "id": "command-2",
+            "kind": "refuel",
+            "status": "completed",
+            "target": 30000,
+            "progress": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "R05",
+      "priority": "P2",
+      "classification": "lifecycle-improvement",
+      "beforeReload": {
+        "session": 2,
+        "gpuConnected": true,
+        "fuelKg": 30000,
+        "pax": 250,
+        "cargoKg": 8000,
+        "pushbackMetres": 0,
+        "commands": []
+      },
+      "afterReload": {
+        "actual": {
+          "session": 1,
+          "gpuConnected": false,
+          "fuelKg": 5000,
+          "pax": 0,
+          "cargoKg": 0,
+          "pushbackMetres": 0,
+          "commands": []
+        },
+        "confirmed": true,
+        "notice": "已恢复本机航班草稿"
+      },
+      "clock": {
+        "flightDate": "2026-10-05",
+        "body": "周六 十月 3\n\n0800Z\n\nZUTF\n\n0800Z\n\nZSPD\n\n1040Z\n\n点击打开快速控制\n本地演示 · 外部服务未接入\n\n100%\n\n主页面\n签派\n地面\n性能\n导航和航图\n空中交通管制\n失效\n检查单\n预设\n设"
+      }
+    },
+    {
+      "id": "R06",
+      "priority": "P2",
+      "classification": "delivery-improvement",
+      "evidence": "README.md states early Word manual baseline with 1.1, 1.2 and 1.3 supplemental material; manual_word/README.md describes version 2.0 baseline."
+    }
+  ],
+  "checks": {
+    "nativeBoard": {
+      "pax": 250,
+      "cargoKg": 8000,
+      "command": {
+        "id": "command-1",
+        "kind": "board",
+        "status": "completed",
+        "target": 250,
+        "progress": 1
+      }
+    },
+    "browserErrors": []
+  },
+  "limitations": [
+    "Targeted review only; prior full regression was not rerun.",
+    "Explicit engineering assumptions were not treated as defects.",
+    "Findings are not repaired in this review."
+  ]
+}
