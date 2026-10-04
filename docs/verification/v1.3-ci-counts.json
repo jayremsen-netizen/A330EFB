@@ -1,0 +1,10 @@
+{
+  "windows-latest": {
+    "unit": 187,
+    "browser": 91
+  },
+  "ubuntu-latest": {
+    "unit": 184,
+    "browser": 91
+  }
+}

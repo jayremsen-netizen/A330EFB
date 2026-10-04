@@ -3,7 +3,7 @@
   "purpose": "投标演示工程计划",
   "baseline": "00e137da13d210d099db50c1b8bea0a519340b79",
   "localStatus": "passed",
-  "remoteStatus": "pending",
+  "remoteStatus": "passed",
   "checks": {
     "windowsUnit": 187,
     "ubuntuUnit": 184,
@@ -18,35 +18,37 @@
       "title": "航路及备降燃油",
       "implementation": "done",
       "localVerification": "passed",
-      "remoteVerification": "pending"
+      "remoteVerification": "passed"
     },
     {
       "id": "P02",
       "title": "配载重心",
       "implementation": "done",
       "localVerification": "passed",
-      "remoteVerification": "pending"
+      "remoteVerification": "passed"
     },
     {
       "id": "P03",
       "title": "工程着陆",
       "implementation": "done",
       "localVerification": "passed",
-      "remoteVerification": "pending"
+      "remoteVerification": "passed"
     },
     {
       "id": "P04",
       "title": "共享航班与签派一致性",
       "implementation": "done",
       "localVerification": "passed",
-      "remoteVerification": "pending"
+      "remoteVerification": "passed"
     },
     {
       "id": "P05",
       "title": "综合报告及自动演示",
       "implementation": "done",
       "localVerification": "passed",
-      "remoteVerification": "pending"
+      "remoteVerification": "passed"
     }
-  ]
+  ],
+  "softwareCommit": "6a4fea2c7a3636e2b197d0e2ded6578a5ce5abf2",
+  "ciURL": "https://github.com/jayremsen-netizen/A330EFB/actions/runs/37213767441"
 }

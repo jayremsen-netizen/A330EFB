@@ -1,0 +1,34 @@
+{
+  "status": "PASS",
+  "at": "2026-10-04T15:41:19.756Z",
+  "title": "A330EFB 1.3.0 · build 0a78a56c · 投标功能演示",
+  "frameTitle": "A330EFB 1.3.0 · build 0a78a56c · 投标演示工作台",
+  "bodyLength": 669,
+  "scenario": "planning",
+  "errors": [],
+  "build": {
+    "schemaVersion": 1,
+    "application": "a330efb",
+    "version": "1.3.0",
+    "buildId": "0a78a56c98dc7f34",
+    "builtAt": "2026-10-04T15:39:01.733Z",
+    "sourceCommit": "6a4fea2c7a3636e2b197d0e2ded6578a5ce5abf2",
+    "sourceKind": "git",
+    "sourceDirty": false,
+    "contentHash": "3accdd1a3c651d272f5c37bdbd38b649885cccecf5d881b2f5d7a9dc52243a82",
+    "sourceFileCount": 76,
+    "contentAlgorithm": "sha256-runtime-source-v1",
+    "upstreams": [
+      {
+        "name": "headwind",
+        "url": "https://github.com/headwindsim/aircraft.git",
+        "commit": "41eace79ed442696a6361dc72947954c9a6cf5cb"
+      },
+      {
+        "name": "flybywire",
+        "url": "https://github.com/flybywiresim/aircraft.git",
+        "commit": "1bf4b8edccf84d0fb83d0eb15e42f2c773e09582"
+      }
+    ]
+  }
+}
