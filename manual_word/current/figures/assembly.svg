@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="576pt" height="237.6pt" viewBox="0 0 576 237.6" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-10-09T11:16:50.657560</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.2, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 237.6
+L 576 237.6
+L 576 0
+L 0 0
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 30.722 168.96
+L 191.292667 168.96
+L 191.292667 41.47
+L 30.722 41.47
+z
+" clip-path="url(#p7c592d73ac)" style="fill: #f5f6f7; stroke: #65727c; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 202.240667 168.96
+L 362.811333 168.96
+L 362.811333 41.47
+L 202.240667 41.47
+z
+" clip-path="url(#p7c592d73ac)" style="fill: #f5f6f7; stroke: #65727c; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 373.759333 168.96
+L 534.33 168.96
+L 534.33 41.47
+L 373.759333 41.47
+z
+" clip-path="url(#p7c592d73ac)" style="fill: #f5f6f7; stroke: #65727c; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_1">
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(91.007333 81.12623)">来源引用</text>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(111.007333 91.824473)"/>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(65.303427 102.76666)">Headwind 固定提交</text>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(84.26749 113.464902)">41eace79…</text>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(66.015927 124.40709)">FlyByWire 固定提交</text>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(84.014365 135.114902)">1bf4b8ed…</text>
+   </g>
+   <g id="text_2">
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(262.526 80.984531)">生成装配</text>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(282.526 91.682773)"/>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(239.110375 102.585898)">upstreams.py 获取</text>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(245.571313 113.615781)">prepare.py 准备</text>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(226.310375 124.323594)">integrate_extensions.py</text>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(252.526 135.265977)">叠加本地扩展</text>
+   </g>
+   <g id="text_3">
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(429.044667 81.116172)">本项目成果</text>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(454.044667 91.814414)"/>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(415.439979 102.512656)">local-extensions</text>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(432.960292 113.210898)">local-efb</text>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(419.044667 124.134336)">测试和演示脚本</text>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(419.044667 135.124961)">可编辑技术资料</text>
+   </g>
+   <g id="text_4">
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'; text-anchor: middle" x="288" y="202.4" transform="rotate(-0 288 202.4)">上游源码不复制进受跟踪的本项目成果</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p7c592d73ac">
+   <rect x="14.3" y="14.3" width="547.4" height="209"/>
+  </clipPath>
+ </defs>
+</svg>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="576pt" height="237.6pt" viewBox="0 0 576 237.6" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-10-09T11:16:55.285072</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.2, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 237.6
+L 576 237.6
+L 576 0
+L 0 0
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 30.722 168.96
+L 191.292667 168.96
+L 191.292667 41.47
+L 30.722 41.47
+z
+" clip-path="url(#p2d50b82da5)" style="fill: #f5f6f7; stroke: #65727c; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 202.240667 168.96
+L 362.811333 168.96
+L 362.811333 41.47
+L 202.240667 41.47
+z
+" clip-path="url(#p2d50b82da5)" style="fill: #f5f6f7; stroke: #65727c; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 373.759333 168.96
+L 534.33 168.96
+L 534.33 41.47
+L 373.759333 41.47
+z
+" clip-path="url(#p2d50b82da5)" style="fill: #f5f6f7; stroke: #65727c; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_1">
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(76.007333 80.808164)">已接入本地能力</text>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(111.007333 91.506406)"/>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(76.007333 102.556406)">航班与性能流程</text>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(66.007333 113.547031)">资料阅读与样例天气</text>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(76.007333 124.509531)">检查单人工操作</text>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(74.527646 135.520469)">地服 故障和预设</text>
+   </g>
+   <g id="text_2">
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(252.526 80.901719)">外部能力入口</text>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(282.526 91.599961)"/>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(241.197094 102.542148)">SimBrief 在线签派</text>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(236.118188 113.514023)">Navigraph 商业航图</text>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(236.533813 124.475156)">SimBridge 飞机宿主</text>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(248.426781 135.426914)">在线ATC与遥测</text>
+   </g>
+   <g id="text_3">
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(434.044667 80.833164)">演示隔离</text>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(454.044667 91.531406)"/>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(409.044667 102.581406)">核心流程不依赖账号</text>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(409.044667 113.493906)">不发送真实飞机命令</text>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(409.044667 124.504844)">未接入能力明确标记</text>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(404.044667 135.456406)">模拟器设置不冒充效果</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p2d50b82da5">
+   <rect x="14.3" y="14.3" width="547.4" height="209"/>
+  </clipPath>
+ </defs>
+</svg>

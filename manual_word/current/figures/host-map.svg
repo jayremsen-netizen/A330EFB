@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="576pt" height="237.6pt" viewBox="0 0 576 237.6" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-10-09T11:16:54.954067</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.2, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 237.6
+L 576 237.6
+L 576 0
+L 0 0
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 30.722 168.96
+L 191.292667 168.96
+L 191.292667 41.47
+L 30.722 41.47
+z
+" clip-path="url(#pa5228c6d32)" style="fill: #f5f6f7; stroke: #65727c; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 202.240667 168.96
+L 362.811333 168.96
+L 362.811333 41.47
+L 202.240667 41.47
+z
+" clip-path="url(#pa5228c6d32)" style="fill: #f5f6f7; stroke: #65727c; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 373.759333 168.96
+L 534.33 168.96
+L 534.33 41.47
+L 373.759333 41.47
+z
+" clip-path="url(#pa5228c6d32)" style="fill: #f5f6f7; stroke: #65727c; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_1">
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(91.007333 81.033262)">计划映射</text>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(111.007333 91.731504)"/>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(77.290927 102.429746)">SimBrief Store</text>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(81.007333 113.381309)">本地签派摘要</text>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(76.007333 124.284434)">重量与目标燃油</text>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(71.007333 135.235996)">有效预计到达数据</text>
+   </g>
+   <g id="text_2">
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(262.526 80.890977)">实际映射</text>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(282.526 91.589219)"/>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(236.395531 102.492344)">DemoRuntime 状态</text>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(247.526 113.395469)">油箱体积与质量</text>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(242.526 124.406406)">旅客位标志和货舱</text>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(247.526 135.378281)">当前质量与重心</text>
+   </g>
+   <g id="text_3">
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(434.044667 80.906602)">可见身份</text>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(454.044667 91.604844)"/>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(419.044667 102.537656)">浏览器演示模式</text>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(424.044667 113.450156)">样例而非实况</text>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(419.044667 124.401719)">已连接／未接入</text>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(419.044667 135.334531)">版本与健康检查</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="pa5228c6d32">
+   <rect x="14.3" y="14.3" width="547.4" height="209"/>
+  </clipPath>
+ </defs>
+</svg>

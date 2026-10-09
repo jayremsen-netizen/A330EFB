@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="576pt" height="237.6pt" viewBox="0 0 576 237.6" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-10-09T11:16:52.379606</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.2, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 237.6
+L 576 237.6
+L 576 0
+L 0 0
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 30.722 168.96
+L 191.292667 168.96
+L 191.292667 41.47
+L 30.722 41.47
+z
+" clip-path="url(#pe6ffbd6790)" style="fill: #f5f6f7; stroke: #65727c; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 202.240667 168.96
+L 362.811333 168.96
+L 362.811333 41.47
+L 202.240667 41.47
+z
+" clip-path="url(#pe6ffbd6790)" style="fill: #f5f6f7; stroke: #65727c; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 373.759333 168.96
+L 534.33 168.96
+L 534.33 41.47
+L 373.759333 41.47
+z
+" clip-path="url(#pe6ffbd6790)" style="fill: #f5f6f7; stroke: #65727c; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_1">
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(96.007333 80.965098)">主航程</text>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(111.007333 91.66334)"/>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(58.86124 102.497715)">爬升 20 min／110 NM</text>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(60.483115 113.46959)">巡航 900 NM／450 kt</text>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(58.86124 124.343027)">下降 20 min／100 NM</text>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(65.291708 135.314902)">巡航油耗 5400 kg/h</text>
+   </g>
+   <g id="text_2">
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(262.526 80.940098)">备降航程</text>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(282.526 91.63834)"/>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(233.311937 102.571152)">复飞 10 min／35 NM</text>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(234.933813 113.543027)">巡航 25 NM／250 kt</text>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(236.243969 124.416465)">下降 8 min／25 NM</text>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(236.810375 135.38834)">巡航油耗 5000 kg/h</text>
+   </g>
+   <g id="text_3">
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(434.044667 80.81832)">录入关系</text>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(454.044667 91.516563)"/>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(419.589198 102.488438)">主航段 1–50 条</text>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(414.589198 113.50875)">备降航段 1–50 条</text>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(414.044667 124.480625)">距离与阶段不重计</text>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(421.085292 135.393125)">迎风正  顺风负</text>
+   </g>
+   <g id="text_4">
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'; text-anchor: middle" x="288" y="202.4" transform="rotate(-0 288 202.4)">默认距离、时间和油耗均为手工演示样例</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="pe6ffbd6790">
+   <rect x="14.3" y="14.3" width="547.4" height="209"/>
+  </clipPath>
+ </defs>
+</svg>

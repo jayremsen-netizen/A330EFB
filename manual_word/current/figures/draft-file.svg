@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="576pt" height="237.6pt" viewBox="0 0 576 237.6" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-10-09T11:16:51.099565</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.2, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 237.6
+L 576 237.6
+L 576 0
+L 0 0
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 30.722 168.96
+L 191.292667 168.96
+L 191.292667 41.47
+L 30.722 41.47
+z
+" clip-path="url(#pd1779f51d2)" style="fill: #f5f6f7; stroke: #65727c; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 202.240667 168.96
+L 362.811333 168.96
+L 362.811333 41.47
+L 202.240667 41.47
+z
+" clip-path="url(#pd1779f51d2)" style="fill: #f5f6f7; stroke: #65727c; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 373.759333 168.96
+L 534.33 168.96
+L 534.33 41.47
+L 373.759333 41.47
+z
+" clip-path="url(#pd1779f51d2)" style="fill: #f5f6f7; stroke: #65727c; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_1">
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(81.007333 81.037852)">完整航班文件</text>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(111.007333 91.736094)"/>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(65.490146 102.434336)">schemaVersion = 1</text>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(76.070615 113.367148)">Flight 原始对象</text>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(71.007333 124.328281)">有限数和完整文本</text>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(76.007333 135.251719)">严格校验后导入</text>
+   </g>
+   <g id="text_2">
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(252.526 81.287168)">草稿交换文件</text>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(282.526 91.98541)"/>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(261.2135 102.683652)">format =</text>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(235.026781 113.381895)">a330efb-flight-draft</text>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(239.071313 124.089707)">formatVersion = 1</text>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(234.134594 134.992832)">exportedAt 与 Flight</text>
+   </g>
+   <g id="text_3">
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(424.044667 80.86207)">草稿恢复语义</text>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(454.044667 91.560313)"/>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(413.741542 102.522813)">null 恢复为空数值</text>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(419.044667 113.465)">保留未完成文本</text>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(409.044667 124.416562)">撤销重量与配载确认</text>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(419.044667 135.4275)">补齐后才能计算</text>
+   </g>
+   <g id="text_4">
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'; text-anchor: middle" x="288" y="202.4" transform="rotate(-0 288 202.4)">文件上限 512 KiB；异常结构拒绝，原航班保留</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="pd1779f51d2">
+   <rect x="14.3" y="14.3" width="547.4" height="209"/>
+  </clipPath>
+ </defs>
+</svg>

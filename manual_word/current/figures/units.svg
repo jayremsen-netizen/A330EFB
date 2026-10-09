@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="576pt" height="237.6pt" viewBox="0 0 576 237.6" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-10-09T11:16:50.869564</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.2, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 237.6
+L 576 237.6
+L 576 0
+L 0 0
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 30.722 168.96
+L 191.292667 168.96
+L 191.292667 41.47
+L 30.722 41.47
+z
+" clip-path="url(#peefa5fc4d4)" style="fill: #f5f6f7; stroke: #65727c; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 202.240667 168.96
+L 362.811333 168.96
+L 362.811333 41.47
+L 202.240667 41.47
+z
+" clip-path="url(#peefa5fc4d4)" style="fill: #f5f6f7; stroke: #65727c; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 373.759333 168.96
+L 534.33 168.96
+L 534.33 41.47
+L 373.759333 41.47
+z
+" clip-path="url(#peefa5fc4d4)" style="fill: #f5f6f7; stroke: #65727c; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_1">
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(86.007333 80.943906)">输入与显示</text>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(111.007333 91.642148)"/>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(92.710458 102.526523)">kg 或 lb</text>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(94.669052 113.420469)">m 或 ft</text>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(82.841708 124.304844)">hPa 或 inHg</text>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(81.007333 135.276914)">有限数或空值</text>
+   </g>
+   <g id="text_2">
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(262.526 81.003379)">内部基准</text>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(282.526 91.701621)"/>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(265.233031 102.400059)">质量 kg</text>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(240.931469 113.381504)">距离 m／航路 NM</text>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(262.317406 124.323691)">气压 hPa</text>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(266.503344 135.286191)">空速 kt</text>
+   </g>
+   <g id="text_3">
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(434.044667 80.847129)">动力求解</text>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(454.044667 91.545371)"/>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(423.429042 102.546934)">速度换算 m/s</text>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(417.358729 113.489121)">力 N  力矩 kg·m</text>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(440.250135 124.392441)">时间 s</text>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(405.431385 135.364316)">CAS／TAS／地速分离</text>
+   </g>
+   <g id="text_4">
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'; text-anchor: middle" x="288" y="202.4" transform="rotate(-0 288 202.4)">界面换单位不改变内部质量和物理输入</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="peefa5fc4d4">
+   <rect x="14.3" y="14.3" width="547.4" height="209"/>
+  </clipPath>
+ </defs>
+</svg>

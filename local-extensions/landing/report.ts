@@ -7,8 +7,10 @@ const esc=(v:unknown)=>String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;',
 export function landingChartSvg(result:LandingResult):string {
  const s=result.solution;if(!s)return '';
  const left=58,right=740,width=800,maxDistance=Math.max(result.input.runway.ldaM,s.requiredDistanceM)*1.08,x=(d:number)=>left+d/maxDistance*(right-left);
- const slope=result.input.runway.slopePercent/100,heights=s.trajectory.map(p=>p.heightM+(p.phase==='braking'?p.distanceM*slope:0));
- const minH=Math.min(0,slope*result.input.runway.ldaM),maxH=Math.max(20,slope*result.input.runway.ldaM,...heights),y=(h:number)=>175-(h-minH)/(maxH-minH)*125;
+ const slope=result.input.runway.slopePercent/100,heights=s.trajectory.map(p=>p.heightM+p.distanceM*slope);
+ // Infeasible trajectories can extend beyond LDA; their actual heights still belong in the plot.
+ const lower=Math.min(0,slope*result.input.runway.ldaM,...heights),upper=Math.max(20,slope*result.input.runway.ldaM,...heights);
+ const padding=Math.max(1,(upper-lower)*.05),minH=lower-padding,maxH=upper+padding,y=(h:number)=>175-(h-minH)/(maxH-minH)*125;
  const runwayY=(d:number)=>y(d*slope);
  const profile=s.trajectory.map((p,i)=>`${i?'L':'M'} ${x(p.distanceM).toFixed(1)} ${y(p.heightM+p.distanceM*slope).toFixed(1)}`).join(' ');
  const lines=Array.from({length:5},(_,i)=>{const d=i*maxDistance/4;return `<line x1="${x(d)}" x2="${x(d)}" y1="42" y2="186" stroke="#485764" stroke-opacity=".3"/><text x="${x(d)}" y="207" text-anchor="middle">${n(d)} m</text>`;}).join('');

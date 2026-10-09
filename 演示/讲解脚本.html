@@ -1,107 +1,107 @@
-<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>A330 EFB 现场讲解脚本</title><style>body{font-family:'Microsoft YaHei',Arial,sans-serif;line-height:1.9;color:#223248;background:#f1f4f8;margin:0}main{max-width:1040px;background:white;margin:35px auto;padding:50px 65px;border-top:8px solid #259b87}h1{font-size:30px}h2{font-size:24px;margin-top:60px;padding-bottom:15px;border-bottom:2px solid #dce5eb;color:#16786b}h3{font-size:19px;margin-top:36px}p{font-size:15px}a{color:#16786b}.entry{background:#edf7f4;padding:16px 22px}@media print{body{background:#fff}main{padding:0;margin:0;border:0}h2{break-before:page}}</style><main><div class="entry">双击根目录“启动投标演示.cmd”后，<a href="http://127.0.0.1:9698/demo.html?autoplay=1">进入自动演示</a>。<br><a href="../output/word/A330电子飞行包系统技术方案与操作说明书.docx">技术说明书 2.0（Word）</a> · <a href="../docs/implementation/1.1操作补充说明.md">1.1 操作补充说明</a>。</div><h1>A330 EFB 现场讲解脚本</h1>
-<p>本脚本与程序的五套自动场景逐节对应。每一步均由软件执行实际页面操作，讲解人员可暂停补充说明。文档引用采用技术说明书 2.0、1.1 操作补充说明和起飞性能操作说明的章节。工程起飞数值来自明确假设的模型，未经航空性能校准。</p>
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>A330 EFB 现场讲解脚本</title><style>body{font-family:'Microsoft YaHei',Arial,sans-serif;line-height:1.9;color:#223248;background:#f1f4f8;margin:0}main{max-width:1040px;background:white;margin:35px auto;padding:50px 65px;border-top:8px solid #259b87}h1{font-size:30px}h2{font-size:24px;margin-top:60px;padding-bottom:15px;border-bottom:2px solid #dce5eb;color:#16786b}h3{font-size:19px;margin-top:36px}p{font-size:15px}a{color:#16786b}.entry{background:#edf7f4;padding:16px 22px}@media print{body{background:#fff}main{padding:0;margin:0;border:0}h2{break-before:page}}</style><main><div class="entry">双击根目录“启动投标演示.cmd”后，<a href="http://127.0.0.1:9698/demo.html?autoplay=1">进入自动演示</a>。<br><a href="../output/word/A330电子飞行包系统技术方案与操作说明书.docx">统一技术说明书3.0（Word）</a> · 软件版本1.3.1。</div><h1>A330 EFB 现场讲解脚本</h1>
+<p>本脚本与程序的六套自动场景逐节对应。每一步由软件执行实际页面操作，讲解人员可暂停接管。章节统一引用技术说明书3.0，软件版本1.3.1。工程起飞、燃油、配载及着陆使用明确的工程假设，未经航空性能校准。</p>
 <h2>典型航班准备</h2>
 <p>建档 → 重量 → 页面协同 → 核算报告 → 变更复核 → 检查单</p>
 <p>共 20 节，标准速度的讲解停留合计 5 分 26 秒，另加页面操作时间。</p>
 <h3>01　从统一工作台开始</h3>
 <p>围绕一份航班计划完成签派资料、载荷燃油和参考计算。左侧为正在运行的 Headwind EFB，演示脚本会实际操作这些页面。</p>
 <p>观察重点： 本地场景资料 · 全程可暂停并接管操作</p>
-<p>手册对应： 技术说明书 2.0 · 第 18 章　停留： 10 秒</p>
+<p>手册对应： 技术说明书3.0 · 10.1　停留： 10 秒</p>
 <p>自动操作：进入 /dashboard。</p>
 <h3>02　导入航班，建立统一输入</h3>
 <p>载入 DEMO330 本地航班文件。起飞 ZUTF、目的 ZSPD，250 名旅客，停机坪燃油 30,000 kg。文件经过程序原有的 JSON 解析和字段校验。</p>
 <p>观察重点： 航班号、机场、质量数据同时进入工作台</p>
-<p>手册对应： 技术说明书 2.0 · 19.1–19.4　停留： 18 秒</p>
+<p>手册对应： 技术说明书3.0 · 10.2及10.4　停留： 18 秒</p>
 <p>自动操作：进入 /dispatch/local-flight；点击“新建航班”；通过程序文件入口导入 DEMO330 JSON；核对业务状态：{&quot;flightNumber&quot;: &quot;DEMO330&quot;, &quot;tow&quot;: 184500, &quot;confirmed&quot;: false}。</p>
 <h3>03　人数改变，重量同步变化</h3>
 <p>将旅客人数从 250 改为 260。每人及行李合计 104 kg，因此载荷和起飞重量同步增加 1,040 kg。重量卡片由实际输入实时计算。</p>
 <p>观察重点： TOW：184,500 → 185,540 kg</p>
-<p>手册对应： 技术说明书 2.0 · 20.1　停留： 16 秒</p>
+<p>手册对应： 技术说明书3.0 · 10.3　停留： 16 秒</p>
 <p>自动操作：输入 pax = 260；核对业务状态：{&quot;tow&quot;: 185540, &quot;zfw&quot;: 156040}。</p>
 <h3>04　恢复本次演示计划</h3>
 <p>将旅客人数恢复为 250，检查空重、载荷、零燃油重量和起飞重量之间的关系。本次后续演示采用这份基础计划。</p>
 <p>观察重点： ZFW 155,000 kg · TOW 184,500 kg</p>
-<p>手册对应： 技术说明书 2.0 · 20.1–20.2　停留： 12 秒</p>
+<p>手册对应： 技术说明书3.0 · 10.3　停留： 12 秒</p>
 <p>自动操作：输入 pax = 250；核对业务状态：{&quot;zfw&quot;: 155000, &quot;tow&quot;: 184500}。</p>
 <h3>05　确认重量并同步专业页面</h3>
 <p>保存并确认重量后，当前计划同步到仪表盘、签派资料以及载荷和燃油目标。确认动作建立本次计算采用的输入版本。</p>
 <p>观察重点： 观察蓝色状态提示：本地航班与重量已确认</p>
-<p>手册对应： 技术说明书 2.0 · 19.5　停留： 14 秒</p>
+<p>手册对应： 技术说明书3.0 · 2.3及10.3　停留： 14 秒</p>
 <p>自动操作：点击“保存并确认重量”；核对业务状态：{&quot;confirmed&quot;: true}。</p>
 <h3>06　仪表盘读取同一航班</h3>
 <p>返回仪表盘，航班号、出发与目的机场、人数和重量摘要均来自刚才确认的计划。演示中的时刻和航路为本地样例。</p>
 <p>观察重点： DEMO330 · ZUTF → ZSPD · 250 名旅客</p>
-<p>手册对应： 技术说明书 2.0 · 18.2、19.5　停留： 14 秒</p>
+<p>手册对应： 技术说明书3.0 · 10.1及10.3　停留： 14 秒</p>
 <p>自动操作：进入 /dashboard；核对业务状态：{&quot;flightNumber&quot;: &quot;DEMO330&quot;, &quot;confirmed&quot;: true}。</p>
 <h3>07　查看本地签派资料</h3>
 <p>打开 OFP 阅读页。程序根据已确认输入生成航班、载荷、燃油与重量摘要，供现场评审核对跨页面的一致性。</p>
 <p>观察重点： 同一计划形成可阅读的签派摘要</p>
-<p>手册对应： 技术说明书 2.0 · 19.6　停留： 15 秒</p>
+<p>手册对应： 技术说明书3.0 · 9.1及10.3　停留： 15 秒</p>
 <p>自动操作：进入 /dispatch/ofp。</p>
 <h3>08　载重页面与客舱分布</h3>
 <p>原生载重页面呈现座位和货舱布局，并显示计划人数、货物与重量数据。这里展示原生 EFB 与本地航班的联动。</p>
 <p>观察重点： 计划人数 250 · ZFW 155,000 kg</p>
-<p>手册对应： 技术说明书 2.0 · 20.4　停留： 15 秒</p>
+<p>手册对应： 技术说明书3.0 · 7.3及11.3　停留： 15 秒</p>
 <p>自动操作：进入 /ground/payload；核对业务状态：{&quot;zfw&quot;: 155000}。</p>
 <h3>09　燃油目标与油箱页面</h3>
 <p>原生燃油页面按油箱展示本地演示状态。当前计划停机坪燃油为 30,000 kg，后续将用它演示目标变化与重新确认。</p>
 <p>观察重点： 核对页面上方的本地计划与目标油量</p>
-<p>手册对应： 技术说明书 2.0 · 20.3　停留： 15 秒</p>
+<p>手册对应： 技术说明书3.0 · 7.3及11.5　停留： 15 秒</p>
 <p>自动操作：进入 /ground/fuel；核对业务状态：{&quot;fuelTarget&quot;: 30000}。</p>
 <h3>10　核对跑道、天气与构型</h3>
 <p>进入离线参考核算。场景使用 3,500 m 声明距离、标准气压和 CONF 1+F。输入界面与航班工作台共用同一份 Flight 数据。</p>
 <p>观察重点： 本演示展示重量和源码表 V2 参考核算</p>
-<p>手册对应： 技术说明书 2.0 · 21.1–21.2　停留： 18 秒</p>
+<p>手册对应： 技术说明书3.0 · 12.1　停留： 18 秒</p>
 <p>自动操作：进入 /performance/local-takeoff。</p>
 <h3>11　运行实际计算并解释结果</h3>
 <p>执行本地计算，184.5 t、CONF 1+F 对应 V2 参考 150.8 kt。界面同时显示风分量、压力高度和距离扣减；参考值不等同于完整起飞性能判定。</p>
 <p>观察重点： 实际函数结果：V2 150.8 kt</p>
-<p>手册对应： 技术说明书 2.0 · 10.3、21.2　停留： 20 秒</p>
+<p>手册对应： 技术说明书3.0 · 12.1　停留： 20 秒</p>
 <p>自动操作：点击“本地计算”；核对业务状态：{&quot;v2&quot;: 150.8, &quot;valid&quot;: true}。</p>
 <h3>12　保存带输入快照的历史</h3>
 <p>保存当前核算记录。记录保留航班输入、资料与内核版本，便于复核这一次结果的来历；恢复历史后仍需重新确认。</p>
 <p>观察重点： 历史记录新增 1 条</p>
-<p>手册对应： 技术说明书 2.0 · 21.4　停留： 15 秒</p>
+<p>手册对应： 技术说明书3.0 · 2.3及12.1　停留： 15 秒</p>
 <p>自动操作：点击“保存记录”；核对业务状态：{&quot;history&quot;: 1}。</p>
 <h3>13　生成可交付的核算报告</h3>
 <p>预览由程序实际生成的 HTML 报告。报告包含输入快照、参考结果和版本信息，可在暂停演示后保存 JSON 或 HTML。</p>
 <p>观察重点： 报告数据直接读取当前有效结果</p>
-<p>手册对应： 技术说明书 2.0 · 21.5　停留： 20 秒</p>
+<p>手册对应： 技术说明书3.0 · 9.3及11.6　停留： 20 秒</p>
 <p>自动操作：显示当前真实 HTML 核算报告。</p>
 <h3>14　地面燃油目标发生变化</h3>
 <p>把原生燃油页面的目标从 30,000 kg 改为 31,000 kg。程序保留已确认的航班输入，同时标记地面目标发生变化。</p>
 <p>观察重点： 运行目标改变；原计划等待用户核对</p>
-<p>手册对应： 技术说明书 2.0 · 20.3、20.5　停留： 16 秒</p>
+<p>手册对应： 技术说明书3.0 · 7.3及12.2　停留： 16 秒</p>
 <p>自动操作：进入 /ground/fuel；原生燃油目标输入 31000 kg；核对业务状态：{&quot;fuelTarget&quot;: 31000, &quot;groundChanged&quot;: true}。</p>
 <h3>15　旧结果失效，出口受到控制</h3>
 <p>返回参考核算页，旧数值仍可回看，但程序显示结果已过期并禁用当前报告出口。这一状态来自真实业务规则。</p>
 <p>观察重点： “结果已过期”与灰色导出按钮</p>
-<p>手册对应： 技术说明书 2.0 · 20.5、21.3　停留： 18 秒</p>
+<p>手册对应： 技术说明书3.0 · 2.3及12.2　停留： 18 秒</p>
 <p>自动操作：进入 /performance/local-takeoff；核对业务状态：{&quot;valid&quot;: false, &quot;groundChanged&quot;: true}。</p>
 <h3>16　读取新目标，重新确认计划</h3>
 <p>回到航班工作台，读取地面燃油目标，再保存确认。新的起飞重量为 185,500 kg，用户明确采用了这份更新后的计划。</p>
 <p>观察重点： 停机坪燃油 31,000 kg · TOW 185,500 kg</p>
-<p>手册对应： 技术说明书 2.0 · 20.5　停留： 20 秒</p>
+<p>手册对应： 技术说明书3.0 · 10.3及12.2　停留： 20 秒</p>
 <p>自动操作：进入 /dispatch/local-flight；点击“读取地面燃油目标”；核对业务状态：{&quot;fuel&quot;: 31000, &quot;tow&quot;: 185500, &quot;confirmed&quot;: false}；点击“保存并确认重量”；核对业务状态：{&quot;confirmed&quot;: true, &quot;groundChanged&quot;: false}。</p>
 <h3>17　重算形成新的有效结果</h3>
 <p>按新重量重新计算并保存记录，V2 参考变为 151.2 kt。两次历史记录分别对应各自的输入快照，完成变更复核过程。</p>
 <p>观察重点： V2：150.8 → 151.2 kt · 历史 2 条</p>
-<p>手册对应： 技术说明书 2.0 · 21.3–21.4　停留： 18 秒</p>
+<p>手册对应： 技术说明书3.0 · 12.2　停留： 18 秒</p>
 <p>自动操作：进入 /performance/local-takeoff；点击“本地计算”；点击“保存记录”；核对业务状态：{&quot;v2&quot;: 151.2, &quot;valid&quot;: true, &quot;history&quot;: 2}。</p>
 <h3>18　在原生检查单中逐项确认</h3>
 <p>切换到驾驶舱准备检查单，勾选 GEAR PINS &amp; COVERS。检查单由原生页面管理，勾选后条目颜色和完成状态同步改变。</p>
 <p>观察重点： 一个实际检查项完成，页面保留勾选状态</p>
-<p>手册对应： 技术说明书 2.0 · 22.1　停留： 20 秒</p>
+<p>手册对应： 技术说明书3.0 · 8.3及10.6　停留： 20 秒</p>
 <p>自动操作：进入 /checklists；勾选 GEAR PINS &amp; COVERS；核对业务状态：{&quot;checkedItems&quot;: 1}。</p>
 <h3>19　下降顶点工具</h3>
 <p>输入当前高度 35,000 ft、目标高度 3,000 ft 和 3° 下降角。原生工具按几何关系给出约 100 NM 的下降距离。</p>
 <p>观察重点： 35,000 → 3,000 ft · 3° · 约 100 NM</p>
-<p>手册对应： 技术说明书 2.0 · 21.6　停留： 20 秒</p>
+<p>手册对应： 技术说明书3.0 · 8.3及10.6　停留： 20 秒</p>
 <p>自动操作：进入 /performance/top-of-descent；填写原生工具输入：35000, 3000, 3；核对业务状态：{&quot;todAltitude&quot;: 35000, &quot;todTarget&quot;: 3000}。</p>
 <h3>20　完成典型航班准备演示</h3>
 <p>已展示文件建档、重量核对、跨页面同步、参考计算、历史与报告，以及地面变更后的失效和重算。可重播场景，或暂停后在真实页面自由操作。</p>
 <p>观察重点： 演示记录和业务文件可从右上角“演示资料”保存</p>
-<p>手册对应： 技术说明书 2.0 · 第 18–22 章　停留： 12 秒</p>
+<p>手册对应： 技术说明书3.0 · 12.1　停留： 12 秒</p>
 <p>自动操作：进入 /performance/local-takeoff；核对业务状态：{&quot;valid&quot;: true, &quot;v2&quot;: 151.2, &quot;history&quot;: 2}。</p>
 <h2>地面变更与重算</h2>
 <p>基础结果 → 燃油变更 → 结果失效 → 重新确认 → 新报告</p>
@@ -109,37 +109,37 @@
 <h3>01　建立本次场景的基础计划</h3>
 <p>导入与项目手册一致的 DEMO330 样例，确认 184,500 kg 起飞重量，计算并保存 150.8 kt 的 V2 参考记录。</p>
 <p>观察重点： 本场景使用独立的演示会话</p>
-<p>手册对应： 技术说明书 2.0 · 第 19–21 章　停留： 14 秒</p>
+<p>手册对应： 技术说明书3.0 · 12.1　停留： 14 秒</p>
 <p>自动操作：进入 /dispatch/local-flight；通过程序文件入口导入 DEMO330 JSON；点击“保存并确认重量”；进入 /performance/local-takeoff；点击“本地计算”；点击“保存记录”；核对业务状态：{&quot;valid&quot;: true, &quot;v2&quot;: 150.8, &quot;history&quot;: 1}。</p>
 <h3>02　地面燃油目标发生变化</h3>
 <p>把原生燃油页面的目标从 30,000 kg 改为 31,000 kg。程序保留已确认的航班输入，同时标记地面目标发生变化。</p>
 <p>观察重点： 运行目标改变；原计划等待用户核对</p>
-<p>手册对应： 技术说明书 2.0 · 20.3、20.5　停留： 16 秒</p>
+<p>手册对应： 技术说明书3.0 · 7.3及12.2　停留： 16 秒</p>
 <p>自动操作：进入 /ground/fuel；原生燃油目标输入 31000 kg；核对业务状态：{&quot;fuelTarget&quot;: 31000, &quot;groundChanged&quot;: true}。</p>
 <h3>03　旧结果失效，出口受到控制</h3>
 <p>返回参考核算页，旧数值仍可回看，但程序显示结果已过期并禁用当前报告出口。这一状态来自真实业务规则。</p>
 <p>观察重点： “结果已过期”与灰色导出按钮</p>
-<p>手册对应： 技术说明书 2.0 · 20.5、21.3　停留： 18 秒</p>
+<p>手册对应： 技术说明书3.0 · 2.3及12.2　停留： 18 秒</p>
 <p>自动操作：进入 /performance/local-takeoff；核对业务状态：{&quot;valid&quot;: false, &quot;groundChanged&quot;: true}。</p>
 <h3>04　读取新目标，重新确认计划</h3>
 <p>回到航班工作台，读取地面燃油目标，再保存确认。新的起飞重量为 185,500 kg，用户明确采用了这份更新后的计划。</p>
 <p>观察重点： 停机坪燃油 31,000 kg · TOW 185,500 kg</p>
-<p>手册对应： 技术说明书 2.0 · 20.5　停留： 20 秒</p>
+<p>手册对应： 技术说明书3.0 · 10.3及12.2　停留： 20 秒</p>
 <p>自动操作：进入 /dispatch/local-flight；点击“读取地面燃油目标”；核对业务状态：{&quot;fuel&quot;: 31000, &quot;tow&quot;: 185500, &quot;confirmed&quot;: false}；点击“保存并确认重量”；核对业务状态：{&quot;confirmed&quot;: true, &quot;groundChanged&quot;: false}。</p>
 <h3>05　重算形成新的有效结果</h3>
 <p>按新重量重新计算并保存记录，V2 参考变为 151.2 kt。两次历史记录分别对应各自的输入快照，完成变更复核过程。</p>
 <p>观察重点： V2：150.8 → 151.2 kt · 历史 2 条</p>
-<p>手册对应： 技术说明书 2.0 · 21.3–21.4　停留： 18 秒</p>
+<p>手册对应： 技术说明书3.0 · 12.2　停留： 18 秒</p>
 <p>自动操作：进入 /performance/local-takeoff；点击“本地计算”；点击“保存记录”；核对业务状态：{&quot;v2&quot;: 151.2, &quot;valid&quot;: true, &quot;history&quot;: 2}。</p>
 <h3>06　生成可交付的核算报告</h3>
 <p>预览由程序实际生成的 HTML 报告。报告包含输入快照、参考结果和版本信息，可在暂停演示后保存 JSON 或 HTML。</p>
 <p>观察重点： 报告数据直接读取当前有效结果</p>
-<p>手册对应： 技术说明书 2.0 · 21.5　停留： 20 秒</p>
+<p>手册对应： 技术说明书3.0 · 9.3及11.6　停留： 20 秒</p>
 <p>自动操作：显示当前真实 HTML 核算报告。</p>
 <h3>07　完成典型航班准备演示</h3>
 <p>已展示文件建档、重量核对、跨页面同步、参考计算、历史与报告，以及地面变更后的失效和重算。可重播场景，或暂停后在真实页面自由操作。</p>
 <p>观察重点： 演示记录和业务文件可从右上角“演示资料”保存</p>
-<p>手册对应： 技术说明书 2.0 · 第 18–22 章　停留： 12 秒</p>
+<p>手册对应： 技术说明书3.0 · 12.1　停留： 12 秒</p>
 <p>自动操作：进入 /performance/local-takeoff；核对业务状态：{&quot;valid&quot;: true, &quot;v2&quot;: 151.2, &quot;history&quot;: 2}。</p>
 <h2>专业工具巡览</h2>
 <p>载荷与燃油 → 检查单 → 下降顶点 → 着陆计算</p>
@@ -147,37 +147,37 @@
 <h3>01　建立本次场景的基础计划</h3>
 <p>导入与项目手册一致的 DEMO330 样例，确认 184,500 kg 起飞重量，计算并保存 150.8 kt 的 V2 参考记录。</p>
 <p>观察重点： 本场景使用独立的演示会话</p>
-<p>手册对应： 技术说明书 2.0 · 第 19–21 章　停留： 14 秒</p>
+<p>手册对应： 技术说明书3.0 · 12.1　停留： 14 秒</p>
 <p>自动操作：进入 /dispatch/local-flight；通过程序文件入口导入 DEMO330 JSON；点击“保存并确认重量”；进入 /performance/local-takeoff；点击“本地计算”；点击“保存记录”；核对业务状态：{&quot;valid&quot;: true, &quot;v2&quot;: 150.8, &quot;history&quot;: 1}。</p>
 <h3>02　载重页面与客舱分布</h3>
 <p>原生载重页面呈现座位和货舱布局，并显示计划人数、货物与重量数据。这里展示原生 EFB 与本地航班的联动。</p>
 <p>观察重点： 计划人数 250 · ZFW 155,000 kg</p>
-<p>手册对应： 技术说明书 2.0 · 20.4　停留： 15 秒</p>
+<p>手册对应： 技术说明书3.0 · 7.3及11.3　停留： 15 秒</p>
 <p>自动操作：进入 /ground/payload；核对业务状态：{&quot;zfw&quot;: 155000}。</p>
 <h3>03　燃油目标与油箱页面</h3>
 <p>原生燃油页面按油箱展示本地演示状态。当前计划停机坪燃油为 30,000 kg，后续将用它演示目标变化与重新确认。</p>
 <p>观察重点： 核对页面上方的本地计划与目标油量</p>
-<p>手册对应： 技术说明书 2.0 · 20.3　停留： 15 秒</p>
+<p>手册对应： 技术说明书3.0 · 7.3及11.5　停留： 15 秒</p>
 <p>自动操作：进入 /ground/fuel；核对业务状态：{&quot;fuelTarget&quot;: 30000}。</p>
 <h3>04　在原生检查单中逐项确认</h3>
 <p>切换到驾驶舱准备检查单，勾选 GEAR PINS &amp; COVERS。检查单由原生页面管理，勾选后条目颜色和完成状态同步改变。</p>
 <p>观察重点： 一个实际检查项完成，页面保留勾选状态</p>
-<p>手册对应： 技术说明书 2.0 · 22.1　停留： 20 秒</p>
+<p>手册对应： 技术说明书3.0 · 8.3及10.6　停留： 20 秒</p>
 <p>自动操作：进入 /checklists；勾选 GEAR PINS &amp; COVERS；核对业务状态：{&quot;checkedItems&quot;: 1}。</p>
 <h3>05　下降顶点工具</h3>
 <p>输入当前高度 35,000 ft、目标高度 3,000 ft 和 3° 下降角。原生工具按几何关系给出约 100 NM 的下降距离。</p>
 <p>观察重点： 35,000 → 3,000 ft · 3° · 约 100 NM</p>
-<p>手册对应： 技术说明书 2.0 · 21.6　停留： 20 秒</p>
+<p>手册对应： 技术说明书3.0 · 8.3及10.6　停留： 20 秒</p>
 <p>自动操作：进入 /performance/top-of-descent；填写原生工具输入：35000, 3000, 3；核对业务状态：{&quot;todAltitude&quot;: 35000, &quot;todTarget&quot;: 3000}。</p>
 <h3>06　着陆工具录入与计算</h3>
-<p>使用手册中的 190 t、FULL 构型样例，展示原生着陆页的录入、计算和三档制动结果。此处用于说明软件流程，算法资料的校准边界见手册第 11 章。</p>
+<p>使用手册中的 190 t、FULL 构型样例，展示原生着陆页的录入、计算和三档制动结果。此处用于说明软件流程，旧工具与工程着陆的区别见技术说明书3.0第8及12章。</p>
 <p>观察重点： 参数录入后执行原生页面“计算”</p>
-<p>手册对应： 技术说明书 2.0 · 11.3–11.4、21.6　停留： 20 秒</p>
+<p>手册对应： 技术说明书3.0 · 8.3及12.3　停留： 20 秒</p>
 <p>自动操作：进入 /performance/landing；填写原生工具输入：170, 3500, 20, 0, 0, 15, 1013, 190000, 145；点击“计算”。</p>
 <h3>07　专业工具巡览完成</h3>
 <p>已展示载荷、燃油、检查单、下降顶点和着陆工具。可通过底部步骤条定位任一功能，或接管真实 EFB 继续操作。</p>
 <p>观察重点： “重播”会重新建立该场景的演示数据</p>
-<p>手册对应： 技术说明书 2.0 · 第 20–22 章　停留： 10 秒</p>
+<p>手册对应： 技术说明书3.0 · 12.3　停留： 10 秒</p>
 <p>自动操作：进入 /dashboard。</p>
 <h2>资料与地面协同</h2>
 <p>资料阅读 → 天气采用 → 地面准备 → 故障恢复 → 推出</p>
@@ -185,62 +185,62 @@
 <h3>01　建立本次场景的基础计划</h3>
 <p>导入与项目手册一致的 DEMO330 样例，确认 184,500 kg 起飞重量，计算并保存 150.8 kt 的 V2 参考记录。</p>
 <p>观察重点： 本场景使用独立的演示会话</p>
-<p>手册对应： 技术说明书 2.0 · 第 19–21 章　停留： 14 秒</p>
+<p>手册对应： 技术说明书3.0 · 12.1　停留： 14 秒</p>
 <p>自动操作：进入 /dispatch/local-flight；通过程序文件入口导入 DEMO330 JSON；点击“保存并确认重量”；进入 /performance/local-takeoff；点击“本地计算”；点击“保存记录”；核对业务状态：{&quot;valid&quot;: true, &quot;v2&quot;: 150.8, &quot;history&quot;: 1}。</p>
 <h3>02　阅读离线图件</h3>
 <p>打开项目自制的机场布局示意，放大后旋转并复位。所有内置资料随项目构建提供，现场不需要外网。</p>
 <p>观察重点： 图件带有演示用途标识</p>
-<p>手册对应： 1.1 操作补充说明 §2　停留： 14 秒</p>
+<p>手册对应： 技术说明书3.0 · 8.2及10.5　停留： 14 秒</p>
 <p>自动操作：进入 /navigation/local-files；点击“放大”；点击“旋转”；点击“复位视图”。</p>
 <h3>03　采用一份带来源的天气</h3>
 <p>在天气页面核对机场、时间与报文，明确采用到航班。旧确认和旧计算立即失效，需要重新确认计划。</p>
 <p>观察重点： 固定天气样例，不表示机场实况</p>
-<p>手册对应： 1.1 操作补充说明 §3　停留： 14 秒</p>
+<p>手册对应： 技术说明书3.0 · 8.1及10.5　停留： 14 秒</p>
 <p>自动操作：进入 /dispatch/local-weather；点击“采用到当前航班”；核对业务状态：{&quot;confirmed&quot;: false, &quot;valid&quot;: false}。</p>
 <h3>04　确认新天气并重新计算</h3>
 <p>返回航班工作台确认，再执行参考核算。新结果记录这次采用的资料来源和时间。</p>
 <p>观察重点： 计划、天气与结果具有同一输入快照</p>
-<p>手册对应： 1.1 操作补充说明 §3　停留： 12 秒</p>
+<p>手册对应： 技术说明书3.0 · 8.1及10.5　停留： 12 秒</p>
 <p>自动操作：进入 /dispatch/local-flight；点击“保存并确认重量”；进入 /performance/local-takeoff；点击“本地计算”；核对业务状态：{&quot;confirmed&quot;: true, &quot;valid&quot;: true}。</p>
 <h3>05　恢复停机待服务状态</h3>
 <p>使用停机预设清空地面回执，设定 5000 kg 油量和 0 名旅客。新会话不会继续执行上一会话的动作。</p>
 <p>观察重点： 当前状态与计划目标分开显示</p>
-<p>手册对应： 1.1 操作补充说明 §4　停留： 12 秒</p>
+<p>手册对应： 技术说明书3.0 · 7.4及11.5　停留： 12 秒</p>
 <p>自动操作：进入 /presets；点击“恢复停机预设”；核对业务状态：{&quot;currentFuel&quot;: 5000, &quot;currentPax&quot;: 0, &quot;gpuConnected&quot;: false}。</p>
 <h3>06　连接地面电源</h3>
 <p>提交连接请求，查看受理、执行与完成回执。完成后设备状态变为已连接。</p>
 <p>观察重点： 状态由本地演示模型推进</p>
-<p>手册对应： 1.1 操作补充说明 §4　停留： 12 秒</p>
+<p>手册对应： 技术说明书3.0 · 7.1及11.5　停留： 12 秒</p>
 <p>自动操作：进入 /ground/services；点击“连接外接电源”；核对业务状态：{&quot;gpuConnected&quot;: true, &quot;lastCommandStatus&quot;: &quot;completed&quot;}。</p>
 <h3>07　按确认计划加油</h3>
 <p>把当前油量从 5000 kg 加至计划的 30000 kg。各油箱使用同一分配规则，原生燃油页也能读取变化后的油量。</p>
 <p>观察重点： 进度结束后核对 30000 kg</p>
-<p>手册对应： 1.1 操作补充说明 §4　停留： 14 秒</p>
+<p>手册对应： 技术说明书3.0 · 7.2及11.5　停留： 14 秒</p>
 <p>自动操作：点击“按计划加油”；核对业务状态：{&quot;currentFuel&quot;: 30000, &quot;lastCommandStatus&quot;: &quot;completed&quot;}。</p>
 <h3>08　按计划完成登机</h3>
 <p>执行 250 名旅客的登机演示，并将最终状态写入本地客舱变量。</p>
 <p>观察重点： 计划 250 名，完成后当前人数 250</p>
-<p>手册对应： 1.1 操作补充说明 §4　停留： 14 秒</p>
+<p>手册对应： 技术说明书3.0 · 7.1及11.5　停留： 14 秒</p>
 <p>自动操作：点击“按计划登机”；核对业务状态：{&quot;currentPax&quot;: 250, &quot;lastCommandStatus&quot;: &quot;completed&quot;}。</p>
 <h3>09　激活电源故障</h3>
 <p>激活外接电源故障，观察电源连接被中断。此故障只影响当前浏览器中的演示模型。</p>
 <p>观察重点： 故障状态与地面设备状态保持一致</p>
-<p>手册对应： 1.1 操作补充说明 §5　停留： 12 秒</p>
+<p>手册对应： 技术说明书3.0 · 7.1及11.5　停留： 12 秒</p>
 <p>自动操作：进入 /failures；点击“激活电源故障”；核对业务状态：{&quot;gpuConnected&quot;: false, &quot;activeFaults&quot;: 1}。</p>
 <h3>10　故障条件下拒绝连接</h3>
 <p>故障未解除时再次连接电源，程序返回明确拒绝回执，设备不会显示为已连接。</p>
 <p>观察重点： 拒绝原因可以直接复核</p>
-<p>手册对应： 1.1 操作补充说明 §5　停留： 12 秒</p>
+<p>手册对应： 技术说明书3.0 · 7.1及11.5　停留： 12 秒</p>
 <p>自动操作：进入 /ground/services；点击“连接外接电源”；核对业务状态：{&quot;lastCommandStatus&quot;: &quot;rejected&quot;, &quot;gpuConnected&quot;: false}。</p>
 <h3>11　解除故障并恢复设备</h3>
 <p>解除电源故障后重新提交连接请求，确认本次请求能够完成。</p>
 <p>观察重点： 解除故障不会自动补发旧命令</p>
-<p>手册对应： 1.1 操作补充说明 §5　停留： 14 秒</p>
+<p>手册对应： 技术说明书3.0 · 7.1及11.5　停留： 14 秒</p>
 <p>自动操作：进入 /failures；点击“解除电源故障”；进入 /ground/services；点击“连接外接电源”；核对业务状态：{&quot;gpuConnected&quot;: true, &quot;activeFaults&quot;: 0, &quot;lastCommandStatus&quot;: &quot;completed&quot;}。</p>
 <h3>12　断开电源并演示推出</h3>
 <p>断开外接电源，再提交推出请求。模型推进至 30 米示意距离，完成本次资料与地面协同。</p>
 <p>观察重点： 本地推出示意，不驱动真实飞机位置</p>
-<p>手册对应： 1.1 操作补充说明 §4　停留： 16 秒</p>
+<p>手册对应： 技术说明书3.0 · 7.3及11.5　停留： 16 秒</p>
 <p>自动操作：点击“断开外接电源”；核对业务状态：{&quot;gpuConnected&quot;: false, &quot;lastCommandStatus&quot;: &quot;completed&quot;}；点击“请求推出”；核对业务状态：{&quot;pushbackMetres&quot;: 30, &quot;lastCommandStatus&quot;: &quot;completed&quot;}。</p>
 <h2>工程起飞性能</h2>
 <p>确认计划 → TOGA → FLEX → 轨迹与余量 → 短跑道无解 → 恢复重算 → 工程报告</p>
@@ -248,40 +248,78 @@
 <h3>01　确认本次计算的航班输入</h3>
 <p>导入 DEMO330 样例并保存确认，采用 184,500 kg 起飞重量和 3,500 m 声明距离。本场景使用公开列示的工程假设，展示数值求解与软件流程。</p>
 <p>观察重点： 未经航空性能校准；结果只表示本模型内的约束状态</p>
-<p>手册对应： 起飞性能操作说明 · §1　停留： 16 秒</p>
+<p>手册对应： 技术说明书3.0 · 3.1及11.1　停留： 16 秒</p>
 <p>自动操作：进入 /dispatch/local-flight；通过程序文件入口导入 DEMO330 JSON；点击“保存并确认重量”；核对业务状态：{&quot;flightNumber&quot;: &quot;DEMO330&quot;, &quot;tow&quot;: 184500, &quot;confirmed&quot;: true}；进入 /performance/engineering-takeoff；核对业务状态：{&quot;engineeringActive&quot;: true, &quot;engineeringValid&quot;: false}。</p>
 <h3>02　按 TOGA 工程模型求解</h3>
 <p>选择 TOGA 并执行计算。程序搜索满足继续起飞、加速停止、地面滑跑及工程爬升条件的 V1，计算 VR、V2、需求距离与 TOGA 工程限制重量。</p>
 <p>观察重点： 速度、距离和限制因素来自本次计算</p>
-<p>手册对应： 起飞性能操作说明 · §2　停留： 20 秒</p>
+<p>手册对应： 技术说明书3.0 · 3.4及11.1　停留： 20 秒</p>
 <p>自动操作：点击“使用 TOGA”；点击“计算工程起飞性能”；核对业务状态：{&quot;engineeringValid&quot;: true, &quot;engineeringStatus&quot;: &quot;engineering-feasible&quot;, &quot;engineeringMode&quot;: &quot;TOGA&quot;, &quot;engineeringThrustMode&quot;: &quot;TOGA&quot;}。</p>
 <h3>03　切换 FLEX 并重新求解</h3>
 <p>通过实际按钮切换 FLEX，撤下前一次结果，然后按假设温度搜索减推力工程解。每个候选温度都重新核对速度和距离约束；减推力不可行时模型尝试 TOGA。</p>
 <p>观察重点： FLEX 采用工程推力假设，不代表 Trent 7000 已校准性能</p>
-<p>手册对应： 起飞性能操作说明 · §2　停留： 20 秒</p>
+<p>手册对应： 技术说明书3.0 · 3.5及11.1　停留： 20 秒</p>
 <p>自动操作：点击“使用 FLEX”；核对业务状态：{&quot;engineeringValid&quot;: false, &quot;engineeringStatus&quot;: &quot;stale&quot;, &quot;engineeringMode&quot;: &quot;FLEX&quot;}；点击“计算工程起飞性能”；核对业务状态：{&quot;engineeringValid&quot;: true, &quot;engineeringStatus&quot;: &quot;engineering-feasible&quot;, &quot;engineeringMode&quot;: &quot;FLEX&quot;}。</p>
 <h3>04　查看两条轨迹与声明距离</h3>
 <p>图中展示当前解的继续起飞和加速停止轨迹，并分别比较 TORA、TODA、ASDA 的模型需求与可用距离。曲线直接读取求解轨迹。</p>
 <p>观察重点： 观察速度—距离曲线与三条距离余量</p>
-<p>手册对应： 起飞性能操作说明 · §3　停留： 18 秒</p>
+<p>手册对应： 技术说明书3.0 · 3.3及11.1　停留： 18 秒</p>
 <p>自动操作：核对业务状态：{&quot;engineeringValid&quot;: true}。</p>
 <h3>05　缩短跑道使旧结果失效</h3>
 <p>把 TORA、TODA 和 ASDA 同时改为 1,000 m。修改后原确认失效，旧速度和曲线撤下；当前结果与报告不能继续使用。</p>
 <p>观察重点： 输入变更后必须重新确认和计算</p>
-<p>手册对应： 起飞性能操作说明 · §4　停留： 16 秒</p>
+<p>手册对应： 技术说明书3.0 · 2.3及11.1　停留： 16 秒</p>
 <p>自动操作：输入 tora = 1000；输入 toda = 1000；输入 asda = 1000；核对业务状态：{&quot;confirmed&quot;: false, &quot;engineeringValid&quot;: false, &quot;engineeringStatus&quot;: &quot;stale&quot;}。</p>
 <h3>06　确认短跑道并查看无解诊断</h3>
 <p>确认新的跑道条件后重新计算。当前重量在本模型的短跑道条件下不可行，结果区显示诊断而不提供可采用的速度。</p>
 <p>观察重点： “工程模型不可行”仅表示已实现约束没有可行解</p>
-<p>手册对应： 起飞性能操作说明 · §4　停留： 18 秒</p>
+<p>手册对应： 技术说明书3.0 · 3.4及11.1　停留： 18 秒</p>
 <p>自动操作：点击“保存并确认重量”；点击“计算工程起飞性能”；核对业务状态：{&quot;confirmed&quot;: true, &quot;engineeringValid&quot;: false, &quot;engineeringStatus&quot;: &quot;engineering-infeasible&quot;}。</p>
 <h3>07　恢复条件，形成新的有效工程解</h3>
 <p>将三项声明距离恢复为 3,500 m，重新确认并计算。新结果使用更新后的输入快照，完成条件变更、失效、诊断和重算过程。</p>
 <p>观察重点： 重新获得当前输入下的可行工程解</p>
-<p>手册对应： 起飞性能操作说明 · §4　停留： 18 秒</p>
+<p>手册对应： 技术说明书3.0 · 11.1　停留： 18 秒</p>
 <p>自动操作：输入 tora = 3500；输入 toda = 3500；输入 asda = 3500；点击“保存并确认重量”；点击“计算工程起飞性能”；核对业务状态：{&quot;confirmed&quot;: true, &quot;engineeringValid&quot;: true, &quot;engineeringStatus&quot;: &quot;engineering-feasible&quot;}。</p>
 <h3>08　预览本次工程起飞报告</h3>
 <p>打开程序生成的工程报告，核对输入、计算选项、数值结果、轨迹、模型版本、参数假设和未覆盖范围。可通过演示资料保存 JSON 和 HTML。</p>
 <p>观察重点： 报告与页面采用同一个有效计算结果</p>
-<p>手册对应： 起飞性能操作说明 · §5　停留： 20 秒</p>
-<p>自动操作：核对业务状态：{&quot;engineeringValid&quot;: true}；显示当前真实 HTML 核算报告。</p></main></html>
+<p>手册对应： 技术说明书3.0 · 9.3及11.6　停留： 20 秒</p>
+<p>自动操作：核对业务状态：{&quot;engineeringValid&quot;: true}；显示当前真实 HTML 核算报告。</p>
+<h2>燃油·配载·着陆全流程</h2>
+<p>分段燃油 → 采用计划 → 分区配载 → 重心校核 → 着陆性能 → 距离不足诊断 → 综合报告</p>
+<p>共 7 节，标准速度的讲解停留合计 2 分 4 秒，另加页面操作时间。</p>
+<h3>01　建立三项相互关联的工程计划</h3>
+<p>导入 DEMO330 航班，建立手工航路与备降燃油、客舱货舱分配及独立目的地条件。全部默认参数是公开列示的工程样例。</p>
+<p>观察重点： 目的地 ZSPD，备降 ZSSS；三项输入随航班文件保存</p>
+<p>手册对应： 技术说明书3.0 · 11.2　停留： 14 秒</p>
+<p>自动操作：进入 /dispatch/local-flight；通过程序文件入口导入 DEMO330 JSON；进入 /dispatch/engineering-plan；点击“建立三项工程计划”；核对业务状态：{&quot;planningReady&quot;: false}。</p>
+<h3>02　计算分段耗油并采用建议燃油</h3>
+<p>按爬升、巡航、下降、复飞备降与储备分项计算，再明确采用建议停机坪燃油。实际油量仍由地面加油流程改变。</p>
+<p>观察重点： 主航路和备降分开；滑行耗油只计一次</p>
+<p>手册对应： 技术说明书3.0 · 4.2及11.2　停留： 18 秒</p>
+<p>自动操作：进入 /dispatch/fuel-plan；点击“计算航路燃油”；核对业务状态：{&quot;fuelCalculationStatus&quot;: &quot;engineering-feasible&quot;}；点击“采用建议停机坪燃油”；核对业务状态：{&quot;confirmed&quot;: false, &quot;loadingAccepted&quot;: false}。</p>
+<h3>03　核对客舱、货舱与工程重心包线</h3>
+<p>按当前总量分配四个客舱和三个货舱，校核零燃油、停机坪、起飞、目的地与备降重心，明确确认方案并保存航班。</p>
+<p>观察重点： 站位质量和力臂生成各阶段的重心点</p>
+<p>手册对应： 技术说明书3.0 · 5.4及11.3　停留： 20 秒</p>
+<p>自动操作：进入 /ground/loading-balance；点击“按计划自动分配”；点击“确认配载方案”；点击“保存并确认重量”；核对业务状态：{&quot;loadingAccepted&quot;: true, &quot;confirmed&quot;: true, &quot;planningReady&quot;: true, &quot;currentFuel&quot;: 5000, &quot;currentPax&quot;: 0}。</p>
+<h3>04　使用航路耗油后的重量计算着陆</h3>
+<p>工程着陆页采用独立目的地跑道和天气，使用燃油规划产生的着陆重量，计算速度、分段距离、余量与工程场长限重。</p>
+<p>观察重点： 着陆重量低于起飞重量，模型参数和来源随结果保存</p>
+<p>手册对应： 技术说明书3.0 · 6.1及11.4　停留： 20 秒</p>
+<p>自动操作：进入 /performance/engineering-landing；点击“计算工程着陆性能”；核对业务状态：{&quot;landingEngineeringValid&quot;: true}。</p>
+<h3>05　缩短 LDA，核对失效与距离不足诊断</h3>
+<p>把可用着陆距离改为 300 m，旧结果立即撤下。确认新条件并重新计算后，程序显示距离不足，不能将诊断速度当成可采用方案。</p>
+<p>观察重点： 输入变更、失效、重算和不可行诊断</p>
+<p>手册对应： 技术说明书3.0 · 6.5及11.4　停留： 18 秒</p>
+<p>自动操作：输入 可用着陆距离 LDA (m) = 300；核对业务状态：{&quot;confirmed&quot;: false, &quot;landingEngineeringValid&quot;: false}；点击“保存并确认重量”；点击“计算工程着陆性能”；核对业务状态：{&quot;landingEngineeringStatus&quot;: &quot;engineering-infeasible&quot;, &quot;landingEngineeringValid&quot;: false}。</p>
+<h3>06　恢复条件并重新形成当前结果</h3>
+<p>恢复 3000 m LDA，重新确认与计算。新的图形与报告使用当前输入，不保留短跑道条件下的旧结果。</p>
+<p>观察重点： 结果与当前条件签名一致</p>
+<p>手册对应： 技术说明书3.0 · 11.4　停留： 16 秒</p>
+<p>自动操作：输入 可用着陆距离 LDA (m) = 3000；点击“保存并确认重量”；点击“计算工程着陆性能”；核对业务状态：{&quot;landingEngineeringValid&quot;: true}。</p>
+<h3>07　导出同一航班的综合工程报告</h3>
+<p>回到综合计划，按当前已确认输入重新生成燃油、配载和着陆报告。报告含来源、版本、输入快照、分项数值与工程约束状态。</p>
+<p>观察重点： 可保存完整航班 JSON、综合结果 JSON 和 HTML 报告</p>
+<p>手册对应： 技术说明书3.0 · 9.3及11.6　停留： 18 秒</p>
+<p>自动操作：进入 /dispatch/engineering-plan；核对业务状态：{&quot;planningReady&quot;: true}；显示当前真实 HTML 核算报告。</p></main></html>

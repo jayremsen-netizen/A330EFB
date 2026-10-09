@@ -1,6 +1,8 @@
 # A330EFB
 
-**A330EFB 1.3.0 投标演示版**：A330 电子飞行包本地演示、航班工作台与中文技术文档。基于固定版本的 **Headwind A330-941** 和 **FlyByWire** 构建，提供可实际操作的 EFB，以及同步讲解的投标自动演示。
+**A330EFB 1.3.1 投标演示版**：A330 电子飞行包本地演示、航班工作台与中文技术文档。基于固定版本的 **Headwind A330-941** 和 **FlyByWire** 构建，提供可实际操作的 EFB，以及同步讲解的投标自动演示。
+
+1.3.1 完成复盘 R01–R06 整改：满货舱分配守恒、未完成草稿回导、短跑道着陆图、地面命令目标追溯、刷新恢复与场景时钟。现行技术手册统一为 Word 3.0，共 56 页、13 章、59 节，各节均有配图。详见[整改验收记录](docs/verification/1.3.1整改验收记录.md)。
 
 1.3 接入航路及备降燃油、分区配载重心、工程着陆和综合报告。新增“燃油·配载·着陆全流程”七节自动演示，地址 **http://127.0.0.1:9698/demo.html?autoplay=1&scenario=planning**。参见[设计与操作说明](docs/planning/README.md)及[验收记录](docs/verification/1.3验收记录.md)。
 
@@ -64,7 +66,8 @@ Windows 用户完成构建后，也可双击 **[启动投标演示.cmd](启动�
 - [可执行场景定义](local-efb/presentation/scenarios.ts)
 - [1.1 操作补充说明](docs/implementation/1.1操作补充说明.md) / [1.1 设计变更说明](docs/implementation/1.1设计变更说明.md)
 - [1.1 完善方案 Word](output/word/A330EFB投标演示版完善方案.docx) / [实施任务书 Word](output/word/A330EFB投标演示版实施任务书.docx) / [任务与证据清单](docs/implementation/tasks.json)
-- [技术说明书 2.0：Word 基线版](output/word/A330电子飞行包系统技术方案与操作说明书.docx) / [正文、工程图和生成说明](manual_word/README.md)。新增和变化行为以对应的 1.1、1.2、1.3 操作补充说明为准。
+- [统一技术说明书 3.0：Word](output/word/A330电子飞行包系统技术方案与操作说明书.docx) / [正文、工程图和生成说明](manual_word/README.md)。对应软件1.3.1，统一说明四个工程模块、确认与失效、地面运行、资料阅读及六套演示；采用自然分页。
+- [1.3.1 复盘整改与验收](docs/verification/1.3.1整改验收记录.md) / [历史技术手册2.0](output/word/history/A330EFB技术手册2.0.docx)
 - [历史版本：300 页 PDF](output/pdf/A330电子飞行包系统技术方案与操作说明书_重写版.pdf) / [历史正文](manual_v2/说明书_可编辑正文.md)
 
 ## 验证

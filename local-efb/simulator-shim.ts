@@ -3,6 +3,7 @@ import {storageName} from './presentation-mode';
 import {canonicalUnit,convertVariable} from './units';
 import {metarFor} from '../local-extensions/weather';
 import {localCapabilityValue} from '../local-extensions/capability-policy';
+import {scenarioClock} from './scenario-clock';
 const W:any=window;
 W.InputBar={MENU_BUTTON_A:'KEY_MENU_VALID'};
 const handlers=new Map<string,Set<Function>>();
@@ -28,7 +29,8 @@ const readValue=(name:string,unit='number')=>/string/i.test(unit)?String(readLoc
 // MSFS permits decimal string writes for seat flags; numeric reads must still be numbers.
 W.simvar={getValueReg:(id:number)=>readValue(ids[id].name,ids[id].unit),getValueReg_String:(id:number)=>String(readLocal(ids[id].name)??''),getValue_LatLongAlt:()=>({lat:30.312,long:104.442,alt:1450})};
 W.SimVar={GetSimVarValue:readValue,SetSimVarValue:async(n:string,u:string,v:any)=>{writeSim(n,v,u);emit('simvar',n,v);},GetGlobalVarValue:readValue,GetGameVarValue:(n:string,u:string,v:any)=>v??0,GetRegisteredId:(n:string,u='number')=>{ids.push({name:n,unit:u});unitFor(n,u);return ids.length-1;},GetRegisteredSimVarValue:(id:number)=>readValue(ids[id].name,ids[id].unit),SetRegisteredSimVarValue:async(id:number,v:any)=>writeSim(ids[id].name,v,ids[id].unit)};
-W.__LOCAL_EFB__={vars,set:(n:string,v:any)=>vars.set(n,v),syncPlan,mode:'browser-development',aircraft:'A330-941'};
+const setScenarioDate=(date:string)=>{const t=scenarioClock(date);for(const [k,v] of Object.entries({'E:ZULU DAY OF WEEK':t.dayOfWeek,'E:ZULU MONTH OF YEAR':t.month,'E:ZULU DAY OF MONTH':t.day,'E:ZULU TIME':t.zuluSeconds,'E:LOCAL TIME':t.localSeconds}))vars.set(k,v);};
+W.__LOCAL_EFB__={vars,set:(n:string,v:any)=>vars.set(n,v),syncPlan,setScenarioDate,mode:'browser-development',aircraft:'A330-941'};
 W.RegisterViewListener=(name:string,cb?:Function)=>{const listener={on,off:(n:string,f:Function)=>handlers.get(n)?.delete(f),trigger:emit,triggerToAllSubscribers:emit,isReady:true};if(cb)setTimeout(cb,0);return listener;};
 W.RegisterGenericDataListener=(cb?:Function)=>{const listener={onDataReceived:(k:string,f:Function)=>on('generic-data-'+k,f),send:(k:string,data:any)=>emit('generic-data-'+k,data),on,trigger:emit};if(cb)setTimeout(()=>cb(listener),0);return listener;};
 W.Coherent={on,off:(n:string,f:Function)=>handlers.get(n)?.delete(f),trigger:emit,call:async(n:string,...a:any[])=>{if(n.startsWith('setValueReg_')){const entry=ids[a[0]];writeSim(entry.name,a[1],entry.unit);return;}if(n==='GET_METAR_BY_IDENT')return {icao:a[0],metarString:metarFor(a[0],W.__LOCAL_FLIGHT__?.getState().flight)};return n.includes('GET')?[]:undefined;}};

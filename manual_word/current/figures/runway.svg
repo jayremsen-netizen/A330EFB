@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="576pt" height="237.6pt" viewBox="0 0 576 237.6" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-10-09T11:16:51.789572</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.2, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 237.6
+L 576 237.6
+L 576 0
+L 0 0
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 90.936 70.73
+L 528.856 70.73
+L 528.856 43.56
+L 90.936 43.56
+z
+" clip-path="url(#p861f32eabf)" style="fill: #eef1f3; stroke: #65727c; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 36.196 70.73
+L 90.936 70.73
+L 90.936 43.56
+L 36.196 43.56
+z
+" clip-path="url(#p861f32eabf)" style="fill: #ffffff; stroke: #65727c; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 90.936 125.07
+L 528.856 125.07
+L 528.856 97.9
+L 90.936 97.9
+z
+" clip-path="url(#p861f32eabf)" style="fill: #eef1f3; stroke: #65727c; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 36.196 125.07
+L 90.936 125.07
+L 90.936 97.9
+L 36.196 97.9
+z
+" clip-path="url(#p861f32eabf)" style="fill: #ffffff; stroke: #65727c; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 90.936 179.41
+L 528.856 179.41
+L 528.856 152.24
+L 90.936 152.24
+z
+" clip-path="url(#p861f32eabf)" style="fill: #eef1f3; stroke: #65727c; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 36.196 179.41
+L 90.936 179.41
+L 90.936 152.24
+L 36.196 152.24
+z
+" clip-path="url(#p861f32eabf)" style="fill: #ffffff; stroke: #65727c; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_1">
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'; text-anchor: middle" x="309.896" y="59.937969" transform="rotate(-0 309.896 59.937969)">TORA  3500 m</text>
+   </g>
+   <g id="text_2">
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'; text-anchor: middle" x="63.566" y="60.011504" transform="rotate(-0 63.566 60.011504)">扣减</text>
+   </g>
+   <g id="text_3">
+    <text style="font-size: 9px; font-family: 'Microsoft YaHei'; text-anchor: start" x="36.196" y="35.2" transform="rotate(-0 36.196 35.2)">共同入口原点</text>
+   </g>
+   <g id="text_4">
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'; text-anchor: middle" x="309.896" y="114.277969" transform="rotate(-0 309.896 114.277969)">TODA  3500 m</text>
+   </g>
+   <g id="text_5">
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'; text-anchor: middle" x="63.566" y="114.351504" transform="rotate(-0 63.566 114.351504)">扣减</text>
+   </g>
+   <g id="text_6">
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'; text-anchor: middle" x="309.896" y="168.617969" transform="rotate(-0 309.896 168.617969)">ASDA  3500 m</text>
+   </g>
+   <g id="text_7">
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'; text-anchor: middle" x="63.566" y="168.691504" transform="rotate(-0 63.566 168.691504)">扣减</text>
+   </g>
+   <g id="text_8">
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'; text-anchor: middle" x="288" y="217.03" transform="rotate(-0 288 217.03)">当前样例三项相同；程序分别比较 TOR、TOD 和 ASD</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p861f32eabf">
+   <rect x="14.3" y="14.3" width="547.4" height="209"/>
+  </clipPath>
+ </defs>
+</svg>

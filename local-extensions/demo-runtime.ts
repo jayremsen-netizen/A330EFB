@@ -1,9 +1,10 @@
 import {FUEL_CAPACITY_GALLONS,FUEL_KG_PER_GALLON} from './fuel';
+import type {CommandPlan} from './ground-plan';
 
 export type CommandKind='gpu-connect'|'gpu-disconnect'|'refuel'|'board'|'deboard'|'pushback';
 export type CommandStatus='accepted'|'running'|'completed'|'rejected'|'failed';
 export type Fault='gpu'|'refuel';
-export type Command={id:string;session:number;kind:CommandKind;status:CommandStatus;message:string;progress:number;at:number;startedAt?:number;target?:number;start?:number;cargoTarget?:number;cargoStart?:number};
+export type Command={id:string;session:number;kind:CommandKind;status:CommandStatus;message:string;progress:number;at:number;startedAt?:number;target?:number;start?:number;cargoTarget?:number;cargoStart?:number;plan?:CommandPlan};
 export type RuntimeState={session:number;revision:number;sampledAt:number;gpuConnected:boolean;fuelKg:number;pax:number;cargoKg:number;pushbackMetres:number;faults:Fault[];commands:Command[]};
 const active=(c:Command)=>c.status==='accepted'||c.status==='running';
 const duration:Record<CommandKind,number>={'gpu-connect':1200,'gpu-disconnect':900,refuel:3000,board:3000,deboard:3000,pushback:2500};
@@ -14,10 +15,10 @@ export class DemoRuntime {
  private receipts=new Map<string,Command>();
  snapshot(){return structuredClone(this.state);}
  private changed(now:number){this.state.revision++;this.state.sampledAt=now;}
- submit(id:string,kind:CommandKind,target?:number,now=Date.now(),session=this.state.session,cargoTarget=0):Command {
+ submit(id:string,kind:CommandKind,target?:number,now=Date.now(),session=this.state.session,cargoTarget=0,plan?:CommandPlan):Command {
   if(session!==this.state.session)return {id,session,kind,target,at:now,status:'rejected',progress:0,message:'演示会话已重置，请重新发出请求'};
   const old=this.receipts.get(id);if(old)return structuredClone(old);
-  const c:Command={id,session,kind,target,cargoTarget,at:now,status:'accepted',progress:0,message:'请求已受理'};
+  const c:Command={id,session,kind,target,cargoTarget,at:now,status:'accepted',progress:0,message:'请求已受理',...(plan?{plan:structuredClone(plan)}:{})};
   if(kind==='deboard'){c.target=0;c.cargoTarget=0;}
   const reject=(message:string)=>{c.status='rejected';c.message=message;};
   const busy=this.state.commands.filter(active);

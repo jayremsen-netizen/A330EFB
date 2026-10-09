@@ -221,6 +221,8 @@ patch(quick,'  return (\n    <>\n      <div\n        className="absolute left-0 
       <div
         className="absolute left-0 top-0 z-30 h-screen w-screen bg-theme-body opacity-70"''')
 statusbar='build-common/src/systems/instruments/src/EFB/StatusBar/StatusBar.tsx'
+patch(statusbar,"import { QuickControls } from './QuickControls';", "import { QuickControls } from './QuickControls';\nimport { ScenarioStatus } from '@localefb/ScenarioStatus';")
+patch(statusbar,'<p>{`${dayName} ${monthName} ${dayOfMonth}`}</p>','<p>{`${dayName} ${monthName} ${dayOfMonth}`}<ScenarioStatus /></p>')
 patch(statusbar,"text={simBridgeConnected ? t('StatusBar.TT.ConnectedToLocalApi') : t('StatusBar.TT.DisconnectedFromLocalApi')}",
       "text={process.env.VITE_BUILD ? '本地演示 · 外部服务未接入' : simBridgeConnected ? t('StatusBar.TT.ConnectedToLocalApi') : t('StatusBar.TT.DisconnectedFromLocalApi')}")
 patch(statusbar,'{!!showStatusBarFlightProgress && data !== initialState.data && (',

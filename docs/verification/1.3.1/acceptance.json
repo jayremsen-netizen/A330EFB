@@ -1,0 +1,158 @@
+{
+  "date": "2026-10-09",
+  "software_version": "1.3.1",
+  "review": "docs/reviews/2026-10-05-EFB-1.3复盘.md",
+  "review_baseline_commit": "bd65cd0ff6089daf8af4ac9743decec23aeeb54b",
+  "tested_build_id": "e574bd0669b6f426",
+  "tested_runtime_content_hash": "702ead108832b2c7650edad455d672cf9fb44754b0d103e82a78965d56db03c4",
+  "status": "local-acceptance-passed",
+  "findings": [
+    {
+      "id": "R01",
+      "status": "implemented-and-locally-verified"
+    },
+    {
+      "id": "R02",
+      "status": "implemented-and-locally-verified"
+    },
+    {
+      "id": "R03",
+      "status": "implemented-and-locally-verified"
+    },
+    {
+      "id": "R04",
+      "status": "implemented-and-locally-verified"
+    },
+    {
+      "id": "R05",
+      "status": "implemented-and-locally-verified"
+    },
+    {
+      "id": "R06",
+      "status": "implemented-and-locally-verified"
+    }
+  ],
+  "tests": {
+    "unit": {
+      "offline": 25,
+      "reliability": 32,
+      "takeoff": 44,
+      "business": 16,
+      "build-identity": 10,
+      "landing": 27,
+      "loading": 15,
+      "fuel": 11,
+      "planning": 12,
+      "remediation": 9
+    },
+    "ui": {
+      "demo": 21,
+      "demo-controls": 5,
+      "layout": 3,
+      "reliability": 11,
+      "takeoff": 15,
+      "isolation": 5,
+      "review": 10,
+      "business": 9,
+      "planning": 12,
+      "remediation": 11
+    }
+  },
+  "unit_total_windows": 201,
+  "unit_total_ubuntu_expected": 198,
+  "ui_total": 102,
+  "demo_scenarios": 6,
+  "demo_steps": 61,
+  "page_errors": 0,
+  "word": {
+    "document_version": "3.0",
+    "software_version": "1.3.1",
+    "date": "2026-10-09",
+    "tested_runtime_content_hash": "702ead108832b2c7650edad455d672cf9fb44754b0d103e82a78965d56db03c4",
+    "rendered_pages": 56,
+    "chapters": 13,
+    "sections": 59,
+    "sections_with_figures": 59,
+    "operation_sections": 18,
+    "operation_sections_with_screenshots": 18,
+    "figure_instances": 59,
+    "screen_instances": 18,
+    "tables": 0,
+    "native_math_objects": 5,
+    "toc_entries": 73,
+    "broken_bookmarks": 0,
+    "text_overflow": 0,
+    "short_pages": [],
+    "visual_review": {
+      "pages_reviewed": 56,
+      "render_dpi": 110,
+      "method": "All 56 pages reviewed at native raster scale. Final rendering: 51 pages pixel-identical to reviewed pages; changed pages 13,23,26,55,56 inspected again.",
+      "pixel_comparison": {
+        "pixel_identical_pages": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          24,
+          25,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34,
+          35,
+          36,
+          37,
+          38,
+          39,
+          40,
+          41,
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          48,
+          49,
+          50,
+          51,
+          52,
+          53,
+          54
+        ],
+        "changed_pages": [
+          13,
+          23,
+          26,
+          55,
+          56
+        ],
+        "page_map_unchanged": true
+      }
+    },
+    "render_environment": "Windows, LibreOffice 25.8.7, SimSun/SimHei and Microsoft YaHei",
+    "docx_sha256": "57172e7dc670e081094818bfe383ea3fe8aecb90d9492c5693576389b5c08f91"
+  },
+  "remote_verification": "https://github.com/jayremsen-netizen/A330EFB/actions"
+}

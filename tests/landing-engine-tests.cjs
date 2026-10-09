@@ -122,6 +122,14 @@ test('报告包含来源版本快照，SVG为计算数值且用户文本被转�
  assert.ok(html.includes('&lt;img src=x onerror=alert(1)&gt;'));assert.ok(!html.includes('<img src=x'));assert.ok(html.includes(P.version));assert.ok(html.includes('massSignature'));assert.ok(svg.includes('LDA 3,000 m'));
  const bad=base();bad.runway.condition='contaminated';assert.equal(landingChartSvg(calculate(bad,170000,context())),'');
 });
+for(const slope of [-2,0,2])test('最短LDA超跑道诊断轨迹保持在独立绘图区 '+slope,()=>{
+ const input=base();input.runway.ldaM=300;input.runway.slopePercent=slope;
+ const result=calculate(input,170000,context());assert.equal(result.status,'engineering-infeasible');
+ const svg=landingChartSvg(result),d=svg.match(/<path d="([^"]+)" stroke="#6fceb2"/)[1];
+ const coords=Array.from(d.matchAll(/[ML] ([\d.-]+) ([\d.-]+)/g));assert.ok(coords.length>10);
+ for(const point of coords)assert.ok(Number(point[2])>=50&&Number(point[2])<=175,'高度越界 '+point[2]);
+ assert.ok(landingReportHtml(result).includes(svg));
+});
 test('交互计算与限重搜索在500ms内完成',()=>{const start=performance.now();good();assert.ok(performance.now()-start<500);});
 
 const output={at:new Date().toISOString(),modelVersion:P.version,cases};fs.writeFileSync('.artifacts/landing/engine-tests.json',JSON.stringify(output,null,2));console.log(JSON.stringify(output,null,2));if(cases.some(c=>c.status==='FAIL'))process.exit(1);

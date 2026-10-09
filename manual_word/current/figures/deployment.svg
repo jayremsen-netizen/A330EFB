@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="576pt" height="237.6pt" viewBox="0 0 576 237.6" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-10-09T11:16:50.540593</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.2, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 237.6
+L 576 237.6
+L 576 0
+L 0 0
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 36.196 156.42
+L 211.364 156.42
+L 211.364 56.1
+L 36.196 56.1
+z
+" clip-path="url(#p6d6b4954bc)" style="fill: #f5f6f7; stroke: #65727c; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 342.74 156.42
+L 528.856 156.42
+L 528.856 56.1
+L 342.74 56.1
+z
+" clip-path="url(#p6d6b4954bc)" style="fill: #f5f6f7; stroke: #65727c; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 213.364629 91.63
+Q 277.05144 91.63 339.284807 91.63
+" clip-path="url(#p6d6b4954bc)" style="fill: none; stroke: #204e72; stroke-width: 1.3; stroke-linecap: round"/>
+    <path d="M 334.484807 89.23
+L 339.284807 91.63
+L 334.484807 94.03
+" clip-path="url(#p6d6b4954bc)" style="fill: none; stroke: #204e72; stroke-width: 1.3; stroke-linecap: round"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 340.739371 129.25
+Q 277.05256 129.25 214.819193 129.25
+" clip-path="url(#p6d6b4954bc)" style="fill: none; stroke: #204e72; stroke-width: 1.3; stroke-linecap: round"/>
+    <path d="M 219.619193 131.65
+L 214.819193 129.25
+L 219.619193 126.85
+" clip-path="url(#p6d6b4954bc)" style="fill: none; stroke: #204e72; stroke-width: 1.3; stroke-linecap: round"/>
+   </g>
+   <g id="text_1">
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(98.78 92.756973)">本机浏览器</text>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(77.535469 103.708535)">React UI 与本地存储</text>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(98.78 114.641348)">纯数值内核</text>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(93.78 125.57416)">演示运行模型</text>
+   </g>
+   <g id="text_2">
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(401.039406 92.884316)">Node 静态服务</text>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(401.662063 103.582559)">127.0.0.1:9698</text>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(390.798 114.573184)">构建资源与版本清单</text>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(392.748 125.505996)">/__health 健康接口</text>
+   </g>
+   <g id="text_3">
+    <g id="patch_6">
+     <path d="M 253.254734 89.620762
+L 300.849266 89.620762
+L 300.849266 75.869219
+L 253.254734 75.869219
+z
+" style="fill: #ffffff"/>
+    </g>
+    <text style="font-size: 9px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #204e72" x="277.052" y="85.36" transform="rotate(-0 277.052 85.36)">本机 HTTP</text>
+   </g>
+   <g id="text_4">
+    <g id="patch_7">
+     <path d="M 252.572 127.240762
+L 301.532 127.240762
+L 301.532 113.42875
+L 252.572 113.42875
+z
+" style="fill: #ffffff"/>
+    </g>
+    <text style="font-size: 9px; font-family: 'Microsoft YaHei'; text-anchor: middle; fill: #204e72" x="277.052" y="122.98" transform="rotate(-0 277.052 122.98)">页面和资源</text>
+   </g>
+   <g id="text_5">
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'; text-anchor: middle" x="288" y="191.95" transform="rotate(-0 288 191.95)">首次获取依赖需要网络；已构建核心流程使用本机资源</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p6d6b4954bc">
+   <rect x="14.3" y="14.3" width="547.4" height="209"/>
+  </clipPath>
+ </defs>
+</svg>

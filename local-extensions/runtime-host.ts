@@ -1,6 +1,7 @@
 import {DemoRuntime,CommandKind,Fault} from './demo-runtime';
 import {Flight,signature,validate,example} from './flight';
 import {fuelVariables} from './fuel';
+import {commandPlan,groundPreparation} from './ground-plan';
 
 const model=new DemoRuntime(),listeners=new Set<()=>void>();
 let plan:Flight=example(),engaged=false,serial=0,initialized=false;
@@ -22,7 +23,13 @@ function readyPlan(){const s=(window as any).__LOCAL_FLIGHT__?.getState();if(!s|
 export const runtime={
  snapshot:()=>model.snapshot(),
  subscribe:(f:()=>void)=>{listeners.add(f);return()=>{listeners.delete(f);};},
- command:(kind:CommandKind,id?:string)=>{engaged=true;if(kind==='refuel'||kind==='board')plan=structuredClone(readyPlan());const receipt=model.submit(id||'command-'+(++serial),kind,kind==='refuel'?plan.rampKg:kind==='board'?plan.pax:undefined,Date.now(),undefined,plan.pax*plan.bagKg+plan.freightKg);publish();return receipt;},
+ command:(kind:CommandKind,id?:string)=>{
+  engaged=true;const local=(window as any).__LOCAL_FLIGHT__?.getState(),current:Flight=local?.flight||plan;
+  if(kind==='refuel'||kind==='board')plan=structuredClone(readyPlan());
+  const owner=commandPlan(current,kind);
+  if(kind==='pushback')owner.warnings=groundPreparation(current,model.snapshot(),!!local&&!local.storageConflict&&!local.groundChanged&&local.confirmed===signature(current)).issues;
+  const receipt=model.submit(id||'command-'+(++serial),kind,kind==='refuel'?plan.rampKg:kind==='board'?plan.pax:undefined,Date.now(),undefined,plan.pax*plan.bagKg+plan.freightKg,owner);publish();return receipt;
+ },
  fault:(kind:Fault,on:boolean)=>{engaged=true;model.fault(kind,on);publish();},
  cancel:()=>{model.cancel();publish();},
  preset:(name:'parked'|'prepared')=>{engaged=true;if(name==='prepared')plan=structuredClone(readyPlan());model.reset(name==='prepared',name==='prepared'?plan.rampKg:5000,name==='prepared'?plan.pax:0,Date.now(),name==='prepared'?plan.pax*plan.bagKg+plan.freightKg:0);publish();},

@@ -40,8 +40,22 @@ def link(p,label,target,internal=False):
 def title_text(text):
     return re.sub(r'[、，。；：:（）()《》/·—–,;!?]', ' ',text).replace('  ',' ').strip()
 
-def build(page_map=None):
-    book=json.loads((ROOT/'manuscript.json').read_text('utf-8'));doc=Document();page_map=page_map or {}
+def math_nodes(parent,tokens):
+    if not isinstance(tokens,list):tokens=[tokens]
+    for token in tokens:
+        if isinstance(token,str):
+            r=OxmlElement('m:r');t=OxmlElement('m:t');t.set(qn('xml:space'),'preserve');t.text=token;r.append(t);parent.append(r)
+        elif 'frac' in token:
+            values=token['frac'];f=OxmlElement('m:f');num=OxmlElement('m:num');den=OxmlElement('m:den')
+            math_nodes(num,values[0]);math_nodes(den,values[1]);f.append(num);f.append(den);parent.append(f)
+        elif 'sub' in token:
+            s=OxmlElement('m:sSub');base=OxmlElement('m:e');sub=OxmlElement('m:sub');math_nodes(base,token['sub'][0]);math_nodes(sub,token['sub'][1]);s.append(base);s.append(sub);parent.append(s)
+        elif 'sqrt' in token:
+            rad=OxmlElement('m:rad');pr=OxmlElement('m:radPr');hide=OxmlElement('m:degHide');hide.set(qn('m:val'),'1');pr.append(hide);rad.append(pr);rad.append(OxmlElement('m:deg'));body=OxmlElement('m:e');math_nodes(body,token['sqrt']);rad.append(body);parent.append(rad)
+
+def build(page_map=None,manuscript=None):
+    source=Path(manuscript) if manuscript else ROOT/'current/manuscript.json'
+    book=json.loads(source.read_text('utf-8'));doc=Document();page_map=page_map or {}
     sec=doc.sections[0];sec.page_height=Cm(29.7);sec.page_width=Cm(21)
     sec.top_margin=Cm(2.1);sec.bottom_margin=Cm(2.0);sec.left_margin=Cm(2.25);sec.right_margin=Cm(2.05)
     sec.header_distance=Cm(.8);sec.footer_distance=Cm(.9);sec.different_first_page_header_footer=True
@@ -79,15 +93,15 @@ def build(page_map=None):
     p=doc.add_paragraph(style='Title');p.paragraph_format.space_before=Cm(4.2);p.add_run('A330电子飞行包系统\n技术方案与操作说明书')
     p=doc.add_paragraph('A330EFB',style='Subtitle');p.paragraph_format.space_before=Cm(.8)
     p=doc.add_paragraph('系统架构与模块设计\n关键技术与操作使用',style='Subtitle');p.paragraph_format.space_before=Cm(.8)
-    p=doc.add_paragraph('文档版本 2.0\n2026年10月',style='Normal');p.paragraph_format.first_line_indent=Pt(0);p.paragraph_format.space_before=Cm(4)
+    p=doc.add_paragraph(book.get('edition','文档版本 2.0')+'\n软件版本 '+book.get('softwareVersion','早期基线')+'\n'+book.get('date','2026年10月'),style='Normal');p.paragraph_format.first_line_indent=Pt(0);p.paragraph_format.space_before=Cm(3.7)
     doc.add_paragraph('适用范围',style='FrontHeading')
-    for t in [
+    for t in book.get('scope',[
       '本说明书面向 A330EFB 的方案评审人员、开发人员及演示操作人员，说明浏览器版本的系统结构、模块职责、接口与数据模型，并给出完整的本地航班操作和自动演示方法。系统以 Headwind A330-941 的 EFB 为基础，复用 FlyByWire 共享组件，在独立工程中增加本地航班管理、重量核对、参考计算及演示控制。',
       '软件当前用于功能演示与开发验证。本地核心流程无需外部账户；模拟器物理状态、在线签派、商业航图等能力取决于对应宿主或资料服务。起飞模块输出固定源码速度表参考值，不提供完整的起飞放行性能结论。各模块的输入条件、已实现行为和扩展接口在相应章节分别说明。',
       '第1至6章说明系统架构、部署、数据和接口；第7至15章说明业务模块；第16至17章说明状态一致性、构建与运行机制；第18至23章给出实际页面操作和典型演示工作流。计算算例使用明确的样例输入，页面截图对应本地运行状态。',
       '本说明书以 A330EFB 软件提交 f528013 和两个固定上游提交为基线：Headwind 41eace79ed442696a6361dc72947954c9a6cf5cb，FlyByWire 1bf4b8edccf84d0fb83d0eb15e42f2c773e09582。在线项目文档用于解释产品概念和页面用途；具体字段、计算方法和本地行为以固定源码及本项目实现为准。',
       '计量单位随字段列明。内部质量使用 kg，速度参考使用 kt，高度使用 ft，跑道声明距离使用 m，气压使用 hPa。界面切换单位不改变内部存储单位。Flight 表示航班输入，Result 表示某次计算快照；计划、地面目标与宿主观测保持独立含义。',
-    ]:doc.add_paragraph(t)
+    ]):doc.add_paragraph(t)
     p=doc.add_paragraph();p.paragraph_format.first_line_indent=Pt(0);link(p,'项目源码及构建说明','https://github.com/jayremsen-netizen/A330EFB')
     doc.add_paragraph('目录',style='FrontHeading')
     # A real TOC field, with a usable cached, bookmarked result for Word and preview readers.
@@ -123,6 +137,9 @@ def build(page_map=None):
                         p.add_run(formula)
                 elif kind=='code':
                     doc.add_paragraph(b['text'],style='Code')
+                elif kind=='math':
+                    p=doc.add_paragraph(style='Equation');p.add_run(b['label']+'： ')
+                    expression=OxmlElement('m:oMath');math_nodes(expression,b['tokens']);p._p.append(expression)
                 elif kind=='figure':
                     path=WORK/b['path'];w,h=Image.open(path).size
                     maxw=16.6;maxh=(8.0 if b.get('compact') else 10.3) if b['kind']=='screen' else 9.6
@@ -139,7 +156,7 @@ def build(page_map=None):
                         for i,t in enumerate(row):cells[i].text=str(t)
                     pr=tab._tbl.tblPr;borders=OxmlElement('w:tblBorders')
                     for side in ['top','left','bottom','right','insideH','insideV']:
-                        e=OxmlElement('w:'+side);e.set(qn('w:val'),'single');e.set(qn('w:sz'),'4');e.set(qn('w:color'),'D4D7DA');borders.append(e)
+                        e=OxmlElement('w:'+side);e.set(qn('w:val'),'single');e.set(qn('w:sz'),'4');e.set(qn('w:color'),'D9D9D9');borders.append(e)
                     pr.append(borders)
                     for ri,row in enumerate(tab.rows):
                         trpr=row._tr.get_or_add_trPr();cant=OxmlElement('w:cantSplit');trpr.append(cant)
@@ -159,7 +176,7 @@ def build(page_map=None):
     p=doc.add_heading('参考资料与源码索引',1);bookmark(p,'references',bm)
     doc.add_paragraph('下列资料标识与各节末的参考依据对应。GitHub 链接固定到已采用的提交；在线手册内容可能随项目更新。本地路径均相对于 A330EFB 工程根目录，build-common 及参考数据文件由构建脚本生成。')
     for code,(label,source) in book['sources'].items():
-        p=doc.add_paragraph();p.paragraph_format.first_line_indent=Pt(0);p.add_run(f'[{code}] {label}').bold=True
+        p=doc.add_paragraph();p.paragraph_format.first_line_indent=Pt(0);p.paragraph_format.keep_with_next=True;p.add_run(f'[{code}] {label}').bold=True
         p=doc.add_paragraph(style='RefNote')
         if source.startswith('https://'):link(p,source,source)
         else:p.add_run(source)
@@ -168,5 +185,5 @@ def build(page_map=None):
     print(OUTPUT);print(dict(figures=sum(figcounts.values()),tables=sum(tablecounts.values()),sections=sum(len(c['sections']) for c in book['chapters'])))
 
 if __name__=='__main__':
-    ap=argparse.ArgumentParser();ap.add_argument('--page-map');args=ap.parse_args()
-    build(json.loads(Path(args.page_map).read_text('utf-8')) if args.page_map else None)
+    ap=argparse.ArgumentParser();ap.add_argument('--page-map');ap.add_argument('--manuscript');args=ap.parse_args()
+    build(json.loads(Path(args.page_map).read_text('utf-8')) if args.page_map else None,args.manuscript)

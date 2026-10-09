@@ -77,6 +77,23 @@ test('精确结构质量边界可达，上方 1 kg 只输出超限诊断',()=>{
 test('无着陆剩余油量时明确显示未校核，不虚构着陆重心',()=>{
  const r=calculateLoading(base(),defaultLoading(base()));assert.equal(r.points.landing,null);assert.match(r.warnings.join(''),/尚未校核/);assert.equal(r.landingFuelKg,null);
 });
+test('满货舱混合行李和货物自动分配不超舱位且总量守恒',()=>{
+ for(const gap of [0,0.01,0.0001]){
+  const f={...base(),pax:1,freightKg:44812-gap},i=defaultLoading(f),r=calculateLoading(f,i,8000);
+  near(i.holdBaggageKg.reduce((a,b)=>a+b,0),24);
+  near(i.holdFreightKg.reduce((a,b)=>a+b,0),f.freightKg);
+  P.holds.forEach((s,j)=>assert.ok(i.holdBaggageKg[j]+i.holdFreightKg[j]<=s.capacityKg+1e-7));
+  assert.equal(r.status,'engineering-feasible');
+ }
+});
+test('空载、纯货物及混合小数质量的自动分配保持各舱容量与分项总量',()=>{
+ for(const pax of [0,1,20,250])for(const bagKg of [0,1,24])for(const fraction of [0,.12345678,1]){
+  const baggage=pax*bagKg,freightKg=(44836-baggage)*fraction,f={...base(),pax,bagKg,freightKg},i=defaultLoading(f);
+  near(i.holdBaggageKg.reduce((a,b)=>a+b,0),baggage);near(i.holdFreightKg.reduce((a,b)=>a+b,0),freightKg);
+  P.holds.forEach((s,j)=>assert.ok(i.holdBaggageKg[j]>=0&&i.holdFreightKg[j]>=0&&i.holdBaggageKg[j]+i.holdFreightKg[j]<=s.capacityKg+1e-7));
+ }
+});
+
 test('地面模型拒绝负量与油箱超限，空计划的空机重心可算',()=>{
  const f=base(),i=defaultLoading(f);for(const current of [{pax:0,cargoKg:0},{pax:-1,cargoKg:0,fuelKg:0},{pax:0,cargoKg:8001,fuelKg:0},{pax:0,cargoKg:0,fuelKg:Infinity},{pax:0,cargoKg:0,fuelKg:111662}])assert.equal(calculateGroundCG(f,i,current),null);
  const empty={...f,pax:0,freightKg:0,rampKg:0,taxiKg:0},r=calculateGroundCG(empty,defaultLoading(empty),{pax:0,cargoKg:0,fuelKg:0});near(r.massKg,127000);near(r.cgPercentMac,30);

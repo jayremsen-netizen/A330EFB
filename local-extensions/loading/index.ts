@@ -44,13 +44,20 @@ function allocate(total:number,capacities:number[],integer:boolean):number[]{
  const capacity=sum(capacities),raw=capacities.map(v=>v*total/capacity),result=raw.map(v=>integer?Math.floor(v):Math.floor(v*100)/100);
  let remainder=total-sum(result);
  if(integer){for(let i=0;remainder>=1;i=(i+1)%result.length){result[i]++;remainder--;}}
- else result[result.length-1]=Number((result[result.length-1]+remainder).toFixed(8));
+ else for(let i=0;i<result.length&&remainder>0;i++){
+  const addition=Math.min(remainder,Math.max(0,capacities[i]-result[i]));
+  result[i]+=addition;remainder-=addition;
+ }
  return result;
 }
 /** Explicit user action only: consumers must retain existing allocations when the plan changes. */
 export function defaultLoading(f:LoadingFlight):LoadingInput {
  const errors=flightIssues(f);if(errors.length)throw Error(errors.join('；'));
- return {cabinPax:allocate(f.pax,modelParameters.cabin.map(s=>s.capacity),true),holdBaggageKg:allocate(f.pax*f.bagKg,modelParameters.holds.map(s=>s.capacityKg),false),holdFreightKg:allocate(f.freightKg,modelParameters.holds.map(s=>s.capacityKg),false)};
+ // Allocate the shared capacity once. Splitting each hold afterwards prevents
+ // baggage and freight rounding remainders from overfilling the same hold.
+ const baggage=f.pax*f.bagKg,cargo=allocate(baggage+f.freightKg,modelParameters.holds.map(s=>s.capacityKg),false);
+ const holdBaggageKg=baggage?allocate(baggage,cargo,false):cargo.map(()=>0);
+ return {cabinPax:allocate(f.pax,modelParameters.cabin.map(s=>s.capacity),true),holdBaggageKg,holdFreightKg:cargo.map((kg,i)=>Math.max(0,kg-holdBaggageKg[i]))};
 }
 function flightIssues(f:LoadingFlight):string[]{
  const errors:string[]=[];

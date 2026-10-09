@@ -1,49 +1,45 @@
-# A330EFB Word 技术说明书
+# A330EFB 统一Word技术说明书
 
-[下载 Word 文件](../output/word/A330电子飞行包系统技术方案与操作说明书.docx)
+[Word技术说明书3.0](../output/word/A330电子飞行包系统技术方案与操作说明书.docx)对应软件1.3.1，统一包含总体架构、共享数据与接口、四个工程模块、地面运行、关键技术、操作使用和六套自动工作流。采用自然分页，现行行为不再要求读者拼接早期主手册与新增功能补充材料。
 
-本文档为软件早期基线的技术说明书 2.0。软件 1.1 的性能范围、资料阅读、天气、地服故障和预设等变化见 [1.1 操作补充说明](../docs/implementation/1.1操作补充说明.md)，设计差异见 [1.1 设计变更说明](../docs/implementation/1.1设计变更说明.md)。现场讲解使用版本与章节号，不使用旧 PDF 页码。
+本版共13章、59节，每节配图，18个操作及演示小节均有真实程序画面。图形包括受力、站位、质量矩、CG包线、速度距离、燃油账、着陆剖面和接口时序。正文没有叙述性表格，关键公式使用可编辑Word数学对象。工程假设与来源在正文明确说明，测试通过不作为真实A330性能校准结论。
 
-本版采用自然分页，本次校阅排版为 142 页，包含系统架构、数据与接口、业务模块、关键技术、操作使用和自动演示。正文、表格、公式文字、标题及目录均可在 Word 中编辑。110 幅图包括部署图、UML 时序与状态图、数据结构图、质量组成图、性能曲线、下降剖面、跑道几何图和真实程序截图。99 个小节均配图，36 个操作小节均有程序截图。正文保留 17 张字段或数值对照表。
+## 正文与生成
 
-## 文件组织
+- `current/manuscript.py`及`current/manuscript.json`：当前结构化正文及生成源。
+- `current/diagrams.py`及`current/figures/`：图形生成源与PNG、可编辑SVG。
+- `current/assets/`：实际程序画面，使用浏览器采集。
+- `current/models.json`：从程序公共输出采集的数值算例。
+- `current/capture.cjs`、`model_data.cjs`及`capture.json`：隔离上下文的采集脚本与记录。
+- `current/update_references.py`：演示可见章节引用映射。
+- `build_docx.py`：Word正文、样式、原生公式、图注、书签和目录。
+- `page-map.json`及`verification.json`：本版校阅页码和验证摘要。
 
-- `manuscript.json`：本版完整结构化正文，可以直接用于生成 Word。
-- `editorial.py`、`operations.py`、`demo_chapter.py`：设计说明修订、操作正文和演示章节。
-- `assemble.py`：从原有技术材料组装本版正文，选取图和必要表格。
-- `figures.py`：工程图生成代码；`figures/` 同时保留 PNG 和可编辑 SVG。
-- `assets/`：自动演示的真实程序截图。其他界面截图引用仓库内已有素材。
-- `build_docx.py`：Word 样式、图文排版、目录、书签和来源链接。
-- `page-map.json`：本次校阅环境中核对过的目录页码。Word 换字体或重新排版后，应更新整个目录。
-- `inspect_document.py`：读取校阅 PDF 的标题页码，检查边界并生成不缩放的逐页检查拼图。
-- `verification.json`：本次文档结构、逐页校阅结果及 Word 文件摘要。
-
-## 生成 Word
-
-使用 Python 3.12 或更高版本，在工程根目录执行：
+正文、图形和截图均已提交，其他开发者生成Word无需重新采集界面。在仓库根目录执行：
 
 ```sh
-python -m venv .venv-docs
-# Windows
-.venv-docs\Scripts\activate
-# Linux 或 macOS 使用 source .venv-docs/bin/activate
 python -m pip install -r manual_word/requirements.txt
 python manual_word/build_docx.py --page-map manual_word/page-map.json
 ```
 
-输出到 `output/word/`。字体采用宋体、黑体及常见西文字体；排版核对环境为 Windows。缺少中文字体的系统需配置相应字体替代，并在 Word 或兼容排版软件中更新目录、检查换行和分页。
-
-调整正文或重新绘制工程图时，先执行：
+修改正文或图形后执行：
 
 ```sh
-python manual_word/assemble.py
-python manual_word/build_docx.py --page-map manual_word/page-map.json
+python manual_word/current/manuscript.py
+python manual_word/current/diagrams.py
+python manual_word/build_docx.py
 ```
 
-工程图默认使用 Microsoft YaHei。更换图字体可在 `figures.py` 中设置 `font.family`，重新生成后应检查标签、连线与边界。程序截图保留实际软件画面，不由绘图代码模拟生成。
+需要更新现行程序画面时，先按根目录README构建并启动软件，再运行`node manual_word/current/capture.cjs`。不同服务地址可设置`EFB_BASE_URL`；采集上下文独立，不覆盖普通航班。数值算例通过`node manual_word/current/model_data.cjs`采集，讲解稿使用`python 演示/build_guide.py`生成。
 
-## 校阅与版本
+## 排版校阅
 
-在 Word 中选中目录后选择“更新整个目录”。导出校阅 PDF，核对每页的标题、图注、表头、页码及长字段；尤其检查跨页表格与操作截图的可读性。若需提取新页码，先将 PDF 和按页输出的 PNG 放入同一目录，再运行 `python manual_word/inspect_document.py <校阅目录>`，把其 `page-map.json` 用于重新构建。
+本版保留A4版式与黑色标题，中文正文11pt。输出位于`output/word/`。字体替换后应更新整个目录并检查换行、公式、图注和截图可读性。
 
-本版软件基线为 `f528013`，上游基线见工程 `config/upstreams.json`。网页文档用于说明产品概念，固定源码和本项目实现决定具体行为。旧版 300 页 PDF 与旧正文留在 `manual_v2/` 和 `output/pdf/`，仅作历史版本保存。
+DOCX通过LibreOffice或Word导出校阅PDF，再逐页渲染PNG检查。`current/inspect_current.py <校阅目录>`读取PDF书签、检查文字边界，并生成不缩放的逐页检查拼图及页码映射。校阅PNG和PDF保存在忽略的`.artifacts/`，不作为用户交付文件。确认页码后用`--page-map`重建目录。
+
+## 历史版本
+
+[技术手册2.0](../output/word/history/A330EFB技术手册2.0.docx)及原有`manuscript.json`、`assemble.py`、`editorial.py`、`operations.py`与`demo_chapter.py`保留为早期基线，不作为当前行为说明。
+
+使用`python manual_word/build_docx.py --manuscript manual_word/manuscript.json`可重建历史正文；该命令覆盖主输出，使用前应另存当前成果。历史300页PDF和正文保留在`manual_v2/`与`output/pdf/`。当前投标演示采用统一手册3.0，软件、工程参数和文档版本分别管理。

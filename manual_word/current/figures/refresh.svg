@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="576pt" height="237.6pt" viewBox="0 0 576 237.6" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-10-09T11:16:54.759073</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.2, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 237.6
+L 576 237.6
+L 576 0
+L 0 0
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 30.722 168.96
+L 191.292667 168.96
+L 191.292667 41.47
+L 30.722 41.47
+z
+" clip-path="url(#pf25946fa56)" style="fill: #f5f6f7; stroke: #65727c; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 202.240667 168.96
+L 362.811333 168.96
+L 362.811333 41.47
+L 202.240667 41.47
+z
+" clip-path="url(#pf25946fa56)" style="fill: #f5f6f7; stroke: #65727c; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 373.759333 168.96
+L 534.33 168.96
+L 534.33 41.47
+L 373.759333 41.47
+z
+" clip-path="url(#pf25946fa56)" style="fill: #f5f6f7; stroke: #65727c; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_1">
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(96.007333 86.333164)">刷新前</text>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(111.007333 97.031406)"/>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(86.007333 107.982969)">已确认计划</text>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(76.007333 118.925156)">实际状态与请求</text>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(76.007333 129.936094)">当前故障和回执</text>
+   </g>
+   <g id="text_2">
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(267.526 80.86666)">刷新后</text>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(282.526 91.564902)"/>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(237.526 102.536777)">保留航班与配载确认</text>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(233.762719 113.508652)">5000 kg  0 人  0 货物</text>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(237.576781 124.46041)">GPU 断开  请求清除</text>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(237.697094 135.393223)">场景时间固定0800Z</text>
+   </g>
+   <g id="text_3">
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(434.044667 80.852695)">显式恢复</text>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(454.044667 91.550938)"/>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(419.044667 102.48375)">状态栏恢复入口</text>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(419.044667 113.425938)">预设页说明复位</text>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(424.044667 124.3775)">核对确认计划</text>
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'" transform="translate(414.044667 135.397812)">选择恢复准备预设</text>
+   </g>
+   <g id="text_4">
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei'; text-anchor: middle" x="288" y="202.4" transform="rotate(-0 288 202.4)">内存运行过程不持久化，刷新不重复发出旧命令</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="pf25946fa56">
+   <rect x="14.3" y="14.3" width="547.4" height="209"/>
+  </clipPath>
+ </defs>
+</svg>
