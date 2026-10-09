@@ -5,31 +5,31 @@
   "review_baseline_commit": "bd65cd0ff6089daf8af4ac9743decec23aeeb54b",
   "tested_build_id": "e574bd0669b6f426",
   "tested_runtime_content_hash": "702ead108832b2c7650edad455d672cf9fb44754b0d103e82a78965d56db03c4",
-  "status": "local-acceptance-passed",
+  "status": "acceptance-passed",
   "findings": [
     {
       "id": "R01",
-      "status": "implemented-and-locally-verified"
+      "status": "closed-verified-locally-and-in-ci"
     },
     {
       "id": "R02",
-      "status": "implemented-and-locally-verified"
+      "status": "closed-verified-locally-and-in-ci"
     },
     {
       "id": "R03",
-      "status": "implemented-and-locally-verified"
+      "status": "closed-verified-locally-and-in-ci"
     },
     {
       "id": "R04",
-      "status": "implemented-and-locally-verified"
+      "status": "closed-verified-locally-and-in-ci"
     },
     {
       "id": "R05",
-      "status": "implemented-and-locally-verified"
+      "status": "closed-verified-locally-and-in-ci"
     },
     {
       "id": "R06",
-      "status": "implemented-and-locally-verified"
+      "status": "closed-verified-locally-and-in-ci"
     }
   ],
   "tests": {
@@ -59,7 +59,6 @@
     }
   },
   "unit_total_windows": 201,
-  "unit_total_ubuntu_expected": 198,
   "ui_total": 102,
   "demo_scenarios": 6,
   "demo_steps": 61,
@@ -154,5 +153,22 @@
     "render_environment": "Windows, LibreOffice 25.8.7, SimSun/SimHei and Microsoft YaHei",
     "docx_sha256": "57172e7dc670e081094818bfe383ea3fe8aecb90d9492c5693576389b5c08f91"
   },
-  "remote_verification": "https://github.com/jayremsen-netizen/A330EFB/actions"
+  "remote_verification": {
+    "url": "https://github.com/jayremsen-netizen/A330EFB/actions/runs/37878862208",
+    "run_id": 37878862208,
+    "software_commit": "b65a389a8911f7fba87f40430ef40a4bf893d307",
+    "conclusion": "success",
+    "jobs": [
+      {
+        "name": "build (ubuntu-latest)",
+        "conclusion": "success"
+      },
+      {
+        "name": "build (windows-latest)",
+        "conclusion": "success"
+      }
+    ]
+  },
+  "software_commit": "b65a389a8911f7fba87f40430ef40a4bf893d307",
+  "unit_total_ubuntu": 198
 }
